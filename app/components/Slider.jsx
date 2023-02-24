@@ -129,7 +129,7 @@ const settings = {
 
 const SliderBox = () => {
     return (
-        <section className="w-full">
+        <section className="w-full bg-white lg:pb-5">
             <Slider {...settings} >
 
                 {slides.map((slide, i) => (

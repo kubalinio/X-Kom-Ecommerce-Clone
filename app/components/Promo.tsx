@@ -4,14 +4,15 @@ import React from 'react'
 
 const Promo = () => {
     return (
-        <section className='w-full p-4 pt-2 mb-4'>
+        <section className='w-full p-4 pt-2 mb-4 bg-white border-b border-[#ebebeb] lg:border-none lg:pr-8 lg:pb-8 lg:w-[31.666%] md:p-6 md:pt-0'>
+
             <div className='flex p-[2px] relative'>
                 {/* Content */}
                 <div className='relative w-full overflow-hidden rounded-xl z-[1]'>
                     <Link href='/'>
-                        <div className='flex flex-wrap rounded-xl mt-[18px] mb-8 mx-6'>
+                        <div className='flex flex-wrap rounded-xl mt-[18px] mb-8 mx-6 md:mt-6 md:mx-6 md:mb-10 lg:mt-[22px] lg:mb-[30px] '>
                             {/* Top */}
-                            <div className='w-full'>
+                            <div className='w-full md:w-1/2 lg:w-full'>
                                 {/* Photo */}
                                 <div className='relative flex flex-col'>
                                     <h1 className='text-[26px] font-bold leading-7'>Gorący strzał</h1>
@@ -38,9 +39,9 @@ const Promo = () => {
                                 </div>
                             </div>
                             {/* Bottom */}
-                            <div className='w-full'>
-                                <div className='mt-6 mb-2 text-center'>
-                                    <span className='block text-lg leading-6 line-through text-[#707070]'>1399,00 zł</span>
+                            <div className='w-full md:w-1/2 md:text-center md:pl-2 lg:w-full'>
+                                <div className='items-center justify-center block mt-6 mb-2 text-center md:flex md:mt-11'>
+                                    <span className='block text-lg leading-6 line-through text-[#707070] md:mr-2'>1399,00 zł</span>
                                     <span className='block text-3xl text-[#4d4d4d] font-bold leading-10'>899,00 zł</span>
                                 </div>
                                 <p className='mb-6 text-3xl font-bold leading-10 text-center text-[#4d4d4d]'>Wyprzedano</p>

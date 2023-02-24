@@ -103,7 +103,7 @@ export const Nav = () => {
         <div className='relative mb-5'>
             <header className="relative top-0 left-0 z-20 w-full shadow-md">
                 {/* Navbar Top */}
-                <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1024px] lg:w-[calc(100%+64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
+                <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 lg:my-2 md:ml-6 lg:mx-auto lg:max-w-[1024px] lg:w-[calc(100%+64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
 
                     {/* Logo Box */}
                     <div className="flex items-center h-full shrink-0 lg:pl-2 lg:pr-2 2xl:pl-4" >
