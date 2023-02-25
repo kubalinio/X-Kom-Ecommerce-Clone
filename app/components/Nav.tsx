@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link'
 
 import { BiHelpCircle } from 'react-icons/bi'
@@ -82,8 +82,19 @@ const Hamburger = () => (
 
 export const Nav = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
+    const [headerHeight, setHeaderHeight] = useState(98)
+    const headerRef = useRef<any>(null)
+    // Dać nasłuchiwanie na NAv Bottom do sumy wysokości nawigacji przy desktopach
+
+    const onResize = useCallback(() => {
+        if (headerRef.current) setHeaderHeight(headerRef.current.clientHeight)
+    }, [])
 
     useEffect(() => {
+        const listenerHeight = () => {
+            onResize()
+        }
+
         const listener = (event: any) => {
             if (event.target.scrollingElement.scrollTop >= 35 && window.innerWidth > 1027) {
                 setIsScrollDown(true)
@@ -92,18 +103,22 @@ export const Nav = () => {
             }
         }
         document.addEventListener('scroll', listener)
+        window.addEventListener('resize', listenerHeight)
 
         return () => {
             document.removeEventListener('scroll', listener)
+            window.removeEventListener('resize', listenerHeight)
         }
     }, [])
 
     return (
         // Con mb
-        <div className='relative mb-5'>
-            <header className="relative top-0 left-0 z-20 w-full shadow-md">
+        <div style={{ height: `${headerHeight}px` }} className={`relative mb-5 z-[1000]`}>
+
+            <header ref={headerRef} className="relative bg-white top-0 left-0 z-20 w-full shadow-md lg:h-[72px] lg:fixed">
+
                 {/* Navbar Top */}
-                <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 lg:my-2 md:ml-6 lg:mx-auto lg:max-w-[1024px] lg:w-[calc(100%+64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
+                <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1024px] lg:w-[calc(100%+64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
 
                     {/* Logo Box */}
                     <div className="flex items-center h-full shrink-0 lg:pl-2 lg:pr-2 2xl:pl-4" >
@@ -206,7 +221,6 @@ export const Nav = () => {
                         </nav>
                     </div>
                 </div>
-
 
             </header>
 
