@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link'
+import React from 'react'
 
 import { BiHelpCircle } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg';
@@ -79,6 +80,44 @@ const Hamburger = () => (
     </button>
 )
 
+// const Navigation = () => (
+
+// )
+
+// Portals 
+
+// We use react portal to render the tooltip into document.body.
+// To place it near the button, we use the position from the event.
+// The position is "fixed" so it won't be affected by overflow rules.
+//   return (
+//     <>
+//       {anchor}
+//       {position &&
+//         ReactDOM.createPortal(
+//           <div
+//             style={{
+//               top: position.y,
+//               left: position.x,
+//               position: "fixed",
+//               paddingTop: 5,
+//               zIndex: 10
+//             }}
+//           >
+//             <div
+//               style={{
+//                 background: "black",
+//                 color: "white"
+//               }}
+//             >
+//               {text}
+//             </div>
+//           </div>,
+//           document.body
+//         )}
+//     </>
+//   );
+// }
+const domElementDrawer = document.getElementById('react-portals')
 
 export const Nav = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
@@ -113,7 +152,7 @@ export const Nav = () => {
 
     return (
         // Con mb
-        <div style={{ height: `${headerHeight}px` }} className={`relative mb-5 z-[1000]`}>
+        <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] lg:mb-10`}>
 
             <header ref={headerRef} className="relative bg-white top-0 left-0 z-20 w-full shadow-md lg:h-[72px] lg:fixed">
 
@@ -121,9 +160,9 @@ export const Nav = () => {
                 <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1024px] lg:w-[calc(100%+64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
 
                     {/* Logo Box */}
-                    <div className="flex items-center h-full shrink-0 lg:pl-2 lg:pr-2 2xl:pl-4" >
+                    <div className="flex items-center justify-center h-full shrink-0 lg:pl-2 lg:pr-2 2xl:pl-4" >
                         {/* Hamburger */}
-                        <div className={`${!isScrollDown ? 'scale-0 opacity-0 w-0 h-14' : 'h-14 w-20 2xl:w-24'} absolute top-0 left-0 z-10 outline-transparent hidden transition-all duration-300 bg-white lg:block`}>
+                        <div className={`${!isScrollDown ? 'scale-0 opacity-0 w-0 h-full' : 'h-full w-20 2xl:w-24'} absolute top-0 left-0 z-10 outline-transparent items-center justify-center hidden transition-all duration-300 bg-white lg:flex`}>
                             <Hamburger />
                         </div>
 
@@ -142,23 +181,44 @@ export const Nav = () => {
                     </div>
 
                     {/* Hamburger bottom nav & Searchbar Box*/}
-                    <div className="flex items-center flex-grow order-4 w-full pt-1 pb-2 pr-2 ml-[-16px] md:ml-[-24px] lg:w-auto lg:order-2 lg:ml-0 lg:px-4 " >
+                    <div className="flex items-center flex-grow order-4 w-full pt-1 pb-2 pr-2 ml-[-16px] md:ml-[-24px] lg:w-1/5 lg:order-2 lg:ml-0 lg:pl-8 lg:pr-2 lg:h-full " >
                         {/* Hamburger */}
                         <div className="lg:hidden">
                             <Hamburger />
                         </div>
 
                         {/* Searchbar */}
-                        <div className="w-full bg-white border border-gray-400 rounded-2xl" >
-                            <div className="flex items-center justify-between h-[30px] md:h-[35px]">
-                                <button className="flex p-1">
-                                    <span className="text-xl"><AiOutlineSearch /></span>
-                                </button>
+                        <div className="flex items-center w-full h-full lg:max-w-[480px] " >
 
-                                <div className="flex-1 pr-4" >
-                                    <input type="text" placeholder="Czego szukasz?" className="w-full py-1 text-sm text-gray-900 bg-transparent border-transparent border-none whitespace-nowrap" />
+                            <div className="h-[32px] md:h-[40px] relative w-full">
+
+                                <div className='bg-white rounded-[20px] border border-[#ccc] lg:border-none'>
+                                    <div className='flex justify-between items-center h-[30px]'>
+                                        {/* Mobile Button Search*/}
+                                        <button className='flex items-center justify-center p-1 border-none md:pl-4 lg:hidden'>
+                                            <span className='flex items-center w-6 h-6 text-gray-500'>
+                                                <AiOutlineSearch className='w-6 h-6' />
+                                            </span>
+                                        </button>
+                                        {/* Input Mobile & Desktop */}
+                                        <div className='flex-1 pr-4 lg:p-0'>
+
+                                        </div>
+
+                                        {/* Button Zamknięcia Mobile */}
+                                        <button></button>
+
+                                        {/* Separator Desktop */}
+                                        <div></div>
+
+                                        {/* Categories Dekstop */}
+                                        <div></div>
+
+                                        {/* Dektop Button Search */}
+                                        <button></button>
+                                    </div>
+
                                 </div>
-
 
                                 {/* <button></button> */}
                                 {/* <div></div> */}
@@ -203,8 +263,9 @@ export const Nav = () => {
                         {/* Product Categories */}
                         <nav className={`w-full ${!isScrollDown ? 'h-12 opacity-100' : 'h-0 opacity-0'} transition-all duration-300 `}>
                             <ul className={`flex items-center justify-between text-[13px] leading-4 ${!isScrollDown ? 'opacity-100' : 'opacity-0'} transition-opacity duration-200 `}>
-                                {categorieItems.map(item => (
-                                    <li key={item.name} className="z-30 flex-grow last:text-pink-800" >
+
+                                {categorieItems.map((item, i) => (
+                                    <li key={'item' + i} className="z-30 flex-grow last:text-pink-800" >
                                         <Link href='/' className='flex items-center h-12 px-1 w-min'>
 
                                             <div className="hidden mr-2 text-xl 2xl:text-2xl xl:block">
@@ -213,8 +274,14 @@ export const Nav = () => {
                                             <span>{item.name}</span>
                                         </Link>
 
+                                        {/* Aside Drawer */}
+
+                                        {React.createPortal(
+                                            <div>Drawer</div>, document.body
+                                        )}
+
                                         {/* Flying dropdown */}
-                                        <section></section>
+                                        {/* <section></section> */}
                                     </li>
                                 ))}
                             </ul>
