@@ -1,8 +1,9 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link'
-import React from 'react'
+
+import { createPortal } from 'react-dom';
 
 import { BiHelpCircle } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg';
@@ -11,16 +12,90 @@ import { SlBasket } from 'react-icons/sl'
 import { HiOutlineDesktopComputer } from 'react-icons/hi'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { AiOutlineSearch } from 'react-icons/ai'
+import { IoHelpBuoyOutline } from 'react-icons/io5'
+
 import Image from 'next/image';
+
+import { Drawer } from './DrawerModal';
+
+// sidebar Component
+
+// Flying Dropdown Component
+
 
 const menuItems = [
     {
         name: 'Pomoc i kontakt',
-        icon: <BiHelpCircle />
+        icon: <BiHelpCircle />,
+        subMenu: {
+            popular: [
+                {
+                    name: 'Status przesyłki',
+                    slug: '/status-przesylki'
+                },
+                {
+                    name: 'Dostawa',
+                    slug: '/dostawa'
+                },
+                {
+                    name: 'Raty',
+                    slug: '/raty'
+                },
+                {
+                    name: 'Leasing',
+                    slug: '/leasing'
+                },
+                {
+                    name: 'Ubezpieczenie sprzętu',
+                    slug: '/ubezpieczenia'
+                },
+                {
+                    name: 'Zwroty i reklamacje',
+                    slug: '/serwis'
+                },
+                {
+                    name: 'Najczęsciej zadawane pytania',
+                    slug: '/centrum-pomocy'
+                },
+            ],
+            contact: [
+                {
+                    name: 'Kontakt',
+                    icon: <IoHelpBuoyOutline />,
+                    slug: '/kontakt'
+                },
+                {
+                    name: 'Salony',
+                    icon: <IoHelpBuoyOutline />,
+                    slug: '/salony'
+                },
+                {
+                    name: 'x-kom@x-kom.pl',
+                    icon: <IoHelpBuoyOutline />,
+                    slug: '/mailto:x-kom@x-kom.pl'
+                },
+                {
+                    name: '12 312 31 23',
+                    icon: <IoHelpBuoyOutline />,
+                    slug: '/tel:123123123',
+                    workTime: [
+                        {
+                            days: 'pn. - pt.',
+                            time: '8:00 - 21:00'
+                        },
+                        {
+                            days: 'sob. - niedz.',
+                            time: '8:00 - 19:00'
+                        }
+                    ]
+                },
+            ]
+        }
     },
     {
         name: 'Twoje konto',
-        icon: <CgProfile />
+        icon: <CgProfile />,
+        subMenu: <div>Content 2</div>
     },
     {
         name: 'Twoje listy',
@@ -28,7 +103,8 @@ const menuItems = [
     },
     {
         name: 'Koszyk',
-        icon: <SlBasket />
+        icon: <SlBasket />,
+        subMenu: <div>Content 3</div>
     },
 ]
 
@@ -71,7 +147,7 @@ const categorieItems = [
     },
 ]
 
-const Icon = ({ icon }) => <span>{icon}</span>;
+const Icon = ({ icon }: { icon: ReactNode }) => <span>{icon}</span>;
 
 const Hamburger = () => (
     <button className="flex flex-col items-center justify-center w-8 px-8 md:h-10 md:px-11 lg:h-14" >
@@ -85,44 +161,19 @@ const Hamburger = () => (
 // )
 
 // Portals 
-
-// We use react portal to render the tooltip into document.body.
-// To place it near the button, we use the position from the event.
-// The position is "fixed" so it won't be affected by overflow rules.
-//   return (
-//     <>
-//       {anchor}
-//       {position &&
-//         ReactDOM.createPortal(
-//           <div
-//             style={{
-//               top: position.y,
-//               left: position.x,
-//               position: "fixed",
-//               paddingTop: 5,
-//               zIndex: 10
-//             }}
-//           >
-//             <div
-//               style={{
-//                 background: "black",
-//                 color: "white"
-//               }}
-//             >
-//               {text}
-//             </div>
-//           </div>,
-//           document.body
-//         )}
-//     </>
-//   );
-// }
-const domElementDrawer = document.getElementById('react-portals')
+interface PortalProps {
+    children: ReactNode
+}
 
 export const Nav = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
     const [headerHeight, setHeaderHeight] = useState(98)
     const headerRef = useRef<any>(null)
+    const refPortal = useRef()
+    const [mounted, setMounted] = useState(false)
+
+    const [isModalShow, setIsModalShow] = useState(false)
+    const [activeNav, setActiveNav] = useState(0)
     // Dać nasłuchiwanie na NAv Bottom do sumy wysokości nawigacji przy desktopach
 
     const onResize = useCallback(() => {
@@ -130,6 +181,9 @@ export const Nav = () => {
     }, [])
 
     useEffect(() => {
+        refPortal.current = document.querySelector('#react-portals')
+        setMounted(true)
+
         const listenerHeight = () => {
             onResize()
         }
@@ -150,8 +204,19 @@ export const Nav = () => {
         }
     }, [])
 
+    const handleActiveNav = (num: number) => {
+        if (num === 0 || num === 1 || num === 3) {
+            setActiveNav(num)
+            setIsModalShow(true)
+        } else {
+            setIsModalShow(false)
+        }
+
+
+    }
+
     return (
-        // Con mb
+
         <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] lg:mb-10`}>
 
             <header ref={headerRef} className="relative bg-white top-0 left-0 z-20 w-full shadow-md lg:h-[72px] lg:fixed">
@@ -230,7 +295,7 @@ export const Nav = () => {
                     <div className={`${!isScrollDown ? 'lg:h-16 xl:h-[78px]' : 'lg:h-14'} lg:transition-all lg:duration-300 flex order-3  pt-1`} >
 
                         {/* Pomoc */}
-                        <div className='hidden md:flex min-w-[64px] md:min-w-[88px]'>
+                        <div onClick={() => handleActiveNav(0)} className='hidden md:flex min-w-[64px] md:min-w-[88px]'>
                             <Link href='/' className="flex flex-col items-center justify-center " >
                                 <div className="text-2xl 2xl:text-3xl">
                                     <Icon icon={menuItems[0].icon} />
@@ -241,12 +306,13 @@ export const Nav = () => {
 
                         <span className="hidden md:flex self-center border-r-[1px] border-gray-400 h-9 ml-2 mr-3 mb-1" />
 
-                        {menuItems.slice(1, 4).map(item => (
-                            <div key={item.name} className='min-w-[64px] md:min-w-[88px] my-2' >
+                        {menuItems.slice(1, 4).map((item, i) => (
+                            <div onClick={() => handleActiveNav(i + 1)} key={item.name} className='min-w-[64px] md:min-w-[88px] my-2' >
                                 <Link href='/' className="flex flex-col items-center justify-center h-full" >
                                     <div className="text-2xl 2xl:text-3xl" ><Icon icon={item.icon} /></div>
                                     <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>
                                 </Link>
+                                {/* jhgcksaj */}
                             </div>
                         ))}
 
@@ -274,11 +340,6 @@ export const Nav = () => {
                                             <span>{item.name}</span>
                                         </Link>
 
-                                        {/* Aside Drawer */}
-
-                                        {React.createPortal(
-                                            <div>Drawer</div>, document.body
-                                        )}
 
                                         {/* Flying dropdown */}
                                         {/* <section></section> */}
@@ -288,6 +349,20 @@ export const Nav = () => {
                         </nav>
                     </div>
                 </div>
+
+                {menuItems.map((item, i) => (
+
+                    item.subMenu && (mounted && createPortal(
+                        <Drawer
+                            show={isModalShow && activeNav === i}
+                            close={() => setIsModalShow(false)}
+                            isActiveNum={activeNav}
+                            navItems={menuItems[activeNav]}
+                        />
+                        , refPortal.current)
+                    )
+
+                ))}
 
             </header>
 

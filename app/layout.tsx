@@ -25,7 +25,7 @@ export default function RootLayout({
         {/* Footer */}
 
       </body>
-      {/* React Portals */}
+      <div id='react-portals' ></div>
     </html>
   )
 }
