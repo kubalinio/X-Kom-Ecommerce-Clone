@@ -10,7 +10,27 @@ type DrawerProps = {
     show: boolean
     close: () => void
     isActiveNum: number
-    navItems: any
+    navItems: navItemProps
+}
+
+type navItemProps = {
+    name: string
+    icon: any
+    subMenu?: {
+        popular: [{
+            name: string
+            slug: string
+        }],
+        contact: [{
+            name: string
+            icon: any
+            slug: string
+            workTime?: [{
+                days: string
+                time: string
+            }]
+        }]
+    }
 }
 
 const DrawerHeader = ({ name, closeModal }: { name: string, closeModal: any }) => (
@@ -34,13 +54,11 @@ const DrawerBottom = ({ children }: { children: ReactNode }) => (
 )
 
 export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
-    const { name } = navItems
-
 
     return (
         <div className='Drawer'>
             <aside>
-                {!show ? '' : <div onClick={() => close()} className='fixed inset-0 bg-black/50 opacity-30 transition-opacity duration-300 z-[1001]' />}
+                {!show ? '' : <div onClick={() => close()} className='fixed inset-0 bg-black opacity-50 transition-opacity duration-300 z-[1001]' />}
 
                 <div className={`${!show ? 'w-0 translate-x-[105%]' : 'w-[360px] translate-x-0'} z-[1002] fixed top-0 bottom-0 max-w-[calc(100vw+64px)] bg-white shadow-md overflow-x-hidden overflow-y-auto transition-transform duration-300 right-0`}>
                     <div>
@@ -49,8 +67,9 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
                                 <div className='bg-transparent'>
                                     <div className='absolute inset-0 overflow-hidden transition-transform duration-300 bg-white '>
                                         <div className='flex flex-col h-screen sm:pt-0 sm:max-h-[calc(100vh-56px)] sm:min-h-[200px] sm:h-full'>
-                                            <DrawerHeader name={name} closeModal={() => close()} />
+                                            <DrawerHeader name={navItems.name} closeModal={() => close()} />
 
+                                            {/* Help */}
                                             {isActiveNum === 0 &&
                                                 <DrawerBottom>
                                                     <div className='flex items-end w-full h-14'>
@@ -89,7 +108,7 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
                                                         ))}
                                                     </ul>
 
-                                                    {navItems?.subMenu.contact.slice(3, 4).map(item => (
+                                                    {navItems?.subMenu?.contact.slice(3, 4).map(item => (
                                                         <div className='relative h-[88px]'>
                                                             <a href={`${item.slug}`} className='flex items-center px-4 h-14 hover:no-underline active:no-underline focus:no-underline'>
                                                                 <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>
@@ -98,13 +117,13 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
 
                                                             <div className='absolute flex ml-10 text-sm text-gray-600 top-12'>
                                                                 <div className='flex flex-col ml-4'>
-                                                                    {item.workTime.map(item => (
+                                                                    {item.workTime?.map(item => (
                                                                         <span className='mb-1 mr-1 whitespace-nowrap'>{item.days}</span>
                                                                     ))}
                                                                 </div>
 
                                                                 <div className='flex flex-col ml-4'>
-                                                                    {item.workTime.map(item => (
+                                                                    {item.workTime?.map(item => (
                                                                         <span className='mb-1 mr-1 whitespace-nowrap'>{item.time}</span>
                                                                     ))}
                                                                 </div>
@@ -113,7 +132,7 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
                                                     ))}
 
                                                 </DrawerBottom>}
-
+                                            {/* User */}
                                             {isActiveNum === 1 &&
                                                 <DrawerBottom>
                                                     <div className='flex flex-col justify-between h-full min-h-[257px]'>
@@ -134,10 +153,21 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
 
                                                             </div>
 
-                                                            {/* HR */}
+                                                            <hr className='my-3 h-[1px] w-full border-none bg-[#ddd]' />
 
                                                             {/* Functions */}
-                                                            <div></div>
+                                                            <div>
+                                                                <ul>
+                                                                    {navItems?.subMenu?.contact.map((item) => (
+                                                                        <li>
+                                                                            <Link href={`/${item.slug}`} className='flex items-center px-5 h-14 hover:no-underline active:no-underline focus:no-underline'>
+                                                                                <span className='inline-block w-6 h-6 mr-4' title={item.name}>{item.icon}</span>
+                                                                                <p className='flex items-center w-full text-base whitespace-nowrap'>{item.name}</p>
+                                                                            </Link>
+                                                                        </li>
+                                                                    ))}
+                                                                </ul>
+                                                            </div>
 
                                                         </div>
                                                     </div>
@@ -146,10 +176,18 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
 
 
                                                 </DrawerBottom>}
-
+                                            {/* Basket */}
                                             {isActiveNum === 3 &&
                                                 <DrawerBottom>
-                                                    <div>Koszyk</div>
+                                                    <div className='flex flex-col justify-center h-full min-h-[150px]'>
+                                                        <div className='flex flex-col items-center px-4 py-8'>
+                                                            <p className='mb-1 text-2xl font-bold'>Twój koszyk jest pusty</p>
+                                                            <p className='mb-2'>Szukasz inspiracji?</p>
+                                                            <AuthButtonOutlined slug='promocje'>
+                                                                Przejdź do promocji
+                                                            </AuthButtonOutlined>
+                                                        </div>
+                                                    </div>
                                                 </DrawerBottom>}
 
                                         </div>

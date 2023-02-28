@@ -2,25 +2,27 @@
 
 import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 
 import { createPortal } from 'react-dom';
 
-import { BiHelpCircle } from 'react-icons/bi'
+import { BiHelpCircle, BiMessageDots } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { SlBasket } from 'react-icons/sl'
-import { HiOutlineDesktopComputer } from 'react-icons/hi'
+import { HiOutlineDesktopComputer, HiOutlineClipboardList } from 'react-icons/hi'
 import { HiOutlineBuildingStorefront } from 'react-icons/hi2'
 import { RxHamburgerMenu } from 'react-icons/rx'
-import { AiOutlineSearch } from 'react-icons/ai'
-import { IoHelpBuoyOutline } from 'react-icons/io5'
+import { AiOutlineSearch, AiOutlineUser, AiOutlineHeart, AiOutlineSetting } from 'react-icons/ai'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
 import { GoMail } from 'react-icons/go'
-import { BsTelephone } from 'react-icons/bs'
+import { BsTelephone, BsCreditCard2Front } from 'react-icons/bs'
 
 import Image from 'next/image';
 
 import { Drawer } from './DrawerModal';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
+import { NavDropdown } from './NavDropdown';
 
 // sidebar Component
 
@@ -31,6 +33,7 @@ const menuItems = [
     {
         name: 'Pomoc i kontakt',
         icon: <BiHelpCircle />,
+        slug: 'centrum-pomocy',
         subMenu: {
             popular: [
                 {
@@ -99,15 +102,51 @@ const menuItems = [
     {
         name: 'Twoje konto',
         icon: <CgProfile />,
-        subMenu: <div>Content 2</div>
+        slug: 'konto',
+        subMenu: {
+            contact: [
+                {
+                    name: 'Twoje konto',
+                    icon: <AiOutlineUser className='w-full h-full' />,
+                    slug: 'konto'
+                },
+                {
+                    name: 'Zamówienia',
+                    icon: <HiOutlineClipboardList className='w-full h-full' />,
+                    slug: 'zamowienia'
+                },
+                {
+                    name: 'Listy zakupowe',
+                    icon: <AiOutlineHeart className='w-full h-full' />,
+                    slug: 'listy'
+                },
+                {
+                    name: 'Opinie',
+                    icon: <BiMessageDots className='w-full h-full' />,
+                    slug: 'opinie'
+                },
+                {
+                    name: 'Dane do zamówień',
+                    icon: <BsCreditCard2Front className='w-full h-full' />,
+                    slug: 'dane-do-zamowienia'
+                },
+                {
+                    name: 'Ustawienia konta',
+                    icon: <AiOutlineSetting className='w-full h-full' />,
+                    slug: 'ustawienia-konta'
+                },
+            ]
+        }
     },
     {
         name: 'Twoje listy',
-        icon: <MdOutlineFavoriteBorder />
+        icon: <MdOutlineFavoriteBorder />,
+        slug: 'listy'
     },
     {
         name: 'Koszyk',
         icon: <SlBasket />,
+        slug: 'koszyk',
         subMenu: <div>Content 3</div>
     },
 ]
@@ -160,6 +199,8 @@ const Hamburger = () => (
     </button>
 )
 
+
+
 // const Navigation = () => (
 
 // )
@@ -179,6 +220,12 @@ export const Nav = () => {
     const [isModalShow, setIsModalShow] = useState(false)
     const [activeNav, setActiveNav] = useState(0)
     // Dać nasłuchiwanie na NAv Bottom do sumy wysokości nawigacji przy desktopach
+    const { width } = useWindowDimensions()
+    const router = useRouter()
+
+    const [isHover, setIsHover] = useState(false)
+
+  
 
     const onResize = useCallback(() => {
         if (headerRef.current) setHeaderHeight(headerRef.current.clientHeight)
@@ -208,16 +255,32 @@ export const Nav = () => {
         }
     }, [])
 
-    const handleActiveNav = (num: number) => {
-        if (num === 0 || num === 1 || num === 3) {
+    const handleActiveNav = (width: number | undefined, num: number, link: string) => {
+        if (width > 1027) {
+            setIsModalShow(false)
+            // Check better solution
+            router.replace(`/${link}`)
+        } else if (num === 0 || num === 1 || num === 3 && width < 1027) {
             setActiveNav(num)
             setIsModalShow(true)
         } else {
             setIsModalShow(false)
+            // Check better solution
+            router.replace(`/${link}`)
         }
-
-
     }
+    const handleHoverNav = (width: number | undefined, num: number) => {
+        if (width < 1027) {
+            return
+        } else if (num === 0 || num === 1 || num === 3 && width > 1027) {
+            setActiveNav(num)
+            setIsHover(true)
+        } else {
+            setIsHover(false)
+        }
+    }
+    
+
 
     return (
 
@@ -230,6 +293,7 @@ export const Nav = () => {
 
                     {/* Logo Box */}
                     <div className="flex items-center justify-center h-full shrink-0 lg:pl-2 lg:pr-2 2xl:pl-4" >
+
                         {/* Hamburger */}
                         <div className={`${!isScrollDown ? 'scale-0 opacity-0 w-0 h-full' : 'h-full w-20 2xl:w-24'} absolute top-0 left-0 z-10 outline-transparent items-center justify-center hidden transition-all duration-300 bg-white lg:flex`}>
                             <Hamburger />
@@ -296,28 +360,44 @@ export const Nav = () => {
                     </div>
 
                     {/* Navigation */}
-                    <div className={`${!isScrollDown ? 'lg:h-16 xl:h-[78px]' : 'lg:h-14'} lg:transition-all lg:duration-300 flex order-3  pt-1`} >
+                    <div className={`${!isScrollDown ? 'lg:h-16 xl:h-[78px]' : 'lg:h-14'} lg:transition-all lg:duration-300 flex order-3 pt-1`} >
 
-                        {/* Pomoc */}
-                        <div onClick={() => handleActiveNav(0)} className='hidden md:flex min-w-[64px] md:min-w-[88px]'>
-                            <Link href='/' className="flex flex-col items-center justify-center " >
-                                <div className="text-2xl 2xl:text-3xl">
-                                    <Icon icon={menuItems[0].icon} />
+
+                        {menuItems.map((item, i) => (
+                            <>  
+                                {i === 1 && <span className="hidden md:flex self-center border-r-[1px] border-gray-400 h-9 ml-2 mr-3 mb-1" />}
+
+                                {/* Nav Items */}
+                                <div onMouseEnter={() => handleHoverNav(width, i)} onMouseLeave={() => setIsHover(false)} className={`relative flex hover:z-10 ${i === 0 ? 'max-md:hidden' : ''}`}>
+
+                                    <div onClick={() => handleActiveNav(width, i, item?.slug)} key={item.name} className='min-w-[64px] md:min-w-[88px] my-2 cursor-pointer' >
+                                        <Link href={`/${menuItems[0].slug}`} className="flex flex-col items-center justify-center h-full pointer-events-none" >
+                                            <div className="text-2xl 2xl:text-3xl" ><Icon icon={item.icon} /></div>
+                                            <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>
+                                        </Link>
+                                    </div>
+
+                                    {/* DropDown */}
+                                    { isHover ? (
+                                        <NavDropdown show={isHover && activeNav === i} />
+                                    ) 
+                                    : ''
+                                    }
                                 </div>
-                                <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0'} text-[10px] whitespace-nowrap mt-1 transition-all duration-500`}>{menuItems[0].name}</span>
-                            </Link>
-                        </div>
 
-                        <span className="hidden md:flex self-center border-r-[1px] border-gray-400 h-9 ml-2 mr-3 mb-1" />
+                                {/* Portals */}
+                                {item.subMenu && (mounted && createPortal(
+                                    <Drawer
+                                        show={isModalShow && activeNav === i}
+                                        close={() => setIsModalShow(false)}
+                                        isActiveNum={activeNav}
+                                        navItems={menuItems[activeNav]}
+                                    />
+                                    , refPortal.current)
+                                )}
 
-                        {menuItems.slice(1, 4).map((item, i) => (
-                            <div onClick={() => handleActiveNav(i + 1)} key={item.name} className='min-w-[64px] md:min-w-[88px] my-2' >
-                                <Link href='/' className="flex flex-col items-center justify-center h-full" >
-                                    <div className="text-2xl 2xl:text-3xl" ><Icon icon={item.icon} /></div>
-                                    <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>
-                                </Link>
-                                {/* jhgcksaj */}
-                            </div>
+
+                            </>
                         ))}
 
                     </div>
@@ -354,8 +434,36 @@ export const Nav = () => {
                     </div>
                 </div>
 
-                {menuItems.map((item, i) => (
+            </header>
 
+        </div>
+    );
+}
+
+
+
+// {menuItems.map((item, i) => (
+//     <>
+//         {i === 1 && <span className="hidden md:flex self-center border-r-[1px] border-gray-400 h-9 ml-2 mr-3 mb-1" />}
+
+//         <NavItem item={item} isScrollDown={isScrollDown} />
+
+//         {item.subMenu && (mounted && createPortal(
+//             <Drawer
+//                 show={isModalShow && activeNav === i}
+//                 close={() => setIsModalShow(false)}
+//                 isActiveNum={activeNav}
+//                 navItems={menuItems[activeNav]}
+//             />
+//             , refPortal.current)
+//         )}
+
+//     </>
+// ))}
+
+{/* Portals */ }
+
+{/* {menuItems.map((item, i) => (
                     item.subMenu && (mounted && createPortal(
                         <Drawer
                             show={isModalShow && activeNav === i}
@@ -366,11 +474,25 @@ export const Nav = () => {
                         , refPortal.current)
                     )
 
-                ))}
+                ))} */}
 
-            </header>
+                // const NavItem = ({ item, isScrollDown, index }) => {
 
-        </div>
-    );
-}
-
+                //     const { width } = useWindowDimensions()
+                
+                
+                
+                //     return (
+                //         <div className='relative flex hover:z-10'>
+                //             <div onClick={() => handleActiveNav(width, index, item?.slug)} key={item.name} className='min-w-[64px] md:min-w-[88px] my-2 cursor-pointer' >
+                
+                //                 <Link href={`/${item.slug}`} className="flex flex-col items-center justify-center h-full pointer-events-none" >
+                //                     <div className="text-2xl 2xl:text-3xl" ><Icon icon={item.icon} /></div>
+                //                     <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>
+                //                 </Link>
+                //             </div>
+                //         </div>
+                
+                
+                //     )
+                // }
