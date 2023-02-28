@@ -10,9 +10,13 @@ import { CgProfile } from 'react-icons/cg';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { SlBasket } from 'react-icons/sl'
 import { HiOutlineDesktopComputer } from 'react-icons/hi'
+import { HiOutlineBuildingStorefront } from 'react-icons/hi2'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { IoHelpBuoyOutline } from 'react-icons/io5'
+import { TfiHeadphoneAlt } from 'react-icons/tfi'
+import { GoMail } from 'react-icons/go'
+import { BsTelephone } from 'react-icons/bs'
 
 import Image from 'next/image';
 
@@ -31,53 +35,53 @@ const menuItems = [
             popular: [
                 {
                     name: 'Status przesyłki',
-                    slug: '/status-przesylki'
+                    slug: 'status-przesylki'
                 },
                 {
                     name: 'Dostawa',
-                    slug: '/dostawa'
+                    slug: 'dostawa'
                 },
                 {
                     name: 'Raty',
-                    slug: '/raty'
+                    slug: 'raty'
                 },
                 {
                     name: 'Leasing',
-                    slug: '/leasing'
+                    slug: 'leasing'
                 },
                 {
                     name: 'Ubezpieczenie sprzętu',
-                    slug: '/ubezpieczenia'
+                    slug: 'ubezpieczenia'
                 },
                 {
                     name: 'Zwroty i reklamacje',
-                    slug: '/serwis'
+                    slug: 'serwis'
                 },
                 {
                     name: 'Najczęsciej zadawane pytania',
-                    slug: '/centrum-pomocy'
+                    slug: 'centrum-pomocy'
                 },
             ],
             contact: [
                 {
                     name: 'Kontakt',
-                    icon: <IoHelpBuoyOutline />,
-                    slug: '/kontakt'
+                    icon: <TfiHeadphoneAlt className='w-full h-full' />,
+                    slug: 'kontakt'
                 },
                 {
                     name: 'Salony',
-                    icon: <IoHelpBuoyOutline />,
-                    slug: '/salony'
+                    icon: <HiOutlineBuildingStorefront className='w-full h-full' />,
+                    slug: 'salony'
                 },
                 {
                     name: 'x-kom@x-kom.pl',
-                    icon: <IoHelpBuoyOutline />,
-                    slug: '/mailto:x-kom@x-kom.pl'
+                    icon: <GoMail className='w-full h-full' />,
+                    slug: 'mailto:x-kom@x-kom.pl'
                 },
                 {
                     name: '12 312 31 23',
-                    icon: <IoHelpBuoyOutline />,
-                    slug: '/tel:123123123',
+                    icon: <BsTelephone className='w-full h-full' />,
+                    slug: 'tel:123123123',
                     workTime: [
                         {
                             days: 'pn. - pt.',

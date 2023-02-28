@@ -1,0 +1,28 @@
+import Link from 'next/link'
+import React, { ReactNode } from 'react'
+
+type BtnProps = {
+    children: ReactNode
+    slug: string
+}
+
+export const AuthButton = ({ children, slug }: BtnProps) => {
+    return (
+        <Link href={`/${slug}`}
+            className='inline-flex items-center justify-center h-10 min-h-[40px] rounded-full w-full bg-[#0082fa] border border-[#0082fa] py-[10px] px-4 text-white text-center select-none active:bg-[#00407a] transition-colors duration-200'
+        >
+            {children}
+        </Link>
+    )
+}
+
+export const AuthButtonOutlined = ({ children, slug }: BtnProps) => {
+    return (
+        <Link href={`/${slug}`}
+            className='inline-flex items-center justify-center h-10 min-h-[40px] rounded-full w-full bg-white border border-[#0082fa] py-[10px] px-4 text-[#0082fa] text-center select-none active:text-white active:bg-[#00407a] transition-colors duration-200'
+        >
+            {children}
+        </Link>
+    )
+}
+
