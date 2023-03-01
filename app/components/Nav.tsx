@@ -255,7 +255,7 @@ export const Nav = () => {
         }
     }, [])
 
-    const handleActiveNav = (width: number | undefined, num: number, link: string) => {
+    const handleActiveNav = (width, num: number, link: string) => {
         if (width > 1027) {
             setIsModalShow(false)
             // Check better solution
@@ -269,10 +269,12 @@ export const Nav = () => {
             router.replace(`/${link}`)
         }
     }
-    const handleHoverNav = (width: number | undefined, num: number) => {
+
+
+    const handleHoverNav = (width, num: number) => {
         if (width < 1027) {
             return
-        } else if (num === 0 || num === 1 || num === 3 && width > 1027) {
+        } else if (num === 0 || num === 1 || num === 3 ) {
             setActiveNav(num)
             setIsHover(true)
         } else {
@@ -360,17 +362,24 @@ export const Nav = () => {
                     </div>
 
                     {/* Navigation */}
-                    <div className={`${!isScrollDown ? 'lg:h-16 xl:h-[78px]' : 'lg:h-14'} lg:transition-all lg:duration-300 flex order-3 pt-1`} >
-
-
+                    <div className={`${!isScrollDown ? '' : ''} lg:z-20 flex h-full order-3 pt-1 md:pt-0`} >
+                        <div className='relative flex items-center'>
+                            
                         {menuItems.map((item, i) => (
                             <>  
                                 {i === 1 && <span className="hidden md:flex self-center border-r-[1px] border-gray-400 h-9 ml-2 mr-3 mb-1" />}
 
                                 {/* Nav Items */}
-                                <div onMouseEnter={() => handleHoverNav(width, i)} onMouseLeave={() => setIsHover(false)} className={`relative flex hover:z-10 ${i === 0 ? 'max-md:hidden' : ''}`}>
+                                <div 
+                                    key={item.name} 
+                                    onMouseEnter={() => handleHoverNav(width, i)} 
+                                    onMouseLeave={() => setIsHover(false)} 
+                                    className={`relative flex h-12 md:h-16 z-10 ${i === 0 ? 'max-md:hidden' : ''} ${activeNav === i && isHover ? 'nav-item-after' : ''}`}>
 
-                                    <div onClick={() => handleActiveNav(width, i, item?.slug)} key={item.name} className='min-w-[64px] md:min-w-[88px] my-2 cursor-pointer' >
+                                    <div 
+                                        onClick={() => handleActiveNav(width, i, item?.slug)}  
+                                        className={`flex justify-center items-center min-w-[64px] md:min-w-[88px] cursor-pointer ${activeNav === i && isHover ? 'shadow-xCom rounded-t-lg' : ''}`} >
+
                                         <Link href={`/${menuItems[0].slug}`} className="flex flex-col items-center justify-center h-full pointer-events-none" >
                                             <div className="text-2xl 2xl:text-3xl" ><Icon icon={item.icon} /></div>
                                             <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>
@@ -378,8 +387,11 @@ export const Nav = () => {
                                     </div>
 
                                     {/* DropDown */}
-                                    { isHover ? (
-                                        <NavDropdown show={isHover && activeNav === i} />
+                                    { isHover && item.subMenu ? (
+                                        <NavDropdown 
+                                            index={i} 
+                                            isActiveContent={activeNav} 
+                                            navItems={menuItems[activeNav]} />
                                     ) 
                                     : ''
                                     }
@@ -399,11 +411,13 @@ export const Nav = () => {
 
                             </>
                         ))}
+                        </div>
 
                     </div>
 
                 </div>
 
+                {/* ProductCategories */}
                 {/*Navbar Bottom min-screen 1028px */}
                 <div className="relative z-10 hidden w-full bg-gray-200 shadow-sm lg:block ">
 

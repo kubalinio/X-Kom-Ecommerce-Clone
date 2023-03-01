@@ -5,6 +5,10 @@ import Link from 'next/link';
 import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { useEffect, useState } from 'react';
 
+// const ProductEvent = () => ()
+
+// const ProductFav = () => ()
+
 const Product = () => (
     <div className='p-2'>
         <div className='relative rounded-lg'>

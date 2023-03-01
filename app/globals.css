@@ -169,6 +169,16 @@ a {
 .slick-active {
 	color: #222020;
 }
-
-
 /* End */
+
+.nav-item-after::after {
+  content: '';
+  background: #fff;
+  position: absolute;
+  left: 0px;
+  bottom: -6px;
+  height: 12px;
+  width: 100%;
+  z-index: 12;
+  pointer-events: none;
+}
