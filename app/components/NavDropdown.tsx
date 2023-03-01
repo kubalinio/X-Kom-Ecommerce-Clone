@@ -39,7 +39,7 @@ export const NavDropdown = ({ index, isActiveContent, navItems }: NavDropdownPro
     const [isShow] = useState(index === isActiveContent)
 
     return (
-        <div className={`${isShow ? 'block' : 'hidden'} ${index === 3 ? 'right-0 w-[360px] rounded-tr-none' : 'left-0 rounded-tl-none'} absolute  top-full z-[11] bg-white rounded-lg  shadow-xCom min-w-[256px] pt-2 pb-4`}>
+        <div className={`${isShow ? 'block' : 'hidden'} ${index === 3 ? 'right-0 w-[360px] rounded-tr-none' : 'left-0 rounded-tl-none'} absolute top-full z-[11] bg-white rounded-lg shadow-xCom min-w-[256px] pt-2 pb-4`}>
 
             {isActiveContent === 0 &&
                 <div>

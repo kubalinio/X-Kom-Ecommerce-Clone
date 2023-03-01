@@ -10,30 +10,30 @@ type DrawerProps = {
     show: boolean
     close: () => void
     isActiveNum: number
-    navItems: navItemProps
+    navItem: navItemProps
 }
 
 type navItemProps = {
     name: string
     icon: any
     subMenu?: {
-        popular: [{
+        popular: {
             name: string
             slug: string
-        }],
-        contact: [{
+        }[],
+        contact: {
             name: string
             icon: any
             slug: string
-            workTime?: [{
+            workTime?: {
                 days: string
                 time: string
-            }]
-        }]
+            }[]
+        }[]
     }
 }
 
-const DrawerHeader = ({ name, closeModal }: { name: string, closeModal: any }) => (
+const DrawerHeader = ({ name, closeModal }: { name: string, closeModal: () => void }) => (
     <div className='inline-flex justify-between items-center bg-[#f5f5f5] min-h-[56px] w-full p-2 pr-4 border-b border-[#ddd]'>
 
         <div className='flex items-center w-full'>
@@ -53,7 +53,7 @@ const DrawerBottom = ({ children }: { children: ReactNode }) => (
     </div>
 )
 
-export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
+export const Drawer = ({ show, close, isActiveNum, navItem }: DrawerProps) => {
 
     return (
         <div className='Drawer'>
@@ -67,7 +67,7 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
                                 <div className='bg-transparent'>
                                     <div className='absolute inset-0 overflow-hidden transition-transform duration-300 bg-white '>
                                         <div className='flex flex-col h-screen sm:pt-0 sm:max-h-[calc(100vh-56px)] sm:min-h-[200px] sm:h-full'>
-                                            <DrawerHeader name={navItems.name} closeModal={() => close()} />
+                                            <DrawerHeader name={navItem.name} closeModal={() => close()} />
 
                                             {/* Help */}
                                             {isActiveNum === 0 &&
@@ -78,7 +78,7 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
                                                         </p>
                                                     </div>
                                                     <ul>
-                                                        {navItems?.subMenu?.popular.map((item) => (
+                                                        {navItem?.subMenu?.popular.map((item) => (
                                                             <li>
                                                                 <Link
                                                                     href={`/${item.slug}`}
@@ -98,7 +98,7 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
                                                         </p>
                                                     </div>
                                                     <ul>
-                                                        {navItems?.subMenu?.contact.slice(0, 3).map((item) => (
+                                                        {navItem?.subMenu?.contact.slice(0, 3).map((item) => (
                                                             <li>
                                                                 <Link href={`/${item.slug}`} className='flex items-center px-4 h-14 hover:no-underline active:no-underline focus:no-underline'>
                                                                     <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>
@@ -108,7 +108,7 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
                                                         ))}
                                                     </ul>
 
-                                                    {navItems?.subMenu?.contact.slice(3, 4).map(item => (
+                                                    {navItem?.subMenu?.contact.slice(3, 4).map(item => (
                                                         <div className='relative h-[88px]'>
                                                             <a href={`${item.slug}`} className='flex items-center px-4 h-14 hover:no-underline active:no-underline focus:no-underline'>
                                                                 <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>
@@ -158,7 +158,7 @@ export const Drawer = ({ show, close, isActiveNum, navItems }: DrawerProps) => {
                                                             {/* Functions */}
                                                             <div>
                                                                 <ul>
-                                                                    {navItems?.subMenu?.contact.map((item) => (
+                                                                    {navItem?.subMenu?.contact.map((item) => (
                                                                         <li>
                                                                             <Link href={`/${item.slug}`} className='flex items-center px-5 h-14 hover:no-underline active:no-underline focus:no-underline'>
                                                                                 <span className='inline-block w-6 h-6 mr-4' title={item.name}>{item.icon}</span>

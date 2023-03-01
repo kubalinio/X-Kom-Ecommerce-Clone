@@ -1,6 +1,6 @@
 'use client'
 
-import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import {  ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 
@@ -12,7 +12,7 @@ import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { SlBasket } from 'react-icons/sl'
 import { HiOutlineDesktopComputer, HiOutlineClipboardList } from 'react-icons/hi'
 import { HiOutlineBuildingStorefront } from 'react-icons/hi2'
-import { RxHamburgerMenu } from 'react-icons/rx'
+
 import { AiOutlineSearch, AiOutlineUser, AiOutlineHeart, AiOutlineSetting } from 'react-icons/ai'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
 import { GoMail } from 'react-icons/go'
@@ -23,6 +23,9 @@ import Image from 'next/image';
 import { Drawer } from './DrawerModal';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import { NavDropdown } from './NavDropdown';
+import { DrawerCategories } from './CategoriesDrawer';
+import { HamburgerDrawer, HamburgerDropdown } from './Hamburgers';
+import { CategoriesDropdown } from './CategoriesDropdown';
 
 // sidebar Component
 
@@ -32,7 +35,7 @@ import { NavDropdown } from './NavDropdown';
 const menuItems = [
     {
         name: 'Pomoc i kontakt',
-        icon: <BiHelpCircle />,
+        icon: <TfiHeadphoneAlt  />,
         slug: 'centrum-pomocy',
         subMenu: {
             popular: [
@@ -154,51 +157,52 @@ const menuItems = [
 const categorieItems = [
     {
         name: 'Laptop i komputer',
-        icon: <HiOutlineDesktopComputer />
+        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        slug: 'products'
     },
     {
         name: 'Smartfony i smartwatche',
-        icon: <HiOutlineDesktopComputer />
+        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        slug: 'products'
     },
     {
         name: 'Gaming i streaming',
-        icon: <HiOutlineDesktopComputer />
+        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        slug: 'products'
     },
     {
         name: 'Podzespoły komputerowe',
-        icon: <HiOutlineDesktopComputer />
+        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        slug: 'products'
     },
     {
         name: 'Urządzenia peryferyjne',
-        icon: <HiOutlineDesktopComputer />
+        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        slug: 'products'
     },
     {
         name: 'TV i audio',
-        icon: <HiOutlineDesktopComputer />
+        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        slug: 'products'
     },
     {
         name: 'Smarthome i lifestyle',
-        icon: <HiOutlineDesktopComputer />
+        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        slug: 'products'
     },
     {
         name: 'Akcesoria',
-        icon: <HiOutlineDesktopComputer />
+        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        slug:'products'
     },
     {
-        name: <p className="whitespace-nowrap">Trendy, promocje<br />i nowości</p>,
-        icon: <HiOutlineDesktopComputer />
+        name: <p className="whitespace-nowrap">Trendy, promocje i nowości</p>,
+        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        slug:'promocje'
     },
 ]
 
 const Icon = ({ icon }: { icon: ReactNode }) => <span>{icon}</span>;
-
-const Hamburger = () => (
-    <button className="flex flex-col items-center justify-center w-8 px-8 md:h-10 md:px-11 lg:h-14" >
-        <span className="flex items-center justify-center w-5 h-5 text-xl md:text-2xl md:w-6 md:h-6"><RxHamburgerMenu /></span>
-        <span className="text-[10px]">Menu</span>
-    </button>
-)
-
 
 
 // const Navigation = () => (
@@ -214,6 +218,7 @@ export const Nav = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
     const [headerHeight, setHeaderHeight] = useState(98)
     const headerRef = useRef<any>(null)
+
     const refPortal = useRef()
     const [mounted, setMounted] = useState(false)
 
@@ -223,7 +228,12 @@ export const Nav = () => {
     const { width } = useWindowDimensions()
     const router = useRouter()
 
+    // Desktop Navigation
     const [isHover, setIsHover] = useState(false)
+
+    // Mobile Categories
+    const [showCategories, setShowCategories] = useState(false)
+    const [isHoverCategories ,setIsHoverCategories] = useState(false)
 
   
 
@@ -283,22 +293,34 @@ export const Nav = () => {
     }
     
 
-
     return (
 
         <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] lg:mb-10`}>
 
-            <header ref={headerRef} className="relative bg-white top-0 left-0 z-20 w-full shadow-md lg:h-[72px] lg:fixed">
+            <header ref={headerRef} className={`${isScrollDown ? 'lg:[56px]' : 'lg:h-[72px]'} relative bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed transition-all duration-300`}>
 
                 {/* Navbar Top */}
                 <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1024px] lg:w-[calc(100%+64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
 
                     {/* Logo Box */}
-                    <div className="flex items-center justify-center h-full shrink-0 lg:pl-2 lg:pr-2 2xl:pl-4" >
+                    <div className="flex items-center justify-center h-full shrink-0 lg:pl-4 lg:pr-2 2xl:pl-4" >
 
                         {/* Hamburger */}
-                        <div className={`${!isScrollDown ? 'scale-0 opacity-0 w-0 h-full' : 'h-full w-20 2xl:w-24'} absolute top-0 left-0 z-10 outline-transparent items-center justify-center hidden transition-all duration-300 bg-white lg:flex`}>
-                            <Hamburger />
+                        <div 
+                            className={`${!isScrollDown ? 'scale-0 opacity-0 w-0' : 'h-full w-[64px] md:w-[88px]'} absolute top-0 left-0 z-20 outline-transparent items-center justify-center hidden transition-all duration-300 bg-white h-[48px] md:h-[64px] lg:h-[56px] lg:flex ${isHoverCategories ? 'nav-item-after' : ''} `}
+                            onMouseEnter={() =>  setIsHoverCategories(true)} 
+                            onMouseLeave={() => setIsHoverCategories(false)} 
+                            
+                            >
+                                <HamburgerDropdown isHover={isHoverCategories}/>
+                                {/* DropDown */}
+                                { isHoverCategories ? (
+                                        <CategoriesDropdown 
+                                            show={isHoverCategories}
+                                            categorieItems={categorieItems}
+                                        />
+                                    ) 
+                                    : '' }
                         </div>
 
                         {/* Logo */}
@@ -319,7 +341,27 @@ export const Nav = () => {
                     <div className="flex items-center flex-grow order-4 w-full pt-1 pb-2 pr-2 ml-[-16px] md:ml-[-24px] lg:w-1/5 lg:order-2 lg:ml-0 lg:pl-8 lg:pr-2 lg:h-full " >
                         {/* Hamburger */}
                         <div className="lg:hidden">
-                            <Hamburger />
+                            <HamburgerDrawer showDrawer={() => setShowCategories(true)} />
+
+                            {(mounted && createPortal(
+                                  <DrawerCategories 
+                                        show={showCategories}
+                                        close={() => setShowCategories(false)}
+                                        categorieItems={categorieItems} 
+                                        width={width}
+                                        />
+
+                                , refPortal.current)
+                                )}
+
+                                {/* // <Drawer
+                                //     show={isModalShow && activeNav === i}
+                                //     close={() => setIsModalShow(false)}
+                                //     isActiveNum={activeNav}
+                                //     navItem={menuItems[activeNav]}
+                                // /> */}
+                          
+
                         </div>
 
                         {/* Searchbar */}
@@ -403,7 +445,7 @@ export const Nav = () => {
                                         show={isModalShow && activeNav === i}
                                         close={() => setIsModalShow(false)}
                                         isActiveNum={activeNav}
-                                        navItems={menuItems[activeNav]}
+                                        navItem={menuItems[activeNav]}
                                     />
                                     , refPortal.current)
                                 )}
