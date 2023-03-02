@@ -32,7 +32,27 @@ const DropdownLink = ({ slug, name, icon }: DropDownLinkProps) => (
 type NavDropdownProps = {
     index: number
     isActiveContent: number
-    navItems: any
+    navItems: navItemProps
+}
+
+type navItemProps = {
+    name: string
+    icon: any
+    subMenu?: {
+        popular: {
+            name: string
+            slug: string
+        }[],
+        contact: {
+            name: string
+            icon: any
+            slug: string
+            workTime?: {
+                days: string
+                time: string
+            }[]
+        }[]
+    }
 }
 
 export const NavDropdown = ({ index, isActiveContent, navItems }: NavDropdownProps) => {
@@ -60,7 +80,7 @@ export const NavDropdown = ({ index, isActiveContent, navItems }: NavDropdownPro
                     </ul>
 
                     {/* Contact */}
-                    {navItems?.subMenu?.contact.slice(3, 4).map(item => (
+                    {navItems?.subMenu?.contact.slice(3, 4).map((item) => (
                         <div key={item.name} className='relative h-[72px]'>
                             <a href={`${item.slug}`} className='flex items-center h-full px-4 pb-9 hover:no-underline active:no-underline focus:no-underline'>
                                 <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>

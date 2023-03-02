@@ -1,4 +1,5 @@
 import Promo from "./components/Promo";
+import Promotions from "./components/Promotions";
 import RecommendProducts from "./components/RecommendProducts";
 import SliderBox from "./components/Slider";
 
@@ -15,6 +16,8 @@ export default function Home() {
         <Promo />
         {/* Recommend Products */}
         <RecommendProducts />
+        {/* Promotions Section */}
+        <Promotions />
       </div>
       {/*  */}
     </main>

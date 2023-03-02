@@ -5,17 +5,30 @@ import Link from 'next/link';
 import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { useEffect, useState } from 'react';
 
+import { IoMdHeartEmpty } from 'react-icons/io'
+
 // const ProductEvent = () => ()
 
 // const ProductFav = () => ()
 
-const Product = () => (
-    <div className='p-2'>
-        <div className='relative rounded-lg'>
-            {/* Event */}
-            <div></div>
-            {/* Fav */}
-            <div></div>
+const item = {
+    promotion: true,
+    recommend: false,
+
+
+}
+
+const ProductCard = () => {
+
+    return (
+        <div className='relative rounded-lg lg:border lg:border-transparent'>
+
+            {/* Promotion or Recommend */}
+            <div className='absolute left-0 w-full h-5 lg:top-3 lg:pl-3'>
+                <span className='inline-flex h-5 text-sm items-center text-[#4d4d4d] max-w-[70%] whitespace-nowrap bg-white px-2 py-[2px] rounded-full border border-[#ccc]'>
+                    {item.promotion && 'Promocja'}
+                </span>
+            </div>
             {/* Details */}
             <div className='pointer'>
                 <div>
@@ -57,11 +70,30 @@ const Product = () => (
                     </div>
                 </div>
             </div>
+
+            {/* Fav */}
+            <div className='absolute hidden top-1 right-1 lg:flex lg:top-3 lg:right-3'>
+                <div className='transition duration-300 lg:flex lg:w-8 lg:h-8 '>
+                    <div className='inline-block pointer-events-auto z-[1]'>
+                        {/* Fav Component to Add List Favorited products */}
+                        <div>
+                            <button className='flex items-center justify-center w-8 h-8 bg-white rounded-full cursor-pointer select-none z-5 hover:bg-[#ddd] transition duration-300'>
+                                <span className='inline-block w-5 h-5 overflow-hidden'>
+                                    <IoMdHeartEmpty className='w-full h-full' />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             {/* Hover */}
             <div></div>
+
         </div>
-    </div>
-)
+    )
+}
 
 
 
@@ -94,28 +126,28 @@ const RecommendProducts = () => {
                     {/* Desktop Products Show in 1080px */}
                     <div className='flex-wrap hidden mt-3 -mx-2 lg:flex'>
                         <div className='w-1/4 px-2 mb-[22px]'>
-                            <Product />
+                            <ProductCard />
                         </div>
                         <div className='w-1/4 px-2 mb-[22px]'>
-                            <Product />
+                            <ProductCard />
                         </div>
                         <div className='w-1/4 px-2 mb-[22px]'>
-                            <Product />
+                            <ProductCard />
                         </div>
                         <div className='w-1/4 px-2 mb-[22px]'>
-                            <Product />
+                            <ProductCard />
                         </div>
                         <div className='w-1/4 px-2 mb-[22px]'>
-                            <Product />
+                            <ProductCard />
                         </div>
                         <div className='w-1/4 px-2 mb-[22px]'>
-                            <Product />
+                            <ProductCard />
                         </div>
                         <div className='w-1/4 px-2 mb-[22px]'>
-                            <Product />
+                            <ProductCard />
                         </div>
                         <div className='w-1/4 px-2 mb-[22px]'>
-                            <Product />
+                            <ProductCard />
                         </div>
                     </div>
 

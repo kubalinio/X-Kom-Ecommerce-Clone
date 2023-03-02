@@ -103,8 +103,6 @@ export const DrawerCategories = ({ show, close, categorieItems }: DrawerCategori
                                                             slug={'centrum-pomocy'}
                                                         />
                                                     </ul>
-                                                      
-                                                    }
                                                 </div>
                                             </DrawerBottom>
 

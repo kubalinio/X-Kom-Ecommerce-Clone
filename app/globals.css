@@ -183,14 +183,3 @@ a {
   pointer-events: none;
 }
 
-.caregories-item-after::after {
-  content: '';
-  background: #000;
-  position: absolute;
-  left: 0px;
-  bottom: -5px;
-  height: 15px;
-  width: 100%;
-  z-index: 12;
-  pointer-events: none;
-}

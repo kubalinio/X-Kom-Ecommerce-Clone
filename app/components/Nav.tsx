@@ -25,7 +25,8 @@ import useWindowDimensions from '@/hooks/useWindowDimensions';
 import { NavDropdown } from './NavDropdown';
 import { DrawerCategories } from './CategoriesDrawer';
 import { HamburgerDrawer, HamburgerDropdown } from './Hamburgers';
-import { CategoriesDropdown } from './CategoriesDropdown';
+import { CategoriesDesktop, CategoriesDropdown } from './CategoriesDropdown';
+import Overlay from './Overlay';
 
 // sidebar Component
 
@@ -219,13 +220,13 @@ export const Nav = () => {
     const [headerHeight, setHeaderHeight] = useState(98)
     const headerRef = useRef<any>(null)
 
-    const refPortal = useRef()
+    const refPortal = useRef<Element | null>()
     const [mounted, setMounted] = useState(false)
 
     const [isModalShow, setIsModalShow] = useState(false)
     const [activeNav, setActiveNav] = useState(0)
     // Dać nasłuchiwanie na NAv Bottom do sumy wysokości nawigacji przy desktopach
-    const { width } = useWindowDimensions()
+    const { width }: {width: number | undefined} = useWindowDimensions()
     const router = useRouter()
 
     // Desktop Navigation
@@ -242,7 +243,7 @@ export const Nav = () => {
     }, [])
 
     useEffect(() => {
-        refPortal.current = document.querySelector('#react-portals')
+        refPortal.current = document.querySelector<HTMLElement>('#react-portals')
         setMounted(true)
 
         const listenerHeight = () => {
@@ -265,12 +266,12 @@ export const Nav = () => {
         }
     }, [])
 
-    const handleActiveNav = (width, num: number, link: string) => {
-        if (width > 1027) {
+    const handleActiveNav = (width: number | undefined, num: number, link: string) => {
+        if (width! > 1027) {
             setIsModalShow(false)
             // Check better solution
             router.replace(`/${link}`)
-        } else if (num === 0 || num === 1 || num === 3 && width < 1027) {
+        } else if (num === 0 || num === 1 || num === 3 && width! < 1027) {
             setActiveNav(num)
             setIsModalShow(true)
         } else {
@@ -281,8 +282,8 @@ export const Nav = () => {
     }
 
 
-    const handleHoverNav = (width, num: number) => {
-        if (width < 1027) {
+    const handleHoverNav = (width: number | undefined, num: number) => {
+        if (width! < 1027) {
             return
         } else if (num === 0 || num === 1 || num === 3 ) {
             setActiveNav(num)
@@ -300,14 +301,14 @@ export const Nav = () => {
             <header ref={headerRef} className={`${isScrollDown ? 'lg:[56px]' : 'lg:h-[72px]'} relative bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed transition-all duration-300`}>
 
                 {/* Navbar Top */}
-                <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1024px] lg:w-[calc(100%+64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
+                <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1156px] lg:w-[calc(100%-64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
 
                     {/* Logo Box */}
-                    <div className="flex items-center justify-center h-full shrink-0 lg:pl-4 lg:pr-2 2xl:pl-4" >
+                    <div className="flex items-center justify-center h-full shrink-0 lg:pl-8 2xl:pl-8" >
 
                         {/* Hamburger */}
                         <div 
-                            className={`${!isScrollDown ? 'scale-0 opacity-0 w-0' : 'h-full w-[64px] md:w-[88px]'} absolute top-0 left-0 z-20 outline-transparent items-center justify-center hidden transition-all duration-300 bg-white h-[48px] md:h-[64px] lg:h-[56px] lg:flex ${isHoverCategories ? 'nav-item-after' : ''} `}
+                            className={`${!isScrollDown ? 'scale-0 opacity-0 w-0' : 'h-full w-[64px] md:w-[88px]'} absolute top-0 left-0 z-20 outline-transparent hidden transition-all duration-300 bg-white h-[48px] md:h-[64px] lg:h-[56px] lg:block ${isHoverCategories ? 'nav-item-after' : ''} `}
                             onMouseEnter={() =>  setIsHoverCategories(true)} 
                             onMouseLeave={() => setIsHoverCategories(false)} 
                             
@@ -315,26 +316,30 @@ export const Nav = () => {
                                 <HamburgerDropdown isHover={isHoverCategories}/>
                                 {/* DropDown */}
                                 { isHoverCategories ? (
+                                       
                                         <CategoriesDropdown 
                                             show={isHoverCategories}
                                             categorieItems={categorieItems}
                                         />
+                
                                     ) 
                                     : '' }
                         </div>
-
+                        
                         {/* Logo */}
-                        <Link href='/' className={`flex items-center overflow-hidden transition-all duration-300 ${!isScrollDown ? '' : ''}`} >
+                        <Link href='/' className={`flex items-center overflow-hidden `} >
                             {/* Logo Big Screen */}
-                            <span className={`hidden lg:inline-flex`} >
+                            <span className={`${!isScrollDown ? 'h-12' : 'h-8 w-52' } hidden lg:inline-flex transition-all duration-500`} >
                                 <Image src='https://assets.x-kom.pl/public-spa/xkom/7cbf82dd32ab7e88.svg' alt='x-kom sklep komputerowy' width={225} height={40} />
                             </span>
                             {/* Logo Mobile */}
-                            <span className={`relative inline-flex items-center justify-start h-9 lg:hidden`} >
-                                <Image src='https://assets.x-kom.pl/public-spa/xkom/064948e3bac8c6d5.svg' alt='x-kom sklep komputerowy' width={102} height={30} className='relative inline-block w-auto h-auto max-w-full max-h-full' />
+                            <span className={`relative inline-flex items-center justify-start h-8 lg:hidden`} >
+                                <Image src='https://assets.x-kom.pl/public-spa/xkom/064948e3bac8c6d5.svg' alt='x-kom sklep komputerowy' width={102} height={30} className='relative inline-block w-auto h-full max-w-full max-h-full' />
                             </span>
                         </Link>
-
+                        
+                        {isHoverCategories && <Overlay/>}
+                        
                     </div>
 
                     {/* Hamburger bottom nav & Searchbar Box*/}
@@ -343,7 +348,7 @@ export const Nav = () => {
                         <div className="lg:hidden">
                             <HamburgerDrawer showDrawer={() => setShowCategories(true)} />
 
-                            {(mounted && createPortal(
+                            {(mounted ? createPortal(
                                   <DrawerCategories 
                                         show={showCategories}
                                         close={() => setShowCategories(false)}
@@ -351,7 +356,7 @@ export const Nav = () => {
                                         width={width}
                                         />
 
-                                , refPortal.current)
+                                , refPortal.current) : null
                                 )}
 
                                 {/* // <Drawer
@@ -440,16 +445,15 @@ export const Nav = () => {
                                 </div>
 
                                 {/* Portals */}
-                                {item.subMenu && (mounted && createPortal(
+                                {item.subMenu && (mounted ? createPortal(
                                     <Drawer
                                         show={isModalShow && activeNav === i}
                                         close={() => setIsModalShow(false)}
                                         isActiveNum={activeNav}
                                         navItem={menuItems[activeNav]}
                                     />
-                                    , refPortal.current)
+                                    , refPortal.current) : null
                                 )}
-
 
                             </>
                         ))}
@@ -461,34 +465,7 @@ export const Nav = () => {
 
                 {/* ProductCategories */}
                 {/*Navbar Bottom min-screen 1028px */}
-                <div className="relative z-10 hidden w-full bg-gray-200 shadow-sm lg:block ">
-
-                    {/* Product Categories Container */}
-                    <div className="z-10 flex items-center justify-center w-full mx-auto max-w-[1024px] xl:max-w-screen-xl 2xl:max-w-[1444px] lg:w-[calc(100%+64px)]" >
-
-                        {/* Product Categories */}
-                        <nav className={`w-full ${!isScrollDown ? 'h-12 opacity-100' : 'h-0 opacity-0'} transition-all duration-300 `}>
-                            <ul className={`flex items-center justify-between text-[13px] leading-4 ${!isScrollDown ? 'opacity-100' : 'opacity-0'} transition-opacity duration-200 `}>
-
-                                {categorieItems.map((item, i) => (
-                                    <li key={'item' + i} className="z-30 flex-grow last:text-pink-800" >
-                                        <Link href='/' className='flex items-center h-12 px-1 w-min'>
-
-                                            <div className="hidden mr-2 text-xl 2xl:text-2xl xl:block">
-                                                <Icon icon={item.icon} />
-                                            </div>
-                                            <span>{item.name}</span>
-                                        </Link>
-
-
-                                        {/* Flying dropdown */}
-                                        {/* <section></section> */}
-                                    </li>
-                                ))}
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+                <CategoriesDesktop isScroll={isScrollDown} categorieItems={categorieItems} width={width} />
 
             </header>
 
