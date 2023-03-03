@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  
+  .searchBox {
+    @apply flex justify-between items-center h-[30px] lg:h-[40px] lg:border lg:border-[#ccc] rounded-[20px] lg:after:content-[] lg:after:rounded-[20px] lg:after:block lg:after:absolute lg:after:inset-0 lg:after:opacity-0 lg:after:transition-opacity lg:after:shadow-xCom lg:after:pointer-events-none
+  }
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;

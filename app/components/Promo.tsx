@@ -4,7 +4,7 @@ import React from 'react'
 
 const Promo = () => {
     return (
-        <section className='w-full p-4 pt-2 mb-4 bg-white border-b border-[#ebebeb] lg:border-none lg:p-0 lg:pr-8 lg:pb-8 lg:w-[31.666%] md:p-6 md:pt-0'>
+        <section className='w-full p-4 pt-2 mb-4 bg-white border-b border-[#ebebeb] md:p-6 md:pt-3 lg:border-none lg:p-0 lg:pr-8 lg:pb-8 lg:w-[31.666%] '>
 
             <div className='flex p-[2px] relative'>
                 {/* Content */}

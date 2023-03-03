@@ -27,6 +27,7 @@ import { DrawerCategories } from './CategoriesDrawer';
 import { HamburgerDrawer, HamburgerDropdown } from './Hamburgers';
 import { CategoriesDesktop, CategoriesDropdown } from './CategoriesDropdown';
 import Overlay from './Overlay';
+import { SearchBar } from './SearchBar';
 
 // sidebar Component
 
@@ -159,7 +160,42 @@ const categorieItems = [
     {
         name: 'Laptop i komputer',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
-        slug: 'products'
+        slug: 'products',
+        subMenu: [
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+        ]
     },
     {
         name: 'Smartfony i smartwatche',
@@ -345,6 +381,7 @@ export const Nav = () => {
                     {/* Hamburger bottom nav & Searchbar Box*/}
                     <div className="flex items-center flex-grow order-4 w-full pt-1 pb-2 pr-2 ml-[-16px] md:ml-[-24px] lg:w-1/5 lg:order-2 lg:ml-0 lg:pl-8 lg:pr-2 lg:h-full " >
                         {/* Hamburger */}
+                        
                         <div className="lg:hidden">
                             <HamburgerDrawer showDrawer={() => setShowCategories(true)} />
 
@@ -370,42 +407,8 @@ export const Nav = () => {
                         </div>
 
                         {/* Searchbar */}
-                        <div className="flex items-center w-full h-full lg:max-w-[480px] " >
-
-                            <div className="h-[32px] md:h-[40px] relative w-full">
-
-                                <div className='bg-white rounded-[20px] border border-[#ccc] lg:border-none'>
-                                    <div className='flex justify-between items-center h-[30px]'>
-                                        {/* Mobile Button Search*/}
-                                        <button className='flex items-center justify-center p-1 border-none md:pl-4 lg:hidden'>
-                                            <span className='flex items-center w-6 h-6 text-gray-500'>
-                                                <AiOutlineSearch className='w-6 h-6' />
-                                            </span>
-                                        </button>
-                                        {/* Input Mobile & Desktop */}
-                                        <div className='flex-1 pr-4 lg:p-0'>
-
-                                        </div>
-
-                                        {/* Button Zamknięcia Mobile */}
-                                        <button></button>
-
-                                        {/* Separator Desktop */}
-                                        <div></div>
-
-                                        {/* Categories Dekstop */}
-                                        <div></div>
-
-                                        {/* Dektop Button Search */}
-                                        <button></button>
-                                    </div>
-
-                                </div>
-
-                                {/* <button></button> */}
-                                {/* <div></div> */}
-                            </div>
-                        </div>
+                        <SearchBar categories={categorieItems.map(item => item.name)} />
+                        
                     </div>
 
                     {/* Navigation */}

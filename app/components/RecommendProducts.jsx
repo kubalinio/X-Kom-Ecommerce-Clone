@@ -6,6 +6,8 @@ import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { useEffect, useState } from 'react';
 
 import { IoMdHeartEmpty } from 'react-icons/io'
+import { MdOutlineAddShoppingCart } from 'react-icons/md';
+
 
 // const ProductEvent = () => ()
 
@@ -21,7 +23,7 @@ const item = {
 const ProductCard = () => {
 
     return (
-        <div className='relative rounded-lg lg:border lg:border-transparent'>
+        <div className='relative rounded-lg group lg:border lg:border-transparent lg:hover:shadow-xCom'>
 
             {/* Promotion or Recommend */}
             <div className='absolute left-0 w-full h-5 lg:top-3 lg:pl-3'>
@@ -33,7 +35,7 @@ const ProductCard = () => {
             <div className='pointer'>
                 <div>
                     {/* Image */}
-                    <div className='w-full h-[125px] mt-7'>
+                    <div className='w-full h-[125px] mt-7 lg:mt-8 lg:h-[130px]'>
                         <div className='w-full h-full mt-4'>
                             <Link href='/'>
                                 <div className='inline-flex items-center justify-center w-full h-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] max-h-[125px]'>
@@ -50,7 +52,7 @@ const ProductCard = () => {
                     </div>
 
                     {/* Title */}
-                    <div className='mr-2'>
+                    <div className='mr-2 md:mx-3'>
                         <Link href='/'>
                             <h3 className='w-full h-10 mt-2 break-words max-h-10'>
                                 Apple Beats Fit Pro Volt Yellow
@@ -59,7 +61,7 @@ const ProductCard = () => {
                     </div>
 
                     {/* Price */}
-                    <div className='flex items-end mt-1 h-9'>
+                    <div className='flex items-end mt-1 h-9 md:mx-3 lg:mt-1 lg:mb-2'>
                         <div>
                             <div className='inline-block text-left'>
                                 <span className='block whitespace-nowrap'>
@@ -72,7 +74,7 @@ const ProductCard = () => {
             </div>
 
             {/* Fav */}
-            <div className='absolute hidden top-1 right-1 lg:flex lg:top-3 lg:right-3'>
+            <div className='absolute hidden transition-all duration-300 top-1 right-1 lg:group-hover:block lg:top-3 lg:right-3'>
                 <div className='transition duration-300 lg:flex lg:w-8 lg:h-8 '>
                     <div className='inline-block pointer-events-auto z-[1]'>
                         {/* Fav Component to Add List Favorited products */}
@@ -88,8 +90,19 @@ const ProductCard = () => {
                 </div>
             </div>
 
-            {/* Hover */}
-            <div></div>
+            {/* Basket */}
+            {/* OnClick show Modal with choose product & info where is save to basket */}
+            <div className='hidden lg:group-hover:block absolute right-[10px] bottom-[10px] '>
+                <div>
+                    <div className='relative'>
+                        <button className='flex items-center justify-center w-9 h-9 rounded-full bg-white border border-[#119e00] text-[#119e00] hover:bg-[#109e00] hover:text-white focus:bg-[#1f8014] focus:text-white transition duration-300 '>
+                            <span className='w-5 h-5'>
+                                <MdOutlineAddShoppingCart className='w-full h-full' />
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
         </div>
     )
@@ -156,28 +169,28 @@ const RecommendProducts = () => {
                         {widthWindow < 1024 &&
                             <ScrollingCarousel className='[&>*]:px-4' >
                                 <div className='max-w-[150px] sm:max-w-[200px] md:max-w-[250px]'>
-                                    <Product />
+                                    <ProductCard />
                                 </div>
                                 <div className='max-w-[150px] sm:max-w-[200px] md:max-w-[250px]'>
-                                    <Product />
+                                    <ProductCard />
                                 </div>
                                 <div className='max-w-[150px] sm:max-w-[200px] md:max-w-[250px]'>
-                                    <Product />
+                                    <ProductCard />
                                 </div>
                                 <div className='max-w-[150px] sm:max-w-[200px] md:max-w-[250px]'>
-                                    <Product />
+                                    <ProductCard />
                                 </div>
                                 <div className='max-w-[150px] sm:max-w-[200px] md:max-w-[250px]'>
-                                    <Product />
+                                    <ProductCard />
                                 </div>
                                 <div className='max-w-[150px] sm:max-w-[200px] md:max-w-[250px]'>
-                                    <Product />
+                                    <ProductCard />
                                 </div>
                                 <div className='max-w-[150px] sm:max-w-[200px] md:max-w-[250px]'>
-                                    <Product />
+                                    <ProductCard />
                                 </div>
                                 <div className='max-w-[150px] sm:max-w-[200px] md:max-w-[250px]'>
-                                    <Product />
+                                    <ProductCard />
                                 </div>
 
                             </ScrollingCarousel>

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link"
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { SlArrowRight } from "react-icons/sl"
 
 const Icon = ({ icon }: { icon: ReactNode }) => <span>{icon}</span>;
@@ -22,6 +22,11 @@ type CategorieProps = {
     name: string
     icon: any
     slug: string
+    subMenu?: SubCategoryProps[]
+}
+
+type SubCategoryProps = {
+    name: string
 }
 
 const CategorieItem = ({ name, icon, slug }: CategorieProps) => (
@@ -67,6 +72,65 @@ export const CategoriesDropdown = ({ show, categorieItems }: CategoriesDropdownP
     );
 }
 
+const CategoryDropdown = ({ category }) => {
+    const [isShow, setIsShow] = useState(false)
+
+    const { name, icon, slug, subMenu } = category
+
+    const handleIsFocus = () => {
+        setIsShow(true)
+    }
+
+    return (
+        <li
+            onClick={() => handleIsFocus()}
+            key={'item'}
+            className={`${isShow ? 'nav-item-after bg-white z-[4] shadow-xCom rounded-t-lg ' : 'z-[3]'} flex-grow relative last:text-pink-800 last:flex-grow-0`} >
+
+
+            <Link href='/' className='flex items-center px-3 h-14 w-min'>
+
+                <div className="max-xl:hidden">
+                    <span className="inline-block w-6 h-6 mr-2 overflow-hidden">
+                        {icon}
+                    </span>
+                </div>
+
+                <span>{name}</span>
+            </Link>
+
+            {/* scaleY & visible do Animacji */}
+            <section className={`${isShow ? 'block' : 'hidden'} absolute pt-2 pb-6 bg-white rounded-lg rounded-tl-none shadow-xCom w-80`}>
+                <div>
+                    {/* Left Section */}
+                    <div>
+                        {/* Heading */}
+                        <div></div>
+
+                        {/* List Box */}
+                        <div>
+                            {/* UL LIST */}
+                            <ul>
+                                {/* SubMenu Items */}
+                                {subMenu?.map(category => (
+                                    <li>{category.name}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Right Section */}
+                    <div></div>
+                </div>
+            </section>
+
+            {/* After */}
+
+
+        </li>
+
+    )
+}
 
 export const CategoriesDesktop = ({ isScroll, categorieItems, width }: CategoriesDesktop) => {
 
@@ -84,25 +148,8 @@ export const CategoriesDesktop = ({ isScroll, categorieItems, width }: Categorie
 
 
                                 <ul className='flex justify-between'>
-                                    {categorieItems.map((item, i) => (
-                                        <li key={'item' + i} className="z-[3] flex-grow last:text-pink-800 last:flex-grow-0" >
-                                            <Link href='/' className='flex items-center px-3 h-14 w-min'>
-
-                                                <div className="max-xl:hidden">
-                                                    <span className="inline-block w-6 h-6 mr-2 overflow-hidden">
-                                                        {item.icon}
-                                                    </span>
-                                                </div>
-
-                                                <span>{item.name}</span>
-                                            </Link>
-
-                                            <section></section>
-
-                                            {/* After */}
-
-
-                                        </li>
+                                    {categorieItems.map((category, i) => (
+                                        <CategoryDropdown category={category} />
                                     ))}
                                 </ul>
                             </nav>
