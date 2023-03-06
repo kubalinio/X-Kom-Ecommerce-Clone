@@ -201,42 +201,50 @@ const categorieItems = [
     {
         name: 'Smartfony i smartwatche',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
-        slug: 'products'
+        slug: 'products',
+        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Gaming i streaming',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
-        slug: 'products'
+        slug: 'products',
+        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Podzespoły komputerowe',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
-        slug: 'products'
+        slug: 'products',
+        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Urządzenia peryferyjne',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
-        slug: 'products'
+        slug: 'products',
+        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'TV i audio',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
-        slug: 'products'
+        slug: 'products',
+        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Smarthome i lifestyle',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
-        slug: 'products'
+        slug: 'products',
+        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Akcesoria',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
-        slug:'products'
+        slug:'products',
+        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: <p className="whitespace-nowrap">Trendy, promocje i nowości</p>,
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
-        slug:'promocje'
+        slug:'promocje',
+        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
 ]
 
@@ -280,7 +288,7 @@ export const Nav = () => {
     }, [])
 
     useEffect(() => {
-        refPortal.current = document.querySelector<HTMLElement>('#react-portals')
+        refPortal.current = document.body.querySelector<HTMLElement>('#react-portals')
         setMounted(true)
 
         const listenerHeight = () => {
@@ -422,7 +430,7 @@ export const Nav = () => {
 
                                 {/* Nav Items */}
                                 <div 
-                                    key={item.name} 
+                                    key={item.name + Math.random()} 
                                     onMouseEnter={() => handleHoverNav(width, i)} 
                                     onMouseLeave={() => setIsHover(false)} 
                                     className={`relative flex h-12 md:h-16 z-10 ${i === 0 ? 'max-md:hidden' : ''} ${activeNav === i && isHover ? 'nav-item-after' : ''}`}>

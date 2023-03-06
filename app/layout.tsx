@@ -17,22 +17,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl" className={`${lato.variable}`}>
-
       <head />
-      <body className={` bg-white scroll-show`}>
+      <body className='bg-white scroll-show'>
         <QueryWrapper>
-
           <Nav />
           {/* Category Buttons ? (MAYBE) */}
           {children}
           {/* Footer */}
+          <div id='react-portals' ></div>
         </QueryWrapper>
-
-
-
-
       </body>
-      <div id='react-portals' ></div>
     </html>
   )
 }

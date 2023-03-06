@@ -6,6 +6,7 @@ import { SlArrowRight } from "react-icons/sl"
 
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 
 export const SectionOverlay = ({ children, heading, slugToAll }) => {
@@ -40,6 +41,17 @@ export const SectionOverlay = ({ children, heading, slugToAll }) => {
 
                         {/* Slider  */}
                         <Splide
+                            // renderControls={() => (
+                            //     <div className="splide__arrows">
+                            //         <div className="" role="button">
+                            //             <span>prev</span>
+                            //         </div>
+                            //         <div className="" role="button">
+                            //             <span>next</span>
+                            //         </div>
+                            //     </div>
+                            // )}
+
                             hasTrack={false}
                             options={{
                                 rewind: true,
@@ -47,10 +59,9 @@ export const SectionOverlay = ({ children, heading, slugToAll }) => {
                                 padding: '12px',
                                 gap: '12px',
                                 drag: 'free',
-                                arrows: false,
-                                autoWidth: true,
 
-                                height: '310px',
+                                autoWidth: true,
+                                // height: '310px',
                                 focus: 'center',
                                 mediaQuery: 'min',
 
@@ -69,6 +80,7 @@ export const SectionOverlay = ({ children, heading, slugToAll }) => {
                                         gap: '20px',
                                         padding: '16px',
                                         autoWidth: false,
+
                                     }
                                 }
 
@@ -84,9 +96,26 @@ export const SectionOverlay = ({ children, heading, slugToAll }) => {
 
                             </SplideTrack>
 
-                            <div className="splide__arrows">
-                                <button className="splide__arrow splide__arrow--prev">Prev</button>
-                                <button className="splide__arrow splide__arrow--next">Next</button>
+                            <div className="hidden lg:block absolute w-full top-[42%] splide__arrows">
+                                {/* <button className="left-0 splide__arrow splide__arrow--prev">Prev</button> */}
+
+                                <div
+                                    className='absolute hidden lg:flex bg-white rounded-full -left-2 xl:-left-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer z-10 transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700 '
+                                >
+                                    <button className="p-1 text-4xl text-gray-600 splide__arrow splide__arrow--prev"><MdKeyboardArrowLeft /></button>
+                                    {/* <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowLeft /></span> */}
+                                </div>
+
+
+                                <div
+                                    className='absolute hidden lg:flex bg-white rounded-full -right-2 xl:-right-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700'
+                                >
+                                    {/* <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowRight /></span> */}
+                                    <button className="p-1 text-4xl text-gray-600 splide__arrow splide__arrow--next"><MdKeyboardArrowRight /></button>
+
+                                </div>
+
+
                             </div>
 
                         </Splide>

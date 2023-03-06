@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+
 import { RxHamburgerMenu } from 'react-icons/rx'
 
 export const HamburgerDrawer = ({ showDrawer }: { showDrawer: () => void }) => (

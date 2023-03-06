@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { SectionOverlay } from "./SectionOverlay"
+import { SectionOverlay } from "./components/SectionOverlay"
 
 
 
@@ -68,8 +68,7 @@ const CardNews = ({ heading, image, slug, title }) => {
                 <Link href={`/${slug}`}>
                     <div className='flex items-center justify-center mt-[2px] rounded-lg shadow-xCom overflow-hidden'>
 
-
-                        <span className='inline-flex items-center justify-center w-full h-[179px] lg:h-[174px] overflow-hidden min-h-full py-3'>
+                        <span className='inline-flex items-center justify-center w-full h-[179px] lg:h-[174px] xl:h-[196px] 2xl:h-[218px] overflow-hidden min-h-full py-3'>
                             <Image
                                 src={`${image}`}
                                 width={253}
@@ -96,6 +95,23 @@ const CardNews = ({ heading, image, slug, title }) => {
 
                 <div className='my-1 text-[#4d4d4d] whitespace-nowrap line-clamp-1 text-ellipsis'>
                     {title}
+                </div>
+
+                <div className="flex justify-start items-center text-sm text-[#707070]">
+                    <time
+                        title="15-02-2023 | 13:39"
+                        dateTime="2023-02-15T12:39:00Z"
+                        className=""
+                    >
+                        {/* Timestamp */}
+                        2 tygodnie temu
+                    </time>
+                    <div className="bg-[#707070] rounded-sm w-1 h-1 mx-2" />
+                    <div>
+                        <Link href={`/aktualności`}>
+                            {`2 komentarze`}
+                        </Link>
+                    </div>
                 </div>
 
             </div>

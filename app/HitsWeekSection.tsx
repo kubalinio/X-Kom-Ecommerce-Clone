@@ -5,10 +5,10 @@ import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
 import { useQuery } from "react-query"
-import { SectionOverlay } from "./SectionOverlay"
+import { SectionOverlay } from "./components/SectionOverlay"
 
 
-const fetchProducts = async () => {
+const fetchPromotions = async () => {
     const response = await axios.get(`/api/getPromotions`)
     return response.data
 };
@@ -53,16 +53,15 @@ const Card = ({ heading, image, slug, title }) => {
         </div >)
 }
 
-
-export const PromotionSection = () => {
+export const HitsWeekSection = () => {
     const { data, isLoading } = useQuery({
-        queryFn: () => fetchProducts(),
+        queryFn: () => fetchPromotions(),
         queryKey: ['promotions']
     })
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <SectionOverlay heading={'Promocje'} slugToAll={'promocje'} >
+        <SectionOverlay heading={'Hity tygodnia'} slugToAll={'promocje'} >
 
             {data.promotions.map(promo => (
                 <Card key={promo.slug} heading={promo.title} image={promo.image} slug={'promocje'} title={promo.slogan} />
