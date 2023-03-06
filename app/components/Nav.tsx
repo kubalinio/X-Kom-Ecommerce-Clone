@@ -161,6 +161,7 @@ const categorieItems = [
         name: 'Laptop i komputer',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
         slug: 'products',
+        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
         subMenu: [
             {
                 name: 'Polecany produkt'

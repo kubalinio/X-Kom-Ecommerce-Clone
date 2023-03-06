@@ -1,5 +1,7 @@
+// import News from "./components/News";
+import { NewsSection } from "./components/NewsSection";
 import Promo from "./components/Promo";
-import Promotions from "./components/Promotions";
+import { PromotionSection } from "./components/PromotionSection";
 import RecommendProducts from "./components/RecommendProducts";
 import SliderBox from "./components/Slider";
 
@@ -17,7 +19,10 @@ export default function Home() {
         {/* Recommend Products */}
         <RecommendProducts />
         {/* Promotions Section */}
-        <Promotions />
+        <PromotionSection />
+        {/* New Card Article */}
+        <NewsSection />
+        {/* <News /> */}
       </div>
       {/*  */}
     </main>
