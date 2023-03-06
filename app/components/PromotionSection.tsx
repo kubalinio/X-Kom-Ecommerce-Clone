@@ -1,64 +1,17 @@
 'use client'
 
+import { urlFor } from "@/lib/sanity.client"
+import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
+import { useQuery } from "react-query"
 import { SectionOverlay } from "./SectionOverlay"
 
 
-
-const promotionData = {
-    heading: 'Promocje',
-    slug: 'promocje',
-    promotions: [
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        }]
-}
+const fetchProducts = async () => {
+    const response = await axios.get(`/api/getPromotions`)
+    return response.data
+};
 
 const Card = ({ heading, image, slug, title }) => {
 
@@ -69,7 +22,7 @@ const Card = ({ heading, image, slug, title }) => {
                     <div className='flex items-center justify-center mt-[2px] rounded-lg shadow-xCom overflow-hidden'>
                         <span className='inline-flex items-center justify-center w-[284px] h-[212px] overflow-hidden min-h-full py-3'>
                             <Image
-                                src={`${image}`}
+                                src={`${urlFor(image).url()}`}
                                 width={253}
                                 height={212}
                                 alt={`${heading}`}
@@ -102,14 +55,17 @@ const Card = ({ heading, image, slug, title }) => {
 
 
 export const PromotionSection = () => {
-
-    const { promotions } = promotionData
+    const { data, isLoading } = useQuery({
+        queryFn: () => fetchProducts(),
+        queryKey: ['promotions']
+    })
+    if (isLoading) return <div>Loading...</div>
 
     return (
-        <SectionOverlay heading={promotionData.heading} slugToAll={promotionData.slug} >
+        <SectionOverlay heading={'Promocje'} slugToAll={'promocje'} >
 
-            {promotions.map(promo => (
-                <Card key={promo.slug} heading={promo.heading} image={promo.image} slug={promo.slug} title={promo.title} />
+            {data.promotions.map(promo => (
+                <Card key={promo.slug} heading={promo.title} image={promo.image} slug={'promocje'} title={promo.slogan} />
             ))}
 
         </SectionOverlay>

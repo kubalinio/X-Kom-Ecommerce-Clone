@@ -1,6 +1,8 @@
 import './globals.css'
 import { Lato } from '@next/font/google'
 import { Nav } from './components/Nav'
+import QueryWrapper from './auth/QueryWrapper'
+
 
 const lato = Lato({
   subsets: ['latin'],
@@ -18,11 +20,16 @@ export default function RootLayout({
 
       <head />
       <body className={` bg-white scroll-show`}>
+        <QueryWrapper>
 
-        <Nav />
-        {/* Category Buttons ? (MAYBE) */}
-        {children}
-        {/* Footer */}
+          <Nav />
+          {/* Category Buttons ? (MAYBE) */}
+          {children}
+          {/* Footer */}
+        </QueryWrapper>
+
+
+
 
       </body>
       <div id='react-portals' ></div>
