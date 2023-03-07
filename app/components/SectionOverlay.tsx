@@ -9,7 +9,7 @@ import '@splidejs/react-splide/css/core';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 
-export const SectionOverlay = ({ children, heading, slugToAll }) => {
+export const SectionOverlay = ({ children, heading, slugToAll, howSlides, centerArrow }) => {
 
 
     return (
@@ -25,14 +25,14 @@ export const SectionOverlay = ({ children, heading, slugToAll }) => {
                         </h2>
                     </div>
                     {/* Show All */}
-                    <div className='max-md:hidden'>
+                    {slugToAll && <div className='max-md:hidden'>
                         <Link href={`/${slugToAll}`} className='flex items-center justify-center rounded-full pr-3 pl-4 min-h-[36px] text-[#4d4d4d] bg-white hover:bg-[#f5f5f5] mt-4 lg:mt-3 lg:-mr-5'>
                             Pokaż wszystkie
                             <span className='inline-block w-4 h-4 ml-1'>
                                 <SlArrowRight className='w-full h-full' />
                             </span>
                         </Link>
-                    </div>
+                    </div>}
                 </div>
 
                 {/* Slider */}
@@ -59,7 +59,6 @@ export const SectionOverlay = ({ children, heading, slugToAll }) => {
                                 padding: '12px',
                                 gap: '12px',
                                 drag: 'free',
-
                                 autoWidth: true,
                                 // height: '310px',
                                 focus: 'center',
@@ -72,15 +71,14 @@ export const SectionOverlay = ({ children, heading, slugToAll }) => {
 
                                     1024: {
                                         rewind: true,
-                                        perPage: 4,
-                                        perMove: 4,
+                                        perPage: howSlides,
+                                        perMove: howSlides,
                                         focus: 1,
                                         perDrag: 1,
                                         drag: true,
                                         gap: '20px',
-                                        padding: '16px',
+                                        // padding: '16px',
                                         autoWidth: false,
-
                                     }
                                 }
 
@@ -96,7 +94,7 @@ export const SectionOverlay = ({ children, heading, slugToAll }) => {
 
                             </SplideTrack>
 
-                            <div className="hidden lg:block absolute w-full top-[42%] splide__arrows">
+                            <div className={`${!centerArrow ? 'top-[42%]' : 'top-[55%]'} hidden lg:block absolute w-full splide__arrows`}>
                                 {/* <button className="left-0 splide__arrow splide__arrow--prev">Prev</button> */}
 
                                 <div

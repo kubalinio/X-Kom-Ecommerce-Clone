@@ -2,7 +2,6 @@
 
 
 import { ScrollingCarousel } from '@trendyol-js/react-carousel';
-import { useState } from 'react';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import axios from "axios"
 import { useQuery } from "react-query"
@@ -25,25 +24,9 @@ const fetchProducts = async () => {
 };
 
 
-
-
-
 const RecommendProducts = () => {
     // Check width
     const { width } = useWindowDimensions()
-    const [widthWindow, setWidthWindow] = useState(width)
-
-    // useEffect(() => {
-    //     function handleWindowResize() {
-    //         setWidthWindow(window.innerWidth);
-    //     }
-    //     window.addEventListener('resize', handleWindowResize);
-
-    //     return () => {
-    //         window.removeEventListener('resize', handleWindowResize);
-    //     };
-    // }, []);
-
 
     const { data, isLoading } = useQuery({
         queryFn: () => fetchProducts(),
@@ -69,7 +52,13 @@ const RecommendProducts = () => {
 
                         {data.products.map(product => (
                             <div key={product._id} className='w-1/4 px-2 mb-[22px]'>
-                                <ProductCard slug={product.slug.current} special={product.special} mainImage={product.mainImage} title={product.title} price={product.price} />
+                                <ProductCard
+                                    slug={product.slug.current}
+                                    special={product.special}
+                                    mainImage={product.mainImage}
+                                    title={product.title}
+                                    price={product.price}
+                                />
                             </div>
                         ))}
 

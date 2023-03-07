@@ -12,7 +12,7 @@ const fetchProducts = async () => {
 };
 
 
-export const HitsWeekSection = () => {
+export const BestsellerSection = () => {
 
     const { data, isLoading } = useQuery({
         queryFn: () => fetchProducts(),

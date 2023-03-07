@@ -2,6 +2,7 @@ import './globals.css'
 import { Lato } from '@next/font/google'
 import { Nav } from './components/Nav'
 import QueryWrapper from './auth/QueryWrapper'
+import Footer from './components/Footer'
 
 
 const lato = Lato({
@@ -18,12 +19,12 @@ export default function RootLayout({
   return (
     <html lang="pl" className={`${lato.variable}`}>
       <head />
-      <body className='bg-white scroll-show'>
+      <body className='bg-white'>
         <QueryWrapper>
           <Nav />
           {/* Category Buttons ? (MAYBE) */}
           {children}
-          {/* Footer */}
+          <Footer />
           <div id='react-portals' ></div>
         </QueryWrapper>
       </body>

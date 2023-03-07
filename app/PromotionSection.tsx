@@ -62,7 +62,7 @@ export const PromotionSection = () => {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <SectionOverlay heading={'Promocje'} slugToAll={'promocje'} >
+        <SectionOverlay heading={'Promocje'} slugToAll={'promocje'} howSlides={4} centerArrow={false} >
 
             {data.promotions.map(promo => (
                 <Card key={promo.slug} heading={promo.title} image={promo.image} slug={'promocje'} title={promo.slogan} />
