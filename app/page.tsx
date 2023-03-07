@@ -12,7 +12,7 @@ import { BrandSection } from "./BrandSection";
 
 export default function Home() {
   return (
-    <main className="w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-full mx-auto lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px] ">
+    <main className="max-w-full w-[calc(100%-32px)] mx-auto md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]">
       {/* Container */}
       <div className="flex flex-wrap bg-[#f9f9f9]">
         {/* ??? Element */}
