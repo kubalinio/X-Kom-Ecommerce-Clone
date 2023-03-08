@@ -1,8 +1,141 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import { BsEnvelopeFill } from 'react-icons/bs'
+import { FaPhoneAlt } from 'react-icons/fa'
+import { MdOutlineFacebook, MdOutlineKeyboardArrowDown } from 'react-icons/md'
+import { ImLocation } from 'react-icons/im'
 
-type Props = {}
+const footerItems = [
+    {
+        title: 'Zamówienia',
+        links: [
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+        ]
+    },
+    {
+        title: 'Zamówienia',
+        links: [
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+        ]
+    },
+    {
+        title: 'Zamówienia',
+        links: [
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+            {
+                name: 'Dostawy',
+                slug: '/'
+            },
+        ]
+    },
+
+]
+
+
 
 // Validation for Form to do
 const Newsletter = () => (
@@ -167,6 +300,52 @@ const MobileAppBox = () => (
     </div>
 )
 
+
+const ExpandMobile = ({ items }) => {
+    const [isShow, setIsShow] = useState(false)
+    const [expandIndex, setExpandIndex] = useState(0)
+
+    const handleShowAcc = (index: number) => {
+        if (isShow === true && expandIndex === index) {
+            setIsShow(false)
+            setExpandIndex(0)
+        } else {
+            setIsShow(true)
+            setExpandIndex(index)
+        }
+    }
+
+    return (
+        // {/* Mobile Accordion */ }
+        <div className='flex flex-col border-b border-[#ddd] w-full md:hidden'>
+
+            {items.map(((item, index) => (
+                <>
+                    <div onClick={() => handleShowAcc(index)} className='flex justify-between items-center cursor-pointer border-t border-[#ddd] w-full h-16'>
+                        <h3 className='pr-2 text-lg font-bold'>{item.title}</h3>
+                        <span className={`${expandIndex === index && isShow ? '-rotate-180' : 'rotate-0'} inline-block w-8 h-8 mr-2 transition-transform duration-300 `}>
+                            <MdOutlineKeyboardArrowDown className='w-full h-full' />
+                        </span>
+                    </div>
+
+                    <div className={`${expandIndex === index && isShow ? 'block max-h-[400px]' : 'hidden max-h-0'} overflow-hidden transition-all duration-500`}>
+                        <div className='flex flex-col text-base last:mb-4'>
+                            {item.links.map(link => (
+                                <Link href={`/`} className='px-4 py-3 leading-6 hover:underline underline-offset-2 '>{link.name}</Link>
+
+                            ))}
+
+                        </div>
+                    </div>
+
+                </>
+            )))}
+
+        </div >
+    )
+
+}
+
 const SaleMasterBox = () => (
     <Link href={`/`} className='flex flex-col justify-center group items-center w-full pt-5 pb-6 rounded-2xl bg-[#f9f9f9] shadow-sm-xCom transition-shadow duration-300 hover:shadow-xCom md:p-0 md:flex-row md:justify-between lg:py-4 lg:px-10 lg:mt-4'>
 
@@ -209,6 +388,7 @@ const Footer = (props: Props) => {
         <footer>
             {/* Foot Layout page */}
             <div className='max-w-full w-[calc(100%-32px)] mx-auto md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]'>
+
                 {/* Top Section Newsletter , Appmobile && Partner program */}
                 <div className='flex flex-col mb-10 lg:flex-row lg:flex-wrap'>
                     {/* NewsLetter */}
@@ -220,11 +400,102 @@ const Footer = (props: Props) => {
                 </div>
 
                 {/* Bottom Section Orders, Promotion, x-kom, Contact */}
-                <div></div>
+                <div>
+                    {/* Orders... */}
+                    <div className='flex flex-col-reverse justify-between pb-[52px] md:flex-row' >
+                        {/* Orders ... */}
+                        <ExpandMobile items={footerItems} />
+
+
+                        {/* Desktop/Tablet */}
+                        <div></div>
+
+
+                        {/* Contact */}
+                        <div className='md:flex-1'>
+                            {/* Address */}
+                            <div>
+                                <p title='Kontakt' className='mb-5 text-lg font-bold'>Kontakt</p>
+                                <address className='flex flex-col text-[#4d4d4d] font-lato'>
+                                    <Link href='tel:333222111' className='inline-flex items-center text-2xl hover:underline'>
+                                        <span className='inline-block w-6 h-6 mx-2 '>
+                                            <FaPhoneAlt className='w-full h-full ' />
+                                        </span>
+                                        333222111
+                                    </Link>
+                                    <div className='flex mt-1 mb-2 ml-10 text-[#707070] '>
+                                        <div className='flex flex-col first:mb-1'>
+                                            <span className='mr-2 whitespace-nowrap'>pon. - pt.</span>
+                                            <span className='mr-2 whitespace-nowrap'>sob. - niedz.</span>
+                                        </div>
+
+
+                                        <div className='flex flex-col first:mb-1'>
+                                            <span className='whitespace-nowrap'>8:00 - 21:00</span>
+                                            <span className='whitespace-nowrap'>8:00 - 19:00</span>
+                                        </div>
+
+
+
+
+
+                                    </div>
+
+
+                                    <Link href='mailto:jsapalawebdev@gmail.com' className='inline-flex items-center py-2 text-[#4d4d4d] hover:underline'>
+                                        <span className='inline-block w-6 h-6 mx-2 '>
+                                            <BsEnvelopeFill className='w-full h-full' />
+                                        </span>
+                                        x-kom@x-kom.pl
+                                    </Link>
+
+                                    <Link href={`/kontakt`} className='inline-flex items-center py-2 text-[#4d4d4d] hover:underline'>
+                                        <span className='inline-block w-6 h-6 mx-2 '>
+                                            <ImLocation className='w-full h-full' />
+                                        </span>
+                                        Salony x-kom
+                                    </Link>
+                                </address>
+                            </div>
+
+                            {/* Socials */}
+                            <div className='flex flex-wrap pt-4 pb-6 -mx-2'>
+                                <Link href={`/`}>
+                                    <span title='facebook' className='flex items-center justify-center w-12 h-12'>
+                                        <MdOutlineFacebook className='w-6 h-6' />
+                                    </span>
+                                </Link>
+                                <Link href={`/`}>
+                                    <span title='facebook' className='flex items-center justify-center w-12 h-12'>
+                                        <MdOutlineFacebook className='w-6 h-6' />
+                                    </span>
+                                </Link>
+                                <Link href={`/`}>
+                                    <span title='facebook' className='flex items-center justify-center w-12 h-12'>
+                                        <MdOutlineFacebook className='w-6 h-6' />
+                                    </span>
+                                </Link>
+                                <Link href={`/`}>
+                                    <span title='facebook' className='flex items-center justify-center w-12 h-12'>
+                                        <MdOutlineFacebook className='w-6 h-6' />
+                                    </span>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    {/* Companies.. */}
+                    <div>
+
+
+                    </div>
+                </div>
 
 
             </div>
-        </footer>
+        </footer >
     )
 }
 

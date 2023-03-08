@@ -41,17 +41,6 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
 
                         {/* Slider  */}
                         <Splide
-                            // renderControls={() => (
-                            //     <div className="splide__arrows">
-                            //         <div className="" role="button">
-                            //             <span>prev</span>
-                            //         </div>
-                            //         <div className="" role="button">
-                            //             <span>next</span>
-                            //         </div>
-                            //     </div>
-                            // )}
-
                             hasTrack={false}
                             options={{
                                 rewind: true,
@@ -70,7 +59,7 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
                                     },
 
                                     1024: {
-                                        rewind: true,
+                                        rewind: false,
                                         perPage: howSlides,
                                         perMove: howSlides,
                                         focus: 1,
@@ -100,7 +89,7 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
                                 <div
                                     className='absolute hidden lg:flex bg-white rounded-full -left-2 xl:-left-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer z-10 transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700 '
                                 >
-                                    <button className="p-1 text-4xl text-gray-600 splide__arrow splide__arrow--prev"><MdKeyboardArrowLeft /></button>
+                                    <button className="p-1 text-4xl text-gray-600 splide__arrow splide__arrow--prev disabled:hidden"><MdKeyboardArrowLeft /></button>
                                     {/* <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowLeft /></span> */}
                                 </div>
 
@@ -109,7 +98,7 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
                                     className='absolute hidden lg:flex bg-white rounded-full -right-2 xl:-right-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700'
                                 >
                                     {/* <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowRight /></span> */}
-                                    <button className="p-1 text-4xl text-gray-600 splide__arrow splide__arrow--next"><MdKeyboardArrowRight /></button>
+                                    <button className="p-1 text-4xl text-gray-600 splide__arrow splide__arrow--next disabled:hidden"><MdKeyboardArrowRight /></button>
 
                                 </div>
 

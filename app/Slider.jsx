@@ -47,7 +47,7 @@ function SampleNextArrow(props) {
     const { onClick } = props;
     return (
         <div
-            className='absolute hidden lg:flex bg-white rounded-full right-1 xl:-right-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700'
+            className='absolute hidden lg:flex bg-white rounded-full right-1 xl:-right-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700 2xl:bottom-[35%]'
             onClick={onClick}>
             <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowRight /></span>
         </div>
@@ -58,7 +58,7 @@ function SamplePrevArrow(props) {
     const { onClick } = props;
     return (
         <div
-            className='absolute hidden lg:flex bg-white rounded-full left-1 xl:-left-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer z-10 transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700 '
+            className='absolute hidden lg:flex bg-white rounded-full left-1 xl:-left-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer z-10 transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700 2xl:bottom-[35%]'
             onClick={onClick}>
             <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowLeft /></span>
         </div>
@@ -129,7 +129,7 @@ const settings = {
 
 const SliderBox = () => {
     return (
-        <section className="w-full bg-white lg:pb-5">
+        <section className="w-full bg-white lg:py-5 xl:pt-1 2xl:pb-20">
             <Slider {...settings} >
 
                 {slides.map((slide, i) => (

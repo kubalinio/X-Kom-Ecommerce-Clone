@@ -341,7 +341,7 @@ export const Nav = () => {
 
     return (
 
-        <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] lg:mb-10`}>
+        <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] mb-5 lg:mb-10`}>
 
             <header ref={headerRef} className={`${isScrollDown ? 'lg:[56px]' : 'lg:h-[72px]'} relative bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed transition-all duration-300`}>
 

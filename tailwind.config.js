@@ -17,6 +17,9 @@ module.exports = {
     },
 
     screens: {
+      'xsm': '460px',
+      // => @media (min-width: 460px) { ... }
+
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -31,6 +34,10 @@ module.exports = {
 
       '2xl': '1600px',
       // => @media (min-width: 1536px) { ... }
+    },
+
+    fontFamily: {
+      lato: ['var(--font-lato)']
     }
   },
   plugins: [

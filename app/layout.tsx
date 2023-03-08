@@ -17,9 +17,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pl" className={`${lato.variable}`}>
+    <html lang="pl">
       <head />
-      <body className='bg-white'>
+      <body className={`bg-white ${lato.variable} font-lato`}>
         <QueryWrapper>
           <Nav />
           {/* Category Buttons ? (MAYBE) */}
