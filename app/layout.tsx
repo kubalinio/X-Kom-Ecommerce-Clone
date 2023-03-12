@@ -1,8 +1,8 @@
 import './globals.css'
 import { Lato } from '@next/font/google'
-import { Nav } from './components/Nav'
-import QueryWrapper from './auth/QueryWrapper'
+import { Header } from './components/Header/Header'
 import Footer from './components/Footer'
+import QueryWrapper from './auth/QueryWrapper'
 
 
 const lato = Lato({
@@ -21,7 +21,7 @@ export default function RootLayout({
       <head />
       <body className={`bg-white ${lato.variable} font-lato`}>
         <QueryWrapper>
-          <Nav />
+          <Header />
           {/* Category Buttons ? (MAYBE) */}
           {children}
           <Footer />

@@ -87,18 +87,20 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
                                 {/* <button className="left-0 splide__arrow splide__arrow--prev">Prev</button> */}
 
                                 <div
-                                    className='absolute hidden lg:flex bg-white rounded-full -left-2 xl:-left-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer z-10 transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700 '
+                                    className='absolute hidden lg:flex bg-white rounded-full -left-2 xl:-left-3 bottom-[42%] shadow-sm-xCom  cursor-pointer z-10 transition-all duration-200 hover:bg-gray-100 hover:shadow-xCom '
                                 >
-                                    <button className="p-1 text-4xl text-gray-600 splide__arrow splide__arrow--prev disabled:hidden"><MdKeyboardArrowLeft /></button>
+                                    <button className="p-1 text-4xl text-gray-500 transition duration-300 splide__arrow splide__arrow--prev disabled:hidden">
+                                        <MdKeyboardArrowLeft />
+                                    </button>
                                     {/* <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowLeft /></span> */}
                                 </div>
 
 
                                 <div
-                                    className='absolute hidden lg:flex bg-white rounded-full -right-2 xl:-right-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700'
+                                    className='absolute hidden lg:flex bg-white rounded-full -right-2 xl:-right-3 bottom-[42%] shadow-sm-xCom  cursor-pointer transition-all duration-200 hover:bg-gray-100 hover:shadow-xCom '
                                 >
                                     {/* <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowRight /></span> */}
-                                    <button className="p-1 text-4xl text-gray-600 splide__arrow splide__arrow--next disabled:hidden"><MdKeyboardArrowRight /></button>
+                                    <button className="p-1 text-4xl text-gray-500 splide__arrow splide__arrow--next disabled:hidden"><MdKeyboardArrowRight /></button>
 
                                 </div>
 

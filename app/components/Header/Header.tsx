@@ -3,17 +3,18 @@
 import {  ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 import { createPortal } from 'react-dom';
 
-import { BiHelpCircle, BiMessageDots } from 'react-icons/bi'
+import {  BiMessageDots } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { SlBasket } from 'react-icons/sl'
 import { HiOutlineDesktopComputer, HiOutlineClipboardList } from 'react-icons/hi'
 import { HiOutlineBuildingStorefront } from 'react-icons/hi2'
 
-import { AiOutlineSearch, AiOutlineUser, AiOutlineHeart, AiOutlineSetting } from 'react-icons/ai'
+import { AiOutlineUser, AiOutlineHeart, AiOutlineSetting } from 'react-icons/ai'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
 import { GoMail } from 'react-icons/go'
 import { BsTelephone, BsCreditCard2Front } from 'react-icons/bs'
@@ -21,12 +22,11 @@ import { BsTelephone, BsCreditCard2Front } from 'react-icons/bs'
 import Image from 'next/image';
 
 import { Drawer } from './DrawerModal';
-import useWindowDimensions from '@/hooks/useWindowDimensions';
 import { NavDropdown } from './NavDropdown';
 import { DrawerCategories } from './CategoriesDrawer';
 import { HamburgerDrawer, HamburgerDropdown } from './Hamburgers';
 import { CategoriesDesktop, CategoriesDropdown } from './CategoriesDropdown';
-import Overlay from './Overlay';
+import Overlay from '../Overlay';
 import { SearchBar } from './SearchBar';
 
 // sidebar Component
@@ -260,7 +260,7 @@ interface PortalProps {
     children: ReactNode
 }
 
-export const Nav = () => {
+export const Header = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
     const [headerHeight, setHeaderHeight] = useState(98)
     const headerRef = useRef<any>(null)
@@ -326,7 +326,6 @@ export const Nav = () => {
         }
     }
 
-
     const handleHoverNav = (width: number | undefined, num: number) => {
         if (width! < 1027) {
             return
@@ -343,7 +342,7 @@ export const Nav = () => {
 
         <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] mb-5 lg:mb-10`}>
 
-            <header ref={headerRef} className={`${isScrollDown ? 'lg:[56px]' : 'lg:h-[72px]'} relative bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed transition-all duration-300`}>
+            <header ref={headerRef} className={`${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} relative bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
 
                 {/* Navbar Top */}
                 <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1156px] lg:w-[calc(100%-64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
@@ -371,12 +370,14 @@ export const Nav = () => {
                                     : '' }
                         </div>
                         
-                        {/* Logo */}
-                        <Link href='/' className={`flex items-center overflow-hidden `} >
+                        {/* Logo Mobile/Desktop*/}
+                        {/* Animacja Linku  */}
+                        <Link href='/' className={`${!isScrollDown ? 'lg:animate-logoShow' : 'lg:animate-logoHide' } flex items-center overflow-hidden `} >
                             {/* Logo Big Screen */}
-                            <span className={`${!isScrollDown ? 'h-12' : 'h-8 w-52' } hidden lg:inline-flex transition-all duration-500`} >
+                            <span className={`hidden lg:flex h-10 items-center justify-center transition-all duration-500`} >
                                 <Image src='https://assets.x-kom.pl/public-spa/xkom/7cbf82dd32ab7e88.svg' alt='x-kom sklep komputerowy' width={225} height={40} />
                             </span>
+
                             {/* Logo Mobile */}
                             <span className={`relative inline-flex items-center justify-start h-8 lg:hidden`} >
                                 <Image src='https://assets.x-kom.pl/public-spa/xkom/064948e3bac8c6d5.svg' alt='x-kom sklep komputerowy' width={102} height={30} className='relative inline-block w-auto h-full max-w-full max-h-full' />
@@ -474,6 +475,10 @@ export const Nav = () => {
                     </div>
 
                 </div>
+
+
+
+
 
                 {/* ProductCategories */}
                 {/*Navbar Bottom min-screen 1028px */}

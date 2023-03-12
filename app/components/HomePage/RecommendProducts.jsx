@@ -5,7 +5,8 @@ import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import axios from "axios"
 import { useQuery } from "react-query"
-import { ProductCard } from './components/ProductCard';
+import { ProductCard } from '../ProductCard';
+import LoadingSpinner from '../LoadingSpinner';
 
 // const item = {
 //     title: 'Apple Beats Fit Pro Volt Yellow',
@@ -14,9 +15,6 @@ import { ProductCard } from './components/ProductCard';
 //     price: '1200,00',
 //     special: 'Promocja'
 // }
-
-
-
 
 const fetchProducts = async () => {
     const response = await axios.get(`/api/getProducts`)
@@ -33,12 +31,15 @@ const RecommendProducts = () => {
         queryKey: ['products']
     })
 
-    if (isLoading) return <div>Loading...</div>
+    if (isLoading) return (
+        <section className='flex items-center justify-center w-full mb-4 lg:w-[68.333%] bg-white lg:pb-7 lg:mb-0'>
+            <LoadingSpinner />
+        </section>)
 
     return (
         <section className='w-full mb-4 lg:w-[68.333%] bg-white lg:pb-7 lg:mb-0'>
 
-            <div className='flex flex-col  border-y border-[#ebebeb] lg:border-b-0 lg:border-[#ddd] lg:pt-2'>
+            <div className='flex flex-col border-y border-[#ebebeb] lg:border-b-0 lg:border-[#ddd] lg:pt-2'>
 
                 <div className='flex justify-between w-full pl-4 pr-2'>
                     <div className='flex flex-col'>
@@ -69,7 +70,7 @@ const RecommendProducts = () => {
                         {width < 1024 &&
                             <ScrollingCarousel className='[&>*]:px-4'>
                                 {data.products.map(product => (
-                                    <div key={product._id} className='max-w-[150px] sm:max-w-[200px] md:max-w-[250px]'>
+                                    <div key={product._id} className='max-w-[150px] p-2 min-w-[150px] sm:min-w-[180px] sm:max-w-[180px] md:max-w-[220px] md:min-w-[220px]'>
                                         <ProductCard slug={product.slug.current} special={product.special} mainImage={product.mainImage} title={product.title} price={product.price} />
                                     </div>
                                 ))}

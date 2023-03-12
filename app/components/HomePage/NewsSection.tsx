@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { SectionOverlay } from "./components/SectionOverlay"
+import { SectionOverlay } from "../SectionOverlay"
 
 
 
@@ -119,12 +119,12 @@ const CardNews = ({ heading, image, slug, title }) => {
 }
 
 
-export const GuidesSection = () => {
+export const NewsSection = () => {
 
     const { news } = NewsData
 
     return (
-        <SectionOverlay heading={'Poradniki'} slugToAll={'poradniki'} howSlides={4} centerArrow={false} >
+        <SectionOverlay heading={NewsData.heading} slugToAll={NewsData.slug} howSlides={4} centerArrow={false}>
 
             {news.map(promo => (
                 <CardNews key={promo.slug} heading={promo.heading} image={promo.image} slug={promo.slug} title={promo.title} />

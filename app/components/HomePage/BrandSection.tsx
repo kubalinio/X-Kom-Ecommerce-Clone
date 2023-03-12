@@ -5,8 +5,8 @@ import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
 import { useQuery } from "react-query"
-import { ProductCard } from "./components/ProductCard"
-import { SectionOverlay } from "./components/SectionOverlay"
+import { ProductCard } from "../ProductCard"
+import { SectionOverlay } from "../SectionOverlay"
 
 
 const fetchBrands = async () => {

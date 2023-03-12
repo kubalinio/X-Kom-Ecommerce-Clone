@@ -2,139 +2,147 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { BsEnvelopeFill } from 'react-icons/bs'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { MdOutlineFacebook, MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { ImLocation } from 'react-icons/im'
+import facebookIcon from '../../public/facebook.svg'
 
-const footerItems = [
+type footerItem = {
+    title: string;
+    links: {
+        name: string;
+        slug: string;
+    }[]
+}
+
+const footerItems: footerItem[] = [
     {
         title: 'Zamówienia',
         links: [
             {
                 name: 'Dostawy',
-                slug: '/'
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Raty',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Leasing',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Ubezpieczenia',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'TaxFree',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Montaż',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Zwroty i reklamacje',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
-            },
-            {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Najczęściej zadawane pytania',
+                slug: ''
             },
         ]
     },
     {
-        title: 'Zamówienia',
+        title: 'Promocje i inspiracje',
         links: [
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Wyprzedaż',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Gorący strzał',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Promocje',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Karty podarunkowe',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Poradniki',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
-            },
-            {
-                name: 'Dostawy',
-                slug: '/'
-            },
-            {
-                name: 'Dostawy',
-                slug: '/'
-            },
-            {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Aktualności',
+                slug: ''
             },
         ]
     },
     {
-        title: 'Zamówienia',
+        title: 'x-kom',
         links: [
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'O nas',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Regulamin',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Polityka prywatności',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Polityka cookies',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Biura prasowe',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Zamówienia publiczne',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Współpraca B2B',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Współpraca marketingowa',
+                slug: ''
             },
             {
-                name: 'Dostawy',
-                slug: '/'
+                name: 'Geex',
+                slug: ''
+            },
+            {
+                name: 'Forum',
+                slug: ''
+            },
+            {
+                name: 'Kariera',
+                slug: ''
+            },
+            {
+                name: 'Kontakt',
+                slug: ''
+            },
+            {
+                name: 'Realizowane projekty',
+                slug: ''
             },
         ]
     },
 
 ]
-
 
 
 // Validation for Form to do
@@ -301,7 +309,7 @@ const MobileAppBox = () => (
 )
 
 
-const ExpandMobile = ({ items }) => {
+const FooterExpandNavigation = ({ items }: { items: footerItem[] }) => {
     const [isShow, setIsShow] = useState(false)
     const [expandIndex, setExpandIndex] = useState(0)
 
@@ -320,7 +328,7 @@ const ExpandMobile = ({ items }) => {
         <div className='flex flex-col border-b border-[#ddd] w-full md:hidden'>
 
             {items.map(((item, index) => (
-                <>
+                <Fragment key={item.title + Math.random()}>
                     <div onClick={() => handleShowAcc(index)} className='flex justify-between items-center cursor-pointer border-t border-[#ddd] w-full h-16'>
                         <h3 className='pr-2 text-lg font-bold'>{item.title}</h3>
                         <span className={`${expandIndex === index && isShow ? '-rotate-180' : 'rotate-0'} inline-block w-8 h-8 mr-2 transition-transform duration-300 `}>
@@ -338,12 +346,35 @@ const ExpandMobile = ({ items }) => {
                         </div>
                     </div>
 
-                </>
+                </Fragment>
             )))}
 
         </div >
     )
 
+}
+
+const FooterNavigation = ({ items }: { items: footerItem[] }) => {
+    return (
+        <div className='hidden md:flex flex-grow-[3] shrink'>
+            {items.map(item => (
+
+                <div key={item.title + Math.random()} className='flex flex-col flex-grow lg:px-2'>
+                    <h3 title={item.title} className='mb-4 text-lg font-bold'>{item.title}</h3>
+                    <ul className='flex flex-col list-none '>
+                        {item.links.map(link => (
+                            <li className='w-full mb-4'>
+                                <Link href={`/`} className='inline-block w-full hover:underline'>
+                                    {link.name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+            ))}
+        </div>
+    )
 }
 
 const SaleMasterBox = () => (
@@ -383,7 +414,7 @@ const SaleMasterBox = () => (
     </Link>
 )
 
-const Footer = (props: Props) => {
+const Footer = () => {
     return (
         <footer>
             {/* Foot Layout page */}
@@ -404,11 +435,11 @@ const Footer = (props: Props) => {
                     {/* Orders... */}
                     <div className='flex flex-col-reverse justify-between pb-[52px] md:flex-row' >
                         {/* Orders ... */}
-                        <ExpandMobile items={footerItems} />
+                        <FooterExpandNavigation items={footerItems} />
 
 
-                        {/* Desktop/Tablet */}
-                        <div></div>
+                        {/* Desktop/Tablet Navigation*/}
+                        <FooterNavigation items={footerItems} />
 
 
                         {/* Contact */}
@@ -434,11 +465,6 @@ const Footer = (props: Props) => {
                                             <span className='whitespace-nowrap'>8:00 - 21:00</span>
                                             <span className='whitespace-nowrap'>8:00 - 19:00</span>
                                         </div>
-
-
-
-
-
                                     </div>
 
 
@@ -461,25 +487,50 @@ const Footer = (props: Props) => {
                             {/* Socials */}
                             <div className='flex flex-wrap pt-4 pb-6 -mx-2'>
                                 <Link href={`/`}>
-                                    <span title='facebook' className='flex items-center justify-center w-12 h-12'>
-                                        <MdOutlineFacebook className='w-6 h-6' />
+                                    <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
+                                        <Image
+                                            src={facebookIcon}
+                                            height={24}
+                                            width={24}
+                                            alt='facebook'
+                                            className='w-6 h-6'
+                                        />
                                     </span>
                                 </Link>
                                 <Link href={`/`}>
-                                    <span title='facebook' className='flex items-center justify-center w-12 h-12'>
-                                        <MdOutlineFacebook className='w-6 h-6' />
+                                    <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
+                                        <Image
+                                            src={facebookIcon}
+                                            height={24}
+                                            width={24}
+                                            alt='facebook'
+                                            className='w-6 h-6'
+                                        />
                                     </span>
                                 </Link>
                                 <Link href={`/`}>
-                                    <span title='facebook' className='flex items-center justify-center w-12 h-12'>
-                                        <MdOutlineFacebook className='w-6 h-6' />
+                                    <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
+                                        <Image
+                                            src={facebookIcon}
+                                            height={24}
+                                            width={24}
+                                            alt='facebook'
+                                            className='w-6 h-6'
+                                        />
                                     </span>
                                 </Link>
                                 <Link href={`/`}>
-                                    <span title='facebook' className='flex items-center justify-center w-12 h-12'>
-                                        <MdOutlineFacebook className='w-6 h-6' />
+                                    <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
+                                        <Image
+                                            src={facebookIcon}
+                                            height={24}
+                                            width={24}
+                                            alt='facebook'
+                                            className='w-6 h-6'
+                                        />
                                     </span>
                                 </Link>
+
                             </div>
                         </div>
                     </div>
@@ -487,9 +538,129 @@ const Footer = (props: Props) => {
 
 
                     {/* Companies.. */}
-                    <div>
+                    <div className='flex flex-col'>
+
+                        <div className='flex flex-wrap justify-center mb-6'>
+
+                            <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
+                                <Image
+                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                    width={36}
+                                    height={36}
+                                    alt='blik'
+                                    loading='lazy'
+                                    title='Blik'
+                                    className='inline-block w-auto h-auto max-w-full max-h-full'
+                                />
+                            </span>
+                            <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
+                                <Image
+                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                    width={36}
+                                    height={36}
+                                    alt='blik'
+                                    loading='lazy'
+                                    title='Blik'
+                                    className='inline-block w-auto h-auto max-w-full max-h-full'
+                                />
+                            </span>
+                            <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
+                                <Image
+                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                    width={36}
+                                    height={36}
+                                    alt='blik'
+                                    loading='lazy'
+                                    title='Blik'
+                                    className='inline-block w-auto h-auto max-w-full max-h-full'
+                                />
+                            </span>
+                            <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
+                                <Image
+                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                    width={36}
+                                    height={36}
+                                    alt='blik'
+                                    loading='lazy'
+                                    title='Blik'
+                                    className='inline-block w-auto h-auto max-w-full max-h-full'
+                                />
+                            </span>
+                            <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
+                                <Image
+                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                    width={36}
+                                    height={36}
+                                    alt='blik'
+                                    loading='lazy'
+                                    title='Blik'
+                                    className='inline-block w-auto h-auto max-w-full max-h-full'
+                                />
+                            </span>
+                            <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
+                                <Image
+                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                    width={36}
+                                    height={36}
+                                    alt='blik'
+                                    loading='lazy'
+                                    title='Blik'
+                                    className='inline-block w-auto h-auto max-w-full max-h-full'
+                                />
+                            </span>
+                            <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
+                                <Image
+                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                    width={36}
+                                    height={36}
+                                    alt='blik'
+                                    loading='lazy'
+                                    title='Blik'
+                                    className='inline-block w-auto h-auto max-w-full max-h-full'
+                                />
+                            </span>
+                            <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
+                                <Image
+                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                    width={36}
+                                    height={36}
+                                    alt='blik'
+                                    loading='lazy'
+                                    title='Blik'
+                                    className='inline-block w-auto h-auto max-w-full max-h-full'
+                                />
+                            </span>
+                            <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
+                                <Image
+                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                    width={36}
+                                    height={36}
+                                    alt='blik'
+                                    loading='lazy'
+                                    title='Blik'
+                                    className='inline-block w-auto h-auto max-w-full max-h-full'
+                                />
+                            </span>
+                            <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
+                                <Image
+                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                    width={36}
+                                    height={36}
+                                    alt='blik'
+                                    loading='lazy'
+                                    title='Blik'
+                                    className='inline-block w-auto h-auto max-w-full max-h-full'
+                                />
+                            </span>
 
 
+                        </div>
+
+
+
+                        <div className='text-center text-[#4d4d4d] mx-auto mb-11 max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] md:mb-4 lg:mb-7 lg:w-[calc(100%-64px)] lg:max-w-[1156px]'>
+                            &copy; x-kom Clone 2023-2023
+                        </div>
                     </div>
                 </div>
 

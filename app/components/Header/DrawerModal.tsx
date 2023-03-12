@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { ReactNode, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
-import { AuthButton, AuthButtonOutlined } from './AuthButtons';
+import { AuthButton, AuthButtonOutlined } from '../AuthButtons';
 
 
 type DrawerProps = {

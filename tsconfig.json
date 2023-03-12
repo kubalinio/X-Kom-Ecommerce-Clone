@@ -24,6 +24,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Slider.jsx", "app/RecommendProducts.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/HomePage/SliderBox.jsx", "app/components/HomePage/RecommendProducts.jsx"],
   "exclude": ["node_modules"]
 }

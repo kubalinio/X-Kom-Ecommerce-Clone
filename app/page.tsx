@@ -1,13 +1,13 @@
 // import News from "./components/News";
-import { GuidesSection } from "./GuidesSection";
-import { HitsWeekSection } from "./HitsWeekSection";
-import { NewsSection } from "./NewsSection";
-import { PromotionSection } from "./PromotionSection";
-import RecommendProducts from "./RecommendProducts";
-import SliderBox from "./Slider";
-import Promo from "./Promo";
-import { BestsellerSection } from "./BestsellerSection";
-import { BrandSection } from "./BrandSection";
+import { GuidesSection } from "./components/HomePage/GuidesSection";
+import { HitsWeekSection } from "./components/HomePage/HitsWeekSection";
+import { NewsSection } from "./components/HomePage/NewsSection";
+import { PromotionSection } from "./components/HomePage/PromotionSection";
+import RecommendProducts from "./components/HomePage/RecommendProducts";
+import SliderBox from "./components/HomePage/SliderBox";
+import Promo from "./components/HomePage/Promo";
+import { BestsellerSection } from "./components/HomePage/BestsellerSection";
+import { BrandSection } from "./components/HomePage/BrandSection";
 
 
 

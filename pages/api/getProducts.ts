@@ -1,14 +1,15 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { client } from '@/lib/sanity.client';
 import type { NextApiRequest, NextApiResponse } from 'next'
-
 import groq from 'groq'
-
-const query = groq`*[_type == 'products']`;
+import { Product } from '@/typings';
 
 type Data = {
-  name: string
+  products: Product[]
 }
+
+const query = groq`*[_type == 'products'] | order(_createdAt asc)`;
+
 
 export default async function handler(
   req: NextApiRequest,

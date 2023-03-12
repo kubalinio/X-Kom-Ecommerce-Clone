@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import React, { useState, ReactNode } from 'react'
-import { AuthButton, AuthButtonOutlined } from './AuthButtons'
+import { AuthButton, AuthButtonOutlined } from '../AuthButtons'
 
 const DropdownHeader = ({ title }: { title: string }) => (
     <div className='flex items-center w-full h-9'>

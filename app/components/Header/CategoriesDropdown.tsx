@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link"
 import { ReactNode, useState } from "react";
 import { SlArrowRight } from "react-icons/sl"
-import Overlay from "./Overlay";
+import Overlay from "../Overlay";
 
 const Icon = ({ icon }: { icon: ReactNode }) => <span>{icon}</span>;
 
@@ -80,7 +80,11 @@ const CategoryDropdown = ({ category, index }) => {
     const { name, icon, slug, recommendProduct, subMenu } = category
 
     const handleIsFocus = () => {
-        setIsShow(!isShow)
+        if (isShow === false) {
+            setIsShow(true)
+        } else {
+            setIsShow(false)
+        }
     }
 
     return (

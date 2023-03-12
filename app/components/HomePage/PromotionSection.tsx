@@ -5,7 +5,7 @@ import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
 import { useQuery } from "react-query"
-import { SectionOverlay } from "./components/SectionOverlay"
+import { SectionOverlay } from "../SectionOverlay"
 
 
 const fetchPromotions = async () => {
