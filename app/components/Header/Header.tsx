@@ -440,7 +440,7 @@ export const Header = () => {
                                         onClick={() => handleActiveNav(width, i, item?.slug)}  
                                         className={`flex justify-center items-center min-w-[64px] md:min-w-[88px] cursor-pointer ${activeNav === i && isHover ? 'shadow-xCom rounded-t-lg' : ''}`} >
 
-                                        <Link href={`/${menuItems[0].slug}`} className="flex flex-col items-center justify-center h-full pointer-events-none" >
+                                        <Link href={`/${menuItems.slug}`} className="flex flex-col items-center justify-center h-full pointer-events-none" >
                                             <div className="text-2xl 2xl:text-3xl" ><Icon icon={item.icon} /></div>
                                             <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>
                                         </Link>
