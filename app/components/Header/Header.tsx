@@ -340,7 +340,7 @@ export const Header = () => {
 
     return (
 
-        <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] mb-5 lg:mb-10`}>
+        <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] mb-5 lg:mb-10 `}>
 
             <header ref={headerRef} className={`${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} relative bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
 

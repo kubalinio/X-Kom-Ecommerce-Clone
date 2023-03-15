@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { ReactNode } from "react";
 import { navUserItems } from "./page"
 
-const Icon = ({ icon }: { icon: ReactNode }) => <span className='inline-block w-6 h-6 text-2xl md:mr-3'>{icon}</span>;
+export const IconNavUser = ({ icon }: { icon: ReactNode }) => <span className='inline-block w-6 h-6 text-2xl md:mr-3'>{icon}</span>;
 
 const NavUserHeader = () => (
     // Prop name user
@@ -36,7 +36,7 @@ const NavUserBody = ({ activeLink, links }: UserBody) => {
                     title={link.title}
                     className={`${activeLink === `/${link.slug}` ? 'font-bold' : 'font-normal'} flex items-center py-3 px-4 hover:bg-gray-100`}>
 
-                    <Icon icon={link.icon} />
+                    <IconNavUser icon={link.icon} />
 
                     <span>
                         {link.title}

@@ -1,6 +1,6 @@
 import { BiHeart } from 'react-icons/bi'
 import NavUser from './NavUser'
-import UserShopList from './UserShopList'
+import UserShopList, { NeedHelp } from './UserShopList'
 
 export type navUserItems = {
     title: string
@@ -51,10 +51,10 @@ const navUserItems: navUserItems[] = [
 const ListsPage = () => {
 
     return (
-        <main className='mx-auto w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px]'>
-            <div className='w-full pt-1 pb-4 md:pt-3 md:pb-4 lg:pt-5'>
+        <main className='mx-auto w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:mt-12 lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]'>
+            <div className='w-full pt-1 pb-8 md:pt-3 md:pb-10 lg:pt-5'>
                 {/* Flex Container */}
-                <div className='flex flex-wrap -mx-2 md:-mx-3 lg:-mx-4'>
+                <div className='flex flex-wrap'>
                     {/* Left Section only Desktop*/}
                     <div className='w-0 max-lg:hidden lg:px-4 lg:w-1/4'>
                         <NavUser items={navUserItems} />
@@ -66,7 +66,9 @@ const ListsPage = () => {
                 </div>
 
                 {/* Help for mobile */}
-                <div></div>
+                <div className='lg:hidden'>
+                    <NeedHelp />
+                </div>
             </div>
         </main>
     )
