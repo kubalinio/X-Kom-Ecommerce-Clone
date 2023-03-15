@@ -156,7 +156,17 @@ const menuItems = [
     },
 ]
 
-const categorieItems = [
+export type categorieMainProps = {
+   name: string
+   icon: JSX.Element
+   slug: string
+   recommendProduct: string
+   subMenu?: {
+     name: string
+   }[]
+} 
+
+const categorieItems: categorieMainProps[] = [
     {
         name: 'Laptop i komputer',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
@@ -256,9 +266,7 @@ const Icon = ({ icon }: { icon: ReactNode }) => <span>{icon}</span>;
 // )
 
 // Portals 
-interface PortalProps {
-    children: ReactNode
-}
+
 
 export const Header = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { ReactNode, useState } from "react";
 import { SlArrowRight } from "react-icons/sl"
 import Overlay from "../Overlay";
+import { categorieMainProps } from "./Header";
 
 const Icon = ({ icon }: { icon: ReactNode }) => <span>{icon}</span>;
 
@@ -12,12 +13,12 @@ type CategoriesDropdownProps = {
     show: boolean
     close: () => void
     isActiveNum: number
-    categorieItems: CategorieProps[]
+    categorieItems: categorieMainProps[]
 }
 type CategoriesDesktop = {
     isScroll: boolean
     width: number | undefined
-    categorieItems: CategorieProps[]
+    categorieItems: categorieMainProps[]
 }
 
 type CategorieProps = {
@@ -74,7 +75,7 @@ export const CategoriesDropdown = ({ show, categorieItems }: CategoriesDropdownP
     );
 }
 
-const CategoryDropdown = ({ category, index }) => {
+const CategoryDropdown = ({ category, index }: { category: categorieMainProps, index: number }) => {
     const [isShow, setIsShow] = useState(false)
 
     const { name, icon, slug, recommendProduct, subMenu } = category
