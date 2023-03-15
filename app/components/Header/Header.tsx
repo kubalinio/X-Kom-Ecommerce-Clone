@@ -251,7 +251,7 @@ const categorieItems: categorieMainProps[] = [
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
-        name: <p className="whitespace-nowrap">Trendy, promocje i nowości</p>,
+        name: 'Trendy, promocje i nowości',
         icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
         slug:'promocje',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
