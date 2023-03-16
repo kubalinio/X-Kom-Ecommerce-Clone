@@ -1,9 +1,14 @@
 'use client'
 
-import React, { useState } from 'react'
+// import useWindowDimensions from '@/hooks/useWindowDimensions'
+import React, { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { MdSearch } from 'react-icons/md'
 import { RiArrowDownSFill } from 'react-icons/ri'
+import { DrawerCategories } from './CategoriesDrawer'
+import { HamburgerDrawer } from './Hamburgers'
+import { categorieMainProps } from './Header'
 
 const CategoryItem = ({ title, onChange, selected }: { title: string, onChange: () => void, selected: boolean }) => {
 
@@ -58,58 +63,93 @@ const CategoriesDropdown = ({ categoriesList }: { categoriesList: string[] }) =>
     )
 }
 
-export const SearchBar = ({ categories }: { categories: string[] }) => {
 
+type SearchBarProps = {
+    categorieItems: categorieMainProps[]
+}
+
+export const SearchBar = ({ categorieItems }: SearchBarProps) => {
+
+    const [showCategories, setShowCategories] = useState(false)
+
+    const refPortal = useRef<Element | null>()
+    const [mounted, setMounted] = useState(false)
+    // const { width }: { width: number | undefined } = useWindowDimensions()
+
+    useEffect(() => {
+        refPortal.current = document.body.querySelector<HTMLElement>('#react-portals')!;
+        setMounted(true)
+
+    }, [])
 
     return (
-        <div className="flex items-center w-full lg:max-w-[480px] xl:max-w-[775px] h-full" >
+        <>
+            <div className="lg:hidden">
+                <HamburgerDrawer showDrawer={() => setShowCategories(true)} />
 
-            <div className="h-[32px] md:h-[40px] relative w-full">
+                {(mounted && refPortal.current ? createPortal(
+                    <DrawerCategories
+                        show={showCategories}
+                        close={() => setShowCategories(false)}
+                        categorieItems={categorieItems}
+                    // width={width}
+                    />
 
-                <div className='bg-white rounded-[20px] border border-[#ccc] lg:border-none'>
+                    , refPortal.current) : null
+                )}
 
-                    {/* Kied yaktywny input znika głowny komponent i wyświetla sie after */}
-                    <div className='searchBox'>
-                        {/* Mobile Button Search*/}
-                        <button className='flex items-center justify-center p-1 border-none md:pl-4 lg:hidden'>
-                            <span className='flex items-center w-6 h-6 text-gray-500'>
-                                <AiOutlineSearch className='w-6 h-6' />
-                            </span>
-                        </button>
+            </div>
 
-                        {/* Input Mobile & Desktop */}
-                        <div className='flex-1 pr-4 lg:p-0'>
-                            <input
-                                type="text"
+            <div className="flex items-center w-full lg:max-w-[480px] xl:max-w-[775px] h-full" >
 
-                                placeholder='Czego szukasz?'
-                                className='py-2 w-full outline-none bg-transparent  border-none whitespace-nowrap md:p-0 lg:max-w-[740px] lg:pl-5'
-                            />
+                <div className="h-[32px] md:h-[40px] relative w-full">
 
+                    <div className='bg-white rounded-[20px] border border-[#ccc] lg:border-none'>
+
+                        {/* Kied yaktywny input znika głowny komponent i wyświetla sie after */}
+                        <div className='searchBox'>
+                            {/* Mobile Button Search*/}
+                            <button className='flex items-center justify-center p-1 border-none md:pl-4 lg:hidden'>
+                                <span className='flex items-center w-6 h-6 text-gray-500'>
+                                    <AiOutlineSearch className='w-6 h-6' />
+                                </span>
+                            </button>
+
+                            {/* Input Mobile & Desktop */}
+                            <div className='flex-1 pr-4 lg:p-0'>
+                                <input
+                                    type="text"
+
+                                    placeholder='Czego szukasz?'
+                                    className='py-2 w-full outline-none bg-transparent  border-none whitespace-nowrap md:p-0 lg:max-w-[740px] lg:pl-5'
+                                />
+
+                            </div>
+
+                            {/* Button Zamknięcia Mobile */}
+                            <button></button>
+
+                            {/* Separator Desktop */}
+                            <div className='hidden lg:block h-6 w-[1px] bg-[#ddd] border-none lg:mx-1' />
+
+                            {/* Categories Dropdown Dekstop | Dynamiczny element pojawia sie na 1024px dodać!!! */}
+                            <CategoriesDropdown categoriesList={categorieItems.map(item => item.name)} />
+
+                            {/* Dektop Button Search */}
+                            <button className='hidden lg:flex lg:items-center border-none bg-[#4d4d4d] hover:bg-gray-900 transition-colors duration-300 w-16 h-full rounded-[20px]'>
+                                <span className='inline-block p-0 mx-auto overflow-hidden text-white w-7 h-7'>
+                                    <MdSearch className='w-full h-full' />
+                                </span>
+                            </button>
                         </div>
 
-                        {/* Button Zamknięcia Mobile */}
-                        <button></button>
-
-                        {/* Separator Desktop */}
-                        <div className='hidden lg:block h-6 w-[1px] bg-[#ddd] border-none lg:mx-1' />
-
-                        {/* Categories Dropdown Dekstop | Dynamiczny element pojawia sie na 1024px dodać!!! */}
-                        <CategoriesDropdown categoriesList={categories} />
-
-                        {/* Dektop Button Search */}
-                        <button className='hidden lg:flex lg:items-center border-none bg-[#4d4d4d] hover:bg-gray-900 transition-colors duration-300 w-16 h-full rounded-[20px]'>
-                            <span className='inline-block p-0 mx-auto overflow-hidden text-white w-7 h-7'>
-                                <MdSearch className='w-full h-full' />
-                            </span>
-                        </button>
                     </div>
 
+                    {/* <button></button> */}
+                    {/* <div></div> */}
                 </div>
-
-                {/* <button></button> */}
-                {/* <div></div> */}
             </div>
-        </div>
+
+        </>
     )
 }

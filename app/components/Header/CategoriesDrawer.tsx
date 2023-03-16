@@ -10,7 +10,6 @@ import { TfiHeadphoneAlt } from 'react-icons/tfi';
 type DrawerCategoriesProps = {
     show: boolean
     close: () => void
-    isActiveNum: number
     categorieItems: CategorieProps[]
 }
 

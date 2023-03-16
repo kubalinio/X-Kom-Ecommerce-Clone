@@ -28,6 +28,7 @@ const ListHead = () => {
         </div>
     )
 }
+
 const ListBody = () => {
     return (
         <div>ListBody</div>
@@ -93,12 +94,8 @@ const ListBottom = () => {
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
-
-
 
                 {/* IMG  */}
                 <div className='w-full pr-6 max-md:text-center md:w-2/5 md:flex md:items-center md:justify-end lg:w-2/5 '>

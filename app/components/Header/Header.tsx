@@ -24,17 +24,38 @@ import Image from 'next/image';
 import { Drawer } from './DrawerModal';
 import { NavDropdown } from './NavDropdown';
 import { DrawerCategories } from './CategoriesDrawer';
-import { HamburgerDrawer, HamburgerDropdown } from './Hamburgers';
-import { CategoriesDesktop, CategoriesDropdown } from './CategoriesDropdown';
+import { HamburgerDrawer } from './Hamburgers';
+import { CategoriesDesktop } from './CategoriesDropdown';
 import Overlay from '../Overlay';
 import { SearchBar } from './SearchBar';
+import LogoHeader from './HeaderLogo';
+import HeaderNav from './HeaderNav';
 
 // sidebar Component
 
 // Flying Dropdown Component
+export type MenuItemsProps = {
+    name: string
+    icon: JSX.Element
+    slug: string
+    subMenu?: {
+        popular?: {
+            name:string
+            slug: string
+        }[]
+        contact?: {
+            name: string
+            icon: JSX.Element
+            slug: string
+            workTime?:{
+                days: string
+                time: string
+            }[]
+        }[]
+    }
+}
 
-
-const menuItems = [
+const menuItems: MenuItemsProps[] = [
     {
         name: 'Pomoc i kontakt',
         icon: <TfiHeadphoneAlt  />,
@@ -152,7 +173,7 @@ const menuItems = [
         name: 'Koszyk',
         icon: <SlBasket />,
         slug: 'koszyk',
-        subMenu: <div>Content 3</div>
+        // subMenu: <div>Content 3</div>
     },
 ]
 
@@ -258,14 +279,7 @@ const categorieItems: categorieMainProps[] = [
     },
 ]
 
-const Icon = ({ icon }: { icon: ReactNode }) => <span>{icon}</span>;
 
-
-// const Navigation = () => (
-
-// )
-
-// Portals 
 
 
 export const Header = () => {
@@ -273,21 +287,16 @@ export const Header = () => {
     const [headerHeight, setHeaderHeight] = useState(98)
     const headerRef = useRef<any>(null)
 
-    const refPortal = useRef<Element | null>()
-    const [mounted, setMounted] = useState(false)
-
-    const [isModalShow, setIsModalShow] = useState(false)
-    const [activeNav, setActiveNav] = useState(0)
     // Dać nasłuchiwanie na NAv Bottom do sumy wysokości nawigacji przy desktopach
     const { width }: {width: number | undefined} = useWindowDimensions()
-    const router = useRouter()
+
 
     // Desktop Navigation
-    const [isHover, setIsHover] = useState(false)
+
 
     // Mobile Categories
-    const [showCategories, setShowCategories] = useState(false)
-    const [isHoverCategories ,setIsHoverCategories] = useState(false)
+    // const [showCategories, setShowCategories] = useState(false)
+    // const [isHoverCategories ,setIsHoverCategories] = useState(false)
 
   
 
@@ -296,9 +305,6 @@ export const Header = () => {
     }, [])
 
     useEffect(() => {
-        refPortal.current = document.body.querySelector<HTMLElement>('#react-portals')
-        setMounted(true)
-
         const listenerHeight = () => {
             onResize()
         }
@@ -319,31 +325,9 @@ export const Header = () => {
         }
     }, [])
 
-    const handleActiveNav = (width: number | undefined, num: number, link: string) => {
-        if (width! > 1027) {
-            setIsModalShow(false)
-            // Check better solution
-            router.replace(`/${link}`)
-        } else if (num === 0 || num === 1 || num === 3 && width! < 1027) {
-            setActiveNav(num)
-            setIsModalShow(true)
-        } else {
-            setIsModalShow(false)
-            // Check better solution
-            router.replace(`/${link}`)
-        }
-    }
+   
 
-    const handleHoverNav = (width: number | undefined, num: number) => {
-        if (width! < 1027) {
-            return
-        } else if (num === 0 || num === 1 || num === 3 ) {
-            setActiveNav(num)
-            setIsHover(true)
-        } else {
-            setIsHover(false)
-        }
-    }
+    
     
 
     return (
@@ -352,133 +336,28 @@ export const Header = () => {
 
             <header ref={headerRef} className={`${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} relative bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
 
-                {/* Navbar Top */}
+                {/* Header Top */}
                 <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1156px] lg:w-[calc(100%-64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
 
                     {/* Logo Box */}
                     <div className="flex items-center justify-center h-full shrink-0 lg:pl-8 2xl:pl-8" >
-
-                        {/* Hamburger */}
-                        <div 
-                            className={`${!isScrollDown ? 'scale-0 opacity-0 w-0' : 'h-full w-[64px] md:w-[88px]'} absolute top-0 left-0 z-20 outline-transparent hidden transition-all duration-300 bg-white h-[48px] md:h-[64px] lg:h-[56px] lg:block ${isHoverCategories ? 'nav-item-after' : ''} `}
-                            onMouseEnter={() =>  setIsHoverCategories(true)} 
-                            onMouseLeave={() => setIsHoverCategories(false)} 
-                            
-                            >
-                                <HamburgerDropdown isHover={isHoverCategories}/>
-                                {/* DropDown */}
-                                { isHoverCategories ? (
-                                       
-                                        <CategoriesDropdown 
-                                            show={isHoverCategories}
-                                            categorieItems={categorieItems}
-                                        />
-                
-                                    ) 
-                                    : '' }
-                        </div>
                         
-                        {/* Logo Mobile/Desktop*/}
-                        {/* Animacja Linku  */}
-                        <Link href='/' className={`${!isScrollDown ? 'lg:animate-logoShow' : 'lg:animate-logoHide' } flex items-center overflow-hidden `} >
-                            {/* Logo Big Screen */}
-                            <span className={`hidden lg:flex h-10 items-center justify-center transition-all duration-500`} >
-                                <Image src='https://assets.x-kom.pl/public-spa/xkom/7cbf82dd32ab7e88.svg' alt='x-kom sklep komputerowy' width={225} height={40} />
-                            </span>
-
-                            {/* Logo Mobile */}
-                            <span className={`relative inline-flex items-center justify-start h-8 lg:hidden`} >
-                                <Image src='https://assets.x-kom.pl/public-spa/xkom/064948e3bac8c6d5.svg' alt='x-kom sklep komputerowy' width={102} height={30} className='relative inline-block w-auto h-full max-w-full max-h-full' />
-                            </span>
-                        </Link>
-                        
-                        {isHoverCategories && <Overlay/>}
+                        <LogoHeader isScrollDown={isScrollDown} categorieItems={categorieItems} />
                         
                     </div>
 
                     {/* Hamburger bottom nav & Searchbar Box*/}
                     <div className="flex items-center flex-grow order-4 w-full pt-1 pb-2 pr-2 ml-[-16px] md:ml-[-24px] lg:w-1/5 lg:order-2 lg:ml-0 lg:pl-8 lg:pr-2 lg:h-full " >
-                        {/* Hamburger */}
                         
-                        <div className="lg:hidden">
-                            <HamburgerDrawer showDrawer={() => setShowCategories(true)} />
-
-                            {(mounted ? createPortal(
-                                  <DrawerCategories 
-                                        show={showCategories}
-                                        close={() => setShowCategories(false)}
-                                        categorieItems={categorieItems} 
-                                        width={width}
-                                        />
-
-                                , refPortal.current) : null
-                                )}
-
-                                {/* // <Drawer
-                                //     show={isModalShow && activeNav === i}
-                                //     close={() => setIsModalShow(false)}
-                                //     isActiveNum={activeNav}
-                                //     navItem={menuItems[activeNav]}
-                                // /> */}
-                          
-
-                        </div>
-
-                        {/* Searchbar */}
-                        <SearchBar categories={categorieItems.map(item => item.name)} />
+                        {/* Searchbar */}            {/* Hamburger */}
+                        <SearchBar categorieItems={categorieItems} />
                         
                     </div>
 
                     {/* Navigation */}
-                    <div className={`${!isScrollDown ? '' : ''} lg:z-20 flex h-full order-3 pt-1 md:pt-0`} >
-                        <div className='relative flex items-center'>
-                            
-                        {menuItems.map((item, i) => (
-                            <>  
-                                {i === 1 && <span className="hidden md:flex self-center border-r-[1px] border-gray-400 h-9 ml-2 mr-3 mb-1" />}
+                    <div className='flex order-3 h-full pt-1 lg:z-20 md:pt-0' >
 
-                                {/* Nav Items */}
-                                <div 
-                                    key={item.name + Math.random()} 
-                                    onMouseEnter={() => handleHoverNav(width, i)} 
-                                    onMouseLeave={() => setIsHover(false)} 
-                                    className={`relative flex h-12 md:h-16 z-10 ${i === 0 ? 'max-md:hidden' : ''} ${activeNav === i && isHover ? 'nav-item-after' : ''}`}>
-
-                                    <div 
-                                        onClick={() => handleActiveNav(width, i, item?.slug)}  
-                                        className={`flex justify-center items-center min-w-[64px] md:min-w-[88px] cursor-pointer ${activeNav === i && isHover ? 'shadow-xCom rounded-t-lg' : ''}`} >
-
-                                        <Link href={`/${menuItems.slug}`} className="flex flex-col items-center justify-center h-full pointer-events-none" >
-                                            <div className="text-2xl 2xl:text-3xl" ><Icon icon={item.icon} /></div>
-                                            <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>
-                                        </Link>
-                                    </div>
-
-                                    {/* DropDown */}
-                                    { isHover && item.subMenu ? (
-                                        <NavDropdown 
-                                            index={i} 
-                                            isActiveContent={activeNav} 
-                                            navItems={menuItems[activeNav]} />
-                                    ) 
-                                    : ''
-                                    }
-                                </div>
-
-                                {/* Portals */}
-                                {item.subMenu && (mounted ? createPortal(
-                                    <Drawer
-                                        show={isModalShow && activeNav === i}
-                                        close={() => setIsModalShow(false)}
-                                        isActiveNum={activeNav}
-                                        navItem={menuItems[activeNav]}
-                                    />
-                                    , refPortal.current) : null
-                                )}
-
-                            </>
-                        ))}
-                        </div>
+                       <HeaderNav menuItems={menuItems} isScrollDown={isScrollDown} />
 
                     </div>
 

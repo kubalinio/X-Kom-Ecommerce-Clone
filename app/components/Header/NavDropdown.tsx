@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import React, { useState, ReactNode } from 'react'
 import { AuthButton, AuthButtonOutlined } from '../AuthButtons'
+import { MenuItemsProps } from './Header'
 
 const DropdownHeader = ({ title }: { title: string }) => (
     <div className='flex items-center w-full h-9'>
@@ -32,7 +33,7 @@ const DropdownLink = ({ slug, name, icon }: DropDownLinkProps) => (
 type NavDropdownProps = {
     index: number
     isActiveContent: number
-    navItems: navItemProps
+    navItem: navItemProps
 }
 
 type navItemProps = {
@@ -55,7 +56,7 @@ type navItemProps = {
     }
 }
 
-export const NavDropdown = ({ index, isActiveContent, navItems }: NavDropdownProps) => {
+export const NavDropdown = ({ index, isActiveContent, navItem }: NavDropdownProps) => {
     const [isShow] = useState(index === isActiveContent)
 
     return (
@@ -66,7 +67,7 @@ export const NavDropdown = ({ index, isActiveContent, navItems }: NavDropdownPro
                     <DropdownHeader title={'Popularne tematy'} />
 
                     <ul>
-                        {navItems?.subMenu?.popular.map((item) => (
+                        {navItem?.subMenu?.popular.map((item) => (
                             <DropdownLink key={item.name} slug={item.slug} name={item.name} />
                         ))}
                     </ul>
@@ -74,13 +75,13 @@ export const NavDropdown = ({ index, isActiveContent, navItems }: NavDropdownPro
                     <DropdownHeader title={'Skontaktuj się z nami'} />
 
                     <ul>
-                        {navItems?.subMenu?.contact.slice(0, 3).map((item) => (
+                        {navItem?.subMenu?.contact.slice(0, 3).map((item) => (
                             <DropdownLink key={item.name} slug={item.slug} name={item.name} icon={item.icon} />
                         ))}
                     </ul>
 
                     {/* Contact */}
-                    {navItems?.subMenu?.contact.slice(3, 4).map((item) => (
+                    {navItem?.subMenu?.contact.slice(3, 4).map((item) => (
                         <div key={item.name} className='relative h-[72px]'>
                             <a href={`${item.slug}`} className='flex items-center h-full px-4 pb-9 hover:no-underline active:no-underline focus:no-underline'>
                                 <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>
@@ -129,7 +130,7 @@ export const NavDropdown = ({ index, isActiveContent, navItems }: NavDropdownPro
                         {/* Functions */}
                         <div>
                             <ul>
-                                {navItems?.subMenu?.contact.map((item) => (
+                                {navItem?.subMenu?.contact.map((item) => (
                                     <DropdownLink key={item.name} slug={item.slug} name={item.name} icon={item.icon} />
                                 ))}
                             </ul>

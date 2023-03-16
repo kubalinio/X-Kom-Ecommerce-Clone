@@ -9,12 +9,7 @@ import { categorieMainProps } from "./Header";
 
 const Icon = ({ icon }: { icon: ReactNode }) => <span>{icon}</span>;
 
-type CategoriesDropdownProps = {
-    show: boolean
-    close: () => void
-    isActiveNum: number
-    categorieItems: categorieMainProps[]
-}
+
 type CategoriesDesktop = {
     isScroll: boolean
     width: number | undefined
@@ -47,6 +42,11 @@ const CategorieItem = ({ name, icon, slug }: CategorieProps) => (
         </Link>
     </li>
 )
+
+type CategoriesDropdownProps = {
+    show: boolean
+    categorieItems: categorieMainProps[]
+}
 
 export const CategoriesDropdown = ({ show, categorieItems }: CategoriesDropdownProps) => {
 
