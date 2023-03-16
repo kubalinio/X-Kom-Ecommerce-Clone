@@ -33,7 +33,7 @@ const DropdownLink = ({ slug, name, icon }: DropDownLinkProps) => (
 type NavDropdownProps = {
     index: number
     isActiveContent: number
-    navItem: navItemProps
+    navItem: MenuItemsProps
 }
 
 type navItemProps = {
@@ -67,7 +67,7 @@ export const NavDropdown = ({ index, isActiveContent, navItem }: NavDropdownProp
                     <DropdownHeader title={'Popularne tematy'} />
 
                     <ul>
-                        {navItem?.subMenu?.popular.map((item) => (
+                        {navItem?.subMenu?.popular?.map((item) => (
                             <DropdownLink key={item.name} slug={item.slug} name={item.name} />
                         ))}
                     </ul>

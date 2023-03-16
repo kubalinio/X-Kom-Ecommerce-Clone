@@ -19,14 +19,9 @@ import { TfiHeadphoneAlt } from 'react-icons/tfi'
 import { GoMail } from 'react-icons/go'
 import { BsTelephone, BsCreditCard2Front } from 'react-icons/bs'
 
-import Image from 'next/image';
 
-import { Drawer } from './DrawerModal';
-import { NavDropdown } from './NavDropdown';
-import { DrawerCategories } from './CategoriesDrawer';
-import { HamburgerDrawer } from './Hamburgers';
 import { CategoriesDesktop } from './CategoriesDropdown';
-import Overlay from '../Overlay';
+
 import { SearchBar } from './SearchBar';
 import LogoHeader from './HeaderLogo';
 import HeaderNav from './HeaderNav';
@@ -40,14 +35,14 @@ export type MenuItemsProps = {
     slug: string
     subMenu?: {
         popular?: {
-            name:string
-            slug: string
-        }[]
-        contact?: {
             name: string
-            icon: JSX.Element
             slug: string
-            workTime?:{
+        }[],
+        contact: {
+            name: string
+            icon: any
+            slug: string
+            workTime?: {
                 days: string
                 time: string
             }[]

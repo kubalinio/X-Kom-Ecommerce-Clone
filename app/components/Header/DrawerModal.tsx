@@ -4,34 +4,17 @@ import Link from 'next/link';
 import { ReactNode, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { AuthButton, AuthButtonOutlined } from '../AuthButtons';
+import { MenuItemsProps } from './Header';
 
 
 type DrawerProps = {
     show: boolean
     close: () => void
     isActiveNum: number
-    navItem: navItemProps
+    navItem: MenuItemsProps
 }
 
-type navItemProps = {
-    name: string
-    icon: any
-    subMenu?: {
-        popular: {
-            name: string
-            slug: string
-        }[],
-        contact: {
-            name: string
-            icon: any
-            slug: string
-            workTime?: {
-                days: string
-                time: string
-            }[]
-        }[]
-    }
-}
+
 
 const DrawerHeader = ({ name, closeModal }: { name: string, closeModal: () => void }) => (
     <div className='inline-flex justify-between items-center bg-[#f5f5f5] min-h-[56px] w-full p-2 pr-4 border-b border-[#ddd]'>
@@ -78,7 +61,7 @@ export const Drawer = ({ show, close, isActiveNum, navItem }: DrawerProps) => {
                                                         </p>
                                                     </div>
                                                     <ul>
-                                                        {navItem?.subMenu?.popular.map((item) => (
+                                                        {navItem?.subMenu?.popular?.map((item) => (
                                                             <li>
                                                                 <Link
                                                                     href={`/${item.slug}`}
