@@ -9,7 +9,7 @@ import '@splidejs/react-splide/css/core';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 type SectionOverlayProps = {
-    children: ReactNode[]
+    children?: ReactNode[]
     heading: string
     slugToAll: string
     howSlides: number
@@ -82,7 +82,7 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
                         >
                             <SplideTrack>
 
-                                {children.map(child => (
+                                {children?.map(child => (
                                     <SplideSlide key={Math.random()}>
                                         {child}
                                     </SplideSlide>
