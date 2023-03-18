@@ -32,7 +32,7 @@ export const HitsWeekSection = () => {
                 <div key={product._id} className="py-1 px-2 h-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px]">
 
                     <ProductCard
-                        slug={product.slug.current}
+                        slug={product.slug}
                         special={product.special}
                         mainImage={product.mainImage}
                         title={product.title}

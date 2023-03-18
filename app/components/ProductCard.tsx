@@ -1,4 +1,5 @@
 import { urlFor } from '@/lib/sanity.client';
+import { Product } from '@/typings';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMdHeartEmpty } from 'react-icons/io'
@@ -8,7 +9,7 @@ import { MdOutlineAddShoppingCart } from 'react-icons/md';
 
 // const ProductFav = () => ()
 
-export const ProductCard = ({ slug, special, mainImage, title, price }) => {
+export const ProductCard = ({ slug, special, mainImage, title, price }: Product) => {
 
     return (
         <div className='relative rounded-lg group lg:border lg:border-transparent lg:hover:shadow-xCom'>
@@ -26,7 +27,7 @@ export const ProductCard = ({ slug, special, mainImage, title, price }) => {
                     {/* Image */}
                     <div className='w-full h-[125px] mt-7 lg:mt-8 lg:h-[130px]'>
                         <div className='w-full h-full mt-4'>
-                            <Link href={`/${slug}`}>
+                            <Link href={`/${slug.current}`}>
                                 <div className='inline-flex items-center justify-center w-full h-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] max-h-[125px]'>
                                     <Image
                                         src={`${urlFor(mainImage).url()}`}

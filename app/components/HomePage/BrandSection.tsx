@@ -5,9 +5,8 @@ import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
 import { useQuery } from "react-query"
-import { ProductCard } from "../ProductCard"
 import { SectionOverlay } from "../SectionOverlay"
-
+import { Brands } from "@/typings"
 
 const fetchBrands = async () => {
     const response = await axios.get(`/api/getBrands`)
@@ -17,7 +16,7 @@ const fetchBrands = async () => {
 
 export const BrandSection = () => {
 
-    const { data, isLoading } = useQuery({
+    const { data, isLoading } = useQuery<Brands>({
         queryFn: () => fetchBrands(),
         queryKey: ['brands']
     })
@@ -25,10 +24,11 @@ export const BrandSection = () => {
     if (isLoading) return <div>Loading...</div>
 
 
+
     return (
         <SectionOverlay heading={'Sekcja marek'} slugToAll={''} howSlides={7} centerArrow={true} >
 
-            {data.brands.map(brand => (
+            {data?.brands?.map(brand => (
                 <div key={brand._id} className="h-[88px] w-[152px]">
                     <Link
                         href={`/`}

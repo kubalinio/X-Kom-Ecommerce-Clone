@@ -1,12 +1,12 @@
 interface SanityBody {
-	_createdAt: string;
-	_id: string;
-	_rev: string;
-	_updatedAt: string;
+	_createdAt?: string;
+	_id?: string;
+	_rev?: string;
+	_updatedAt?: string;
 }
 
 interface Slug {
-	_type: 'image';
+	_type: 'slug';
 	current: string;
 }
 
@@ -19,13 +19,36 @@ interface Image {
 }
 
 export interface Product extends SanityBody {
-	_id: string;
 	title: string;
-	_type: 'project';
     mainImage: Image;
 	// image: Image[];
 	price: number;
-	slug: Slug;
+	slug: Slug
     special: string;
-	
+}
+
+export interface Products {
+	 products: Product[]
+}
+
+export interface Brand extends SanityBody {
+		_id: string;
+		title: string;
+		_type: 'project';
+    	image: Image;
+}
+
+export interface Brands {
+	brands: Brand[]
+}
+
+export interface Promotion extends SanityBody {
+		slogan: string;
+		title: string
+		slug: Slug;
+    	image: Image;
+}
+
+export interface Promotions {
+	promotions: Promotion[]
 }

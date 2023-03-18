@@ -1,5 +1,6 @@
 'use client'
 
+import { Products } from "@/typings"
 import axios from "axios"
 import { useQuery } from "react-query"
 import { ProductCard } from "../ProductCard"
@@ -14,22 +15,23 @@ const fetchProducts = async () => {
 
 export const BestsellerSection = () => {
 
-    const { data, isLoading } = useQuery({
+    const { data, isLoading } = useQuery<Products>({
         queryFn: () => fetchProducts(),
         queryKey: ['products']
     })
 
     if (isLoading) return <div>Loading...</div>
 
+    console.log(data)
 
     return (
         <SectionOverlay heading={'Bestsellers'} slugToAll={'bestsellers'} howSlides={5} centerArrow={true} >
 
-            {data.products.map(product => (
+            {data?.products.map(product => (
                 <div key={product._id} className="py-1 px-2 h-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px]">
 
                     <ProductCard
-                        slug={product.slug.current}
+                        slug={product.slug}
                         special={product.special}
                         mainImage={product.mainImage}
                         title={product.title}

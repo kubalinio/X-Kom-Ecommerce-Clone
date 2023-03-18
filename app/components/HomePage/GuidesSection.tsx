@@ -2,9 +2,18 @@ import Image from "next/image"
 import Link from "next/link"
 import { SectionOverlay } from "../SectionOverlay"
 
+export type NewsDataProps = {
+    heading: string;
+    slug: string;
+    news: {
+        heading: string;
+        image: string;
+        slug: string;
+        title: string;
+    }[];
+}
 
-
-const NewsData = {
+const NewsData: NewsDataProps = {
     heading: 'Aktualności',
     slug: 'aktualnosci',
     news: [
@@ -58,7 +67,14 @@ const NewsData = {
         }]
 }
 
-const CardNews = ({ heading, image, slug, title }) => {
+export type CardNewsProps = {
+    heading: string;
+    image: string;
+    slug: string;
+    title: string;
+}
+
+const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
 
     return (
         < div className='block w-[250px] lg:w-full xl:w-full' >

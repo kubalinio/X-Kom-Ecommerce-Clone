@@ -2,10 +2,10 @@
 import { client } from '@/lib/sanity.client';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import groq from 'groq'
-import { Product } from '@/typings';
+import { Products } from '@/typings';
 
 type Data = {
-  products: Product[]
+  products: Products[]
 }
 
 const query = groq`*[_type == 'products'] | order(_createdAt asc)`;

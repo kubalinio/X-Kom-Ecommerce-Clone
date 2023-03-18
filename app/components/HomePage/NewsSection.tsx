@@ -3,10 +3,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { SectionOverlay } from "../SectionOverlay"
+import { CardNewsProps, NewsDataProps } from "./GuidesSection"
 
 
 
-const NewsData = {
+const NewsData: NewsDataProps = {
     heading: 'Aktualności',
     slug: 'aktualnosci',
     news: [
@@ -60,7 +61,7 @@ const NewsData = {
         }]
 }
 
-const CardNews = ({ heading, image, slug, title }) => {
+const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
 
     return (
         < div className='block w-[250px] lg:w-full xl:w-full' >

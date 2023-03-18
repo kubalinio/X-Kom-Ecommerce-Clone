@@ -3,11 +3,12 @@ import { client } from '@/lib/sanity.client';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import groq from 'groq'
+import { Promotions } from '@/typings';
 
 const query = groq`*[_type == 'Promocja']`;
 
 type Data = {
-  name: string
+  promotions: Promotions
 }
 
 export default async function handler(

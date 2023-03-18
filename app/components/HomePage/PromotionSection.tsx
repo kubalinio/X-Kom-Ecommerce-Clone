@@ -1,6 +1,7 @@
 'use client'
 
 import { urlFor } from "@/lib/sanity.client"
+import { Promotion, Promotions } from "@/typings"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
@@ -13,7 +14,7 @@ const fetchPromotions = async () => {
     return response.data
 };
 
-const Card = ({ heading, image, slug, title }) => {
+const Card = ({ title, image, slug, slogan }: Promotion) => {
 
     return (
         < div className='block w-[250px] lg:w-full xl:w-full' >
@@ -25,7 +26,7 @@ const Card = ({ heading, image, slug, title }) => {
                                 src={`${urlFor(image).url()}`}
                                 width={253}
                                 height={212}
-                                alt={`${heading}`}
+                                alt={`${title}`}
                                 loading='lazy'
                                 className='object-cover w-full h-full'
                             />
@@ -34,12 +35,12 @@ const Card = ({ heading, image, slug, title }) => {
                 </Link>
 
 
-                <Link href={`${slug}`} className='block mt-4 ml-1'>
+                <Link href={`${slug.current}`} className='block mt-4 ml-1'>
                     <h3 className='text-xl leading-6 font-bold min-h-[48px] max-w-[250px]'>
                         <span className='max-h-[48px]'>
                             <span className='w-full overflow-hidden text-ellipsis line-clamp-2'
                             >
-                                {heading}
+                                {slogan}
                             </span>
                         </span>
                     </h3>
@@ -55,17 +56,19 @@ const Card = ({ heading, image, slug, title }) => {
 
 
 export const PromotionSection = () => {
-    const { data, isLoading } = useQuery({
+    const { data, isLoading } = useQuery<Promotions>({
         queryFn: () => fetchPromotions(),
         queryKey: ['promotions']
     })
     if (isLoading) return <div>Loading...</div>
 
+    console.log(data)
+
     return (
         <SectionOverlay heading={'Promocje'} slugToAll={'promocje'} howSlides={4} centerArrow={false} >
 
-            {data.promotions.map(promo => (
-                <Card key={promo.slug} heading={promo.title} image={promo.image} slug={'promocje'} title={promo.slogan} />
+            {data?.promotions.map(promo => (
+                <Card key={promo.title} title={promo.title} image={promo.image} slug={promo.slug} slogan={promo.slogan} />
             ))}
 
         </SectionOverlay>
