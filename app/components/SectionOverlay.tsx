@@ -1,15 +1,22 @@
 'use client'
 
 import Link from 'next/link'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { SlArrowRight } from "react-icons/sl"
 
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
+type SectionOverlayProps = {
+    children: ReactNode[]
+    heading: string
+    slugToAll: string
+    howSlides: number
+    centerArrow: boolean
+}
 
-export const SectionOverlay = ({ children, heading, slugToAll, howSlides, centerArrow }) => {
+export const SectionOverlay = ({ children, heading, slugToAll, howSlides, centerArrow }: SectionOverlayProps) => {
 
 
     return (
