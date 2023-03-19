@@ -37,6 +37,7 @@ const DrawerBottom = ({ children }: { children: ReactNode }) => (
 )
 
 export const Drawer = ({ show, close, isActiveNum, navItem }: DrawerProps) => {
+    console.log(isActiveNum)
 
     return (
         <div className='Drawer'>

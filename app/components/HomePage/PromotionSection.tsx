@@ -19,7 +19,7 @@ const Card = ({ title, image, slug, slogan }: Promotion) => {
     return (
         < div className='block w-[250px] lg:w-full xl:w-full' >
             <div className='h-full py-2'>
-                <Link href={`/${slug}`}>
+                <Link href={`/${slug.current}`}>
                     <div className='flex items-center justify-center mt-[2px] rounded-lg shadow-xCom overflow-hidden'>
                         <span className='inline-flex items-center justify-center w-[284px] h-[212px] overflow-hidden min-h-full py-3'>
                             <Image

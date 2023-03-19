@@ -79,7 +79,7 @@ const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
     return (
         < div className='block w-[250px] lg:w-full xl:w-full' >
             <div className='h-full py-2'>
-                <Link href={`/${slug}`}>
+                <Link href='/'>
                     <div className='flex items-center justify-center mt-[2px] rounded-lg shadow-xCom overflow-hidden'>
 
                         <span className='inline-flex items-center justify-center w-full h-[179px] lg:h-[174px] xl:h-[196px] 2xl:h-[218px] overflow-hidden min-h-full py-3'>
@@ -96,7 +96,7 @@ const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
                 </Link>
 
 
-                <Link href={`${slug}`} className='block mt-4 ml-1'>
+                <Link href='/' className='block mt-4 ml-1'>
                     <h3 className='text-xl leading-6 font-bold min-h-[48px] max-w-[250px]'>
                         <span className='max-h-[48px]'>
                             <span className='w-full overflow-hidden text-ellipsis line-clamp-2'

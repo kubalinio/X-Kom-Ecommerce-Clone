@@ -1,3 +1,5 @@
+
+
 import { urlFor } from '@/lib/sanity.client';
 import { Product } from '@/typings';
 import Image from 'next/image';
@@ -10,6 +12,8 @@ import { MdOutlineAddShoppingCart } from 'react-icons/md';
 // const ProductFav = () => ()
 
 export const ProductCard = ({ slug, special, mainImage, title, price }: Product) => {
+
+
 
     return (
         <div className='relative rounded-lg group lg:border lg:border-transparent lg:hover:shadow-xCom'>

@@ -26,7 +26,7 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
                 <div className='flex justify-between w-full pl-4 pr-2 md:pl-6 lg:p-0'>
                     <div className='flex flex-col'>
                         <h2 className='mt-4 text-3xl font-bold lg:mt-3'>
-                            <Link href={`/`}>
+                            <Link href='/'>
                                 {heading}
                             </Link>
                         </h2>

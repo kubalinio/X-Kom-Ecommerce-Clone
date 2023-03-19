@@ -3,7 +3,7 @@
 import useWindowDimensions from "@/hooks/useWindowDimensions"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { ReactNode, useEffect, useRef, useState } from "react"
+import { Fragment, ReactNode, useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import { Drawer } from "./DrawerModal"
 import { MenuItemsProps } from "./Header"
@@ -41,6 +41,7 @@ const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
     }
 
     const handleActiveNav = (width: number | undefined, num: number, link: string) => {
+        console.log(num)
         if (width! > 1027) {
             setIsModalShow(false)
             // Check better solution
@@ -65,12 +66,12 @@ const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
         <div className='relative flex items-center'>
 
             {menuItems.map((item, i) => (
-                <>
+                <Fragment key={item.name + i}>
                     {i === 1 && <span className="hidden md:flex self-center border-r-[1px] border-gray-400 h-9 ml-2 mr-3 mb-1" />}
 
                     {/* Nav Items */}
                     <div
-                        key={item.name + Math.random()}
+                        key={item.name}
                         onMouseEnter={() => handleHoverNav(width, i)}
                         onMouseLeave={() => setIsHover(false)}
                         className={`relative flex h-12 md:h-16 z-10 ${i === 0 ? 'max-md:hidden' : ''} ${activeNav === i && isHover ? 'nav-item-after' : ''}`}>
@@ -79,7 +80,7 @@ const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
                             onClick={() => handleActiveNav(width, i, item?.slug)}
                             className={`flex justify-center items-center min-w-[64px] md:min-w-[88px] cursor-pointer ${activeNav === i && isHover ? 'shadow-xCom rounded-t-lg' : ''}`} >
 
-                            <Link href={`/${item.slug}`} className="flex flex-col items-center justify-center h-full pointer-events-none" >
+                            <Link href='/' className="flex flex-col items-center justify-center h-full pointer-events-none" >
                                 <div className="text-2xl 2xl:text-3xl" >
                                     <Icon icon={item.icon} /></div>
                                 <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>
@@ -108,7 +109,7 @@ const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
                         , refPortal.current) : null
                     )}
 
-                </>
+                </Fragment>
             ))}
         </div>
     )

@@ -168,7 +168,15 @@ const menuItems: MenuItemsProps[] = [
         name: 'Koszyk',
         icon: <SlBasket />,
         slug: 'koszyk',
-        // subMenu: <div>Content 3</div>
+        subMenu: {
+            contact: [
+                {
+                    name: 'Twoje konto',
+                    icon: <AiOutlineUser className='w-full h-full' />,
+                    slug: 'konto'
+                },
+            ]
+        }
     },
 ]
 
