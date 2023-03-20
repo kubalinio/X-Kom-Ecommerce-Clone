@@ -40,14 +40,14 @@ const Card = ({ title, image, slug, slogan }: Promotion) => {
                         <span className='max-h-[48px]'>
                             <span className='w-full overflow-hidden text-ellipsis line-clamp-2'
                             >
-                                {slogan}
+                                {title}
                             </span>
                         </span>
                     </h3>
                 </Link>
 
                 <div className='my-1 text-[#4d4d4d] whitespace-nowrap line-clamp-1 text-ellipsis'>
-                    {title}
+                    {slogan}
                 </div>
 
             </div>

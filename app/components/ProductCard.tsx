@@ -46,7 +46,7 @@ export const ProductCard = ({ slug, special, mainImage, title, price }: Product)
                     {/* Title */}
                     <div className='mr-2 md:mx-3'>
                         <Link href='/'>
-                            <h3 className='h-10 mt-2 break-words whitespace-normal max-h-10 lg:mt-0'>
+                            <h3 style={{ maxHeight: '40px' }} className='mt-2 overflow-hidden break-words whitespace-normal h-[40px] max-h-10 lg:mt-0'>
                                 <span className='w-full line-clamp-2'>
                                     {title}
                                 </span>

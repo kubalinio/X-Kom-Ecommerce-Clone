@@ -28,7 +28,7 @@ export const useCountdown = (targetDate) => {
 
 const getReturnValues = (countDown) => {
     const [days, setDays] = useState(0)
-    const [hours, setHours] = useState(0)
+    const [hours, setHours] = useState(12)
     const [minutes, setMinutes] = useState(0)
     const [seconds, setSeconds] = useState(0)
 
