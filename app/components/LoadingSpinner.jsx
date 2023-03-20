@@ -11,7 +11,7 @@ const LoadingSpinner = () => {
     return (
         <div>
             <LoadingIcon />
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
         </div>
     )
 }

@@ -58,11 +58,10 @@ const Card = ({ title, image, slug, slogan }: Promotion) => {
 export const PromotionSection = () => {
     const { data, isLoading } = useQuery<Promotions>({
         queryFn: () => fetchPromotions(),
-        queryKey: ['promotions']
+        queryKey: ['promotions'],
+        staleTime: 3600000
     })
     if (isLoading) return <div>Loading...</div>
-
-    console.log(data)
 
     return (
         <SectionOverlay heading={'Promocje'} slugToAll={'promocje'} howSlides={4} centerArrow={false} >

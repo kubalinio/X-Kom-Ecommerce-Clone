@@ -18,7 +18,8 @@ export const BrandSection = () => {
 
     const { data, isLoading } = useQuery<Brands>({
         queryFn: () => fetchBrands(),
-        queryKey: ['brands']
+        queryKey: ['brands'],
+        staleTime: 3600000
     })
 
     if (isLoading) return <div>Loading...</div>

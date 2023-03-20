@@ -20,7 +20,7 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
 
 
     return (
-        <div className='w-full '>
+        <section className='w-full mb-4 bg-white lg:mb-0 lg:pb-8'>
             <div className='flex flex-col bg-white border-y border-[#ebebeb] lg:border-b-0 lg:border-[#ddd]'>
                 {/* Head */}
                 <div className='flex justify-between w-full pl-4 pr-2 md:pl-6 lg:p-0'>
@@ -122,7 +122,7 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
                 {/* Show All */}
                 <div className='md:hidden'>
                     <div className='flex justify-center mx-4 py-2 border-t border-[#ddd]'>
-                        <Link href={`/${slugToAll}`} className='flex items-center justify-center rounded-full pr-3 pl-4 min-h-[36px] text-[#4d4d4d] bg-white hover:bg-[#f5f5f5] mt-4 lg:mt-3 lg:-mr-5'>
+                        <Link href={`/${slugToAll}`} className='flex items-center justify-center rounded-full pr-3 pl-4 min-h-[36px] text-[#4d4d4d] bg-white hover:bg-[#f5f5f5] my-2 lg:mt-3 lg:-mr-5'>
                             Pokaż wszystkie
                             <span className='inline-block w-4 h-4 ml-1'>
                                 <SlArrowRight className='w-full h-full' />
@@ -131,6 +131,6 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
                     </div>
                 </div>
             </div>
-        </div >
+        </section >
     )
 }

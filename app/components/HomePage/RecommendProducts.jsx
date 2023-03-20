@@ -28,7 +28,8 @@ const RecommendProducts = () => {
 
     const { data, isLoading } = useQuery({
         queryFn: () => fetchProducts(),
-        queryKey: ['products']
+        queryKey: ['products'],
+        staleTime: 3600000
     })
 
     if (isLoading) return (
@@ -67,7 +68,7 @@ const RecommendProducts = () => {
 
                     {/* Mobile Products Delete in DOM in 1080px */}
                     <div>
-                        {width < 1024 &&
+                        {width < 1080 &&
                             <ScrollingCarousel className='[&>*]:px-4'>
                                 {data.products.map(product => (
                                     <div key={product._id} className='max-w-[150px] p-2 min-w-[150px] sm:min-w-[180px] sm:max-w-[180px] md:max-w-[220px] md:min-w-[220px]'>

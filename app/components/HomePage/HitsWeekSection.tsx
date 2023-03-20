@@ -18,7 +18,8 @@ export const HitsWeekSection = () => {
 
     const { data, isLoading } = useQuery({
         queryFn: () => fetchProducts(),
-        queryKey: ['products']
+        queryKey: ['products'],
+        staleTime: 3600000
     })
 
     if (isLoading) return <div><LoadingSpinner /></div>

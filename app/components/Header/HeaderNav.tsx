@@ -41,7 +41,7 @@ const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
     }
 
     const handleActiveNav = (width: number | undefined, num: number, link: string) => {
-        console.log(num)
+
         if (width! > 1027) {
             setIsModalShow(false)
             // Check better solution

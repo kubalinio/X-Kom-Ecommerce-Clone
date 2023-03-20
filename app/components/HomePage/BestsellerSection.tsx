@@ -17,12 +17,11 @@ export const BestsellerSection = () => {
 
     const { data, isLoading } = useQuery<Products>({
         queryFn: () => fetchProducts(),
-        queryKey: ['products']
+        queryKey: ['products'],
+        staleTime: 3600000
     })
 
     if (isLoading) return <div>Loading...</div>
-
-    console.log(data)
 
     return (
         <SectionOverlay heading={'Bestsellers'} slugToAll={'bestsellers'} howSlides={5} centerArrow={true} >

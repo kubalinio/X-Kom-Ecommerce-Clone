@@ -100,12 +100,12 @@ const settings = {
             breakpoint: 900,
             settings: {
                 className: "center",
+                dots: false,
+                arrows: false,
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 infinite: false,
                 variableWidth: false,
-                arrows: false,
-                dots: false,
 
             }
         },
@@ -134,7 +134,7 @@ const SliderBox = () => {
 
                 {slides.map((slide, i) => (
 
-                    <div key={slide.name + i} style={{ width: 325 }} className='w-full pl-3 md:px-3 lg:px-6 xl:px-0' >
+                    <div key={slide.name + i} style={{ width: 325 }} className='w-full pl-4 md:px-6 lg:px-6 xl:px-0' >
 
                         <a key={slide.name + i} href={slide.link} className='relative w-full h-full mx-2 overflow-hidden' >
 

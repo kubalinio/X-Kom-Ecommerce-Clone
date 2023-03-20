@@ -282,9 +282,6 @@ const categorieItems: categorieMainProps[] = [
     },
 ]
 
-
-
-
 export const Header = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
     const [headerHeight, setHeaderHeight] = useState(98)
@@ -292,15 +289,6 @@ export const Header = () => {
 
     // Dać nasłuchiwanie na NAv Bottom do sumy wysokości nawigacji przy desktopach
     const { width }: {width: number | undefined} = useWindowDimensions()
-
-
-    // Desktop Navigation
-
-
-    // Mobile Categories
-    // const [showCategories, setShowCategories] = useState(false)
-    // const [isHoverCategories ,setIsHoverCategories] = useState(false)
-
   
 
     const onResize = useCallback(() => {
@@ -335,7 +323,7 @@ export const Header = () => {
 
     return (
 
-        <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] mb-5 lg:mb-10 `}>
+        <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] lg:mb-10 `}>
 
             <header ref={headerRef} className={`${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} relative bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
 
