@@ -1,8 +1,46 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import { useCountdown } from '../../../hooks/useCountdown'
+
+const CountdownTimer = ({ targetDate }: { targetDate: number }) => {
+    const [days, hours, minutes, seconds] = useCountdown(targetDate)
+
+    return (
+        <div className='flex flex-col items-center'>
+            <span className='mb-2'>Następny gorący strzał:</span>
+
+            <div className='flex justify-center text-2xl'>
+                <div className='flex flex-col items-center'>
+                    <div className='flex items-center justify-center w-14 h-14 rounded-xl bg-[#ddd]'>{hours < 10 ? `0${hours}` : `${hours}`}</div>
+                    <span className='text-sm text-[#707070]'>godz.</span>
+                </div>
+                <div className='mt-[9px] mx-[6px] after:content-[":"]' />
+                <div className='flex flex-col items-center'>
+                    <div className='flex items-center justify-center w-14 h-14 rounded-xl bg-[#ddd]'>{minutes < 10 ? `0${minutes}` : `${minutes}`}</div>
+                    <span className='text-sm text-[#707070]'>godz.</span>
+                </div>
+                <div className='mt-[9px] mx-[6px] after:content-[":"]' />
+                <div className='flex flex-col items-center'>
+                    <div className='flex items-center justify-center w-14 h-14 rounded-xl bg-[#ddd]'>{seconds < 10 ? `0${seconds}` : `${seconds}`}</div>
+                    <span className='text-sm text-[#707070]'>godz.</span>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 const Promo = () => {
+    //  12 HOURS
+    const TIME_TO_END_PROMOTION = 12 * 60 * 60 * 1000
+
+    // fetch date stamp from Sanity
+    const DATE_START_PROMOTION = new Date(1679303688441).getTime()
+
+
+    const dateAfterPromotion = DATE_START_PROMOTION + TIME_TO_END_PROMOTION
+
     return (
         <section className='w-full p-4 pt-0 mb-4 bg-white border-b border-[#ebebeb] md:p-6 md:pt-3 lg:border-none lg:p-0 lg:pr-8 lg:pb-8 lg:w-[31.666%] lg:mb-0'>
 
@@ -46,26 +84,7 @@ const Promo = () => {
                                 </div>
                                 <p className='mb-6 text-3xl font-bold leading-10 text-center text-[#4d4d4d]'>Wyprzedano</p>
                                 {/* Counter */}
-                                <div className='flex flex-col items-center'>
-                                    <span className='mb-2'>Następny gorący strzał:</span>
-
-                                    <div className='flex justify-center text-2xl'>
-                                        <div className='flex flex-col items-center'>
-                                            <div className='flex items-center justify-center w-14 h-14 rounded-xl bg-[#ddd]'>05</div>
-                                            <span className='text-sm text-[#707070]'>godz.</span>
-                                        </div>
-                                        <div className='mt-[9px] mx-[6px] after:content-[":"]' />
-                                        <div className='flex flex-col items-center'>
-                                            <div className='flex items-center justify-center w-14 h-14 rounded-xl bg-[#ddd]'>20</div>
-                                            <span className='text-sm text-[#707070]'>godz.</span>
-                                        </div>
-                                        <div className='mt-[9px] mx-[6px] after:content-[":"]' />
-                                        <div className='flex flex-col items-center'>
-                                            <div className='flex items-center justify-center w-14 h-14 rounded-xl bg-[#ddd]'>10</div>
-                                            <span className='text-sm text-[#707070]'>godz.</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <CountdownTimer targetDate={dateAfterPromotion} />
                             </div>
                         </div>
                     </Link>

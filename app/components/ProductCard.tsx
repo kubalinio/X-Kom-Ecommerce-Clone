@@ -13,8 +13,6 @@ import { MdOutlineAddShoppingCart } from 'react-icons/md';
 
 export const ProductCard = ({ slug, special, mainImage, title, price }: Product) => {
 
-
-
     return (
         <div className='relative rounded-lg group lg:border lg:border-transparent lg:hover:shadow-xCom'>
 
