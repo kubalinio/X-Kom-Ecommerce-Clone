@@ -33,6 +33,12 @@ module.exports = {
           '0%': {height: '72px'},
           '100%': {height: '56px'}
         },
+        headerMobileAnimationHide: {
+          '0%': {transform: 'translateY(0px)'},
+          '100%': {transform: 'translateY(-90px)'}
+        },
+
+
       },
       
       animation: {
@@ -40,6 +46,7 @@ module.exports = {
         logoHide: 'logoAnimationHide 500ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
         headerExpand: 'headerAnimationExpand 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
         headerMinimize: 'headerAnimationMinimize 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
+        headerMobileHide: 'headerMobileAnimationHide 0ms cubic-bezier(0.4, 0, 0.2, 1) none'
       }
 
       

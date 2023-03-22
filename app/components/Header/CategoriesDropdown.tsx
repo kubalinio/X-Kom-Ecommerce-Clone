@@ -80,6 +80,8 @@ const CategoryDropdown = ({ category, index }: { category: categorieMainProps, i
 
     const { name, icon, slug, recommendProduct, subMenu } = category
 
+    const newName = name.replace('i ', 'i\u00a0')
+
     const handleIsFocus = () => {
         if (isShow === false) {
             setIsShow(true)
@@ -97,15 +99,15 @@ const CategoryDropdown = ({ category, index }: { category: categorieMainProps, i
                 className={`${isShow ? 'nav-item-after bg-white z-[4] shadow-xCom rounded-t-lg ' : 'z-[3]'} flex-grow relative last:text-pink-800 last:flex-grow-0`} >
 
 
-                <Link href='/' className='flex items-center px-3 h-14 w-min'>
+                <Link href='/' className={`flex items-center px-3 h-14 w-min ${index === 8 ? 'text-[#be0064]' : 'text-[#1a1a1a]'}`}>
 
-                    <div className="max-xl:hidden">
-                        <span className="inline-block w-6 h-6 mr-2 overflow-hidden">
+                    <div className="flex items-center max-xl:hidden">
+                        <span className="inline-block mr-2 overflow-hidden w-7 h-7">
                             {icon}
                         </span>
                     </div>
 
-                    <span>{name}</span>
+                    <span className={`text-[13px] ${index === 8 ? 'min-w-[110px]' : ''}`}>{newName}</span>
                 </Link>
 
                 {/* scaleY & visible do Animacji */}
@@ -191,17 +193,16 @@ export const CategoriesDesktop = ({ isScroll, categorieItems, width }: Categorie
 
 
     return (
-        <div className={`${isScroll ? 'h-0 opacity-0 invisible' : 'opacity-100 visible'} relative z-[1] transition-opacity duration-200`}>
+        <div className={`${isScroll ? 'h-0 opacity-0 invisible' : 'opacity-100 visible'} relative z-[1] transition-all duration-200`}>
 
-            {width! > 1024 ? (
-                <div>
-                    {/* Product Categories Container */}
-                    <div className="relative hidden lg:block w-full pt-[1px] bg-[#f5f5f5] shadow-md z-[1]" >
+            <div>
+                {/* Product Categories Container */}
+                <div className="relative hidden lg:block w-full pt-[1px] bg-[#f5f5f5] shadow-md z-[1]" >
+                    {width! >= 1080 ? (
 
-                        <div className="relative flex items-center justify-center bg-inherit mx-auto lg:max-w-[1156px] lg:w-[calc(100%-64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
+                        <div className="relative flex items-center justify-center bg-inherit mx-auto lg:max-w-[1156px] lg:w-[calc(100%-64px)]  2xl:max-w-[1444px]">
                             {/* Product Categories */}
                             <nav className="w-full" >
-
 
                                 <ul className='flex justify-between'>
                                     {categorieItems.map((category, i) => (
@@ -210,10 +211,10 @@ export const CategoriesDesktop = ({ isScroll, categorieItems, width }: Categorie
                                 </ul>
                             </nav>
                         </div>
-                    </div>
-                </div>
 
-            ) : null}
+                    ) : null}
+                </div>
+            </div>
 
         </div>
     )

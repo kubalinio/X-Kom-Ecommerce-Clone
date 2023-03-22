@@ -145,8 +145,8 @@ const SliderBox = () => {
     })
 
     if (isLoading) return (
-        <section className='w-full bg-white lg:pb-5 lg:pt-2 xl:pt-1 2xl:pb-20'>
-            <div className='flex flex-col justify-center w-full h-[310px] rounded-3xl pl-14 bg-gray-100 '>
+        <section className='w-full p-4 bg-white lg:pb-5 lg:pt-2 xl:pt-1 2xl:pb-20'>
+            <div className='flex flex-col justify-center w-full h-[175px] md:h-[250px] lg:h-[310px] rounded-3xl pl-14 bg-gray-100 '>
                 <div className="w-1/2 h-8 bg-gray-300" />
                 <div className="w-1/4 h-8 mt-5 bg-gray-300" />
             </div>

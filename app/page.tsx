@@ -8,10 +8,18 @@ import SliderBox from "./components/HomePage/SliderBox";
 import Promo from "./components/HomePage/Promo";
 import { BestsellerSection } from "./components/HomePage/BestsellerSection";
 import { BrandSection } from "./components/HomePage/BrandSection";
+import axios from "axios";
 
 
+const fetchProducts = async () => {
+  const response = await axios.get(`http://localhost:3000/api/getProducts`)
+  return response.data
+};
 
-export default function Home() {
+export default async function Home() {
+  const initialProducts = await fetchProducts()
+
+
   return (
     <main className="max-w-full mx-auto w-full lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]">
       {/* Container */}
@@ -23,7 +31,7 @@ export default function Home() {
         {/* Hot Shot */}
         <Promo />
         {/* Recommend Products */}
-        <RecommendProducts />
+        <RecommendProducts initialProducts={initialProducts} />
         {/* Promotions Section */}
         <PromotionSection />
         {/* New Card Article */}

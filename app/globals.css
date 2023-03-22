@@ -194,7 +194,7 @@ a {
 	
 	.slick-slider {
 		max-width: 1444px;
-		margin: 15px auto;
+		margin: 0 auto;
 	}
 }
 @media (min-width: 1600px ) {

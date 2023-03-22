@@ -22,14 +22,16 @@ const fetchProducts = async () => {
 };
 
 
-const RecommendProducts = () => {
+const RecommendProducts = ({ initialProducts }) => {
+
+
     // Check width
     const { width } = useWindowDimensions()
 
     const { data, isLoading } = useQuery({
         queryFn: () => fetchProducts(),
         queryKey: ['products'],
-        staleTime: 3600000
+        initialData: initialProducts
     })
 
     if (isLoading) return (

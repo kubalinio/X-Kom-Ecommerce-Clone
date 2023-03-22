@@ -1,30 +1,32 @@
 'use client'
 
-import {  ReactNode, useCallback, useEffect, useRef, useState } from 'react';
-import Link from 'next/link'
-import { useRouter } from 'next/navigation';
+import {useEffect, useRef, useState } from 'react';
+
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 
-import { createPortal } from 'react-dom';
+
 
 import {  BiMessageDots } from 'react-icons/bi'
-import { CgProfile } from 'react-icons/cg';
-import { MdOutlineFavoriteBorder } from 'react-icons/md';
-import { SlBasket } from 'react-icons/sl'
-import { HiOutlineDesktopComputer, HiOutlineClipboardList } from 'react-icons/hi'
+import { CgProfile, CgSmartphoneChip } from 'react-icons/cg';
+import { MdOutlineCable, MdOutlineFavoriteBorder } from 'react-icons/md'; 
+import { SlBasket, SlScreenSmartphone } from 'react-icons/sl'
+import { HiOutlineClipboardList } from 'react-icons/hi'
 import { HiOutlineBuildingStorefront } from 'react-icons/hi2'
 
-import { AiOutlineUser, AiOutlineHeart, AiOutlineSetting } from 'react-icons/ai'
+import { AiOutlineUser, AiOutlineHeart, AiOutlineSetting, AiOutlineLaptop, AiOutlinePrinter } from 'react-icons/ai'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
 import { GoMail } from 'react-icons/go'
 import { BsTelephone, BsCreditCard2Front } from 'react-icons/bs'
-
+import {IoGameControllerOutline, IoTvOutline} from 'react-icons/io5'
+import {SiHomeassistant} from 'react-icons/si'
+import {CiPercent} from 'react-icons/ci'
 
 import { CategoriesDesktop } from './CategoriesDropdown';
 
 import { SearchBar } from './SearchBar';
 import LogoHeader from './HeaderLogo';
 import HeaderNav from './HeaderNav';
+import { useScrollDirection } from '@/hooks/useScrollDirection';
 
 // sidebar Component
 
@@ -193,7 +195,7 @@ export type categorieMainProps = {
 const categorieItems: categorieMainProps[] = [
     {
         name: 'Laptop i komputer',
-        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        icon: <AiOutlineLaptop className='w-full h-full'/>,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
         subMenu: [
@@ -234,49 +236,49 @@ const categorieItems: categorieMainProps[] = [
     },
     {
         name: 'Smartfony i smartwatche',
-        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        icon: <SlScreenSmartphone className='w-full h-full'/>,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Gaming i streaming',
-        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        icon: <IoGameControllerOutline className='w-full h-full'/>,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Podzespoły komputerowe',
-        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        icon: <CgSmartphoneChip className='w-full h-full'/>,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Urządzenia peryferyjne',
-        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        icon: <AiOutlinePrinter className='w-full h-full'/>,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'TV i audio',
-        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        icon: <IoTvOutline className='w-full h-full'/>,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Smarthome i lifestyle',
-        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        icon: <SiHomeassistant className='w-full h-full'/>,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Akcesoria',
-        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        icon: <MdOutlineCable className='w-full h-full'/>,
         slug:'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
     {
         name: 'Trendy, promocje i nowości',
-        icon: <HiOutlineDesktopComputer className='w-full h-full'/>,
+        icon: <CiPercent className='w-full h-full'/>,
         slug:'promocje',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
     },
@@ -284,51 +286,44 @@ const categorieItems: categorieMainProps[] = [
 
 export const Header = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
-    const [headerHeight, setHeaderHeight] = useState(98)
-    const headerRef = useRef<any>(null)
-
+    const [scrollMobile, setScrollMobile] = useState(false)
     // Dać nasłuchiwanie na NAv Bottom do sumy wysokości nawigacji przy desktopach
     const { width }: {width: number | undefined} = useWindowDimensions()
   
-
-    const onResize = useCallback(() => {
-        if (headerRef.current) setHeaderHeight(headerRef.current.clientHeight)
-    }, [])
-
     useEffect(() => {
-        const listenerHeight = () => {
-            onResize()
-        }
 
         const listener = (event: any) => {
-            if (event.target.scrollingElement.scrollTop >= 35 && window.innerWidth > 1027) {
+            console.log(event.target.scrollingElement.scrollTop)
+            if (event.target.scrollingElement.scrollTop >= 35 && window.innerWidth > 1080) {
                 setIsScrollDown(true)
             } else {
                 setIsScrollDown(false)
             }
+
+            if (event.target.scrollingElement.scrollTop >= 85 && window.innerWidth < 1080) {
+                setScrollMobile(true)
+            } else {
+                setScrollMobile(false)
+            }
         }
         document.addEventListener('scroll', listener)
-        window.addEventListener('resize', listenerHeight)
+        
 
         return () => {
             document.removeEventListener('scroll', listener)
-            window.removeEventListener('resize', listenerHeight)
         }
     }, [])
 
-   
-
-    
-    
+    const scrollDirection = useScrollDirection()
 
     return (
 
         <div className={`relative z-[1000] h-[90px] md:h-[107px] lg:h-[125px]`}>
 
-            <header ref={headerRef} className={`${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} relative bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
+            <header className={`${scrollMobile ? 'fixed animate-headerMobileHide' : 'relative'} ${scrollDirection === 'down' && scrollMobile ? 'translate-y-[-90px]' : 'translate-y-0 duration-300'} ${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
 
                 {/* Header Top */}
-                <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1156px] lg:w-[calc(100%-64px)] xl:max-w-screen-xl 2xl:max-w-[1444px]">
+                <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1156px] lg:w-[calc(100%-64px)] 2xl:max-w-[1444px]">
 
                     {/* Logo Box */}
                     <div className="flex items-center justify-center h-full shrink-0 lg:pl-8 2xl:pl-8" >
