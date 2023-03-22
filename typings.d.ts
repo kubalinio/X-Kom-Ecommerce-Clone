@@ -52,3 +52,13 @@ export interface Promotion extends SanityBody {
 export interface Promotions {
 	promotions: Promotion[]
 }
+
+export interface Slide {
+	title: string,
+	link: string,
+	image: Image
+}
+
+export interface Slides {
+	slides: Slide[]
+}

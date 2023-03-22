@@ -160,6 +160,16 @@ a {
 
 }
 
+@media (min-width: 1080px ) {
+  
+  .slick-dots {
+    bottom: -17px;
+  }
+
+  }
+
+
+
 @media (min-width: 1203px ) {
 	.slick-dots {
     margin-left: 30px;

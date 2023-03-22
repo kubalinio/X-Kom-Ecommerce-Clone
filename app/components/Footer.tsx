@@ -169,7 +169,7 @@ const Newsletter = () => (
                             className='flex-1 h-full px-5 text-left border border-[#ccc] border-r-0 max-w-full rounded-l-full -mr-4 outline-none text-base lg:pl-4'
                         />
                         <button type='submit' className='text-white border-none rounded-full h-full w-auto px-4 bg-[#0082fa] hover:bg-[#0070CC] active:bg-[#00407a] transition-colors duration-200'>
-                            <span className='flex items-center justify-center'>
+                            <span className='flex items-center justify-center whitespace-nowrap'>
                                 Zapisz się
                             </span>
                         </button>

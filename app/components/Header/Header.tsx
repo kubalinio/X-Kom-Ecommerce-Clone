@@ -323,7 +323,7 @@ export const Header = () => {
 
     return (
 
-        <div style={{ height: `${headerHeight}px` }} className={`relative z-[1000] lg:mb-10 `}>
+        <div className={`relative z-[1000] h-[90px] md:h-[107px] lg:h-[125px]`}>
 
             <header ref={headerRef} className={`${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} relative bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
 
@@ -353,10 +353,6 @@ export const Header = () => {
                     </div>
 
                 </div>
-
-
-
-
 
                 {/* ProductCategories */}
                 {/*Navbar Bottom min-screen 1028px */}

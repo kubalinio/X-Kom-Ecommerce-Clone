@@ -82,10 +82,9 @@ const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
                     </div>
                 </Link>
 
-
                 <Link href={`${slug}`} className='block mt-4 ml-1'>
-                    <h3 className='text-xl leading-6 font-bold min-h-[48px] max-w-[250px]'>
-                        <span className='block max-h-[48px]'>
+                    <h3 className='text-xl leading-6 font-bold max-h-[48px] max-w-[250px] overflow-hidden'>
+                        <span className='block max-h-[48px] overflow-hidden'>
                             <span className='w-full overflow-hidden text-ellipsis line-clamp-2'
                             >
                                 {heading}

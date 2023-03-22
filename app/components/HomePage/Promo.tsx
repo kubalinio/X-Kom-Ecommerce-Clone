@@ -116,11 +116,12 @@ const Promo = () => {
     //  12 HOURS
     const TIME_TO_END_PROMOTION = 12 * 60 * 60 * 1000
     // fetch date stamp from Sanity
-    const DATE_START_PROMOTION = new Date(1679303688441).getTime()
+    const DATE_START_PROMOTION = new Date().getTime()
     const dateAfterPromotion = DATE_START_PROMOTION + TIME_TO_END_PROMOTION
 
     return (
         <section className='w-full p-4 pt-0 mb-4 bg-white border-b border-[#ebebeb] md:p-6 md:pt-3 lg:border-none lg:p-0 lg:pr-8 lg:pb-8 lg:w-[31.666%] lg:mb-0'>
+
 
             <div className='flex p-[2px] relative'>
                 {/* Content */}
@@ -130,7 +131,7 @@ const Promo = () => {
                             {/* Top */}
                             <div className='w-full md:w-1/2 lg:w-full'>
                                 {/* Photo */}
-                                <div className='relative flex flex-col'>
+                                <div className='relative flex flex-col gap-2'>
                                     <h1 className='text-[26px] font-bold leading-7'>Gorący strzał</h1>
                                     <div className={`inline-flex items-center justify-center self-center overflow-hidden h-[220px] w-[262px] ${finished ? 'grayscale-[50%] opacity-60' : 'grayscale-0 opacity-100'}`}>
                                         <Image src="https://cdn.x-kom.pl/i/img/promotions/hot-shot-large,,hs_2023_2_23_9_1_19.PNG"
@@ -157,7 +158,7 @@ const Promo = () => {
                             {/* Bottom */}
 
                             <div className='w-full md:w-1/2 md:text-center md:pl-2 lg:w-full'>
-                                <div className='items-center justify-center block mt-6 mb-2 text-center md:flex md:mt-11 lg:my-5'>
+                                <div className='items-center justify-center block mt-6 mb-2 text-center md:mt-11 lg:my-5'>
                                     <span className='block text-lg leading-6 line-through text-[#707070] md:mr-2'>1399,00 zł</span>
                                     {/* Finished  */}
                                     <span className={`block text-3xl text-[#4d4d4d] font-bold leading-10 ${finished ? 'text-[#4d4d4d]' : 'text-[#fa0064]'}`}>899,00 zł</span>
@@ -181,6 +182,8 @@ const Promo = () => {
                     <span className='block rounded-b-xl w-full h-[17%] border-2 border-t-0 border-[#fa0064] ' />
                 </div>
             </div>
+
+
         </section>
     )
 }

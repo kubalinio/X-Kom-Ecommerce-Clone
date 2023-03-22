@@ -12,8 +12,8 @@ import {defineType, defineField} from 'sanity'
  *  }
  */
 export default defineType({
-  title: 'Promocja',
-  name: 'Promocja',
+  title: 'Slides',
+  name: 'slides',
   type: 'document',
   fields: [
     defineField({
@@ -23,13 +23,9 @@ export default defineType({
     }),
 
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 96,
-      },
+      name: 'link',
+      title: 'Link',
+      type: 'string',
     }),
 
     defineField({
@@ -40,12 +36,16 @@ export default defineType({
         hotspot: true,
       },
     }),
-   
+
     defineField({
-      name: 'slogan',
-      title: 'Slogan',
-      type: 'string',
+      name: 'imageDesktop',
+      title: 'Image Desktop',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     }),
+
   ]
   
 })

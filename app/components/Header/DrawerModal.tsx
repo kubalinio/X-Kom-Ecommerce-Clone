@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link';
-import { ReactNode, useState } from 'react'
+import { usePathname } from 'next/navigation';
+import { ReactNode } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { AuthButton, AuthButtonOutlined } from '../AuthButtons';
 import { MenuItemsProps } from './Header';
@@ -37,6 +38,7 @@ const DrawerBottom = ({ children }: { children: ReactNode }) => (
 )
 
 export const Drawer = ({ show, close, isActiveNum, navItem }: DrawerProps) => {
+    const pathname = usePathname()
 
     return (
         <div className='Drawer'>
@@ -166,8 +168,8 @@ export const Drawer = ({ show, close, isActiveNum, navItem }: DrawerProps) => {
                                                         <div className='flex flex-col items-center px-4 py-8'>
                                                             <p className='mb-1 text-2xl font-bold'>Twój koszyk jest pusty</p>
                                                             <p className='mb-2'>Szukasz inspiracji?</p>
-                                                            <AuthButtonOutlined slug='promocje'>
-                                                                Przejdź do promocji
+                                                            <AuthButtonOutlined slug={`${pathname === '/' ? 'promocje' : ''}`}>
+                                                                Przejdź do {pathname === '/' ? 'promocji' : 'strony głównej'}
                                                             </AuthButtonOutlined>
                                                         </div>
                                                     </div>

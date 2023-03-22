@@ -9,6 +9,9 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import axios from "axios";
+import { useQuery } from "react-query";
+import { urlFor } from "@/lib/sanity.client";
 
 const slides = [
     {
@@ -67,6 +70,7 @@ function SamplePrevArrow(props) {
 
 const settings = {
     dots: true,
+    lazyLoad: true,
     arrows: true,
     speed: 300,
     slidesToShow: 1,
@@ -127,32 +131,53 @@ const settings = {
     ]
 };
 
+const fetchSliders = async () => {
+    const response = await axios.get(`/api/getSlides`)
+    return response.data
+}
+
 const SliderBox = () => {
+
+    const { data, isLoading } = useQuery({
+        queryFn: () => fetchSliders(),
+        queryKey: ['slides'],
+        staleTime: 3600000
+    })
+
+    if (isLoading) return (
+        <section className='w-full bg-white lg:pb-5 lg:pt-2 xl:pt-1 2xl:pb-20'>
+            <div className='flex flex-col justify-center w-full h-[310px] rounded-3xl pl-14 bg-gray-100 '>
+                <div className="w-1/2 h-8 bg-gray-300" />
+                <div className="w-1/4 h-8 mt-5 bg-gray-300" />
+            </div>
+        </section>)
+
     return (
-        <section className="w-full bg-white lg:py-5 xl:pt-1 2xl:pb-20">
+        <section className="w-full bg-white lg:pb-5 lg:pt-1 xl:pt-0 2xl:pb-20">
+
             <Slider {...settings} >
 
-                {slides.map((slide, i) => (
+                {data.slides.map((slide, i) => (
 
-                    <div key={slide.name + i} style={{ width: 325 }} className='w-full pl-4 md:px-6 lg:px-6 xl:px-0' >
+                    <div key={slide.title + i} className='w-full pl-4 md:px-6 lg:px-6 xl:px-0' >
 
-                        <a key={slide.name + i} href={slide.link} className='relative w-full h-full mx-2 overflow-hidden' >
+                        <a href={slide.link} className='relative mx-2 overflow-hidden' >
 
-                            <span className='md:hidden'>
-
-                                <Image loading='lazy' width={800} height={255} src={slide.img} alt={slide.name} className='object-cover w-full h-full rounded-2xl max-md:max-h-[175px] max-md:max-w-[325px]' />
+                            <span className=' md:hidden'>
+                                <Image loading='lazy' width={800} height={255} src={urlFor(slide.image).url()} alt={slide.title} className='object-cover w-full h-full rounded-2xl max-md:max-h-[175px] max-md:max-w-[325px]' />
                             </span>
 
                             {/* Large Screen */}
                             <span className='hidden w-full h-full md:block'>
-                                <Image loading='lazy' width={1200} height={500} src={slide.imgLarge} alt={slide.name} className='object-cover w-full h-full min-h-[250px] rounded-3xl ' />
+                                <Image loading='lazy' width={1200} height={500} src={urlFor(slide.imageDesktop).url()} alt={slide.title} className='object-cover w-full h-auto min-h-[250px] rounded-3xl' />
                             </span>
                         </a>
                     </div>
 
                 ))}
             </Slider>
-        </section>
+
+        </section >
     )
 }
 

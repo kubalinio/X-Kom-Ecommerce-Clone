@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link"
-import { ReactNode, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { SlArrowRight } from "react-icons/sl"
 import Overlay from "../Overlay";
 import { categorieMainProps } from "./Header";
@@ -189,8 +189,9 @@ const CategoryDropdown = ({ category, index }: { category: categorieMainProps, i
 
 export const CategoriesDesktop = ({ isScroll, categorieItems, width }: CategoriesDesktop) => {
 
+
     return (
-        <div className={`${isScroll ? 'h-0 opacity-0 invisible' : 'opacity-100 visible'} relative z-[1] transition-all duration-200`}>
+        <div className={`${isScroll ? 'h-0 opacity-0 invisible' : 'opacity-100 visible'} relative z-[1] transition-opacity duration-200`}>
 
             {width! > 1024 ? (
                 <div>
