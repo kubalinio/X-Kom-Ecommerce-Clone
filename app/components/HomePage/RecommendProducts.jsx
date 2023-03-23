@@ -57,6 +57,7 @@ const RecommendProducts = ({ initialProducts }) => {
                         {data.products.map(product => (
                             <div key={product._id} className='w-1/4 px-2 mb-[22px]'>
                                 <ProductCard
+                                    _id={product._id}
                                     slug={product.slug.current}
                                     special={product.special}
                                     mainImage={product.mainImage}

@@ -193,7 +193,7 @@ export const CategoriesDesktop = ({ isScroll, categorieItems, width }: Categorie
 
 
     return (
-        <div className={`${isScroll ? 'h-0 opacity-0 invisible' : 'opacity-100 visible'} relative z-[1] transition-all duration-200`}>
+        <div className={`${isScroll ? 'opacity-0 -translate-y-1/2 scale-y-0' : 'opacity-100 translate-y-0 scale-y-100'} relative z-[1] transition-all duration-300`}>
 
             <div>
                 {/* Product Categories Container */}

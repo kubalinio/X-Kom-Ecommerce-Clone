@@ -1,4 +1,4 @@
-
+'use client'
 
 import { urlFor } from '@/lib/sanity.client';
 import { Product } from '@/typings';
@@ -6,12 +6,51 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { IoMdHeartEmpty } from 'react-icons/io'
 import { MdOutlineAddShoppingCart } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux'
+import { addToBasket, getTotals } from '@/store/basketSlice';
+import { useEffect } from 'react';
 
 // const ProductEvent = () => ()
 
 // const ProductFav = () => ()
 
-export const ProductCard = ({ slug, special, mainImage, title, price }: Product) => {
+// const dispatch = useDispatch()
+//    
+
+//     useEffect(() => {
+//         dispatch(getTotals())
+// }, [basket, dispatch])
+
+const Basket = ({ _id, slug, special, mainImage, title, price }: Product) => {
+    const dispatch = useDispatch()
+
+
+    const addItemToBasket = () => {
+        const quantity = 1
+        const product = { id: _id, title, price, mainImage, quantity, slug, special }
+
+        dispatch(addToBasket(product))
+        dispatch(getTotals())
+    }
+
+    return (
+        <div className='hidden lg:group-hover:block absolute right-[10px] bottom-[10px] '>
+            <div>
+                <div className='relative'>
+                    <button
+                        onClick={addItemToBasket}
+                        className='flex items-center justify-center w-9 h-9 rounded-full bg-white border border-[#119e00] text-[#119e00] hover:bg-[#109e00] hover:text-white focus:bg-[#1f8014] focus:text-white transition duration-300 '>
+                        <span className='w-5 h-5'>
+                            <MdOutlineAddShoppingCart className='w-full h-full' />
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Product) => {
 
     return (
         <div className='relative rounded-lg group lg:border lg:border-transparent lg:hover:shadow-xCom'>
@@ -86,17 +125,15 @@ export const ProductCard = ({ slug, special, mainImage, title, price }: Product)
 
             {/* Basket */}
             {/* OnClick show Modal with choose product & info where is save to basket */}
-            <div className='hidden lg:group-hover:block absolute right-[10px] bottom-[10px] '>
-                <div>
-                    <div className='relative'>
-                        <button className='flex items-center justify-center w-9 h-9 rounded-full bg-white border border-[#119e00] text-[#119e00] hover:bg-[#109e00] hover:text-white focus:bg-[#1f8014] focus:text-white transition duration-300 '>
-                            <span className='w-5 h-5'>
-                                <MdOutlineAddShoppingCart className='w-full h-full' />
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <Basket
+                _id={_id}
+                slug={slug}
+                special={special}
+                mainImage={mainImage}
+                title={title}
+                price={price}
+            />
+
 
         </div>
     )

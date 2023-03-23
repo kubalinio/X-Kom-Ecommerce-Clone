@@ -9,7 +9,12 @@ import { Drawer } from "./DrawerModal"
 import { MenuItemsProps } from "./Header"
 import { NavDropdown } from "./NavDropdown"
 
-const Icon = ({ icon }: { icon: ReactNode }) => <span>{icon}</span>;
+import { useSelector } from 'react-redux'
+import { BasketItems } from "@/store/basketSlice"
+
+
+
+const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full">{icon}</span>;
 
 
 type Props = {
@@ -28,6 +33,8 @@ const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
     const [mounted, setMounted] = useState(false)
 
     const router = useRouter()
+
+    const basket = useSelector((state) => state)
 
     const handleHoverNav = (width: number | undefined, num: number) => {
         if (width! < 1027) {
@@ -62,6 +69,8 @@ const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
 
     }, [])
 
+
+
     return (
         <div className='relative flex items-center'>
 
@@ -81,8 +90,17 @@ const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
                             className={`flex justify-center items-center min-w-[64px] md:min-w-[88px] cursor-pointer ${activeNav === i && isHover ? 'shadow-xCom rounded-t-lg' : ''}`} >
 
                             <Link href='/' className="flex flex-col items-center justify-center h-full pointer-events-none" >
-                                <div className="text-2xl 2xl:text-3xl" >
-                                    <Icon icon={item.icon} /></div>
+                                <div className="relative flex items-center text-2xl 2xl:text-3xl w-7 h-7 md:w-8 md:h-8" >
+                                    {/* Quantity items */}
+                                    {i === 3 ? (
+                                        <div className="absolute top-0 -right-1">
+                                            <div className="flex items-center justify-center w-4 px-1 text-xs text-white bg-blue-600 rounded-full shadow-sm-xCom shadow-white">
+                                                {basket.basketTotalQuantity || 0}
+                                            </div>
+                                        </div>
+                                    ) : null}
+                                    <Icon icon={item.icon} />
+                                </div>
                                 <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>
                             </Link>
                         </div>

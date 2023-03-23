@@ -11,6 +11,7 @@
   "dependencies": {
     "@next/font": "^13.1.6",
     "@portabletext/react": "^2.0.2",
+    "@reduxjs/toolkit": "^1.9.3",
     "@sanity/client": "^5.2.2",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.0.0",
@@ -27,7 +28,9 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-query": "^3.39.3",
+    "react-redux": "^8.0.5",
     "react-slick": "^0.29.0",
+    "redux-persist": "^6.0.0",
     "sanity": "^3.0.0",
     "slick-carousel": "^1.8.1",
     "sns-react-siema": "^1.0.4",
