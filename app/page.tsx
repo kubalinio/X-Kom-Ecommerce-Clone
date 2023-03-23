@@ -12,7 +12,7 @@ import axios from "axios";
 
 
 const fetchProducts = async () => {
-  const response = await axios.get(`http://localhost:3000/api/getProducts`)
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getProducts`)
   return response.data
 };
 
