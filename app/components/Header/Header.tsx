@@ -293,7 +293,6 @@ export const Header = () => {
     useEffect(() => {
 
         const listener = (event: any) => {
-            console.log(event.target.scrollingElement.scrollTop)
             if (event.target.scrollingElement.scrollTop >= 35 && window.innerWidth >= 1079) {
                 setIsScrollDown(true)
             } else {

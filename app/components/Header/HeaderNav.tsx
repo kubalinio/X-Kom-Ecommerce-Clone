@@ -11,6 +11,7 @@ import { NavDropdown } from "./NavDropdown"
 
 import { useSelector } from 'react-redux'
 import { BasketItems } from "@/store/basketSlice"
+import { RootState } from "@/store"
 
 
 
@@ -34,7 +35,7 @@ const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
 
     const router = useRouter()
 
-    const basket = useSelector((state) => state)
+    const basket = useSelector((state: RootState) => state)
 
     const handleHoverNav = (width: number | undefined, num: number) => {
         if (width! < 1027) {

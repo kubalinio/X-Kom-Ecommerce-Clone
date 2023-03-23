@@ -7,7 +7,7 @@ export const useCountdown = (targetDate) => {
     const countDownDate = new Date(targetDate).getTime()
 
     const [countDown, setCountDown] = useState(
-        countDownDate - new Date().getTime()
+        countDownDate - new Date().setHours(21, 59, 0)
     )
 
 

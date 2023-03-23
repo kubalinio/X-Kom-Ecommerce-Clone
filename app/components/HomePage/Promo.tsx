@@ -5,19 +5,15 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useCountdown } from '../../../hooks/useCountdown'
 
-const CountdownTimer = ({ targetDate, timeIsUp }: { targetDate: number, timeIsUp: () => void }) => {
-    const [days, hours, minutes, seconds] = useCountdown(targetDate)
+const CountdownTimer = ({ hours, minutes, seconds, finished }: { hours: number, minutes: number, seconds: number, finished: boolean }) => {
 
-    useEffect(() => {
-        if (hours + minutes + seconds <= 0) {
-            timeIsUp()
-        }
-
-    }, [minutes])
 
     return (
         <div className='flex flex-col items-center'>
-            <span className='mb-2'>Następny gorący strzał:</span>
+            <span className='mb-2'>
+                {!finished ? 'Do końca zostało:' : 'Następny gorący strzał:'
+                }
+            </span>
 
             <div className='flex justify-center text-2xl'>
                 <div className='flex flex-col items-center'>
@@ -39,8 +35,8 @@ const CountdownTimer = ({ targetDate, timeIsUp }: { targetDate: number, timeIsUp
     )
 }
 
-const CounterProductBar = ({ toSell, finished, selledAll }: { toSell: number, finished: boolean, selledAll: () => void }) => {
-    const [selled, setSelled] = useState(145)
+const CounterProductBar = ({ toSell, selled, sells, finished, selledAll }: { toSell: number, selled: number, sells: () => void, finished: boolean, selledAll: () => void }) => {
+
 
     const [left, setLeft] = useState(toSell - selled)
     const [fill, setFill] = useState(0)
@@ -48,14 +44,14 @@ const CounterProductBar = ({ toSell, finished, selledAll }: { toSell: number, fi
     useEffect(() => {
 
         const interval = setInterval(() => {
-            setSelled(selled + 1)
+            sells()
 
         }, 10000)
 
         setLeft(toSell - selled)
         setFill(Math.floor(100 - ((selled * 100) / toSell)))
 
-        if (left === 0) {
+        if (left <= 0) {
             selledAll()
         }
 
@@ -109,15 +105,72 @@ const CounterProductBar = ({ toSell, finished, selledAll }: { toSell: number, fi
 }
 
 const Promo = () => {
-    const toSellProducts = 300
-
-    const [finished, setFinished] = useState(false)
-
     //  12 HOURS
     const TIME_TO_END_PROMOTION = 12 * 60 * 60 * 1000
     // fetch date stamp from Sanity
-    const DATE_START_PROMOTION = new Date().getTime()
-    const dateAfterPromotion = DATE_START_PROMOTION + TIME_TO_END_PROMOTION
+    const DATE_MORNING_PROMOTION = new Date().setHours(10, 0, 0)
+    const DATE_EVENING_PROMOTION = new Date().setHours(22, 0, 0)
+
+
+
+    //  start promocji 10 albo 22
+    const [startPromotion, setStartPromotion] = useState(DATE_MORNING_PROMOTION)
+
+    // Czas do konca promocji 
+    const dateAfterPromotion = startPromotion + TIME_TO_END_PROMOTION
+
+    const [days, hours, minutes, seconds] = useCountdown(dateAfterPromotion)
+
+    // czas się skończył albo nie
+
+    // wszystko sprzedane albo nie
+    const [toSell, setToSell] = useState(300)
+    const [selled, setSelled] = useState(145)
+    const [isSelled, setIsSelled] = useState(false)
+    // then
+    const [finished, setFinished] = useState(false)
+
+    useEffect(() => {
+
+        if (hours + minutes + seconds <= 0 || isSelled) {
+            // zakończ promocje
+            setFinished(true)
+
+            const currentTime = new Date().getHours()
+
+            if (currentTime > 10 && currentTime < 22) {
+                setStartPromotion(DATE_MORNING_PROMOTION)
+
+            } else if (currentTime > 22 && currentTime < 10) {
+
+                setStartPromotion(DATE_EVENING_PROMOTION)
+            }
+
+        } else if (hours + minutes + seconds <= 0 && isSelled) {
+            setFinished(false)
+            setIsSelled(false)
+            setSelled(0)
+            setToSell(123)
+
+            const currentTime = new Date().getHours()
+
+            if (currentTime > 10 && currentTime < 22) {
+                setStartPromotion(DATE_MORNING_PROMOTION)
+
+            } else if (currentTime > 22 && currentTime < 10) {
+
+                setStartPromotion(DATE_EVENING_PROMOTION)
+            }
+        }
+
+    }, [hours, isSelled])
+
+    // const currentTime = new Date().getHours()
+    // console.log(currentTime)
+
+
+
+
 
     return (
         <section className='w-full p-4 pt-0 mb-4 bg-white border-b border-[#ebebeb] md:p-6 md:pt-3 lg:border-none lg:p-0 lg:pr-8 lg:pb-8 lg:w-[31.666%] lg:mb-0'>
@@ -164,10 +217,10 @@ const Promo = () => {
                                     <span className={`block text-3xl text-[#4d4d4d] font-bold leading-10 ${finished ? 'text-[#4d4d4d]' : 'text-[#fa0064]'}`}>899,00 zł</span>
                                 </div>
 
-                                <CounterProductBar toSell={toSellProducts} finished={finished} selledAll={() => setFinished(true)} />
+                                <CounterProductBar toSell={toSell} selled={selled} finished={finished} selledAll={() => setIsSelled(true)} sells={() => setSelled(selled + 1)} />
 
                                 {/* Counter */}
-                                <CountdownTimer targetDate={dateAfterPromotion} timeIsUp={() => setFinished(true)} />
+                                <CountdownTimer hours={hours} minutes={minutes} seconds={seconds} finished={finished} />
                             </div>
                         </div>
                     </Link>
