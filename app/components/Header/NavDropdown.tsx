@@ -1,9 +1,12 @@
 'use client'
 
+import { RootState } from '@/store'
 import Link from 'next/link'
 import React, { useState, ReactNode } from 'react'
+import { useSelector } from 'react-redux'
 import { AuthButton, AuthButtonOutlined } from '../AuthButtons'
 import { MenuItemsProps } from './Header'
+import MiniBasket from './MiniBasket'
 
 const DropdownHeader = ({ title }: { title: string }) => (
     <div className='flex items-center w-full h-9'>
@@ -59,8 +62,10 @@ type navItemProps = {
 export const NavDropdown = ({ index, isActiveContent, navItem }: NavDropdownProps) => {
     const [isShow] = useState(index === isActiveContent)
 
+    const basketQuantity = useSelector((state: RootState) => state.basketTotalQuantity)
+
     return (
-        <div className={`${isShow ? 'block' : 'hidden'} ${index === 3 ? 'right-0 w-[360px] rounded-tr-none' : 'left-0 rounded-tl-none'} absolute top-full z-[11] bg-white rounded-lg shadow-xCom min-w-[256px] pt-2 pb-4`}>
+        <div className={`${isShow ? 'lg:block' : 'hidden'} ${index === 3 ? 'right-0 w-[360px] rounded-tr-none lg:p-0' : 'left-0 rounded-tl-none'} absolute top-full z-[11] bg-white rounded-lg shadow-xCom min-w-[256px] pt-2 pb-4 md:min-w-[256px]`}>
 
             {isActiveContent === 0 &&
                 <div>
@@ -140,8 +145,11 @@ export const NavDropdown = ({ index, isActiveContent, navItem }: NavDropdownProp
                 </div>
             }
 
-            {isActiveContent === 3 &&
-                <div className='flex flex-col justify-center h-full min-h-[150px]'>
+            {isActiveContent === 3 && basketQuantity > 0 ? (
+                <MiniBasket />
+            ) :
+                isActiveContent === 3 &&
+                (<div className='flex flex-col justify-center h-full min-h-[150px]'>
                     <div className='flex flex-col items-center px-4 py-8'>
                         <p className='mb-1 text-2xl font-bold'>Twój koszyk jest pusty</p>
                         <p className='mb-2'>Szukasz inspiracji?</p>
@@ -149,7 +157,7 @@ export const NavDropdown = ({ index, isActiveContent, navItem }: NavDropdownProp
                             Przejdź do promocji
                         </AuthButtonOutlined>
                     </div>
-                </div>
+                </div>)
             }
 
         </div>

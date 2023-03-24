@@ -1,11 +1,14 @@
 'use client'
 
+import { RootState } from '@/store';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
+import { useSelector } from 'react-redux';
 import { AuthButton, AuthButtonOutlined } from '../AuthButtons';
 import { MenuItemsProps } from './Header';
+import MiniBasket from './MiniBasket';
 
 
 type DrawerProps = {
@@ -17,7 +20,7 @@ type DrawerProps = {
 
 
 
-const DrawerHeader = ({ name, closeModal }: { name: string, closeModal: () => void }) => (
+const DrawerHeader = ({ name, closeModal, basketQuantity }: { name: string, closeModal: () => void, basketQuantity: number }) => (
     <div className='inline-flex justify-between items-center bg-[#f5f5f5] min-h-[56px] w-full p-2 pr-4 border-b border-[#ddd]'>
 
         <div className='flex items-center w-full'>
@@ -26,7 +29,26 @@ const DrawerHeader = ({ name, closeModal }: { name: string, closeModal: () => vo
                     <AiOutlineClose className='w-full h-full' />
                 </span>
             </button>
-            <h3 className='pl-2 text-lg font-bold text-black whitespace-nowrap'>{name}</h3>
+
+            {basketQuantity > 0 && name === 'Koszyk' ? (
+                <>
+                    <h3 className='pl-2 text-lg font-bold text-black whitespace-nowrap flex-shrink-[6] flex-grow basis-auto'>{name}
+
+                        <span className='text-[#707070] ml-1'>
+                            {`(${basketQuantity})`}
+                        </span>
+                    </h3>
+
+                    <Link href='/koszyk' className='text-blue-500 hover:text-blue-600 focus:text-blue-600'>
+                        Edytuj
+                    </Link>
+                </>
+            ) : (
+
+                <h3 className='pl-2 text-lg font-bold text-black whitespace-nowrap'>{name}</h3>
+            )}
+
+
         </div>
     </div>
 )
@@ -40,19 +62,25 @@ const DrawerBottom = ({ children }: { children: ReactNode }) => (
 export const Drawer = ({ show, close, isActiveNum, navItem }: DrawerProps) => {
     const pathname = usePathname()
 
+    const basketQuantity = useSelector((state: RootState) => state.basketTotalQuantity)
+
     return (
         <div className='Drawer'>
             <aside>
                 {!show ? '' : <div onClick={() => close()} className='fixed inset-0 bg-black opacity-50 transition-opacity duration-300 z-[1001]' />}
 
-                <div className={`${!show ? 'w-0 translate-x-[105%]' : 'w-[360px] translate-x-0'} z-[1002] fixed top-0 bottom-0 max-w-[calc(100vw+64px)] bg-white shadow-md overflow-x-hidden overflow-y-auto transition-transform duration-300 right-0`}>
+                <div className={`${!show ? 'w-0 translate-x-[105%]' : 'w-[360px] translate-x-0'} z-[1002] fixed top-0 bottom-0 max-w-[calc(100vw-64px)] bg-white shadow-md overflow-x-hidden overflow-y-auto transition-transform duration-300 right-0`}>
                     <div>
                         <div>
                             {show &&
                                 <div className='bg-transparent'>
                                     <div className='absolute inset-0 overflow-hidden transition-transform duration-300 bg-white '>
                                         <div className='flex flex-col h-screen sm:pt-0 sm:max-h-[calc(100vh-56px)] sm:min-h-[200px] sm:h-full'>
-                                            <DrawerHeader name={navItem.name} closeModal={() => close()} />
+                                            <DrawerHeader
+                                                name={navItem.name}
+                                                closeModal={() => close()}
+                                                basketQuantity={basketQuantity}
+                                            />
 
                                             {/* Help */}
                                             {isActiveNum === 0 &&
@@ -162,18 +190,33 @@ export const Drawer = ({ show, close, isActiveNum, navItem }: DrawerProps) => {
 
                                                 </DrawerBottom>}
                                             {/* Basket */}
-                                            {isActiveNum === 3 &&
-                                                <DrawerBottom>
-                                                    <div className='flex flex-col justify-center h-full min-h-[150px]'>
-                                                        <div className='flex flex-col items-center px-4 py-8'>
-                                                            <p className='mb-1 text-2xl font-bold'>Twój koszyk jest pusty</p>
-                                                            <p className='mb-2'>Szukasz inspiracji?</p>
-                                                            <AuthButtonOutlined slug={`${pathname === '/' ? 'promocje' : ''}`}>
-                                                                Przejdź do {pathname === '/' ? 'promocji' : 'strony głównej'}
-                                                            </AuthButtonOutlined>
+                                            {isActiveNum === 3 && basketQuantity > 0 ?
+
+                                                (
+                                                    <DrawerBottom>
+                                                        <MiniBasket />
+                                                    </DrawerBottom>
+                                                ) :
+
+                                                isActiveNum === 3 &&
+                                                (
+                                                    <DrawerBottom>
+                                                        <div className='flex flex-col justify-center h-full min-h-[150px]'>
+                                                            <div className='flex flex-col items-center px-4 py-8'>
+                                                                <p className='mb-1 text-2xl font-bold'>Twój koszyk jest pusty</p>
+                                                                <p className='mb-2'>Szukasz inspiracji?</p>
+                                                                <AuthButtonOutlined onClick={() => close()} slug={`${pathname === '/' ? 'promocje' : ''}`}>
+                                                                    Przejdź do {pathname === '/' ? 'promocji' : 'strony głównej'}
+                                                                </AuthButtonOutlined>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </DrawerBottom>}
+
+                                                        {/* Mini Basket Content */}
+                                                    </DrawerBottom>
+                                                )
+
+
+                                            }
 
                                         </div>
                                     </div>

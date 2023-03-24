@@ -1,16 +1,18 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
+export type BasketItem = {
+    id?: string
+    title: string
+    price: number
+    mainImage: string
+    quantity: number
+    slug: string
+    special?: boolean
+}
+
 export type BasketItems = {
-    basketItems: {
-        id: string
-        title: string
-        price: number
-        mainImage: string
-        quantity: number
-        slug: string
-        special: boolean
-    }[]
+    basketItems: BasketItem[]
     basketTotalQuantity: number
    basketTotalAmount: number
 }

@@ -93,13 +93,15 @@ const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
                             <Link href='/' className="flex flex-col items-center justify-center h-full pointer-events-none" >
                                 <div className="relative flex items-center text-2xl 2xl:text-3xl w-7 h-7 md:w-8 md:h-8" >
                                     {/* Quantity items */}
-                                    {i === 3 ? (
+                                    {i === 3 && basket.basketTotalQuantity > 0 ? (
+
                                         <div className="absolute top-0 -right-1">
                                             <div className="flex items-center justify-center w-4 px-1 text-xs text-white bg-blue-600 rounded-full shadow-sm-xCom shadow-white">
                                                 {basket.basketTotalQuantity || 0}
                                             </div>
                                         </div>
-                                    ) : null}
+                                    )
+                                        : null}
                                     <Icon icon={item.icon} />
                                 </div>
                                 <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>

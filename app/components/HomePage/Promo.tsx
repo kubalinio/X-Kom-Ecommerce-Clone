@@ -111,15 +111,31 @@ const Promo = () => {
     const DATE_MORNING_PROMOTION = new Date().setHours(10, 0, 0)
     const DATE_EVENING_PROMOTION = new Date().setHours(22, 0, 0)
 
-
-
     //  start promocji 10 albo 22
     const [startPromotion, setStartPromotion] = useState(DATE_MORNING_PROMOTION)
 
-    // Czas do konca promocji 
-    const dateAfterPromotion = startPromotion + TIME_TO_END_PROMOTION
 
-    const [days, hours, minutes, seconds] = useCountdown(dateAfterPromotion)
+    let dateAfterPromo = startPromotion + TIME_TO_END_PROMOTION
+
+
+    // useEffect(() => {
+    //     const currentTime = new Date().getHours()
+
+    //     if (currentTime > 10 && currentTime < 22) {
+    //         setStartPromotion(DATE_MORNING_PROMOTION)
+
+
+    //     } else if (currentTime > 22 && currentTime < 10) {
+
+    //         setStartPromotion(DATE_MORNING_PROMOTION)
+    //         console.log(startPromotion)
+    //     }
+
+    // }, [])
+
+    // Czas do konca promocji 
+
+    const [days, hours, minutes, seconds] = useCountdown(dateAfterPromo)
 
     // czas się skończył albo nie
 
@@ -167,11 +183,6 @@ const Promo = () => {
 
     // const currentTime = new Date().getHours()
     // console.log(currentTime)
-
-
-
-
-
     return (
         <section className='w-full p-4 pt-0 mb-4 bg-white border-b border-[#ebebeb] md:p-6 md:pt-3 lg:border-none lg:p-0 lg:pr-8 lg:pb-8 lg:w-[31.666%] lg:mb-0'>
 
