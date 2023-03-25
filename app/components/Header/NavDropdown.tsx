@@ -6,7 +6,7 @@ import React, { useState, ReactNode } from 'react'
 import { useSelector } from 'react-redux'
 import { AuthButton, AuthButtonOutlined } from '../AuthButtons'
 import { MenuItemsProps } from './Header'
-import MiniBasket from './MiniBasket'
+import { EmptyMiniBasket, MiniBasket } from '../Basket'
 
 const DropdownHeader = ({ title }: { title: string }) => (
     <div className='flex items-center w-full h-9'>
@@ -60,6 +60,7 @@ type navItemProps = {
 }
 
 export const NavDropdown = ({ index, isActiveContent, navItem }: NavDropdownProps) => {
+
     const [isShow] = useState(index === isActiveContent)
 
     const basketQuantity = useSelector((state: RootState) => state.basketTotalQuantity)
@@ -149,15 +150,9 @@ export const NavDropdown = ({ index, isActiveContent, navItem }: NavDropdownProp
                 <MiniBasket />
             ) :
                 isActiveContent === 3 &&
-                (<div className='flex flex-col justify-center h-full min-h-[150px]'>
-                    <div className='flex flex-col items-center px-4 py-8'>
-                        <p className='mb-1 text-2xl font-bold'>Twój koszyk jest pusty</p>
-                        <p className='mb-2'>Szukasz inspiracji?</p>
-                        <AuthButtonOutlined slug='promocje'>
-                            Przejdź do promocji
-                        </AuthButtonOutlined>
-                    </div>
-                </div>)
+                (
+                    <EmptyMiniBasket />
+                )
             }
 
         </div>

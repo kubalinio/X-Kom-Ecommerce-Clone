@@ -4,8 +4,10 @@ import { RootState } from '@/store'
 import { BasketItem } from '@/store/basketSlice'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { AiOutlineInfoCircle } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
+import { AuthButton, AuthButtonOutlined } from './AuthButtons'
 
 
 const BasketHeader = ({ totalQuantity }: { totalQuantity: number }) => (
@@ -99,7 +101,7 @@ const BasketBottom = ({ totalAmount, width }: { totalAmount: number, width: numb
     </>
 )
 
-const MiniBasket = () => {
+export const MiniBasket = () => {
     const { width } = useWindowDimensions()
 
     const basket = useSelector((state: RootState) => state)
@@ -107,7 +109,7 @@ const MiniBasket = () => {
     return (
         <div className='flex flex-col justify-center min-h-[150px] h-full lg:max-h-[610px]'>
             {/* 0 in dekstop Heeader Desktop */}
-            <div className='hidden lg:inline-flex justify-between items-center bg-[#f5f5f5] min-h-[56px] w-full p-2 pr-4 border-b border-[#ddd]'>
+            <div className='hidden lg:inline-flex justify-between items-center bg-white min-h-[56px] w-full p-2 pr-4 border-b border-[#ddd]'>
                 <BasketHeader totalQuantity={basket.basketTotalQuantity} />
             </div>
 
@@ -133,4 +135,21 @@ const MiniBasket = () => {
     )
 }
 
-export default MiniBasket
+export const EmptyMiniBasket = () => {
+
+    const pathname = usePathname()
+
+    return (
+        <div className='flex flex-col justify-center h-full min-h-[150px]'>
+            <div className='flex flex-col items-center px-4 py-8'>
+
+                <p className='mb-1 text-2xl font-bold'>Twój koszyk jest pusty</p>
+                <p className='mb-2'>Szukasz inspiracji?</p>
+
+                <AuthButtonOutlined onClick={() => close()} slug={`${pathname === '/' ? 'promocje' : ''}`}>
+                    Przejdź do {pathname === '/' ? 'promocji' : 'strony głównej'}
+                </AuthButtonOutlined>
+            </div>
+        </div >
+    )
+}

@@ -2,13 +2,14 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { Fragment, useState } from 'react'
+import { useState } from 'react'
 import { BsEnvelopeFill } from 'react-icons/bs'
 import { FaPhoneAlt } from 'react-icons/fa'
-import { MdOutlineFacebook, MdOutlineKeyboardArrowDown } from 'react-icons/md'
+import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { ImLocation } from 'react-icons/im'
 import facebookIcon from '../../public/facebook.svg'
 import salesMasterIcon from '../../public/salesMasterIcon.svg'
+import { usePathname } from 'next/navigation'
 
 type footerItem = {
     title: string;
@@ -419,259 +420,283 @@ const SaleMasterBox = () => (
     </Link>
 )
 
-const Footer = () => {
-    return (
-        <footer>
-            {/* Foot Layout page */}
-            <div className='max-w-full w-[calc(100%-32px)] mx-auto md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]'>
+const FooterMain = () => (
+    <footer>
+        {/* Foot Layout page */}
+        <div className='max-w-full w-[calc(100%-32px)] mx-auto md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]'>
 
-                {/* Top Section Newsletter , Appmobile && Partner program */}
-                <div className='flex flex-col mb-10 lg:flex-row lg:flex-wrap'>
-                    {/* NewsLetter */}
-                    <Newsletter />
-                    {/* Mobile App Box */}
-                    <MobileAppBox />
-                    {/* Sales Master */}
-                    <SaleMasterBox />
-                </div>
+            {/* Top Section Newsletter , Appmobile && Partner program */}
+            <div className='flex flex-col mb-10 lg:flex-row lg:flex-wrap'>
+                {/* NewsLetter */}
+                <Newsletter />
+                {/* Mobile App Box */}
+                <MobileAppBox />
+                {/* Sales Master */}
+                <SaleMasterBox />
+            </div>
 
-                {/* Bottom Section Orders, Promotion, x-kom, Contact */}
-                <div>
-                    {/* Orders... */}
-                    <div className='flex flex-col-reverse justify-between pb-[52px] md:flex-row' >
-                        {/* Orders ... */}
-                        <FooterExpandNavigation items={footerItems} />
-
-
-                        {/* Desktop/Tablet Navigation*/}
-                        <FooterNavigation items={footerItems} />
+            {/* Bottom Section Orders, Promotion, x-kom, Contact */}
+            <div>
+                {/* Orders... */}
+                <div className='flex flex-col-reverse justify-between pb-[52px] md:flex-row' >
+                    {/* Orders ... */}
+                    <FooterExpandNavigation items={footerItems} />
 
 
-                        {/* Contact */}
-                        <div className='md:flex-1'>
-                            {/* Address */}
-                            <div>
-                                <p title='Kontakt' className='mb-5 text-lg font-bold'>Kontakt</p>
-                                <address className='flex flex-col text-[#4d4d4d] font-lato'>
-                                    <Link href='tel:333222111' className='inline-flex items-center text-2xl hover:underline'>
-                                        <span className='inline-block w-6 h-6 mx-2 '>
-                                            <FaPhoneAlt className='w-full h-full ' />
-                                        </span>
-                                        333222111
-                                    </Link>
-                                    <div className='flex mt-1 mb-2 ml-10 text-[#707070] '>
-                                        <div className='flex flex-col first:mb-1'>
-                                            <span className='mr-2 whitespace-nowrap'>pon. - pt.</span>
-                                            <span className='mr-2 whitespace-nowrap'>sob. - niedz.</span>
-                                        </div>
+                    {/* Desktop/Tablet Navigation*/}
+                    <FooterNavigation items={footerItems} />
 
 
-                                        <div className='flex flex-col first:mb-1'>
-                                            <span className='whitespace-nowrap'>8:00 - 21:00</span>
-                                            <span className='whitespace-nowrap'>8:00 - 19:00</span>
-                                        </div>
+                    {/* Contact */}
+                    <div className='md:flex-1'>
+                        {/* Address */}
+                        <div>
+                            <p title='Kontakt' className='mb-5 text-lg font-bold'>Kontakt</p>
+                            <address className='flex flex-col text-[#4d4d4d] font-lato'>
+                                <Link href='tel:333222111' className='inline-flex items-center text-2xl hover:underline'>
+                                    <span className='inline-block w-6 h-6 mx-2 '>
+                                        <FaPhoneAlt className='w-full h-full ' />
+                                    </span>
+                                    333222111
+                                </Link>
+                                <div className='flex mt-1 mb-2 ml-10 text-[#707070] '>
+                                    <div className='flex flex-col first:mb-1'>
+                                        <span className='mr-2 whitespace-nowrap'>pon. - pt.</span>
+                                        <span className='mr-2 whitespace-nowrap'>sob. - niedz.</span>
                                     </div>
 
 
-                                    <Link href='mailto:jsapalawebdev@gmail.com' className='inline-flex items-center py-2 text-[#4d4d4d] hover:underline'>
-                                        <span className='inline-block w-6 h-6 mx-2 '>
-                                            <BsEnvelopeFill className='w-full h-full' />
-                                        </span>
-                                        x-kom@x-kom.pl
-                                    </Link>
+                                    <div className='flex flex-col first:mb-1'>
+                                        <span className='whitespace-nowrap'>8:00 - 21:00</span>
+                                        <span className='whitespace-nowrap'>8:00 - 19:00</span>
+                                    </div>
+                                </div>
 
-                                    <Link href={`/kontakt`} className='inline-flex items-center py-2 text-[#4d4d4d] hover:underline'>
-                                        <span className='inline-block w-6 h-6 mx-2 '>
-                                            <ImLocation className='w-full h-full' />
-                                        </span>
-                                        Salony x-kom
-                                    </Link>
-                                </address>
-                            </div>
 
-                            {/* Socials */}
-                            <div className='flex flex-wrap pt-4 pb-6 -mx-2'>
-                                <Link href={`/`}>
-                                    <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
-                                        <Image
-                                            src={facebookIcon}
-                                            height={24}
-                                            width={24}
-                                            alt='facebook'
-                                            className='w-6 h-6'
-                                        />
+                                <Link href='mailto:jsapalawebdev@gmail.com' className='inline-flex items-center py-2 text-[#4d4d4d] hover:underline'>
+                                    <span className='inline-block w-6 h-6 mx-2 '>
+                                        <BsEnvelopeFill className='w-full h-full' />
                                     </span>
-                                </Link>
-                                <Link href={`/`}>
-                                    <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
-                                        <Image
-                                            src={facebookIcon}
-                                            height={24}
-                                            width={24}
-                                            alt='facebook'
-                                            className='w-6 h-6'
-                                        />
-                                    </span>
-                                </Link>
-                                <Link href={`/`}>
-                                    <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
-                                        <Image
-                                            src={facebookIcon}
-                                            height={24}
-                                            width={24}
-                                            alt='facebook'
-                                            className='w-6 h-6'
-                                        />
-                                    </span>
-                                </Link>
-                                <Link href={`/`}>
-                                    <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
-                                        <Image
-                                            src={facebookIcon}
-                                            height={24}
-                                            width={24}
-                                            alt='facebook'
-                                            className='w-6 h-6'
-                                        />
-                                    </span>
+                                    x-kom@x-kom.pl
                                 </Link>
 
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    {/* Companies.. */}
-                    <div className='flex flex-col'>
-
-                        <div className='flex flex-wrap justify-center mb-6'>
-
-                            <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
-                                <Image
-                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
-                                    width={36}
-                                    height={36}
-                                    alt='blik'
-                                    loading='lazy'
-                                    title='Blik'
-                                    className='inline-block w-auto h-auto max-w-full max-h-full'
-                                />
-                            </span>
-                            <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
-                                <Image
-                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
-                                    width={36}
-                                    height={36}
-                                    alt='blik'
-                                    loading='lazy'
-                                    title='Blik'
-                                    className='inline-block w-auto h-auto max-w-full max-h-full'
-                                />
-                            </span>
-                            <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
-                                <Image
-                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
-                                    width={36}
-                                    height={36}
-                                    alt='blik'
-                                    loading='lazy'
-                                    title='Blik'
-                                    className='inline-block w-auto h-auto max-w-full max-h-full'
-                                />
-                            </span>
-                            <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
-                                <Image
-                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
-                                    width={36}
-                                    height={36}
-                                    alt='blik'
-                                    loading='lazy'
-                                    title='Blik'
-                                    className='inline-block w-auto h-auto max-w-full max-h-full'
-                                />
-                            </span>
-                            <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
-                                <Image
-                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
-                                    width={36}
-                                    height={36}
-                                    alt='blik'
-                                    loading='lazy'
-                                    title='Blik'
-                                    className='inline-block w-auto h-auto max-w-full max-h-full'
-                                />
-                            </span>
-                            <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
-                                <Image
-                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
-                                    width={36}
-                                    height={36}
-                                    alt='blik'
-                                    loading='lazy'
-                                    title='Blik'
-                                    className='inline-block w-auto h-auto max-w-full max-h-full'
-                                />
-                            </span>
-                            <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
-                                <Image
-                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
-                                    width={36}
-                                    height={36}
-                                    alt='blik'
-                                    loading='lazy'
-                                    title='Blik'
-                                    className='inline-block w-auto h-auto max-w-full max-h-full'
-                                />
-                            </span>
-                            <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
-                                <Image
-                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
-                                    width={36}
-                                    height={36}
-                                    alt='blik'
-                                    loading='lazy'
-                                    title='Blik'
-                                    className='inline-block w-auto h-auto max-w-full max-h-full'
-                                />
-                            </span>
-                            <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
-                                <Image
-                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
-                                    width={36}
-                                    height={36}
-                                    alt='blik'
-                                    loading='lazy'
-                                    title='Blik'
-                                    className='inline-block w-auto h-auto max-w-full max-h-full'
-                                />
-                            </span>
-                            <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
-                                <Image
-                                    src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
-                                    width={36}
-                                    height={36}
-                                    alt='blik'
-                                    loading='lazy'
-                                    title='Blik'
-                                    className='inline-block w-auto h-auto max-w-full max-h-full'
-                                />
-                            </span>
-
-
+                                <Link href={`/kontakt`} className='inline-flex items-center py-2 text-[#4d4d4d] hover:underline'>
+                                    <span className='inline-block w-6 h-6 mx-2 '>
+                                        <ImLocation className='w-full h-full' />
+                                    </span>
+                                    Salony x-kom
+                                </Link>
+                            </address>
                         </div>
 
+                        {/* Socials */}
+                        <div className='flex flex-wrap pt-4 pb-6 -mx-2'>
+                            <Link href={`/`}>
+                                <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
+                                    <Image
+                                        src={facebookIcon}
+                                        height={24}
+                                        width={24}
+                                        alt='facebook'
+                                        className='w-6 h-6'
+                                    />
+                                </span>
+                            </Link>
+                            <Link href={`/`}>
+                                <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
+                                    <Image
+                                        src={facebookIcon}
+                                        height={24}
+                                        width={24}
+                                        alt='facebook'
+                                        className='w-6 h-6'
+                                    />
+                                </span>
+                            </Link>
+                            <Link href={`/`}>
+                                <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
+                                    <Image
+                                        src={facebookIcon}
+                                        height={24}
+                                        width={24}
+                                        alt='facebook'
+                                        className='w-6 h-6'
+                                    />
+                                </span>
+                            </Link>
+                            <Link href={`/`}>
+                                <span title='facebook' className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
+                                    <Image
+                                        src={facebookIcon}
+                                        height={24}
+                                        width={24}
+                                        alt='facebook'
+                                        className='w-6 h-6'
+                                    />
+                                </span>
+                            </Link>
 
-
-                        <div className='text-center text-[#4d4d4d] mx-auto mb-11 max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] md:mb-4 lg:mb-7 lg:w-[calc(100%-64px)] lg:max-w-[1156px]'>
-                            &copy; x-kom Clone 2023-2023
                         </div>
                     </div>
                 </div>
 
 
+
+                {/* Companies.. */}
+                <div className='flex flex-col'>
+
+                    <div className='flex flex-wrap justify-center mb-6'>
+
+                        <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
+                            <Image
+                                src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                width={36}
+                                height={36}
+                                alt='blik'
+                                loading='lazy'
+                                title='Blik'
+                                className='inline-block w-auto h-auto max-w-full max-h-full'
+                            />
+                        </span>
+                        <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
+                            <Image
+                                src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                width={36}
+                                height={36}
+                                alt='blik'
+                                loading='lazy'
+                                title='Blik'
+                                className='inline-block w-auto h-auto max-w-full max-h-full'
+                            />
+                        </span>
+                        <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
+                            <Image
+                                src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                width={36}
+                                height={36}
+                                alt='blik'
+                                loading='lazy'
+                                title='Blik'
+                                className='inline-block w-auto h-auto max-w-full max-h-full'
+                            />
+                        </span>
+                        <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
+                            <Image
+                                src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                width={36}
+                                height={36}
+                                alt='blik'
+                                loading='lazy'
+                                title='Blik'
+                                className='inline-block w-auto h-auto max-w-full max-h-full'
+                            />
+                        </span>
+                        <span className='inline-flex items-center justify-center px-2 max-md:mb-2 h-9 max-md:basis-1/5'>
+                            <Image
+                                src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                width={36}
+                                height={36}
+                                alt='blik'
+                                loading='lazy'
+                                title='Blik'
+                                className='inline-block w-auto h-auto max-w-full max-h-full'
+                            />
+                        </span>
+                        <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
+                            <Image
+                                src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                width={36}
+                                height={36}
+                                alt='blik'
+                                loading='lazy'
+                                title='Blik'
+                                className='inline-block w-auto h-auto max-w-full max-h-full'
+                            />
+                        </span>
+                        <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
+                            <Image
+                                src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                width={36}
+                                height={36}
+                                alt='blik'
+                                loading='lazy'
+                                title='Blik'
+                                className='inline-block w-auto h-auto max-w-full max-h-full'
+                            />
+                        </span>
+                        <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
+                            <Image
+                                src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                width={36}
+                                height={36}
+                                alt='blik'
+                                loading='lazy'
+                                title='Blik'
+                                className='inline-block w-auto h-auto max-w-full max-h-full'
+                            />
+                        </span>
+                        <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
+                            <Image
+                                src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                width={36}
+                                height={36}
+                                alt='blik'
+                                loading='lazy'
+                                title='Blik'
+                                className='inline-block w-auto h-auto max-w-full max-h-full'
+                            />
+                        </span>
+                        <span className='inline-flex items-center justify-center px-2 h-9 max-md:basis-1/5'>
+                            <Image
+                                src={'https://assets.x-kom.pl/public-spa/xkom/c500d59374fe7d7d.png'}
+                                width={36}
+                                height={36}
+                                alt='blik'
+                                loading='lazy'
+                                title='Blik'
+                                className='inline-block w-auto h-auto max-w-full max-h-full'
+                            />
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div className='text-center text-[#4d4d4d] mx-auto mb-11 max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] md:mb-4 lg:mb-7 lg:w-[calc(100%-64px)] lg:max-w-[1156px]'>
+                        &copy; x-kom Clone 2023-2023
+                    </div>
+                </div>
             </div>
-        </footer >
+
+
+        </div>
+    </footer >
+)
+
+const FooterBasket = () => (
+    <footer className='py-4 mt-6 border-t border-[#ebebeb]'>
+        <div className='flex flex-col'>
+            <div className='text-center text-[#4d4d4d] mx-auto mb-11 max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] md:mb-4 lg:mb-7 lg:w-[calc(100%-64px)] lg:max-w-[1156px]'>
+                &copy; x-kom Clone 2023-2023
+            </div>
+        </div>
+    </footer>
+)
+
+
+const Footer = () => {
+    const pathname = usePathname()
+
+    return (
+        <>
+            {pathname === '/koszyk' ? (
+                <FooterBasket />
+            ) :
+                (<FooterMain />)
+            }
+
+        </>
     )
 }
 

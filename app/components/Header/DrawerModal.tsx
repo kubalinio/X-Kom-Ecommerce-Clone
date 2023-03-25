@@ -2,13 +2,12 @@
 
 import { RootState } from '@/store';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useSelector } from 'react-redux';
 import { AuthButton, AuthButtonOutlined } from '../AuthButtons';
 import { MenuItemsProps } from './Header';
-import MiniBasket from './MiniBasket';
+import { EmptyMiniBasket, MiniBasket } from '../Basket';
 
 
 type DrawerProps = {
@@ -60,7 +59,7 @@ const DrawerBottom = ({ children }: { children: ReactNode }) => (
 )
 
 export const Drawer = ({ show, close, isActiveNum, navItem }: DrawerProps) => {
-    const pathname = usePathname()
+
 
     const basketQuantity = useSelector((state: RootState) => state.basketTotalQuantity)
 
@@ -201,15 +200,7 @@ export const Drawer = ({ show, close, isActiveNum, navItem }: DrawerProps) => {
                                                 isActiveNum === 3 &&
                                                 (
                                                     <DrawerBottom>
-                                                        <div className='flex flex-col justify-center h-full min-h-[150px]'>
-                                                            <div className='flex flex-col items-center px-4 py-8'>
-                                                                <p className='mb-1 text-2xl font-bold'>Twój koszyk jest pusty</p>
-                                                                <p className='mb-2'>Szukasz inspiracji?</p>
-                                                                <AuthButtonOutlined onClick={() => close()} slug={`${pathname === '/' ? 'promocje' : ''}`}>
-                                                                    Przejdź do {pathname === '/' ? 'promocji' : 'strony głównej'}
-                                                                </AuthButtonOutlined>
-                                                            </div>
-                                                        </div>
+                                                        <EmptyMiniBasket />
 
                                                         {/* Mini Basket Content */}
                                                     </DrawerBottom>
