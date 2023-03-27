@@ -92,7 +92,7 @@ const QuantityBasketProduct = ({ itemQuantity }: { itemQuantity: number }) => {
     return (
         <div
             onClick={() => setIsOpen(!isOpen)}
-            className={`${isOpen ? 'rounded-t-2xl' : 'rounded-2xl'} w-[56px] h-[32px] text-center max-w-full`}>
+            className={`${isOpen ? 'rounded-t-2xl' : 'rounded-2xl'} w-[56px] h-[32px] text-center max-w-full cursor-pointer`}>
 
             <div className="relative w-[56px] h-[32px] rounded-[inherit]">
                 {/* Control */}
@@ -150,7 +150,7 @@ const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: BasketI
                         {/* Title & Expand*/}
                         <div className="inline-flex justify-between w-full mb-1">
                             <Link href={`/${slug}`}>
-                                <h3 className="break-words">{title}</h3>
+                                <h3 className="break-words line-clamp-1">{title}</h3>
                             </Link>
 
                             {/* Expand to fav list or delete item*/}
