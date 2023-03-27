@@ -1,6 +1,8 @@
 'use client'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { RootState } from '@/store'
+import Link from 'next/link'
+import { TfiHeadphoneAlt } from 'react-icons/tfi'
 
 import { useSelector } from 'react-redux'
 import { BasketInfo } from '../components/Basket'
@@ -11,6 +13,7 @@ import EmptyBasket from './EmptyBasket'
 import MethodPayments from './MethodPayments'
 import RemoveAllFromBasket from './RemoveAllFromBasket'
 import ReturnBtn from './ReturnBtn'
+import ServiceItems from './ServiceItems'
 
 const BasketPage = () => {
 
@@ -100,14 +103,11 @@ const BasketPage = () => {
 
                     </div>
 
-
-
                     {width! >= 900 ? (
                         <div className='bg:w-1/3 bg:px-4'>
                             <CompletionOrder totalAmount={basket.basketTotalAmount} />
                         </div>
                     ) : ''}
-
 
                     {/* BG: Out */}
                     {width! < 900 ? (
@@ -117,9 +117,11 @@ const BasketPage = () => {
                     ) : ''}
 
 
-                    <div>ServiceItems</div>
+                    <div className='w-full px-2 mt-4 md:mt-6 bg:px-4'>
+                        <hr className='w-[calc(100%+32px)] h-[1px] bg-[#ddd] -mx-4 md:hidden' />
 
-
+                        <ServiceItems />
+                    </div>
 
                 </div>
 
@@ -127,6 +129,42 @@ const BasketPage = () => {
             ) : (
                 <EmptyBasket />
             )}
+
+            <hr className='w-[calc(100%+32px)] h-[1px] bg-[#ddd] -mx-4 md:hidden' />
+
+            {/* Are you have questions ? */}
+            <div className='flex flex-col w-full border-t border-[#ddd] py-4'>
+
+                <div className='pb-4 sm:flex sm:items-center sm:justify-between sm:w-full lg:block lg:w-fit'>
+
+                    <div className='flex items-center text-[18px] font-bold'>
+                        Masz pytania?
+                        <div className='inline-block ml-4'>
+                            <Link href='tel:11 234 22 22' className='flex items-center text-[#4d4d4d] font-normal'>
+                                <span className='h-[20px] w-[20px] mr-2'>
+                                    <TfiHeadphoneAlt className='w-full h-full text-[20px]' />
+                                </span>
+
+                                <div>
+                                    <span>
+                                        11 234 22 22
+                                    </span>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className='flex items-center pt-1 text-[#4d4d4d]'>
+                        <Link href='/' className='pr-4'>
+                            Regulamin
+                        </Link>
+                        <Link href='/'>
+                            Polityka prywatności
+                        </Link>
+                    </div>
+                </div>
+
+            </div>
         </main>
     )
 }

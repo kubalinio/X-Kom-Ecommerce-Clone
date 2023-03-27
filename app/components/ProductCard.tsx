@@ -6,9 +6,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { IoMdHeartEmpty } from 'react-icons/io'
 import { MdOutlineAddShoppingCart } from 'react-icons/md';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addToBasket, getTotals } from '@/store/basketSlice';
-import { useEffect } from 'react';
+
 
 // const ProductEvent = () => ()
 
@@ -24,10 +24,14 @@ import { useEffect } from 'react';
 const Basket = ({ _id, slug, special, mainImage, title, price }: Product) => {
     const dispatch = useDispatch()
 
+    const currentSlug = slug.current
 
     const addItemToBasket = () => {
         const quantity = 1
-        const product = { id: _id, title, price, mainImage, quantity, slug, special }
+
+        const product = {
+            id: _id, title, price, mainImage, quantity, slug: currentSlug, special
+        }
 
         dispatch(addToBasket(product))
         dispatch(getTotals())
@@ -52,6 +56,9 @@ const Basket = ({ _id, slug, special, mainImage, title, price }: Product) => {
 
 export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Product) => {
 
+    const currentSlug = slug.current
+    const formatedPrice = price.toFixed(2).replace('.', ',')
+
     return (
         <div className='relative rounded-lg group lg:border lg:border-transparent lg:hover:shadow-xCom'>
 
@@ -68,7 +75,7 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Pro
                     {/* Image */}
                     <div className='w-full h-[125px] mt-7 lg:mt-8 lg:h-[130px]'>
                         <div className='w-full h-full mt-4'>
-                            <Link href={`/${slug.current}`}>
+                            <Link href={`/${currentSlug}`}>
                                 <div className='inline-flex items-center justify-center w-full h-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] max-h-[125px]'>
                                     <Image
                                         src={`${urlFor(mainImage).url()}`}
@@ -98,7 +105,7 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Pro
                         <div>
                             <div className='inline-block text-left'>
                                 <span className='block whitespace-nowrap'>
-                                    {price} zł
+                                    {formatedPrice} zł
                                 </span>
                             </div>
                         </div>
@@ -133,7 +140,6 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Pro
                 title={title}
                 price={price}
             />
-
 
         </div>
     )

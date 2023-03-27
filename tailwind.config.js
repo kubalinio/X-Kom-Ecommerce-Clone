@@ -56,7 +56,7 @@ module.exports = {
       'xsm': '460px',
       // => @media (min-width: 460px) { ... }
 
-      'sm': '640px',
+      'sm': '520px',
       // => @media (min-width: 640px) { ... }
 
       'md': '720px',

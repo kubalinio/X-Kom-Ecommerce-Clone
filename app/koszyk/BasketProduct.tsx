@@ -127,6 +127,8 @@ const QuantityBasketProduct = ({ itemQuantity }: { itemQuantity: number }) => {
 
 const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: BasketItem) => {
 
+    const formatedPrice = price.toFixed(2).replace('.', ',')
+
     return (
         <li className="flex items-center px-4 py-3 border-b border-[#ddd] max-md:last:border-b-0 md:p-3 md:pr-4 md:border-x md:border-x-[#ddd] md:first:border-t md:first:rounded-t-lg md:last:rounded-b-lg">
             <div className="w-full">
@@ -165,7 +167,7 @@ const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: BasketI
                             {/* Price */}
                             <div className="inline-block text-left md:text-right md:mr-2">
                                 <span className="block whitespace-nowrap">
-                                    {price} zł
+                                    {formatedPrice} zł
                                 </span>
                             </div>
 

@@ -71,7 +71,7 @@ const BasketProduct = ({ title, quantity, price, mainImage, slug }: BasketItem) 
                     </span>
                     <div className='inline-block text-right'>
                         <span>
-                            {price} zł
+                            {price.toFixed(2).replace('.', ',')} zł
                         </span>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ const BasketBottom = ({ totalAmount, width }: { totalAmount: number, width: numb
     <>
         <div className='flex justify-between text-base font-bold'>
             <span>Do zapłaty</span>
-            <span>{totalAmount} zł</span>
+            <span>{totalAmount.toFixed(2).replace('.', ',')} zł</span>
         </div>
 
         <Link href='koszyk' className='flex items-center justify-center w-full px-4 py-3 mt-3 text-white bg-green-600 rounded-full hover:bg-green-700 min-h-[40px]'>

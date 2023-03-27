@@ -8,6 +8,7 @@ import { useQuery } from "react-query"
 import { ProductCard } from '../ProductCard';
 import LoadingSpinner from '../LoadingSpinner';
 
+
 // const item = {
 //     title: 'Apple Beats Fit Pro Volt Yellow',
 //     slug: 'apple-beats-fit-pro-volt-yellow',
@@ -58,7 +59,7 @@ const RecommendProducts = ({ initialProducts }) => {
                             <div key={product._id} className='w-1/4 px-2 mb-[22px]'>
                                 <ProductCard
                                     _id={product._id}
-                                    slug={product.slug.current}
+                                    slug={product.slug}
                                     special={product.special}
                                     mainImage={product.mainImage}
                                     title={product.title}
