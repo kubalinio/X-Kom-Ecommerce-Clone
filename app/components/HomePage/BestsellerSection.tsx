@@ -8,7 +8,7 @@ import { SectionOverlay } from "../SectionOverlay"
 
 
 const fetchProducts = async () => {
-    const response = await axios.get(`/api/getProducts`)
+    const response = await axios.get(`/api/products/getProducts`)
     return response.data
 };
 

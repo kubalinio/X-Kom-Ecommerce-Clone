@@ -5,12 +5,12 @@ interface SanityBody {
 	_updatedAt?: string;
 }
 
-type slug = {
+interface slug  {
 	_type: 'slug';
 	current: string;
 }
 
-interface Image {
+export interface Image {
 	_type: 'image';
 	asset: {
 		_ref: string;

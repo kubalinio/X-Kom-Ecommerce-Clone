@@ -59,6 +59,7 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Pro
     const currentSlug = slug.current
     const formatedPrice = price.toFixed(2).replace('.', ',')
 
+
     return (
         <div className='relative rounded-lg group lg:border lg:border-transparent lg:hover:shadow-xCom'>
 
@@ -75,7 +76,7 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Pro
                     {/* Image */}
                     <div className='w-full h-[125px] mt-7 lg:mt-8 lg:h-[130px]'>
                         <div className='w-full h-full mt-4'>
-                            <Link href={`/${currentSlug}`}>
+                            <Link href={`/products/${currentSlug}`}>
                                 <div className='inline-flex items-center justify-center w-full h-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] max-h-[125px]'>
                                     <Image
                                         src={`${urlFor(mainImage).url()}`}
@@ -91,7 +92,7 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Pro
 
                     {/* Title */}
                     <div className='mr-2 md:mx-3'>
-                        <Link href='/'>
+                        <Link href={`/products/${currentSlug}`}>
                             <h3 style={{ maxHeight: '40px' }} className='mt-2 overflow-hidden break-words whitespace-normal h-[40px] max-h-10 lg:mt-0'>
                                 <span className='w-full line-clamp-2'>
                                     {title}

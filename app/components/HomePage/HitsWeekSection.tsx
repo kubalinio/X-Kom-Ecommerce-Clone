@@ -9,7 +9,7 @@ import LoadingSpinner from '../../components/LoadingSpinner'
 import { Product } from "@/typings"
 
 const fetchProducts = async () => {
-    const response = await axios.get(`/api/getProducts`)
+    const response = await axios.get(`/api/products/getProducts`)
     return response.data
 };
 
