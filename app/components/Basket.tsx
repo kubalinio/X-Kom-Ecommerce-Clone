@@ -123,7 +123,7 @@ export const MiniBasket = () => {
             {/* 3 */}
             <div className='h-full px-4 -mb-1 overflow-y-auto break-words'>
                 {basket.basketItems.map(item => (
-                    <BasketProduct key={item.id} title={item.title} quantity={item.quantity} price={item.price} mainImage={item.mainImage} slug={item.slug} />
+                    <BasketProduct key={item.title + Math.random()} title={item.title} quantity={item.quantity} price={item.price} mainImage={item.mainImage} slug={item.slug} />
                 ))}
             </div>
 

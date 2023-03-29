@@ -42,6 +42,7 @@ const ServiceAbility = () => {
                     <div className='w-full pl-2'>
                         {ServicesData.slice(1, 2).map(service => (
                             <ServiceBtn
+                                key={service.title + Math.random()}
                                 icon={service.icon}
                                 status={'Sprawdź termin dostawy'}
                                 title={service.title}
@@ -51,6 +52,7 @@ const ServiceAbility = () => {
                     <div className='w-full pl-2'>
                         {ServicesData.slice(4, 5).map(service => (
                             <ServiceBtn
+                                key={service.title + Math.random()}
                                 icon={service.icon}
                                 status={'Sprawdź dostępność w salonach'}
                                 title={service.title}
@@ -333,7 +335,7 @@ const Services = ({ productTitle, productMainImage }: Props) => {
 
                 {ServicesData.map(service => (
 
-                    <div className='w-full border border-[#ddd] first:rounded-t-lg md:first:border-none m'>
+                    <div key={service.title + Math.random()} className='w-full border border-[#ddd] first:rounded-t-lg md:first:border-none m'>
 
                         <Service
                             title={service.title}

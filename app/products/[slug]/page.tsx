@@ -37,11 +37,11 @@ const ProductDetail = (url: URL) => {
 
 
     return (
-        <main className="mb-6 bg-white mx-auto max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] ">
+        <main className="mb-6 bg-white mx-auto max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]">
             <div>
                 <div>
                     {/* MD: Heading */}
-                    {width! >= 720 ? (
+                    {width! >= 720 && width! < 1079 ? (
                         <HeadingProduct title={data?.product.title} />
                     ) : ''}
 
@@ -49,7 +49,7 @@ const ProductDetail = (url: URL) => {
                     <div className="flex flex-wrap pt-3 -mx-2 md:-mx-3 md:mt-2">
 
                         {/* Top/LEft Image Slider */}
-                        <div className="order-1 w-full h-full px-2 mb-4 md:order-2 md:px-3 md:w-3/5">
+                        <div className="order-1 w-full h-full px-2 mb-4 md:order-2 md:px-3 md:w-3/5 lg:w-1/2">
                             <ProductGallery image={data?.product.mainImage} />
 
                             {/* Compare buttons */}
@@ -57,44 +57,51 @@ const ProductDetail = (url: URL) => {
                         </div>
 
                         {/* Bottom/Right Content */}
-                        <div className="order-3 w-full px-2 md:px-3 md:w-2/5">
+                        <div className="order-3 w-full px-2 md:px-3 md:w-2/5 lg:w-1/2">
                             {/* Title */}
-                            {width! >= 720 ? '' : (
+                            {width! <= 720 ? (
                                 <HeadingProduct title={data?.product.title} />
-                            )}
+                            ) :
+                                width! >= 1080 ? (
+                                    <HeadingProduct title={data?.product.title} />
+                                ) :
+                                    ''}
 
                             {/* Price & Add to Basket, Quantity & Services */}
-                            <div className="w-full lg:w-[288px]">
+                            <div className="flex justify-end">
+                                <div className="w-full lg:w-[288px]">
 
-                                <div className="w-full rounded-lg md:pt-4 md:border md:border-[#ddd]">
-                                    <ProductPrice price={data?.product.price} />
+                                    <div className="w-full rounded-lg md:pt-4 md:border md:border-[#ddd]">
 
-                                    {/* If Promotion, Previous Price last 30 days*/}
-                                    <p className="text-right mt-1 ml-[68px] md:mr-4">
-                                        Najniższa cena z ostatnich 30 dni z obniżką: {''}
-                                        <span className="whitespace-nowrap text-[#4d4d4d]">Price</span>
-                                    </p>
+                                        <ProductPrice price={data?.product.price} />
 
-                                    {/* Quantity & Add to Basket */}
-                                    <div className="flex items-center pt-4 pb-6 md:p-4 md:pt-3">
-                                        {/* Quantity */}
-                                        <div className="mr-2">
-                                            <QuantityBasketProduct itemQuantity={quantity} />
+                                        {/* If Promotion, Previous Price last 30 days*/}
+                                        <p className="text-right mt-1 ml-[68px] md:mr-4">
+                                            Najniższa cena z ostatnich 30 dni z obniżką: {''}
+                                            <span className="whitespace-nowrap text-[#4d4d4d]">Price</span>
+                                        </p>
+
+                                        {/* Quantity & Add to Basket */}
+                                        <div className="flex items-center pt-4 pb-6 md:p-4 md:pt-3">
+                                            {/* Quantity */}
+                                            <div className="mr-2">
+                                                <QuantityBasketProduct itemQuantity={quantity} />
+                                            </div>
+
+                                            {/* Add to Basket */}
+                                            <div className="flex-grow">
+                                                <AddToBasket product={data?.product} quantity={quantity} />
+                                            </div>
                                         </div>
 
-                                        {/* Add to Basket */}
-                                        <div className="flex-grow">
-                                            <AddToBasket product={data?.product} quantity={quantity} />
-                                        </div>
+                                        {/* Services */}
+
+                                        <Services
+                                            productTitle={data?.product.title}
+                                            productMainImage={data?.product.mainImage}
+                                        />
+
                                     </div>
-
-                                    {/* Services */}
-
-                                    <Services
-                                        productTitle={data?.product.title}
-                                        productMainImage={data?.product.mainImage}
-                                    />
-
                                 </div>
                             </div>
                         </div>

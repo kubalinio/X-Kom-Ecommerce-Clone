@@ -37,10 +37,12 @@ const ProductReviews = () => (
 const HeadingProduct = ({ title }: Props) => {
     return (
         <div className="flex w-full pb-4 break-words md:mt-6">
+
             <div className="w-full">
                 {/* Title & Md:Reviews  */}
                 <div className="flex flex-col w-full mb-1">
-                    <h1 className="text-[18px] leading-6 md:text-[22px] md:leading-7">{title}</h1>
+
+                    <h1 className="text-[18px] leading-6 md:text-[22px]/7 lg:text-[26px]/8 lg:inline">{title}</h1>
 
                     {/* Div z opiniamy od MD */}
                     <div>
@@ -62,6 +64,7 @@ const HeadingProduct = ({ title }: Props) => {
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     )

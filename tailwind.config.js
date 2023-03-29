@@ -74,6 +74,7 @@ module.exports = {
       // => @media (min-width: 768px) { ... }
 
       'bg': '900px',
+      // => @media (min-width: 900px) { ... }
 
       'lg': '1080px',
       // => @media (min-width: 1024px) { ... }
@@ -86,7 +87,7 @@ module.exports = {
     },
 
     fontFamily: {
-      lato: ['var(--font-lato)']
+      lato: ['var(--font-lato)', 'Lato']
     }
   },
   plugins: [
