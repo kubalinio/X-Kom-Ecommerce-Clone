@@ -37,6 +37,15 @@ module.exports = {
           '0%': {transform: 'translateY(0px)'},
           '100%': {transform: 'translateY(-90px)'}
         },
+        // Modal.tsx
+        // showModal: {
+        //   '0%': {opacity: 0},
+        //   '100%': {opacity: 1}
+        // },
+        // hideModal: {
+        //   '0%': {opacity: 1},
+        //   '100%': {opacity: 0}
+        // },
 
 
       },
@@ -46,7 +55,9 @@ module.exports = {
         logoHide: 'logoAnimationHide 500ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
         headerExpand: 'headerAnimationExpand 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
         headerMinimize: 'headerAnimationMinimize 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
-        headerMobileHide: 'headerMobileAnimationHide 0ms cubic-bezier(0.4, 0, 0.2, 1) none'
+        headerMobileHide: 'headerMobileAnimationHide 0ms cubic-bezier(0.4, 0, 0.2, 1) none',
+        // showModal: 'showModal 300ms cubic-bezier(0.4, 0, 0.2, 1) running',
+        // hideModal: 'hideModal 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
       }
 
       
@@ -79,6 +90,6 @@ module.exports = {
     }
   },
   plugins: [
-    require('@tailwindcss/line-clamp')
+    // require('@tailwindcss/line-clamp')
   ],
 }

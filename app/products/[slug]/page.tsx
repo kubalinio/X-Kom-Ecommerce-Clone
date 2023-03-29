@@ -89,7 +89,11 @@ const ProductDetail = (url: URL) => {
                                     </div>
 
                                     {/* Services */}
-                                    <Services />
+
+                                    <Services
+                                        productTitle={data?.product.title}
+                                        productMainImage={data?.product.mainImage}
+                                    />
 
                                 </div>
                             </div>

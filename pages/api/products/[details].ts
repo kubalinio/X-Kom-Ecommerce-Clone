@@ -3,12 +3,9 @@ import type { NextApiRequest, NextApiResponse } from "next"
 import groq from 'groq'
 import { Product } from '@/typings';
 
-
-
-const productQuery = (query) => {
-    const queryProduct = groq`*[_type == "product" && slug.current == '${query}'][0]`
-    return queryProduct
-}
+// type Data = {
+//     product: Product
+//   }
 
 export default async function handler(
     req: NextApiRequest,

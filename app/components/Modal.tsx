@@ -5,7 +5,7 @@ import { createPortal } from "react-dom"
 import { AiOutlineClose } from "react-icons/ai";
 import { RiArrowLeftSLine } from "react-icons/ri";
 
-const Icon = ({ icon }: { icon: ReactNode }) => <span className='inline-flex items-center justify-center h-[30px] w-[30px] first:text-[30px] sm:first:text-[26px] first:text-gray-600'>{icon}</span>;
+const Icon = ({ icon }: { icon: ReactNode }) => <span className='inline-flex items-center justify-center h-[30px] w-[30px] first:text-[30px] sm:first:text-[22px] first:text-gray-600'>{icon}</span>;
 
 export const ModalContainer = ({ children }: { children: ReactNode }) => {
     const refPortal = useRef<Element | null>()
@@ -54,12 +54,21 @@ export const ModalHeader = ({ children, title, close }: HeaderProps) => {
 
                 <button
                     onClick={() => close()}
-                    className="hidden sm:flex items-center justify-center w-[40px] h-[40px] rounded-full hover:bg-[#ddd] focus:bg-[#ddd]"
+                    className="hidden sm:flex items-center justify-center w-[36px] h-[36px] rounded-full hover:bg-[#ddd] focus:bg-[#ddd]"
                 >
                     <Icon icon={<AiOutlineClose />} />
                 </button>
 
             </div>
+        </div>
+    )
+}
+
+export const ModalBody = ({ children }: { children: ReactNode }) => {
+
+    return (
+        <div className="min-h-[100px] max-h-[calc(100vh-56px)] overflow-x-hidden overflow-y-auto pt-3 sm:max-h-[calc(100vh-128px)] md:min-h-[200px] md:max-h-[calc(100vh-112px)]">
+            {children}
         </div>
     )
 }
@@ -87,6 +96,7 @@ export const Modal = ({ children, close }: Props) => {
         return () => window.removeEventListener('click', listener)
     }, [])
 
+
     return (
         <>
             {/* 
@@ -94,7 +104,7 @@ export const Modal = ({ children, close }: Props) => {
 
             <div ref={overlayRef} className="z-[1001] fixed flex items-center justify-center inset-0 overflow-auto bg-black/50 sm:py-8">
 
-                <div className="z-[1002] flex flex-col h-full sm:h-auto sm:max-h-full sm:min-h-[200px] sm:w-[calc(100%-64px)] sm:max-w-[600px] sm:rounded-lg w-full rounded-none bg-white ">
+                <div className="z-[1002] flex flex-col h-full sm:h-auto sm:max-h-full sm:min-h-[200px] sm:w-[calc(100%-64px)] sm:max-w-[600px] sm:rounded-lg w-full rounded-none bg-white">
 
                     {/* ref */}
                     <div ref={modalRef} className="flex flex-col pt-[56px] h-full sm:pt-0 sm:max-h-[calc(100vh-56px)] sm:min-h-[200px]">
