@@ -18,7 +18,7 @@ import LoadingSpinner from '../LoadingSpinner';
 // }
 
 const fetchProducts = async () => {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/getProducts`)
+    const response = await axios.get(`/api/products/getProducts`)
     return response.data
 };
 
@@ -76,7 +76,7 @@ const RecommendProducts = ({ initialProducts }) => {
                             <ScrollingCarousel className='[&>*]:px-4'>
                                 {data.products.map(product => (
                                     <div key={product._id} className='max-w-[150px] p-2 min-w-[150px] sm:min-w-[180px] sm:max-w-[180px] md:max-w-[220px] md:min-w-[220px]'>
-                                        <ProductCard slug={product.slug.current} special={product.special} mainImage={product.mainImage} title={product.title} price={product.price} />
+                                        <ProductCard slug={product.slug} special={product.special} mainImage={product.mainImage} title={product.title} price={product.price} />
                                     </div>
                                 ))}
 

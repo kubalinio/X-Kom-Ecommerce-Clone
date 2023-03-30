@@ -285,14 +285,11 @@ const Service = ({ title, icon, status, text, body }: ServiceProps) => {
                     <Modal close={() => setShowModal(false)}>
                         <ModalHeader title={title} close={() => setShowModal(false)} />
 
-
                         <ModalBody>
 
                             {body}
 
                         </ModalBody>
-
-
 
                     </Modal>
 

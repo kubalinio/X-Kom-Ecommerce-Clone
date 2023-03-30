@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
 import { addToBasket, getTotals } from '@/store/basketSlice';
 import { Product } from '@/typings';
+import ProductAddedToBasket from '@/app/components/ProductAddedToBasket';
 
 type Props = {
     product: Product,
@@ -10,7 +11,7 @@ type Props = {
 }
 
 const AddToBasket = ({ product, quantity }: Props) => {
-
+    const [showModal, setShowModal] = useState(false)
     // console.log(product)
     const { _id, slug, special, mainImage, title, price } = product
 
@@ -26,24 +27,32 @@ const AddToBasket = ({ product, quantity }: Props) => {
 
         dispatch(addToBasket(product))
         dispatch(getTotals())
+        setShowModal(true)
     }
 
     return (
-        <div>
-            <button
-                onClick={addItemToBasket}
-                className='flex items-center justify-center w-full h-[36px] px-2 rounded-full bg-[#119e00] text-white hover:bg-[#1f8014]  focus:bg-[#1f8014] transition-colors duration-300 '
-                title='Dodaj do koszyka'
-            >
-                <span className='flex items-center justify-center text-white'>
-                    <span className='inline-block w-[24px] h-[24px]'>
-                        <MdOutlineAddShoppingCart className='w-full h-full' />
-                    </span>
+        <>
+            <div>
+                <button
+                    onClick={addItemToBasket}
+                    className='flex items-center justify-center w-full h-[36px] px-2 rounded-full bg-[#119e00] text-white hover:bg-[#1f8014]  focus:bg-[#1f8014] transition-colors duration-300 '
+                    title='Dodaj do koszyka'
+                >
+                    <span className='flex items-center justify-center text-white'>
+                        <span className='inline-block w-[24px] h-[24px]'>
+                            <MdOutlineAddShoppingCart className='w-full h-full' />
+                        </span>
 
-                    <span>Dodaj do koszyka</span>
-                </span>
-            </button>
-        </div>
+                        <span>Dodaj do koszyka</span>
+                    </span>
+                </button>
+            </div>
+
+            {!showModal ? '' : (
+                <ProductAddedToBasket title={title} price={price} mainImage={mainImage} closeModal={() => setShowModal(false)} />
+            )}
+
+        </>
     )
 }
 

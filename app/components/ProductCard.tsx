@@ -5,9 +5,13 @@ import { Product } from '@/typings';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMdHeartEmpty } from 'react-icons/io'
-import { MdOutlineAddShoppingCart } from 'react-icons/md';
+import { MdOutlineAddShoppingCart, MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { useDispatch } from 'react-redux'
 import { addToBasket, getTotals } from '@/store/basketSlice';
+import { useState } from 'react';
+import { Modal, ModalBody, ModalContainer, ModalHeader } from './Modal';
+import { AiOutlineCheck } from 'react-icons/ai';
+import ProductAddedToBasket from './ProductAddedToBasket';
 
 
 // const ProductEvent = () => ()
@@ -21,7 +25,10 @@ import { addToBasket, getTotals } from '@/store/basketSlice';
 //         dispatch(getTotals())
 // }, [basket, dispatch])
 
+
+
 const Basket = ({ _id, slug, special, mainImage, title, price }: Product) => {
+    const [showModal, setShowModal] = useState(false)
     const dispatch = useDispatch()
 
     const currentSlug = slug.current
@@ -35,7 +42,9 @@ const Basket = ({ _id, slug, special, mainImage, title, price }: Product) => {
 
         dispatch(addToBasket(product))
         dispatch(getTotals())
+        setShowModal(true)
     }
+
 
     return (
         <div className='hidden lg:group-hover:block absolute right-[10px] bottom-[10px] '>
@@ -50,6 +59,13 @@ const Basket = ({ _id, slug, special, mainImage, title, price }: Product) => {
                     </button>
                 </div>
             </div>
+
+            {/* Modal */}
+
+            {!showModal ? '' : (
+                <ProductAddedToBasket title={title} price={price} mainImage={mainImage} closeModal={() => setShowModal(false)} />
+            )}
+
         </div>
     )
 }
