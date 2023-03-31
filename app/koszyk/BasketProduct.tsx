@@ -33,10 +33,6 @@ const RemoveBasketProduct = ({ id }: { id: string }) => {
     const dispatch = useDispatch()
 
     const removeItemFromBasket = () => {
-        const product = {
-            id: id
-        }
-        console.log(id)
 
         dispatch(removeItem(id))
         dispatch(getTotals())
@@ -44,7 +40,7 @@ const RemoveBasketProduct = ({ id }: { id: string }) => {
 
     return (
         <button
-            onClick={() => removeItemFromBasket}
+            onClick={removeItemFromBasket}
             title='Usuń z koszyka'
             className='inline-flex items-center justify-start w-full h-[48px] text-[#4d4d4d] bg-transparent border-none py-2 px-5 cursor-pointer hover:bg-[#ddd]'
         >

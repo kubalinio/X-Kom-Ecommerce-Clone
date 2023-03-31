@@ -338,7 +338,7 @@ const FooterExpandNavigation = ({ items }: { items: footerItem[] }) => {
                         </span>
                     </div>
 
-                    <div className={`${expandIndex === index && isShow ? 'block max-h-[400px]' : 'hidden max-h-0'} overflow-hidden transition-all duration-500`}>
+                    <div className={`${expandIndex === index && isShow ? 'block max-h-full' : 'hidden max-h-0'} overflow-hidden transition-all duration-500`}>
                         <div className='flex flex-col text-base last:mb-4'>
                             {item.links.map(link => (
                                 <Link key={link.name + Math.random()} href={`/`} className='px-4 py-3 leading-6 hover:underline underline-offset-2 '>{link.name}</Link>

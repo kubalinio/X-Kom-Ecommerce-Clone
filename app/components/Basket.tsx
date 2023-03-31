@@ -1,3 +1,5 @@
+'use client'
+
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { urlFor } from '@/lib/sanity.client'
 import { RootState } from '@/store'
@@ -5,9 +7,33 @@ import { BasketItem } from '@/store/basketSlice'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { AiOutlineInfoCircle } from 'react-icons/ai'
+import { AiOutlineInfoCircle, AiOutlineUser } from 'react-icons/ai'
+import { SlBasket } from 'react-icons/sl'
 import { useSelector } from 'react-redux'
-import { AuthButton, AuthButtonOutlined } from './AuthButtons'
+import { AuthButtonOutlined } from './AuthButtons'
+import { ReactNode, useState } from "react"
+
+
+import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from "./DrawerModal";
+import { NavDropdown } from './NavDropdown'
+
+const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full">{icon}</span>;
+
+
+const basketItem = {
+    name: 'Koszyk',
+    icon: <SlBasket />,
+    slug: 'koszyk',
+    subMenu: {
+        contact: [
+            {
+                name: 'Twoje konto',
+                icon: <AiOutlineUser className='w-full h-full' />,
+                slug: 'konto'
+            },
+        ]
+    }
+}
 
 
 const BasketHeader = ({ totalQuantity }: { totalQuantity: number }) => (
@@ -153,3 +179,114 @@ export const EmptyMiniBasket = () => {
         </div >
     )
 }
+
+type BasketNavProps = {
+    isScrollDown: boolean
+    width: number
+}
+
+export const BasketNav = ({ isScrollDown, width }: BasketNavProps) => {
+
+    const [isHover, setIsHover] = useState(false)
+    const [showDrawer, setShowDrawer] = useState(false)
+
+    const basket = useSelector((state: RootState) => state)
+    const basketQuantity = basket.basketTotalQuantity
+
+    const handleClick = () => {
+        if (width >= 1080) {
+            setShowDrawer(false)
+        } else if (width < 1080 && !showDrawer) {
+            setShowDrawer(true)
+        } else if (width < 1080 && showDrawer) {
+            setShowDrawer(false)
+        }
+    }
+
+    const handleHover = () => {
+        if (width < 1080) {
+            return
+        }
+        else if (width >= 1080 && !isHover) {
+            setIsHover(true)
+        } else if (width >= 1080 && isHover) {
+            setIsHover(false)
+        }
+
+    }
+
+    return (
+
+        <>
+            <div
+                onMouseEnter={() => handleHover()}
+                onMouseLeave={() => handleHover()}
+                className={`relative flex h-12 md:h-16 z-10 ${isHover ? 'nav-item-after' : ''}`}>
+
+                <div
+                    onClick={() => handleClick()}
+                    className={`flex justify-center items-center min-w-[64px] md:min-w-[88px] cursor-pointer ${isHover ? 'shadow-xCom rounded-t-lg' : ''}`} >
+
+
+                    <Link href='/' className="flex flex-col items-center justify-center h-full max-lg:pointer-events-none" >
+                        <div className="relative flex items-center text-2xl 2xl:text-3xl w-7 h-7 md:w-8 md:h-8" >
+
+                            <Icon icon={basketItem.icon} />
+
+                        </div>
+
+                        <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{basketItem.name}
+                        </span>
+
+                    </Link>
+
+                </div>
+
+                {isHover ? (
+                    <NavDropdown last={true}>
+
+                        {basketQuantity > 0 ? (
+                            <MiniBasket />
+                        ) : (
+                            <EmptyMiniBasket />
+                        )}
+
+                    </NavDropdown>
+                )
+                    : ''
+                }
+
+
+            </div>
+
+
+            <DrawerContainer close={() => setShowDrawer(false)} openDrawer={showDrawer} >
+                {showDrawer && width! <= 1080 ? (
+
+                    <DrawerModal>
+                        <DrawerHeader name={basketItem.name} closeDrawer={() => setShowDrawer(false)} basketQuantity={basketQuantity} />
+
+                        {/* Tylko Conterner 1 Div */}
+                        <DrawerBody>
+                            {basketQuantity > 0 ? (
+                                <MiniBasket />
+                            ) : (
+                                <EmptyMiniBasket />
+                            )}
+                        </DrawerBody>
+
+
+                    </DrawerModal>
+
+                ) : ''}
+            </DrawerContainer>
+
+
+
+
+
+        </>
+
+    )
+}
+

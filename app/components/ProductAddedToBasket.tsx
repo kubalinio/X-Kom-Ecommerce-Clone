@@ -28,6 +28,7 @@ const ModalBasketBottom = ({ close }: { close: () => void }) => {
                 href='/koszyk'
                 className='flex grow-[unset] items-center justify-center w-auto h-[48px] md:h-[40px] py-2 pl-[22px] pr-[28px] rounded-full bg-[#119e00] text-white hover:bg-[#1f8014]  focus:bg-[#1c7213] transition-colors duration-300 '
                 title='Przejdź do koszyka'
+                onClick={() => close()}
             >
                 Przejdź do koszyka
                 <span className='inline-block h-[24px] w-[24px]'>
@@ -60,9 +61,12 @@ const ProductAddedToBasket = ({ title, price, mainImage, closeModal }: Props) =>
                     </div>
                 </ModalHeader>
 
+                {/* Temporary */}
+                <div className='bg-[#ddd] grow sm:hidden' />
+
                 <ModalBody>
                     {/* mainImage */}
-                    <div className='mt-7'>
+                    <div className='sm:mt-7'>
                         <div className='h-full p-4 md:px-6'>
                             <div className='flex'>
                                 {/* Image */}
@@ -101,6 +105,8 @@ const ProductAddedToBasket = ({ title, price, mainImage, closeModal }: Props) =>
                         </div>
                     </div>
                 </ModalBody>
+
+                <div className='bg-[#ddd] grow sm:hidden' />
 
                 <ModalBasketBottom close={() => closeModal()} />
 

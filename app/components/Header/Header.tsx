@@ -1,22 +1,17 @@
 'use client'
 
-import {useEffect, useRef, useState } from 'react';
+import {useEffect, useState } from 'react';
 
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 
 
-import {  BiMessageDots } from 'react-icons/bi'
-import { CgProfile, CgSmartphoneChip } from 'react-icons/cg';
+import { CgSmartphoneChip } from 'react-icons/cg';
 import { MdOutlineCable, MdOutlineFavoriteBorder } from 'react-icons/md'; 
-import { SlBasket, SlScreenSmartphone } from 'react-icons/sl'
-import { HiOutlineClipboardList } from 'react-icons/hi'
-import { HiOutlineBuildingStorefront } from 'react-icons/hi2'
+import { SlScreenSmartphone } from 'react-icons/sl'
 
-import { AiOutlineUser, AiOutlineHeart, AiOutlineSetting, AiOutlineLaptop, AiOutlinePrinter } from 'react-icons/ai'
-import { TfiHeadphoneAlt } from 'react-icons/tfi'
-import { GoMail } from 'react-icons/go'
-import { BsTelephone, BsCreditCard2Front } from 'react-icons/bs'
+import {AiOutlineLaptop, AiOutlinePrinter } from 'react-icons/ai'
+
 import {IoGameControllerOutline, IoTvOutline} from 'react-icons/io5'
 import {SiHomeassistant} from 'react-icons/si'
 import {CiPercent} from 'react-icons/ci'
@@ -28,159 +23,6 @@ import LogoHeader from './HeaderLogo';
 import HeaderNav from './HeaderNav';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 
-// sidebar Component
-
-// Flying Dropdown Component
-export type MenuItemsProps = {
-    name: string
-    icon: JSX.Element
-    slug: string
-    subMenu?: {
-        popular?: {
-            name: string
-            slug: string
-        }[],
-        contact: {
-            name: string
-            icon: any
-            slug: string
-            workTime?: {
-                days: string
-                time: string
-            }[]
-        }[]
-    }
-}
-
-const menuItems: MenuItemsProps[] = [
-    {
-        name: 'Pomoc i kontakt',
-        icon: <TfiHeadphoneAlt  />,
-        slug: 'centrum-pomocy',
-        subMenu: {
-            popular: [
-                {
-                    name: 'Status przesyłki',
-                    slug: 'status-przesylki'
-                },
-                {
-                    name: 'Dostawa',
-                    slug: 'dostawa'
-                },
-                {
-                    name: 'Raty',
-                    slug: 'raty'
-                },
-                {
-                    name: 'Leasing',
-                    slug: 'leasing'
-                },
-                {
-                    name: 'Ubezpieczenie sprzętu',
-                    slug: 'ubezpieczenia'
-                },
-                {
-                    name: 'Zwroty i reklamacje',
-                    slug: 'serwis'
-                },
-                {
-                    name: 'Najczęsciej zadawane pytania',
-                    slug: 'centrum-pomocy'
-                },
-            ],
-            contact: [
-                {
-                    name: 'Kontakt',
-                    icon: <TfiHeadphoneAlt className='w-full h-full' />,
-                    slug: 'kontakt'
-                },
-                {
-                    name: 'Salony',
-                    icon: <HiOutlineBuildingStorefront className='w-full h-full' />,
-                    slug: 'salony'
-                },
-                {
-                    name: 'x-kom@x-kom.pl',
-                    icon: <GoMail className='w-full h-full' />,
-                    slug: 'mailto:x-kom@x-kom.pl'
-                },
-                {
-                    name: '12 312 31 23',
-                    icon: <BsTelephone className='w-full h-full' />,
-                    slug: 'tel:123123123',
-                    workTime: [
-                        {
-                            days: 'pn. - pt.',
-                            time: '8:00 - 21:00'
-                        },
-                        {
-                            days: 'sob. - niedz.',
-                            time: '8:00 - 19:00'
-                        }
-                    ]
-                },
-            ]
-        }
-    },
-    {
-        name: 'Twoje konto',
-        icon: <CgProfile />,
-        slug: 'konto',
-        subMenu: {
-            contact: [
-                {
-                    name: 'Twoje konto',
-                    icon: <AiOutlineUser className='w-full h-full' />,
-                    slug: 'konto'
-                },
-                {
-                    name: 'Zamówienia',
-                    icon: <HiOutlineClipboardList className='w-full h-full' />,
-                    slug: 'zamowienia'
-                },
-                {
-                    name: 'Listy zakupowe',
-                    icon: <AiOutlineHeart className='w-full h-full' />,
-                    slug: 'listy'
-                },
-                {
-                    name: 'Opinie',
-                    icon: <BiMessageDots className='w-full h-full' />,
-                    slug: 'opinie'
-                },
-                {
-                    name: 'Dane do zamówień',
-                    icon: <BsCreditCard2Front className='w-full h-full' />,
-                    slug: 'dane-do-zamowienia'
-                },
-                {
-                    name: 'Ustawienia konta',
-                    icon: <AiOutlineSetting className='w-full h-full' />,
-                    slug: 'ustawienia-konta'
-                },
-            ]
-        }
-    },
-    {
-        name: 'Twoje listy',
-        icon: <MdOutlineFavoriteBorder />,
-        slug: 'listy'
-    },
-    {
-        name: 'Koszyk',
-        icon: <SlBasket />,
-        slug: 'koszyk',
-        subMenu: {
-            contact: [
-                {
-                    name: 'Twoje konto',
-                    icon: <AiOutlineUser className='w-full h-full' />,
-                    slug: 'konto'
-                },
-            ]
-        }
-    },
-]
 
 export type categorieMainProps = {
    name: string
@@ -293,13 +135,13 @@ export const Header = () => {
     useEffect(() => {
 
         const listener = (event: any) => {
-            if (event.target.scrollingElement.scrollTop >= 35 && window.innerWidth >= 1079) {
+            if (event.target.scrollingElement.scrollTop >= 35 && width! >= 1079) {
                 setIsScrollDown(true)
             } else {
                 setIsScrollDown(false)
             }
 
-            if (event.target.scrollingElement.scrollTop >= 85 && window.innerWidth < 1080) {
+            if (event.target.scrollingElement.scrollTop >= 85 && width! < 1080) {
                 setScrollMobile(true)
             } else {
                 setScrollMobile(false)
@@ -311,7 +153,7 @@ export const Header = () => {
         return () => {
             document.removeEventListener('scroll', listener)
         }
-    }, [])
+    }, [width])
 
     const scrollDirection = useScrollDirection()
 
@@ -342,7 +184,7 @@ export const Header = () => {
                     {/* Navigation */}
                     <div className='flex order-3 h-full pt-1 lg:z-20 md:pt-0' >
 
-                       <HeaderNav menuItems={menuItems} isScrollDown={isScrollDown} />
+                       <HeaderNav isScrollDown={isScrollDown} />
 
                     </div>
 

@@ -1,139 +1,87 @@
 'use client'
 
 import useWindowDimensions from "@/hooks/useWindowDimensions"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { Fragment, ReactNode, useEffect, useRef, useState } from "react"
-import { createPortal } from "react-dom"
-import { Drawer } from "./DrawerModal"
-import { MenuItemsProps } from "./Header"
-import { NavDropdown } from "./NavDropdown"
+import { HelpContact } from "./HelpContact"
+import UserAccount from "./UserAccount"
+import { YourFavLists } from "./YourFavLists"
+import { BasketNav } from "../Basket"
 
-import { useSelector } from 'react-redux'
-import { BasketItems } from "@/store/basketSlice"
-import { RootState } from "@/store"
-
-
-
-const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full">{icon}</span>;
-
+export type MenuItemsProps = {
+    name: string
+    icon: JSX.Element
+    slug: string
+    subMenu?: {
+        popular?: {
+            name: string
+            slug: string
+        }[],
+        contact: {
+            name: string
+            icon: any
+            slug: string
+            workTime?: {
+                days: string
+                time: string
+            }[]
+        }[]
+    }
+}
 
 type Props = {
-    menuItems: MenuItemsProps[]
     isScrollDown: boolean
 }
 
+const HeaderNav = ({ isScrollDown }: Props) => {
 
-const HeaderNav = ({ menuItems, isScrollDown }: Props) => {
-    const [isHover, setIsHover] = useState(false)
-    const [activeNav, setActiveNav] = useState(0)
-    const [isModalShow, setIsModalShow] = useState(false)
-    const { width }: { width: number | undefined } = useWindowDimensions()
-
-    const refPortal = useRef<Element | null>()
-    const [mounted, setMounted] = useState(false)
-
-    const router = useRouter()
-
-    const basket = useSelector((state: RootState) => state)
-
-    const handleHoverNav = (width: number | undefined, num: number) => {
-        if (width! < 1027) {
-            return
-        } else if (num === 0 || num === 1 || num === 3) {
-            setActiveNav(num)
-            setIsHover(true)
-        } else {
-            setIsHover(false)
-        }
-    }
-
-    const handleActiveNav = (width: number | undefined, num: number, link: string) => {
-
-        if (width! > 1027) {
-            setIsModalShow(false)
-            // Check better solution
-            router.replace(`/${link}`)
-        } else if (num === 0 || num === 1 || num === 3 && width! < 1027) {
-            setActiveNav(num)
-            setIsModalShow(true)
-        } else {
-            setIsModalShow(false)
-            // Check better solution
-            router.replace(`/${link}`)
-        }
-    }
-
-    useEffect(() => {
-        refPortal.current = document.body.querySelector<HTMLElement>('#react-portals')!;
-        setMounted(true)
-
-    }, [])
-
-
+    const { width } = useWindowDimensions()
 
     return (
         <div className='relative flex items-center'>
 
-            {menuItems.map((item, i) => (
-                <Fragment key={item.name + i}>
-                    {i === 1 && <span className="hidden md:flex self-center border-r-[1px] border-gray-400 h-9 ml-2 mr-3 mb-1" />}
+            <HelpContact isScrollDown={isScrollDown} width={width!} />
 
-                    {/* Nav Items */}
-                    <div
-                        key={item.name}
-                        onMouseEnter={() => handleHoverNav(width, i)}
-                        onMouseLeave={() => setIsHover(false)}
-                        className={`relative flex h-12 md:h-16 z-10 ${i === 0 ? 'max-md:hidden' : ''} ${activeNav === i && isHover ? 'nav-item-after' : ''}`}>
+            <span className="hidden md:flex self-center border-r-[1px] border-gray-400 h-9 ml-2 mr-3 mb-1" />
 
-                        <div
-                            onClick={() => handleActiveNav(width, i, item?.slug)}
-                            className={`flex justify-center items-center min-w-[64px] md:min-w-[88px] cursor-pointer ${activeNav === i && isHover ? 'shadow-xCom rounded-t-lg' : ''}`} >
+            <UserAccount isScrollDown={isScrollDown} width={width!} />
+            <YourFavLists isScrollDown={isScrollDown} />
+            <BasketNav isScrollDown={isScrollDown} width={width!} />
 
-                            <Link href='/' className="flex flex-col items-center justify-center h-full pointer-events-none" >
-                                <div className="relative flex items-center text-2xl 2xl:text-3xl w-7 h-7 md:w-8 md:h-8" >
-                                    {/* Quantity items */}
-                                    {i === 3 && basket.basketTotalQuantity > 0 ? (
-
-                                        <div className="absolute top-0 -right-1">
-                                            <div className="flex items-center justify-center w-4 px-1 text-xs text-white bg-blue-600 rounded-full shadow-sm-xCom shadow-white">
-                                                {basket.basketTotalQuantity || 0}
-                                            </div>
-                                        </div>
-                                    )
-                                        : null}
-                                    <Icon icon={item.icon} />
-                                </div>
-                                <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{item.name}</span>
-                            </Link>
-                        </div>
-
-                        {/* DropDown */}
-                        {isHover && item.subMenu ? (
-                            <NavDropdown
-                                index={i}
-                                isActiveContent={activeNav}
-                                navItem={menuItems[activeNav]} />
-                        )
-                            : ''
-                        }
-                    </div>
-
-                    {/* Portals */}
-                    {item.subMenu && (mounted && refPortal.current ? createPortal(
-                        <Drawer
-                            show={isModalShow && activeNav === i}
-                            close={() => setIsModalShow(false)}
-                            isActiveNum={activeNav}
-                            navItem={menuItems[activeNav]}
-                        />
-                        , refPortal.current) : null
-                    )}
-
-                </Fragment>
-            ))}
         </div>
     )
 }
 
 export default HeaderNav
+
+
+   // const handleHoverNav = (width: number | undefined, num: number) => {
+    //     if (width! < 1027) {
+    //         return
+    //     } else if (num === 0 || num === 1 || num === 3) {
+    //         setActiveNav(num)
+    //         setIsHover(true)
+    //     } else {
+    //         setIsHover(false)
+    //     }
+    // }
+
+    // const handleActiveNav = (width: number | undefined, num: number, link: string) => {
+
+    //     if (width! > 1027) {
+    //         setIsModalShow(false)
+    //         // Check better solution
+    //         router.replace(`/${link}`)
+    //     } else if (num === 0 || num === 1 || num === 3 && width! < 1027) {
+    //         setActiveNav(num)
+    //         setIsModalShow(true)
+    //     } else {
+    //         setIsModalShow(false)
+    //         // Check better solution
+    //         router.replace(`/${link}`)
+    //     }
+    // }
+
+     // useEffect(() => {
+    //     refPortal.current = document.body.querySelector<HTMLElement>('#react-portals')!;
+    //     setMounted(true)
+
+    // }, [])
