@@ -1,5 +1,5 @@
 import { urlFor } from "@/lib/sanity.client"
-import { BasketItem, removeItem, getTotals } from "@/store/basketSlice"
+import { BasketItem, removeItem, getTotals, addNewQuantity } from "@/store/basketSlice"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -102,6 +102,14 @@ const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: BasketI
         dispatch(getTotals())
     }
 
+    const handleChangeQuantity = (newQuantity: number) => {
+
+        const newProductQuantity = { id, newQuantity }
+        // change Quanity from exist product
+        dispatch(addNewQuantity(newProductQuantity))
+        dispatch(getTotals())
+    }
+
 
     return (
         <li className="flex items-center px-4 py-3 border-b border-[#ddd] max-md:last:border-b-0 md:p-3 md:pr-4 md:border-x md:border-x-[#ddd] md:first:border-t md:first:rounded-t-lg md:last:rounded-b-lg">
@@ -146,7 +154,7 @@ const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: BasketI
                             </div>
 
                             {/* Quantity */}
-                            <QuantityBasketProduct itemQuantity={quantity} />
+                            <QuantityBasketProduct basketQuantity={quantity} changeQuantity={handleChangeQuantity} />
 
                             {/* Add to Fav List */}
                             <button

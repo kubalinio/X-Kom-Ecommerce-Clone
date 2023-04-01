@@ -32,11 +32,22 @@ const basketSlice = createSlice({
             const itemInBasket = state.basketItems.find((item) => item.id === action.payload.id);
 
             if (itemInBasket) {
-              itemInBasket.quantity++;
+
+              itemInBasket.quantity = itemInBasket.quantity + action.payload.quantity;
+
+
             } else {
-              state.basketItems.push({ ...action.payload, quantity: 1 });
+              state.basketItems.push({ ...action.payload, quantity: action.payload.quantity });
             }
           },
+
+        addNewQuantity: (state, action) => {
+            const itemInBasket = state.basketItems.find((item) => item.id === action.payload.id)
+
+            if (itemInBasket) {
+                itemInBasket.quantity = action.payload.newQuantity
+            }
+        },
        
 
         removeItem: (state, action) => {
@@ -70,7 +81,7 @@ const basketSlice = createSlice({
 
 export const basketReducer = basketSlice.reducer
 
-export const {addToBasket, removeItem, getTotals} = basketSlice.actions
+export const {addToBasket, removeItem, addNewQuantity, getTotals} = basketSlice.actions
 
  // addToBasket: (state, action) => {
         //     const existingIndex = state.basketItems.findIndex((item) => item.id === action.payload.id)

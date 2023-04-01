@@ -212,7 +212,6 @@ export const BasketNav = ({ isScrollDown, width }: BasketNavProps) => {
         } else if (width >= 1080 && isHover) {
             setIsHover(false)
         }
-
     }
 
     return (

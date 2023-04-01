@@ -13,38 +13,28 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { urlFor } from "@/lib/sanity.client";
 
-const slides = [
-    {
-        name: 'Sprzęt gamingowy taniej do 1000',
-        img: 'https://cdn.x-kom.pl/i/img/banners/normal,,5ec8a769777e4bbaa135e910abe886bc.jpg?filters=trim',
-        imgLarge: 'https://cdn.x-kom.pl/i/img/banners/normal,,b1127d9a3cfb4e8dbfa54ba861e331c7.jpg?filters=trim',
-        link: '/',
-    },
-    {
-        name: 'Sprzęt gamingowy taniej do 1000',
-        img: 'https://cdn.x-kom.pl/i/img/banners/normal,,5ec8a769777e4bbaa135e910abe886bc.jpg?filters=trim',
-        imgLarge: 'https://cdn.x-kom.pl/i/img/banners/normal,,862de5396d9049e7a7541b1e0c60bcd9.jpg?filters=trim',
-        link: '/',
-    },
-    {
-        name: 'Sprzęt gamingowy taniej do 1000',
-        img: 'https://cdn.x-kom.pl/i/img/banners/normal,,5ec8a769777e4bbaa135e910abe886bc.jpg?filters=trim',
-        imgLarge: 'https://cdn.x-kom.pl/i/img/banners/normal,,b1127d9a3cfb4e8dbfa54ba861e331c7.jpg?filters=trim',
-        link: '/',
-    },
-    {
-        name: 'Sprzęt gamingowy taniej do 1000',
-        img: 'https://cdn.x-kom.pl/i/img/banners/normal,,5ec8a769777e4bbaa135e910abe886bc.jpg?filters=trim',
-        imgLarge: 'https://cdn.x-kom.pl/i/img/banners/normal,,862de5396d9049e7a7541b1e0c60bcd9.jpg?filters=trim',
-        link: '/',
-    },
-    {
-        name: 'Sprzęt gamingowy taniej do 1000',
-        img: 'https://cdn.x-kom.pl/i/img/banners/normal,,5ec8a769777e4bbaa135e910abe886bc.jpg?filters=trim',
-        imgLarge: 'https://cdn.x-kom.pl/i/img/banners/normal,,b1127d9a3cfb4e8dbfa54ba861e331c7.jpg?filters=trim',
-        link: '/',
-    },
-];
+// const slides = [
+//     {
+//         name: 'Sprzęt gamingowy taniej do 1000',
+//         link: '/',
+//     },
+//     {
+//         name: 'Sprzęt gamingowy taniej do 1000',
+//         link: '/',
+//     },
+//     {
+//         name: 'Sprzęt gamingowy taniej do 1000',
+//         link: '/',
+//     },
+//     {
+//         name: 'Sprzęt gamingowy taniej do 1000',
+//         link: '/',
+//     },
+//     {
+//         name: 'Sprzęt gamingowy taniej do 1000',
+//         link: '/',
+//     },
+// ];
 
 function SampleNextArrow(props) {
     const { onClick } = props;
@@ -68,68 +58,7 @@ function SamplePrevArrow(props) {
     );
 }
 
-const settings = {
-    dots: true,
-    lazyLoad: true,
-    arrows: true,
-    speed: 300,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
 
-    customPaging: i => {
-        return (
-            <button className='w-full' >
-                {slides[i].name}
-            </button>
-        )
-    },
-    responsive: [
-        {
-            breakpoint: 1080,
-            settings: {
-                className: "center",
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                variableWidth: false,
-                arrows: true,
-            }
-        },
-
-
-        {
-            breakpoint: 900,
-            settings: {
-                className: "center",
-                dots: false,
-                arrows: false,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: false,
-                variableWidth: false,
-
-            }
-        },
-
-        {
-            breakpoint: 768,
-            settings: {
-                dots: false,
-                arrows: false,
-                swipeToSlide: true,
-                infinite: true,
-                centerMode: false,
-                slidesToShow: 1,
-                centerPadding: "5px",
-                variableWidth: true,
-
-            }
-        }
-    ]
-};
 
 const fetchSliders = async () => {
     const response = await axios.get(`/api/getSlides`)
@@ -151,6 +80,69 @@ const SliderBox = () => {
                 <div className="w-1/4 h-6 mt-5 bg-gray-300 md:h-8" />
             </div>
         </section>)
+
+    const settings = {
+        dots: true,
+        lazyLoad: true,
+        arrows: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+
+        customPaging: i => {
+            return (
+                <button className='w-full' >
+                    {data.slides[i].title}
+                </button>
+            )
+        },
+        responsive: [
+            {
+                breakpoint: 1080,
+                settings: {
+                    className: "center",
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    variableWidth: false,
+                    arrows: true,
+                }
+            },
+
+
+            {
+                breakpoint: 900,
+                settings: {
+                    className: "center",
+                    dots: false,
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: false,
+                    variableWidth: false,
+
+                }
+            },
+
+            {
+                breakpoint: 768,
+                settings: {
+                    dots: false,
+                    arrows: false,
+                    swipeToSlide: true,
+                    infinite: true,
+                    centerMode: false,
+                    slidesToShow: 1,
+                    centerPadding: "5px",
+                    variableWidth: true,
+
+                }
+            }
+        ]
+    };
 
     return (
         <section className="w-full bg-white lg:pb-5 lg:pt-1 xl:pt-0 2xl:pb-20">

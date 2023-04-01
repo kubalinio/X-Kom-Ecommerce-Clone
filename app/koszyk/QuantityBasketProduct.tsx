@@ -2,17 +2,27 @@
 
 import { useState } from "react"
 
-export const QuantityBasketProduct = ({ itemQuantity }: { itemQuantity: number }) => {
+type Props = {
+    changeQuantity: (newQuantity: number) => void
+    basketQuantity?: number
+}
 
-    const [quantity, setQuantity] = useState(itemQuantity)
+export const QuantityBasketProduct = ({ changeQuantity, basketQuantity }: Props) => {
+
+    const [quantity, setQuantity] = useState(basketQuantity || 1)
     const [isOpen, setIsOpen] = useState(false)
 
 
     const valueQuantities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-    const handleNewQuantity = (quantity: number) => {
-        setQuantity(quantity)
+    const handleNewQuantity = (newQuantity: number) => {
+        setQuantity(newQuantity)
+
+        if (quantity !== newQuantity) {
+            changeQuantity(newQuantity)
+        }
     }
+
 
     return (
         <div
@@ -34,7 +44,7 @@ export const QuantityBasketProduct = ({ itemQuantity }: { itemQuantity: number }
                     <div className="absolute z-[3] left-0 right-0 bg-white top-full border border-[#ddd]">
                         <div>
                             {valueQuantities.map(quantity => (
-                                <div onClick={() => handleNewQuantity(quantity)}
+                                <div key={'Quantities' + quantity} onClick={() => handleNewQuantity(quantity)}
                                     className='bg-white hover:bg-[#ddd] py-2 px-4'
                                 >
                                     {quantity}

@@ -27,7 +27,7 @@ const ServiceItems = () => {
     return (
         <div className="flex flex-col justify-start py-2 md:flex-row md:items-baseline md:border-t md:border-[#ddd] md:py-4">
             {serviceItems.map(item => (
-                <div className="flex items-center justify-start flex-1 mb-2 basis-auto md:items-center md:justify-center md:mb-0 ">
+                <div key={item.text + Math.random()} className="flex items-center justify-start flex-1 mb-2 basis-auto md:items-center md:justify-center md:mb-0 ">
                     <Icon icon={item.icon} title={item.text} />
 
                     <div className="ml-4 md:ml-2">

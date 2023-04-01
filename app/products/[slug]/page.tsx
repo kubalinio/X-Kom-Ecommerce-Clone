@@ -23,7 +23,7 @@ const fetchDetails = async (slug: string) => {
 }
 
 const ProductDetail = (url: URL) => {
-    const [quantity, setQuantity] = useState(1)
+    const [quantity, setQuantity] = useState<number>(1)
     const { width } = useWindowDimensions()
 
 
@@ -34,7 +34,9 @@ const ProductDetail = (url: URL) => {
 
     if (isLoading) return <div>Loading...</div>
 
-
+    const handleNewQuantity = (newNumber: number) => {
+        setQuantity(newNumber)
+    }
 
     return (
         <main className="mb-6 bg-white mx-auto max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]">
@@ -83,9 +85,10 @@ const ProductDetail = (url: URL) => {
 
                                         {/* Quantity & Add to Basket */}
                                         <div className="flex items-center pt-4 pb-6 md:p-4 md:pt-3">
+
                                             {/* Quantity */}
                                             <div className="mr-2">
-                                                <QuantityBasketProduct itemQuantity={quantity} />
+                                                <QuantityBasketProduct changeQuantity={handleNewQuantity} />
                                             </div>
 
                                             {/* Add to Basket */}
