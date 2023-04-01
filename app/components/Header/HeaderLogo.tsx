@@ -8,6 +8,8 @@ import { useState } from 'react'
 import Overlay from '../Overlay'
 import { CategoriesDropdown } from './CategoriesDropdown'
 import { HamburgerDropdown } from './Hamburgers'
+import logoSmall from '../../../public/logoSmall.svg'
+import logoDesktop from '../../../public/logoDesktop.svg'
 
 
 // isScrollDown, 
@@ -46,12 +48,22 @@ const HeaderLogo = ({ isScrollDown, categorieItems }: Props) => {
             <Link href='/' className={`${!isScrollDown ? 'lg:animate-logoShow' : 'lg:animate-logoHide'} flex items-center overflow-hidden `} >
                 {/* Logo Big Screen */}
                 <span className={`hidden lg:flex h-10 items-center justify-center transition-all duration-500`} >
-                    <Image src='https://assets.x-kom.pl/public-spa/xkom/7cbf82dd32ab7e88.svg' alt='x-kom sklep komputerowy' width={225} height={40} />
+                    <Image
+                        src={logoDesktop}
+                        alt='x-clone sklep komputerowy'
+                        width={225}
+                        height={40}
+                    />
                 </span>
 
                 {/* Logo Mobile */}
-                <span className={`relative inline-flex items-center justify-start h-8 lg:hidden`} >
-                    <Image src='https://assets.x-kom.pl/public-spa/xkom/064948e3bac8c6d5.svg' alt='x-kom sklep komputerowy' width={102} height={30} className='relative inline-block w-auto h-full max-w-full max-h-full' />
+                <span className={`relative inline-flex items-center justify-start h-12 lg:hidden`} >
+                    <Image
+                        src={logoSmall}
+                        alt='x-clone sklep komputerowy'
+                        width={102}
+                        height={40}
+                        className='relative inline-block w-auto h-full max-w-full max-h-full' />
                 </span>
             </Link>
 

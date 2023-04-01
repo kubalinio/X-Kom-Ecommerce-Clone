@@ -18,12 +18,13 @@ module.exports = {
       },
       keyframes:{
         logoAnimationShow: {
-          '0%': {transform: 'translateX(14px) scale(0.8)', clipPath:' polygon(35% 0px, 100% 0px, 100% 100%, 35% 100%)' },
+          '0%': {transform: 'translateX(14px) scale(0.8)', clipPath:' polygon(30% 0px, 100% 0px, 100% 100%, 30% 100%)' },
+
           '100%': {transform: 'translateY(0px) scale(1)', clipPath:' polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%)' }
         },
         logoAnimationHide: {
           '0%': {transform: 'translateX(0px) scale(1)', clipPath:' polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%)' },
-          '100%': {transform: 'translateX(14px) scale(0.8)', clipPath:' polygon(35% 0px, 100% 0px, 100% 100%, 35% 100%)' }
+          '100%': {transform: 'translateX(14px) scale(0.8)', clipPath:' polygon(30% 0px, 100% 0px, 100% 100%, 30% 100%)' }
         },
         headerAnimationExpand: {
           '0%': {height: '56px'},
