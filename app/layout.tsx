@@ -9,8 +9,8 @@ import Providers from './auth/Providers'
 
 const lato = Lato({
   subsets: ['latin'],
-  weight: ['400', '700', '300', '900'],
-  variable: '--font-lato'
+  variable: '--font-lato',
+  weight: ["300", "400", "700", "900"]
 })
 
 
@@ -22,10 +22,10 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="pl">
+    <html lang="pl" className={`${lato.variable} font-lato`}>
       <head />
 
-      <body className={`bg-white ${lato.variable} font-lato`}>
+      <body className='bg-white'>
         <Providers>
           <Header />
           {/* Category Buttons ? (MAYBE) */}

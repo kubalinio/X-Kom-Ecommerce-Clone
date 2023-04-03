@@ -88,10 +88,8 @@ module.exports = {
     },
 
     fontFamily: {
-      lato: ['var(--font-lato)', 'Lato']
+      lato: ['var(--font-lato)'],
     }
   },
-  plugins: [
-    // require('@tailwindcss/line-clamp')
-  ],
+  plugins: [],
 }
