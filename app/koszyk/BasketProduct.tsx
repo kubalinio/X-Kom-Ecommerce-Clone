@@ -116,7 +116,7 @@ const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: BasketI
             <div className="w-full">
                 <div className="flex w-full">
                     {/* Image Left*/}
-                    <Link href={`/${slug}`}>
+                    <Link href={`/products/${slug}`}>
                         <span className="inline-flex items-center justify-center w-[72px] h-[60px] overflow-hidden">
                             <Image
                                 src={urlFor(mainImage).url()}
@@ -133,8 +133,8 @@ const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: BasketI
                     <div className="flex flex-wrap items-center justify-between w-full ml-2 md:flex-nowrap">
                         {/* Title & Expand*/}
                         <div className="inline-flex justify-between w-full mb-1">
-                            <Link href={`/${slug}`}>
-                                <h3 className="break-words line-clamp-1">{title}</h3>
+                            <Link href={`/products/${slug}`} className='hover:underline'>
+                                <h3 className="break-words line-clamp-2">{title}</h3>
                             </Link>
 
                             {/* Expand to fav list or delete item*/}

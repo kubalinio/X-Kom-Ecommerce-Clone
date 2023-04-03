@@ -15,8 +15,10 @@ import { AiOutlineLaptop, AiOutlinePrinter } from 'react-icons/ai'
 import { IoGameControllerOutline, IoTvOutline } from 'react-icons/io5'
 import { SiHomeassistant } from 'react-icons/si'
 import { CiPercent } from 'react-icons/ci'
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Overlay from '../Overlay';
+
+import CategoriesTrendsImage from '../../../public/CategoriesTrendsImage.jpg'
 
 const Icon = ({ icon }: { icon: ReactNode }) => <span>{icon}</span>;
 
@@ -32,10 +34,11 @@ export type categorieMainProps = {
     name: string
     icon: JSX.Element
     slug: string
-    recommendProduct: string
+    recommendProduct: string | StaticImageData
     subMenu?: {
         name: string
     }[]
+
 }
 
 const categorieItems: categorieMainProps[] = [
@@ -126,7 +129,7 @@ const categorieItems: categorieMainProps[] = [
         name: 'Trendy, promocje i nowości',
         icon: <CiPercent className='w-full h-full' />,
         slug: 'promocje',
-        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
+        recommendProduct: CategoriesTrendsImage,
     },
 ]
 
@@ -295,7 +298,7 @@ const CategoryDropdown = ({ category, index }: { category: categorieMainProps, i
                                     {/* SubMenu Items */}
                                     {subMenu?.map((category, i) => (
                                         <li key={category.name + i}>
-                                            <Link href={`/slug`} className='flex items-center text-[#1a1a1a] bg-white hover:bg-[#f5f5f5] rounded-r-full lg:pl-6 lg:pr-[22px] lg:h-9 w-full'>
+                                            <Link href={`/`} className='flex items-center text-[#1a1a1a] bg-white hover:bg-[#f5f5f5] rounded-r-full lg:pl-6 lg:pr-[22px] lg:h-9 w-full'>
                                                 <p className="flex items-center w-full whitespace-nowrap">
                                                     {category.name}
                                                 </p>
@@ -303,7 +306,7 @@ const CategoryDropdown = ({ category, index }: { category: categorieMainProps, i
                                         </li>
                                     ))}
                                     <li>
-                                        <Link href={`/slug`} className='flex items-center font-bold text-[#1a1a1a] bg-white hover:bg-[#f5f5f5] rounded-r-full lg:pl-6 lg:pr-[22px] lg:h-9 w-full'>
+                                        <Link href={`/products`} className='flex items-center font-bold text-[#1a1a1a] bg-white hover:bg-[#f5f5f5] rounded-r-full lg:pl-6 lg:pr-[22px] lg:h-9 w-full'>
                                             <p className="flex items-center w-full whitespace-nowrap">
                                                 Więcej...
                                             </p>

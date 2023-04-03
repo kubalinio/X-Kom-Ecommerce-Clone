@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
 import "swiper/swiper.min.css";
 import "swiper/css/free-mode";
 
-import { FreeMode } from "swiper";
+import { FreeMode, Navigation } from "swiper";
 
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
@@ -23,19 +23,21 @@ type SectionOverlayProps = {
 
 const SwiperNavButtons = ({ productSection }: { productSection?: boolean }) => {
     const swiper = useSwiper()
+    const [firstSlide, setFirstSlide] = useState(false)
+    const [lastSlide, setLastSlide] = useState(false)
 
     return (
         <>
             <div
                 onClick={() => swiper.slidePrev()}
-                className={`absolute hidden lg:flex bg-white rounded-full -left-3 xl:-left-5 shadow-sm-xCom shadow-black/20 cursor-pointer z-30 transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 hover:shadow-xCom hover:shadow-black/30 ${productSection ? ' top-[45%]' : 'top-[38%]'}`}
+                className={`absolute hidden lg:flex bg-white rounded-full -left-3 xl:-left-5 shadow-sm-xCom shadow-black/20 cursor-pointer z-30 transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 hover:shadow-xCom hover:shadow-black/30 ${productSection ? ' top-[45%]' : 'top-[38%]'} ${firstSlide ? 'opacity-40 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}
             >
                 <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowLeft /></span>
             </div>
 
             <div
                 onClick={() => swiper.slideNext()}
-                className={`absolute hidden lg:flex bg-white rounded-full top-[38%] -right-3 xl:-right-5 z-30 shadow-sm-xCom shadow-black/20 cursor-pointer transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 hover:shadow-xCom hover:shadow-black/30  ${productSection ? ' top-[45%]' : 'top-[38%]'}`}
+                className={`absolute hidden lg:flex bg-white rounded-full top-[38%] -right-3 xl:-right-5 z-30 shadow-sm-xCom shadow-black/20 cursor-pointer transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 hover:shadow-xCom hover:shadow-black/30  ${productSection ? ' top-[45%]' : 'top-[38%]'} ${lastSlide ? 'opacity-40 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}
             >
                 <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowRight /></span>
             </div>
@@ -80,7 +82,8 @@ export const SectionOverlay = ({ children, heading, slugToAll, productSection }:
             slidesPerView: 5,
             slidesPerGroup: 5,
             freeMode: false,
-            spaceBetween: 4
+            spaceBetween: 4,
+            Navigation
         },
         1600: {
             slidesPerView: 6,

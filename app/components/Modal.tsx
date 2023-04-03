@@ -7,9 +7,20 @@ import { RiArrowLeftSLine } from "react-icons/ri";
 
 const Icon = ({ icon }: { icon: ReactNode }) => <span className='inline-flex items-center justify-center h-[30px] w-[30px] first:text-[30px] sm:first:text-[22px] first:text-gray-600'>{icon}</span>;
 
-export const ModalContainer = ({ children }: { children: ReactNode }) => {
+export const ModalContainer = ({ children, openModal }: { children: ReactNode, openModal: boolean }) => {
     const refPortal = useRef<Element | null>()
     const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        if (openModal) {
+            document.body.style.overflow = 'hidden'
+            document.body.style.paddingRight = '16px'
+        } else {
+            document.body.style.overflow = 'hidden visible'
+            document.body.style.paddingRight = '0px'
+        }
+
+    }, [openModal])
 
     useEffect(() => {
         refPortal.current = document.querySelector<HTMLElement>('#react-portals')
@@ -22,6 +33,8 @@ export const ModalContainer = ({ children }: { children: ReactNode }) => {
         </div>, refPortal.current
     ) : null
 }
+
+
 
 
 type HeaderProps = {

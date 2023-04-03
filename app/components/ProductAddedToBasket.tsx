@@ -46,12 +46,13 @@ type Props = {
     price: number
     mainImage: ImageData
     closeModal: () => void
+    showed: boolean
 }
 
-const ProductAddedToBasket = ({ title, price, mainImage, closeModal }: Props) => {
+const ProductAddedToBasket = ({ title, price, mainImage, closeModal, showed }: Props) => {
 
     return (
-        <ModalContainer>
+        <ModalContainer openModal={showed} >
             <Modal close={() => closeModal()} >
                 <ModalHeader title={'Produkt dodany do koszyka'} close={() => closeModal()} >
                     <div className='h-[24px]'>

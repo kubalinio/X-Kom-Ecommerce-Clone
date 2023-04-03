@@ -49,7 +49,7 @@ const AddToBasket = ({ product, quantity }: Props) => {
             </div>
 
             {!showModal ? '' : (
-                <ProductAddedToBasket title={title} price={price} mainImage={mainImage} closeModal={() => setShowModal(false)} />
+                <ProductAddedToBasket showed={showModal} title={title} price={price} mainImage={mainImage} closeModal={() => setShowModal(false)} />
             )}
 
         </>

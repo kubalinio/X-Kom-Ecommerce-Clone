@@ -278,7 +278,7 @@ const Service = ({ title, icon, status, text, body }: ServiceProps) => {
         <>
             <ServiceBtn icon={icon} status={status} text={text || ''} title={title} />
 
-            <ModalContainer>
+            <ModalContainer openModal={showModal}>
 
                 {showModal && currentModal === title ? (
 

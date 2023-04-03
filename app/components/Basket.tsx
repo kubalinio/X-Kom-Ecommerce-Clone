@@ -11,13 +11,13 @@ import { AiOutlineInfoCircle, AiOutlineUser } from 'react-icons/ai'
 import { SlBasket } from 'react-icons/sl'
 import { useSelector } from 'react-redux'
 import { AuthButtonOutlined } from './AuthButtons'
-import { ReactNode, useState } from "react"
+import { ReactNode, useEffect, useState } from "react"
 
 
 import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from "./DrawerModal";
 import { NavDropdown } from './NavDropdown'
 
-const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full">{icon}</span>;
+const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full text-gray-700">{icon}</span>;
 
 
 const basketItem = {
@@ -87,7 +87,7 @@ const BasketProduct = ({ title, quantity, price, mainImage, slug }: BasketItem) 
             <div className='block w-full ml-3'>
                 <div className='flex flex-col items-start'>
                     <Link href={`/${slug}`} title={title}>
-                        <h3 className='mb-1 overflow-hidden whitespace-nowrap max-w-[145px]'>{title}</h3>
+                        <h3 className='mb-1 overflow-hidden max-w-[145px] line-clamp-2'>{title}</h3>
                     </Link>
                 </div>
 
@@ -109,14 +109,14 @@ const BasketProduct = ({ title, quantity, price, mainImage, slug }: BasketItem) 
     </div>
 )
 
-const BasketBottom = ({ totalAmount, width }: { totalAmount: number, width: number }) => (
+const BasketBottom = ({ totalAmount, width, onClick }: { totalAmount: number, width: number, onClick: () => void }) => (
     <>
         <div className='flex justify-between text-base font-bold'>
             <span>Do zapłaty</span>
             <span>{totalAmount.toFixed(2).replace('.', ',')} zł</span>
         </div>
 
-        <Link href='koszyk' className='flex items-center justify-center w-full px-4 py-3 mt-3 text-white bg-green-600 rounded-full hover:bg-green-700 min-h-[40px]'>
+        <Link onClick={() => onClick()} href='/koszyk' className='flex items-center justify-center w-full px-4 py-3 mt-3 text-white bg-green-600 rounded-full hover:bg-green-700 min-h-[40px]'>
             Przejdź do koszyka
         </Link>
 
@@ -127,7 +127,7 @@ const BasketBottom = ({ totalAmount, width }: { totalAmount: number, width: numb
     </>
 )
 
-export const MiniBasket = () => {
+export const MiniBasket = ({ onClick }: { onClick: () => void }) => {
     const { width } = useWindowDimensions()
 
     const basket = useSelector((state: RootState) => state)
@@ -155,13 +155,13 @@ export const MiniBasket = () => {
 
             {/* 5 */}
             <div className='sticky mt-auto bg-[#f5f5f5] border border-[#ddd] p-4 pb-3 rounded-lg '>
-                <BasketBottom totalAmount={basket.basketTotalAmount} width={width!} />
+                <BasketBottom onClick={() => onClick()} totalAmount={basket.basketTotalAmount} width={width!} />
             </div>
         </div>
     )
 }
 
-export const EmptyMiniBasket = () => {
+export const EmptyMiniBasket = ({ onClick }: { onClick: () => void }) => {
 
     const pathname = usePathname()
 
@@ -172,7 +172,7 @@ export const EmptyMiniBasket = () => {
                 <p className='mb-1 text-2xl font-bold'>Twój koszyk jest pusty</p>
                 <p className='mb-2'>Szukasz inspiracji?</p>
 
-                <AuthButtonOutlined onClick={() => close()} slug={`${pathname === '/' ? 'promocje' : ''}`}>
+                <AuthButtonOutlined onClick={() => onClick()} slug={`${pathname === '/' ? 'promocje' : ''}`}>
                     Przejdź do {pathname === '/' ? 'promocji' : 'strony głównej'}
                 </AuthButtonOutlined>
             </div>
@@ -189,25 +189,36 @@ export const BasketNav = ({ isScrollDown, width }: BasketNavProps) => {
 
     const [isHover, setIsHover] = useState(false)
     const [showDrawer, setShowDrawer] = useState(false)
+    const pathname = usePathname()
 
     const basket = useSelector((state: RootState) => state)
     const basketQuantity = basket.basketTotalQuantity
 
     const handleClick = () => {
-        if (width >= 1080) {
+        if (width >= 1080 && pathname === '/koszyk') {
+            setIsHover(false)
             setShowDrawer(false)
-        } else if (width < 1080 && !showDrawer) {
+        } else if (width < 1080 && !showDrawer && pathname !== '/koszyk') {
             setShowDrawer(true)
         } else if (width < 1080 && showDrawer) {
             setShowDrawer(false)
         }
     }
 
+    useEffect(() => {
+
+        if (pathname === '/koszyk') {
+            setIsHover(false)
+            setShowDrawer(false)
+        }
+
+    }, [pathname])
+
     const handleHover = () => {
-        if (width < 1080) {
+        if (width < 1080 && pathname === '/koszyk') {
             return
         }
-        else if (width >= 1080 && !isHover) {
+        else if (width >= 1080 && !isHover && pathname !== '/koszyk') {
             setIsHover(true)
         } else if (width >= 1080 && isHover) {
             setIsHover(false)
@@ -218,16 +229,17 @@ export const BasketNav = ({ isScrollDown, width }: BasketNavProps) => {
 
         <>
             <div
+                onClick={() => handleClick()}
                 onMouseEnter={() => handleHover()}
                 onMouseLeave={() => handleHover()}
                 className={`relative flex h-12 md:h-16 z-10 ${isHover ? 'nav-item-after' : ''}`}>
 
                 <div
-                    onClick={() => handleClick()}
+
                     className={`flex justify-center items-center min-w-[64px] md:min-w-[88px] cursor-pointer ${isHover ? 'shadow-xCom rounded-t-lg' : ''}`} >
 
 
-                    <Link href='/' className="flex flex-col items-center justify-center h-full max-lg:pointer-events-none" >
+                    <Link href='/koszyk' className="flex flex-col items-center justify-center h-full max-lg:pointer-events-none" >
                         <div className="relative flex items-center text-2xl 2xl:text-3xl w-7 h-7 md:w-8 md:h-8" >
 
                             {basketQuantity > 0 ? (
@@ -255,16 +267,15 @@ export const BasketNav = ({ isScrollDown, width }: BasketNavProps) => {
                     <NavDropdown last={true}>
 
                         {basketQuantity > 0 ? (
-                            <MiniBasket />
+                            <MiniBasket onClick={() => setIsHover(false)} />
                         ) : (
-                            <EmptyMiniBasket />
+                            <EmptyMiniBasket onClick={() => setIsHover(false)} />
                         )}
 
                     </NavDropdown>
                 )
                     : ''
                 }
-
 
             </div>
 
@@ -278,9 +289,9 @@ export const BasketNav = ({ isScrollDown, width }: BasketNavProps) => {
                         {/* Tylko Conterner 1 Div */}
                         <DrawerBody>
                             {basketQuantity > 0 ? (
-                                <MiniBasket />
+                                <MiniBasket onClick={() => setShowDrawer(false)} />
                             ) : (
-                                <EmptyMiniBasket />
+                                <EmptyMiniBasket onClick={() => setShowDrawer(false)} />
                             )}
                         </DrawerBody>
 

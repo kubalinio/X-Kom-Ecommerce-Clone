@@ -12,7 +12,7 @@ import { AuthButton, AuthButtonOutlined } from "../AuthButtons";
 import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from "../DrawerModal";
 import { NavDropdown } from "../NavDropdown";
 
-const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full">{icon}</span>;
+const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full text-gray-700">{icon}</span>;
 
 
 

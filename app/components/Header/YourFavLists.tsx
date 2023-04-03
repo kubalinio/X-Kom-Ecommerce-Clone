@@ -6,7 +6,7 @@ import { ReactNode } from "react"
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 
 
-const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full">{icon}</span>;
+const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full text-gray-700">{icon}</span>;
 
 const favItem = {
     name: 'Twoje listy',

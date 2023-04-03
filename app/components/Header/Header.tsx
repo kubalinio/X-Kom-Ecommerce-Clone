@@ -72,7 +72,7 @@ export const Header = () => {
                     </div>
 
                     {/* Navigation */}
-                    <div className='flex order-3 h-full pt-1 lg:z-20 md:pt-0' >
+                    <div className='flex order-3 h-full pt-1 lg:z-20 md:pt-1' >
 
                        <HeaderNav isScrollDown={isScrollDown} />
 

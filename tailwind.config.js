@@ -36,7 +36,7 @@ module.exports = {
         },
         headerMobileAnimationHide: {
           '0%': {transform: 'translateY(0px)'},
-          '100%': {transform: 'translateY(-90px)'}
+          '100%': {transform: 'translateY(-120px)'}
         },
         // Modal.tsx
         // showModal: {

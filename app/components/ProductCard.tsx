@@ -63,7 +63,7 @@ const Basket = ({ _id, slug, special, mainImage, title, price }: Product) => {
             {/* Modal */}
 
             {!showModal ? '' : (
-                <ProductAddedToBasket title={title} price={price} mainImage={mainImage} closeModal={() => setShowModal(false)} />
+                <ProductAddedToBasket title={title} price={price} mainImage={mainImage} closeModal={() => setShowModal(false)} showed={showModal} />
             )}
 
         </div>
