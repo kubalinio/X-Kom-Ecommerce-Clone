@@ -2,67 +2,48 @@
 
 // Style of Dots Added to globals
 
-import React from "react";
 import Image from 'next/image';
 
-import Slider from 'react-slick'
-import "slick-carousel/slick/slick.css";
+// import Slider from 'react-slick'
+// import "slick-carousel/slick/slick.css";
+
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
+
+import "swiper/swiper.min.css";
+import 'swiper/css/navigation';
+
+import { Pagination } from 'swiper'
 
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import axios from "axios";
 import { useQuery } from "react-query";
 import { urlFor } from "@/lib/sanity.client";
 
-// const slides = [
-//     {
-//         name: 'Sprzęt gamingowy taniej do 1000',
-//         link: '/',
-//     },
-//     {
-//         name: 'Sprzęt gamingowy taniej do 1000',
-//         link: '/',
-//     },
-//     {
-//         name: 'Sprzęt gamingowy taniej do 1000',
-//         link: '/',
-//     },
-//     {
-//         name: 'Sprzęt gamingowy taniej do 1000',
-//         link: '/',
-//     },
-//     {
-//         name: 'Sprzęt gamingowy taniej do 1000',
-//         link: '/',
-//     },
-// ];
-
-function SampleNextArrow(props) {
-    const { onClick } = props;
-    return (
-        <div
-            className='absolute hidden lg:flex bg-white rounded-full right-1 xl:-right-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700 2xl:bottom-[35%]'
-            onClick={onClick}>
-            <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowRight /></span>
-        </div>
-    );
-}
-
-function SamplePrevArrow(props) {
-    const { onClick } = props;
-    return (
-        <div
-            className='absolute hidden lg:flex bg-white rounded-full left-1 xl:-left-3 bottom-[42%] shadow-sm shadow-gray-600 cursor-pointer z-10 transition-all duration-200 hover:bg-gray-300 hover:shadow-md hover:shadow-gray-700 2xl:bottom-[35%]'
-            onClick={onClick}>
-            <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowLeft /></span>
-        </div>
-    );
-}
-
-
-
 const fetchSliders = async () => {
     const response = await axios.get(`/api/getSlides`)
     return response.data
+}
+
+const SwiperNavButtons = () => {
+    const swiper = useSwiper()
+
+    return (
+        <>
+            <div
+                onClick={() => swiper.slidePrev()}
+                className={`absolute hidden lg:flex bg-white rounded-full -left-3 xl:-left-5 shadow-sm-xCom shadow-black/20 cursor-pointer z-30 transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 hover:shadow-xCom hover:shadow-black/30 top-[38%]`}
+            >
+                <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowLeft /></span>
+            </div>
+
+            <div
+                onClick={() => swiper.slideNext()}
+                className={`absolute hidden lg:flex bg-white rounded-full top-[38%] -right-3 xl:-right-5 z-30 shadow-sm-xCom shadow-black/20 cursor-pointer transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 hover:shadow-xCom hover:shadow-black/30 `}
+            >
+                <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowRight /></span>
+            </div>
+        </>
+    )
 }
 
 const SliderBox = () => {
@@ -81,73 +62,81 @@ const SliderBox = () => {
             </div>
         </section>)
 
-    const settings = {
-        dots: true,
-        lazyLoad: true,
-        arrows: true,
-        speed: 300,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
+    const pagination = {
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<button class="' + className + ' w-full">' + (data.slides[index].title) + "</button>";
+        }
+    }
 
-        customPaging: i => {
-            return (
-                <button className='w-full' >
-                    {data.slides[i].title}
-                </button>
-            )
-        },
-        responsive: [
-            {
-                breakpoint: 1080,
-                settings: {
-                    className: "center",
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    variableWidth: false,
-                    arrows: true,
-                }
-            },
-
-
-            {
-                breakpoint: 900,
-                settings: {
-                    className: "center",
-                    dots: false,
-                    arrows: false,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: false,
-                    variableWidth: false,
-
-                }
-            },
-
-            {
-                breakpoint: 768,
-                settings: {
-                    dots: false,
-                    arrows: false,
-                    swipeToSlide: true,
-                    infinite: true,
-                    centerMode: false,
-                    slidesToShow: 1,
-                    centerPadding: "5px",
-                    variableWidth: true,
-
-                }
-            }
-        ]
-    };
 
     return (
-        <section className="w-full bg-white lg:pb-5 lg:pt-1 xl:pt-0 2xl:pb-20">
+        <section className="relative w-full px-4 my-4 bg-white sm:my-5 md:px-[24px] lg:p-0">
 
-            <Slider {...settings} >
+            <Swiper
+                slidesPerView={1.2}
+                spaceBetween={16}
+                rewind={true}
+                className='bannersCarousel'
+                modules={[Pagination]}
+                pagination={pagination}
+                breakpoints={{
+                    520: {
+                        slidesPerView: 1.5
+                    },
+
+                    680: {
+                        slidesPerView: 2.1,
+                        spaceBetween: 8
+                    },
+
+                    720: {
+                        slidesPerView: 1,
+                        spaceBetween: 8
+                    },
+                    900: {
+                        slidesPerView: 1,
+                        spaceBetween: 8,
+
+                    }
+                }}
+
+            >
+
+                {data.slides.map((slide, i) => (
+
+                    <SwiperSlide>
+                        <div key={slide.title + i} className='w-full h-full' >
+
+                            <a href={slide.link} className='relative w-full h-full' >
+
+                                <span className='md:hidden'>
+                                    <Image loading='lazy' width={800} height={255} src={urlFor(slide.image).url()} alt={slide.title} className='object-cover w-full h-full rounded-2xl' />
+                                </span>
+
+
+                                <span className='max-md:hidden'>
+                                    <Image loading='lazy' width={1200} height={500} src={urlFor(slide.imageDesktop).url()} alt={slide.title} className='object-cover w-full h-full rounded-3xl min-h-[250px] max-h-[250px] 2xl:max-h-[315px]' />
+                                </span>
+                            </a>
+                        </div>
+
+                    </SwiperSlide>
+
+                ))}
+
+                <SwiperNavButtons />
+            </Swiper>
+
+        </section >
+    )
+}
+
+export default SliderBox
+
+
+
+/* <Slider {...settings} >
 
                 {data.slides.map((slide, i) => (
 
@@ -159,7 +148,7 @@ const SliderBox = () => {
                                 <Image loading='lazy' width={800} height={255} src={urlFor(slide.image).url()} alt={slide.title} className='object-cover w-full h-full rounded-2xl max-md:max-h-[175px] max-md:max-w-[325px]' />
                             </span>
 
-                            {/* Large Screen */}
+
                             <span className='hidden w-full h-full md:block'>
                                 <Image loading='lazy' width={1200} height={500} src={urlFor(slide.imageDesktop).url()} alt={slide.title} className='object-cover w-full h-auto min-h-[250px] rounded-3xl' />
                             </span>
@@ -167,10 +156,4 @@ const SliderBox = () => {
                     </div>
 
                 ))}
-            </Slider>
-
-        </section >
-    )
-}
-
-export default SliderBox
+            </Slider> */

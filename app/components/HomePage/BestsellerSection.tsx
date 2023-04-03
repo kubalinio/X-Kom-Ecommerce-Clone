@@ -24,7 +24,7 @@ export const BestsellerSection = () => {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <SectionOverlay heading={'Bestsellers'} slugToAll={'bestsellers'} howSlides={5} centerArrow={true} >
+        <SectionOverlay heading={'Bestsellers'} slugToAll={'bestsellers'} productSection={true} >
 
             {data?.products.map(product => (
                 <div key={product._id} className="py-1 px-2 h-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px]">

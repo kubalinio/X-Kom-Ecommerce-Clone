@@ -27,10 +27,10 @@ export const HitsWeekSection = () => {
     let products: Product[] = data.products
 
     return (
-        <SectionOverlay heading={'Hity tygodnia'} slugToAll={'promocje'} howSlides={5} centerArrow={true} >
+        <SectionOverlay heading={'Hity tygodnia'} slugToAll={''} productSection={true} >
 
             {products.map(product => (
-                <div key={product._id} className="py-1 px-2 h-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px]">
+                <div key={product._id} className="h-full px-2 py-1">
 
                     <ProductCard
                         _id={product._id}

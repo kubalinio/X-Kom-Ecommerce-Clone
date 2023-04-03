@@ -124,7 +124,7 @@ export const NewsSection = () => {
     const { news } = NewsData
 
     return (
-        <SectionOverlay heading={NewsData.heading} slugToAll={NewsData.slug} howSlides={4} centerArrow={false}>
+        <SectionOverlay heading={NewsData.heading} slugToAll={NewsData.slug}>
 
             {news.map(promo => (
                 <CardNews key={promo.slug} heading={promo.heading} image={promo.image} slug={promo.slug} title={promo.title} />

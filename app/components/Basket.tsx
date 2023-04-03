@@ -230,7 +230,17 @@ export const BasketNav = ({ isScrollDown, width }: BasketNavProps) => {
                     <Link href='/' className="flex flex-col items-center justify-center h-full max-lg:pointer-events-none" >
                         <div className="relative flex items-center text-2xl 2xl:text-3xl w-7 h-7 md:w-8 md:h-8" >
 
+                            {basketQuantity > 0 ? (
+                                <div className="absolute top-0 -right-1">
+                                    <div className="flex items-center justify-center w-4 px-1 text-xs text-white bg-blue-600 rounded-full shadow-sm-xCom shadow-white">
+                                        {basketQuantity || 0}
+                                    </div>
+                                </div>
+
+                            ) : null}
+
                             <Icon icon={basketItem.icon} />
+
 
                         </div>
 

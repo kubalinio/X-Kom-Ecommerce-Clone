@@ -1,13 +1,19 @@
 'use client'
 
 
-import { ScrollingCarousel } from '@trendyol-js/react-carousel';
+
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import axios from "axios"
 import { useQuery } from "react-query"
 import { ProductCard } from '../ProductCard';
 import LoadingSpinner from '../LoadingSpinner';
 
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import "swiper/swiper.min.css";
+import "swiper/css/free-mode";
+
+import { FreeMode } from "swiper";
 
 // const item = {
 //     title: 'Apple Beats Fit Pro Volt Yellow',
@@ -73,14 +79,38 @@ const RecommendProducts = ({ initialProducts }) => {
                     {/* Mobile Products Delete in DOM in 1080px */}
                     <div>
                         {width < 1080 &&
-                            <ScrollingCarousel className='[&>*]:px-4'>
-                                {data.products.map(product => (
-                                    <div key={product._id} className='max-w-[150px] p-2 min-w-[150px] sm:min-w-[180px] sm:max-w-[180px] md:max-w-[220px] md:min-w-[220px]'>
-                                        <ProductCard slug={product.slug} special={product.special} mainImage={product.mainImage} title={product.title} price={product.price} />
-                                    </div>
-                                ))}
+                            // <ScrollingCarousel className='[&>*]:px-4'>
+                            <Swiper
+                                slidesPerView={2.3}
+                                spaceBetween={8}
+                                freeMode={true}
+                                modules={[FreeMode]}
+                                className='productsCarousel'
+                                breakpoints={{
+                                    520: {
+                                        slidesPerView: 3.3,
+                                        spaceBetween: 12
+                                    },
+                                    720: {
+                                        slidesPerView: 3.6
+                                    },
+                                    900: {
+                                        slidesPerView: 4.5
+                                    }
+                                }}
+                            >
+                                {
+                                    data.products.map(product => (
+                                        <SwiperSlide>
+                                            <div key={product._id} className='w-full h-full max-w-[150px] p-2 min-w-[150px] sm:min-w-[180px] sm:max-w-[180px] md:max-w-[220px] md:min-w-[220px]'>
+                                                <ProductCard slug={product.slug} special={product.special} mainImage={product.mainImage} title={product.title} price={product.price} />
+                                            </div>
+                                        </SwiperSlide>
+                                    ))
+                                }
+                            </Swiper>
 
-                            </ScrollingCarousel>
+
                         }
                     </div>
                 </div>

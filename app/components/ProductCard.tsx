@@ -109,7 +109,7 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Pro
                     {/* Title */}
                     <div className='mr-2 md:mx-3'>
                         <Link href={`/products/${currentSlug}`}>
-                            <h3 style={{ maxHeight: '40px' }} className='mt-2 overflow-hidden break-words whitespace-normal h-[40px] max-h-10 lg:mt-0'>
+                            <h3 style={{ maxHeight: '40px' }} className='mt-2 text-sm overflow-hidden break-words whitespace-normal h-[40px] max-h-10 lg:mt-0'>
                                 <span className='w-full line-clamp-2'>
                                     {title}
                                 </span>

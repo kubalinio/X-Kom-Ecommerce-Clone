@@ -27,10 +27,10 @@ export const BrandSection = () => {
 
 
     return (
-        <SectionOverlay heading={'Sekcja marek'} slugToAll={''} howSlides={7} centerArrow={true} >
+        <SectionOverlay heading={'Sekcja marek'} slugToAll={''} >
 
             {data?.brands?.map(brand => (
-                <div key={brand._id} className="h-[88px] w-[152px]">
+                <div key={brand._id} className="h-[88px] flex items-center justify-center">
                     <Link
                         href={`/`}
                         title={brand.title}

@@ -17,7 +17,7 @@ const fetchPromotions = async () => {
 const Card = ({ title, image, slug, slogan }: Promotion) => {
 
     return (
-        < div className='block w-[250px] lg:w-full xl:w-full' >
+        <div className='block lg:w-full xl:w-full' >
             <div className='h-full py-2'>
                 <Link href={`/${slug.current}`}>
                     <div className='flex items-center justify-center mt-[2px] rounded-lg shadow-xCom overflow-hidden'>
@@ -64,7 +64,7 @@ export const PromotionSection = () => {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <SectionOverlay heading={'Promocje'} slugToAll={'promocje'} howSlides={4} centerArrow={false} >
+        <SectionOverlay heading={'Promocje'} slugToAll={'promocje'} >
 
             {data?.promotions.map(promo => (
                 <Card key={promo.title} title={promo.title} image={promo.image} slug={promo.slug} slogan={promo.slogan} />

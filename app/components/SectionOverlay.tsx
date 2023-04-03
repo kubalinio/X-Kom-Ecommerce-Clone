@@ -1,26 +1,96 @@
 'use client'
 
 import Link from 'next/link'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import { SlArrowRight } from "react-icons/sl"
 
-import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css/core';
+
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
+
+import "swiper/swiper.min.css";
+import "swiper/css/free-mode";
+
+import { FreeMode } from "swiper";
+
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 type SectionOverlayProps = {
     children?: ReactNode[]
     heading: string
     slugToAll: string
-    howSlides: number
-    centerArrow: boolean
+    productSection?: boolean
 }
 
-export const SectionOverlay = ({ children, heading, slugToAll, howSlides, centerArrow }: SectionOverlayProps) => {
-
+const SwiperNavButtons = ({ productSection }: { productSection?: boolean }) => {
+    const swiper = useSwiper()
 
     return (
-        <section className='w-full mb-4 bg-white lg:mb-0 lg:pb-8'>
+        <>
+            <div
+                onClick={() => swiper.slidePrev()}
+                className={`absolute hidden lg:flex bg-white rounded-full -left-3 xl:-left-5 shadow-sm-xCom shadow-black/20 cursor-pointer z-30 transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 hover:shadow-xCom hover:shadow-black/30 ${productSection ? ' top-[45%]' : 'top-[38%]'}`}
+            >
+                <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowLeft /></span>
+            </div>
+
+            <div
+                onClick={() => swiper.slideNext()}
+                className={`absolute hidden lg:flex bg-white rounded-full top-[38%] -right-3 xl:-right-5 z-30 shadow-sm-xCom shadow-black/20 cursor-pointer transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 hover:shadow-xCom hover:shadow-black/30  ${productSection ? ' top-[45%]' : 'top-[38%]'}`}
+            >
+                <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowRight /></span>
+            </div>
+        </>
+    )
+}
+
+export const SectionOverlay = ({ children, heading, slugToAll, productSection }: SectionOverlayProps) => {
+
+
+    const breakpointsArticle = {
+        520: {
+            slidesPerView: 2.5,
+            spaceBetween: 12
+        },
+        900: {
+            slidesPerView: 3.4
+        },
+
+        1080: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            freeMode: false,
+            spaceBetween: 16
+        }
+
+    }
+
+    const breakpointsProducts = {
+        520: {
+            slidesPerView: 3.3,
+            spaceBetween: 12
+        },
+        720: {
+            slidesPerView: 3.6
+        },
+        900: {
+            slidesPerView: 4.5
+        },
+
+        1080: {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+            freeMode: false,
+            spaceBetween: 4
+        },
+        1600: {
+            slidesPerView: 6,
+            slidesPerGroup: 6,
+        }
+
+    }
+
+    return (
+        <section className='relative w-full mb-4 bg-white lg:mb-0 lg:pb-8'>
             <div className='flex flex-col bg-white border-y border-[#ebebeb] lg:border-b-0 lg:border-[#ddd]'>
                 {/* Head */}
                 <div className='flex justify-between w-full pl-4 pr-2 md:pl-6 lg:p-0'>
@@ -46,75 +116,23 @@ export const SectionOverlay = ({ children, heading, slugToAll, howSlides, center
                 <div className='w-full pt-2 pb-6'>
                     <div className='mt-2'>
 
-                        {/* Slider  */}
-                        <Splide
-                            hasTrack={false}
-                            options={{
-                                rewind: true,
-                                perPage: 2.5,
-                                padding: '12px',
-                                gap: '12px',
-                                drag: 'free',
-                                autoWidth: true,
-                                // height: '310px',
-                                focus: 'center',
-                                mediaQuery: 'min',
-
-                                breakpoints: {
-                                    640: {
-                                        gap: '16px'
-                                    },
-
-                                    1024: {
-                                        rewind: false,
-                                        perPage: howSlides,
-                                        perMove: howSlides,
-                                        focus: 1,
-                                        perDrag: 1,
-                                        drag: true,
-                                        gap: '20px',
-                                        // padding: '16px',
-                                        autoWidth: false,
-                                    }
-                                }
-
-                            }}
+                        <Swiper
+                            className='sectionCarousel'
+                            slidesPerView={!productSection ? 1.3 : 2.3}
+                            spaceBetween={12}
+                            freeMode={true}
+                            modules={[FreeMode]}
+                            breakpoints={!productSection ? breakpointsArticle : breakpointsProducts}
                         >
-                            <SplideTrack>
 
-                                {children?.map(child => (
-                                    <SplideSlide key={Math.random()}>
-                                        {child}
-                                    </SplideSlide>
-                                ))}
+                            {children?.map(child => (
+                                <SwiperSlide key={Math.random()}>
+                                    {child}
+                                </SwiperSlide>
+                            ))}
 
-                            </SplideTrack>
-
-                            <div className={`${!centerArrow ? 'top-[42%]' : 'top-[55%]'} hidden lg:block absolute w-full splide__arrows`}>
-                                {/* <button className="left-0 splide__arrow splide__arrow--prev">Prev</button> */}
-
-                                <div
-                                    className='absolute hidden lg:flex bg-white rounded-full -left-2 xl:-left-3 bottom-[42%] shadow-sm-xCom  cursor-pointer z-10 transition-all duration-200 hover:bg-gray-100 hover:shadow-xCom '
-                                >
-                                    <button className="p-1 text-4xl text-gray-500 transition duration-300 splide__arrow splide__arrow--prev disabled:hidden">
-                                        <MdKeyboardArrowLeft />
-                                    </button>
-                                    {/* <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowLeft /></span> */}
-                                </div>
-
-
-                                <div
-                                    className='absolute hidden lg:flex bg-white rounded-full -right-2 xl:-right-3 bottom-[42%] shadow-sm-xCom  cursor-pointer transition-all duration-200 hover:bg-gray-100 hover:shadow-xCom '
-                                >
-                                    {/* <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowRight /></span> */}
-                                    <button className="p-1 text-4xl text-gray-500 splide__arrow splide__arrow--next disabled:hidden"><MdKeyboardArrowRight /></button>
-
-                                </div>
-
-
-                            </div>
-
-                        </Splide>
+                            <SwiperNavButtons productSection={productSection} />
+                        </Swiper>
 
                     </div>
                 </div>
