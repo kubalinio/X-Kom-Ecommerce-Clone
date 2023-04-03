@@ -173,7 +173,7 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
             </div>
 
 
-            <DrawerContainer close={() => setShowDrawer(false)} openDrawer={showDrawer} >
+            <DrawerContainer close={() => setShowDrawer(false)} openDrawer={showDrawer} direction={'right'}>
                 {showDrawer && width! <= 1080 ? (
 
                     <DrawerModal>

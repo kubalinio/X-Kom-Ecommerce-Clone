@@ -6,125 +6,15 @@ import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 
 
-import { CgSmartphoneChip } from 'react-icons/cg';
-import { MdOutlineCable, MdOutlineFavoriteBorder } from 'react-icons/md'; 
-import { SlScreenSmartphone } from 'react-icons/sl'
-
-import {AiOutlineLaptop, AiOutlinePrinter } from 'react-icons/ai'
-
-import {IoGameControllerOutline, IoTvOutline} from 'react-icons/io5'
-import {SiHomeassistant} from 'react-icons/si'
-import {CiPercent} from 'react-icons/ci'
-
-import { CategoriesDesktop } from './CategoriesDropdown';
-
 import { SearchBar } from './SearchBar';
 import LogoHeader from './HeaderLogo';
 import HeaderNav from './HeaderNav';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
+import { CategoriesDesktopBar } from './Categories';
 
 
-export type categorieMainProps = {
-   name: string
-   icon: JSX.Element
-   slug: string
-   recommendProduct: string
-   subMenu?: {
-     name: string
-   }[]
-} 
 
-const categorieItems: categorieMainProps[] = [
-    {
-        name: 'Laptop i komputer',
-        icon: <AiOutlineLaptop className='w-full h-full'/>,
-        slug: 'products',
-        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
-        subMenu: [
-            {
-                name: 'Polecany produkt'
-            },
-            {
-                name: 'Polecany produkt'
-            },
-            {
-                name: 'Polecany produkt'
-            },
-            {
-                name: 'Polecany produkt'
-            },
-            {
-                name: 'Polecany produkt'
-            },
-            {
-                name: 'Polecany produkt'
-            },
-            {
-                name: 'Polecany produkt'
-            },
-            {
-                name: 'Polecany produkt'
-            },
-            {
-                name: 'Polecany produkt'
-            },
-            {
-                name: 'Polecany produkt'
-            },
-            {
-                name: 'Polecany produkt'
-            },
-        ]
-    },
-    {
-        name: 'Smartfony i smartwatche',
-        icon: <SlScreenSmartphone className='w-full h-full'/>,
-        slug: 'products',
-        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
-    },
-    {
-        name: 'Gaming i streaming',
-        icon: <IoGameControllerOutline className='w-full h-full'/>,
-        slug: 'products',
-        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
-    },
-    {
-        name: 'Podzespoły komputerowe',
-        icon: <CgSmartphoneChip className='w-full h-full'/>,
-        slug: 'products',
-        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
-    },
-    {
-        name: 'Urządzenia peryferyjne',
-        icon: <AiOutlinePrinter className='w-full h-full'/>,
-        slug: 'products',
-        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
-    },
-    {
-        name: 'TV i audio',
-        icon: <IoTvOutline className='w-full h-full'/>,
-        slug: 'products',
-        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
-    },
-    {
-        name: 'Smarthome i lifestyle',
-        icon: <SiHomeassistant className='w-full h-full'/>,
-        slug: 'products',
-        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
-    },
-    {
-        name: 'Akcesoria',
-        icon: <MdOutlineCable className='w-full h-full'/>,
-        slug:'products',
-        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
-    },
-    {
-        name: 'Trendy, promocje i nowości',
-        icon: <CiPercent className='w-full h-full'/>,
-        slug:'promocje',
-        recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
-    },
-]
+
 
 export const Header = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
@@ -169,7 +59,7 @@ export const Header = () => {
                     {/* Logo Box */}
                     <div className="flex items-center justify-center h-full shrink-0 lg:pl-8 2xl:pl-8" >
                         
-                        <LogoHeader isScrollDown={isScrollDown} categorieItems={categorieItems} />
+                        <LogoHeader isScrollDown={isScrollDown}  />
                         
                     </div>
 
@@ -177,7 +67,7 @@ export const Header = () => {
                     <div className="flex items-center flex-grow order-4 w-full pt-1 pb-2 pr-2 ml-[-16px] md:ml-[-24px] lg:w-1/5 lg:order-2 lg:ml-0 lg:pl-8 lg:pr-2 lg:h-full " >
                         
                         {/* Searchbar */}            {/* Hamburger */}
-                        <SearchBar categorieItems={categorieItems} />
+                        <SearchBar  />
                         
                     </div>
 
@@ -192,7 +82,7 @@ export const Header = () => {
 
                 {/* ProductCategories */}
                 {/*Navbar Bottom min-screen 1028px */}
-                <CategoriesDesktop isScroll={isScrollDown} categorieItems={categorieItems} width={width} />
+                <CategoriesDesktopBar isScroll={isScrollDown}  width={width} />
 
             </header>
 

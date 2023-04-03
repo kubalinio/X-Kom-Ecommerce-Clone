@@ -1,13 +1,11 @@
 'use client'
-import { categorieMainProps } from './Header'
-
 
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import Overlay from '../Overlay'
-import { CategoriesDropdown } from './CategoriesDropdown'
-import { HamburgerDropdown } from './Hamburgers'
+
+import { HamburgerDesktop } from './HamburgerDesktop'
 import logoSmall from '../../../public/logoSmall.svg'
 import logoDesktop from '../../../public/logoDesktop.svg'
 
@@ -15,10 +13,9 @@ import logoDesktop from '../../../public/logoDesktop.svg'
 // isScrollDown, 
 type Props = {
     isScrollDown: boolean
-    categorieItems: categorieMainProps[]
 }
 
-const HeaderLogo = ({ isScrollDown, categorieItems }: Props) => {
+const HeaderLogo = ({ isScrollDown }: Props) => {
     const [isHoverCategories, setIsHoverCategories] = useState(false)
 
     return (
@@ -30,21 +27,12 @@ const HeaderLogo = ({ isScrollDown, categorieItems }: Props) => {
                 onMouseLeave={() => setIsHoverCategories(false)}
 
             >
-                <HamburgerDropdown isHover={isHoverCategories} />
-                {/* DropDown */}
-                {isHoverCategories ? (
-
-                    <CategoriesDropdown
-                        show={isHoverCategories}
-                        categorieItems={categorieItems}
-                    />
-
-                )
-                    : ''}
+                <HamburgerDesktop />
             </div>
 
             {/* Logo Mobile/Desktop*/}
             {/* Animacja Linku  */}
+
             <Link href='/' className={`${!isScrollDown ? 'lg:animate-logoShow' : 'lg:animate-logoHide'} flex items-center overflow-hidden `} >
                 {/* Logo Big Screen */}
                 <span className={`hidden lg:flex h-10 items-center justify-center transition-all duration-500`} >

@@ -56,9 +56,10 @@ type DrawerContainerProps = {
     children: ReactNode
     close: () => void
     openDrawer: boolean
+    direction: string
 }
 
-export const DrawerContainer = ({ children, close, openDrawer }: DrawerContainerProps) => {
+export const DrawerContainer = ({ children, close, openDrawer, direction }: DrawerContainerProps) => {
 
     const refPortal = useRef<Element | null>()
     const [mounted, setMounted] = useState(false)
@@ -68,6 +69,17 @@ export const DrawerContainer = ({ children, close, openDrawer }: DrawerContainer
         setMounted(true)
     }, [])
 
+    useEffect(() => {
+        if (openDrawer) {
+            document.body.style.overflow = 'hidden'
+            document.body.style.paddingRight = '16px'
+        } else {
+            document.body.style.overflow = 'hidden visible'
+            document.body.style.paddingRight = '0px'
+        }
+
+    }, [openDrawer])
+
     return (mounted && refPortal.current) ? createPortal(
 
         <div className='Drawer'>
@@ -76,17 +88,34 @@ export const DrawerContainer = ({ children, close, openDrawer }: DrawerContainer
                     <div onClick={() => close()} className='fixed inset-0 bg-black opacity-50 transition-opacity duration-300 z-[1001]' />
                 }
 
-                <div className={`${!openDrawer ? 'w-0 translate-x-[105%]' : 'w-[360px] translate-x-0'} z-[1002] fixed top-0 bottom-0 max-w-[calc(100vw-64px)] bg-white shadow-md overflow-x-hidden overflow-y-auto transition-transform duration-300 right-0`}>
+                {direction === 'right' ? (
+                    <div className={`z-[1002] fixed top-0 bottom-0 max-w-[calc(100vw-64px)] bg-white shadow-md overflow-x-hidden overflow-y-auto transition-transform duration-300 right-0 ${openDrawer ? 'w-[360px] translate-x-0' : 'w-0 translate-x-[105%]'}`}>
 
-                    <div>
                         <div>
+                            <div>
 
-                            {children}
+                                {children}
 
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                ) : (
+                    <div className={`z-[1002] fixed top-0 bottom-0 max-w-[calc(100vw-64px)] bg-white shadow-md overflow-x-hidden overflow-y-auto transition-transform duration-300 left-0 ${openDrawer ? 'w-[360px] translate-x-0' : 'w-0 -translate-x-[105%]'}`}>
+
+
+                        <div>
+                            <div>
+
+                                {children}
+
+                            </div>
+                        </div>
+
+                    </div>
+                )}
+
+
 
             </aside>
         </div>

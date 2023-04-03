@@ -1,14 +1,15 @@
 'use client'
 
 // import useWindowDimensions from '@/hooks/useWindowDimensions'
-import React, { useEffect, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
+import React, { useState } from 'react'
+
 import { AiOutlineSearch } from 'react-icons/ai'
 import { MdSearch } from 'react-icons/md'
 import { RiArrowDownSFill } from 'react-icons/ri'
-import { DrawerCategories } from './CategoriesDrawer'
-import { HamburgerDrawer } from './Hamburgers'
-import { categorieMainProps } from './Header'
+
+import { HamburgerMobile } from './HamburgerMobile'
+
+
 
 const CategoryItem = ({ title, onChange, selected }: { title: string, onChange: () => void, selected: boolean }) => {
 
@@ -19,12 +20,14 @@ const CategoryItem = ({ title, onChange, selected }: { title: string, onChange: 
     )
 }
 
-const CategoriesDropdown = ({ categoriesList }: { categoriesList: string[] }) => {
+// Searchbar dropdown categories
+
+const CategoriesDropdown = () => {
     const [show, setShow] = useState(false)
     const [selectedOption, setSelectedOption] = useState('Wszędzie')
 
 
-    const categories = ['Wszędzie', ...categoriesList]
+    const categories = ['Wszędzie', 'Laptop i komputer', 'Smartfony i smartwatche', 'Gaming i streaming', 'Podzespoły komputerowe', 'Urządzenia peryferyjne', 'TV i audio', 'Smarthome i lifestyle', 'Akcesoria']
 
     const handleChange = (category: string) => {
         setSelectedOption(category)
@@ -64,39 +67,14 @@ const CategoriesDropdown = ({ categoriesList }: { categoriesList: string[] }) =>
 }
 
 
-type SearchBarProps = {
-    categorieItems: categorieMainProps[]
-}
+export const SearchBar = () => {
 
-export const SearchBar = ({ categorieItems }: SearchBarProps) => {
-
-    const [showCategories, setShowCategories] = useState(false)
-
-    const refPortal = useRef<Element | null>()
-    const [mounted, setMounted] = useState(false)
-    // const { width }: { width: number | undefined } = useWindowDimensions()
-
-    useEffect(() => {
-        refPortal.current = document.body.querySelector<HTMLElement>('#react-portals')!;
-        setMounted(true)
-
-    }, [])
 
     return (
         <>
             <div className="lg:hidden">
-                <HamburgerDrawer showDrawer={() => setShowCategories(true)} />
 
-                {(mounted && refPortal.current ? createPortal(
-                    <DrawerCategories
-                        show={showCategories}
-                        close={() => setShowCategories(false)}
-                        categorieItems={categorieItems}
-                    // width={width}
-                    />
-
-                    , refPortal.current) : null
-                )}
+                <HamburgerMobile />
 
             </div>
 
@@ -133,7 +111,7 @@ export const SearchBar = ({ categorieItems }: SearchBarProps) => {
                             <div className='hidden lg:block h-6 w-[1px] bg-[#ddd] border-none lg:mx-1' />
 
                             {/* Categories Dropdown Dekstop | Dynamiczny element pojawia sie na 1024px dodać!!! */}
-                            <CategoriesDropdown categoriesList={categorieItems.map(item => item.name)} />
+                            <CategoriesDropdown />
 
                             {/* Dektop Button Search */}
                             <button className='hidden lg:flex lg:items-center border-none bg-[#4d4d4d] hover:bg-gray-900 transition-colors duration-300 w-16 h-full rounded-[20px]'>
