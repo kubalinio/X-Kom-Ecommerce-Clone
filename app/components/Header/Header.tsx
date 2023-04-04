@@ -11,6 +11,7 @@ import LogoHeader from './HeaderLogo';
 import HeaderNav from './HeaderNav';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { CategoriesDesktopBar } from './Categories';
+import { usePathname } from 'next/navigation';
 
 
 
@@ -46,48 +47,55 @@ export const Header = () => {
     }, [width])
 
     const scrollDirection = useScrollDirection()
+    
+    const pathname = usePathname()
 
     return (
 
-        <div className={`relative z-[1000] h-[90px] md:h-[107px] lg:h-[125px]`}>
+            
 
-            <header className={`${scrollMobile ? 'fixed animate-headerMobileHide' : 'relative'} ${scrollDirection === 'down' && scrollMobile ? 'translate-y-[-90px]' : 'translate-y-0 duration-300'} ${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
 
-                {/* Header Top */}
-                <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1156px] lg:w-[calc(100%-64px)] 2xl:max-w-[1444px]">
-
-                    {/* Logo Box */}
-                    <div className="flex items-center justify-center h-full shrink-0 lg:pl-8 2xl:pl-8" >
-                        
-                        <LogoHeader isScrollDown={isScrollDown}  />
-                        
+            <div className={`relative z-[1000] h-[90px] md:h-[107px] lg:h-[125px]`}>
+    
+                <header className={`${scrollMobile ? 'fixed animate-headerMobileHide' : 'relative'} ${scrollDirection === 'down' && scrollMobile ? 'translate-y-[-90px]' : 'translate-y-0 duration-300'} ${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
+    
+                    {/* Header Top */}
+                    <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1156px] lg:w-[calc(100%-64px)] 2xl:max-w-[1444px]">
+    
+                        {/* Logo Box */}
+                        <div className="flex items-center justify-center h-full shrink-0 lg:pl-8 2xl:pl-8" >
+                            
+                            <LogoHeader isScrollDown={isScrollDown}  />
+                            
+                        </div>
+    
+                        {/* Hamburger bottom nav & Searchbar Box*/}
+                        <div className="flex items-center flex-grow order-4 w-full pt-1 pb-2 pr-2 ml-[-16px] md:ml-[-24px] lg:w-1/5 lg:order-2 lg:ml-0 lg:pl-8 lg:pr-2 lg:h-full " >
+                            
+                            {/* Searchbar */}            {/* Hamburger */}
+                            <SearchBar  />
+                            
+                        </div>
+    
+                        {/* Navigation */}
+                        <div className='flex order-3 h-full pt-1 lg:z-20 md:pt-1' >
+    
+                           <HeaderNav isScrollDown={isScrollDown} />
+    
+                        </div>
+    
                     </div>
-
-                    {/* Hamburger bottom nav & Searchbar Box*/}
-                    <div className="flex items-center flex-grow order-4 w-full pt-1 pb-2 pr-2 ml-[-16px] md:ml-[-24px] lg:w-1/5 lg:order-2 lg:ml-0 lg:pl-8 lg:pr-2 lg:h-full " >
-                        
-                        {/* Searchbar */}            {/* Hamburger */}
-                        <SearchBar  />
-                        
-                    </div>
-
-                    {/* Navigation */}
-                    <div className='flex order-3 h-full pt-1 lg:z-20 md:pt-1' >
-
-                       <HeaderNav isScrollDown={isScrollDown} />
-
-                    </div>
-
-                </div>
-
-                {/* ProductCategories */}
-                {/*Navbar Bottom min-screen 1028px */}
-                <CategoriesDesktopBar isScroll={isScrollDown}  width={width} />
-
-            </header>
-
-        </div>
-    );
+    
+                    {/* ProductCategories */}
+                    {/*Navbar Bottom min-screen 1028px */}
+                    <CategoriesDesktopBar isScroll={isScrollDown}  width={width} />
+    
+                </header>
+    
+            </div>
+    )
+       
+    
 }
 
 

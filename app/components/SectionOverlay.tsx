@@ -123,7 +123,11 @@ export const SectionOverlay = ({ children, heading, slugToAll, productSection }:
                             className='sectionCarousel'
                             slidesPerView={!productSection ? 1.3 : 2.3}
                             spaceBetween={12}
-                            freeMode={true}
+                            freeMode={{
+                                enabled: true,
+                                minimumVelocity: 0.02,
+                                momentumRatio: 0.2
+                            }}
                             modules={[FreeMode]}
                             breakpoints={!productSection ? breakpointsArticle : breakpointsProducts}
                         >

@@ -3,7 +3,7 @@
 // import useWindowDimensions from '@/hooks/useWindowDimensions'
 import React, { useState } from 'react'
 
-import { AiOutlineSearch } from 'react-icons/ai'
+import { AiOutlineCheck, AiOutlineSearch } from 'react-icons/ai'
 import { MdSearch } from 'react-icons/md'
 import { RiArrowDownSFill } from 'react-icons/ri'
 
@@ -14,8 +14,14 @@ import { HamburgerMobile } from './HamburgerMobile'
 const CategoryItem = ({ title, onChange, selected }: { title: string, onChange: () => void, selected: boolean }) => {
 
     return (
-        <div onClick={onChange} className={`${selected ? 'font-bold bg-[#eee]' : 'bg-white'} flex items-center h-12 pl-8 pr-4 cursor-pointer whitespace-nowrap lg:h-11 hover:bg-[#f9f9f9] transition-colors duration-200`}>
+        <div onClick={onChange} className={`${selected ? 'font-bold bg-[#eee] pl-2' : 'bg-white pl-8'} flex items-center h-12 pr-4 cursor-pointer whitespace-nowrap lg:h-11 hover:bg-[#ebebeb] transition-colors duration-200`}>
+            {selected ? (
+                <span className='h-[14px] w-[14px] inline-flex items-center justify-center mr-[7px]'>
+                    <AiOutlineCheck className='w-full h-full text-sm' />
+                </span>
+            ) : ''}
             {title}
+
         </div>
     )
 }
@@ -39,7 +45,7 @@ const CategoriesDropdown = () => {
             <div className='relative hidden bg-white lg:inline'>
                 <div className='pr-1 h-[34px] text-base relative'>
                     {/* Button */}
-                    <div onClick={() => setShow(!show)} className='flex items-center bg-transparent cursor-pointer h-auto pt-2 pr-[9px] pb-[6px] pl-3 rounded-[20px] hover:bg-[#f5f5f5] '>
+                    <div onClick={() => setShow(!show)} className='flex items-center bg-transparent cursor-pointer h-auto pt-2 pr-[9px] pb-[6px] pl-3 rounded-[20px] hover:bg-[#f5f5f5]'>
                         <span>
                             {selectedOption}
                         </span>
@@ -68,7 +74,7 @@ const CategoriesDropdown = () => {
 
 
 export const SearchBar = () => {
-
+    const [focus, setFocus] = useState(false)
 
     return (
         <>
@@ -82,7 +88,7 @@ export const SearchBar = () => {
 
                 <div className="h-[32px] md:h-[40px] relative w-full">
 
-                    <div className='bg-white rounded-[20px] border border-[#ccc] lg:border-none'>
+                    <div className={`bg-white rounded-[20px] border border-[#ccc] lg:border-none transition-shadow duration-200 ${focus ? 'shadow-xCom' : 'shadow-none'}`}>
 
                         {/* Kied yaktywny input znika głowny komponent i wyświetla sie after */}
                         <div className='searchBox'>
@@ -96,8 +102,9 @@ export const SearchBar = () => {
                             {/* Input Mobile & Desktop */}
                             <div className='flex-1 pr-4 lg:p-0'>
                                 <input
+                                    onFocus={() => setFocus(true)}
+                                    onBlur={() => setFocus(false)}
                                     type="text"
-
                                     placeholder='Czego szukasz?'
                                     className='py-2 w-full outline-none bg-transparent  border-none whitespace-nowrap md:p-0 lg:max-w-[740px] lg:pl-5'
                                 />

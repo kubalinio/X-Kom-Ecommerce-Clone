@@ -71,7 +71,7 @@ const SliderBox = () => {
 
 
     return (
-        <section className="relative w-full px-4 my-4 bg-white sm:my-5 md:px-[24px] lg:p-0">
+        <section className="relative w-full px-4 bg-white md:px-[24px] lg:p-0">
 
             <Swiper
                 slidesPerView={1.2}

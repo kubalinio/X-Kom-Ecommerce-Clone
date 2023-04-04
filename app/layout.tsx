@@ -1,10 +1,12 @@
+'use client'
 import './globals.css'
-
 
 import { Lato } from '@next/font/google'
 import { Header } from './components/Header/Header'
 import Footer from './components/Footer'
 import Providers from './auth/Providers'
+import { usePathname } from 'next/navigation'
+import { ReactNode } from 'react'
 
 
 const lato = Lato({
@@ -15,7 +17,7 @@ const lato = Lato({
 
 
 
-export default function RootLayout({
+function MainLayout({
   children,
 }: {
   children: React.ReactNode
@@ -38,3 +40,50 @@ export default function RootLayout({
     </html>
   )
 }
+
+
+function StudioLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+
+
+
+  return (
+    <html lang="pl" className={`${lato.variable} font-lato`}>
+      <head />
+
+      <body className='bg-white'>
+
+        {/* Category Buttons ? (MAYBE) */}
+        {children}
+
+      </body>
+
+    </html>
+  )
+}
+
+
+const RootLayout = ({ children }: { children: ReactNode }) => {
+
+  let pathname = usePathname()
+
+
+  return (
+    <>
+      {pathname === '/studio' ? (
+        <StudioLayout>
+          {children}
+        </StudioLayout>
+      ) : (
+        <MainLayout>
+          {children}
+        </MainLayout>
+      )}
+    </>
+  )
+}
+
+export default RootLayout

@@ -27,7 +27,7 @@ export const BrandSection = () => {
 
 
     return (
-        <SectionOverlay heading={'Sekcja marek'} slugToAll={''} >
+        <SectionOverlay heading={'Sekcja marek'} slugToAll={''} productSection={true} >
 
             {data?.brands?.map(brand => (
                 <div key={brand._id} className="h-[88px] flex items-center justify-center">
