@@ -3,7 +3,7 @@ import './globals.css'
 
 import { Lato } from '@next/font/google'
 import { Header } from './components/Header/Header'
-import Footer from './components/Footer'
+import Footer from './components/Footer/Footer'
 import Providers from './auth/Providers'
 import { usePathname } from 'next/navigation'
 import { ReactNode } from 'react'

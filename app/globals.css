@@ -108,6 +108,18 @@ a {
   text-decoration: none;
 }
 
+.nav-item-after::after {
+  content: '';
+  background: #fff;
+  position: absolute;
+  left: 0px;
+  bottom: -6px;
+  height: 12px;
+  width: 100%;
+  z-index: 12;
+  pointer-events: none;
+}
+
 /* Swiper Swiper Swiper */
 
 .bannersCarousel {
