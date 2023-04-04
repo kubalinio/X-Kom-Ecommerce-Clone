@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode, useRef, useState } from 'react'
 import { SlArrowRight } from "react-icons/sl"
 
 
@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
 
 import "swiper/swiper.min.css";
 import "swiper/css/free-mode";
+import 'swiper/css/navigation';
 
 import { FreeMode, Navigation } from "swiper";
 
@@ -21,47 +22,24 @@ type SectionOverlayProps = {
     productSection?: boolean
 }
 
-const SwiperNavButtons = ({ productSection }: { productSection?: boolean }) => {
-    const swiper = useSwiper()
-    const [firstSlide, setFirstSlide] = useState(false)
-    const [lastSlide, setLastSlide] = useState(false)
-
-    return (
-        <>
-            <div
-                onClick={() => swiper.slidePrev()}
-                className={`absolute hidden lg:flex bg-white rounded-full -left-3 xl:-left-5 shadow-sm-xCom shadow-black/20 cursor-pointer z-30 transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 hover:shadow-xCom hover:shadow-black/30 ${productSection ? ' top-[45%]' : 'top-[38%]'} ${firstSlide ? 'opacity-40 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}
-            >
-                <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowLeft /></span>
-            </div>
-
-            <div
-                onClick={() => swiper.slideNext()}
-                className={`absolute hidden lg:flex bg-white rounded-full top-[38%] -right-3 xl:-right-5 z-30 shadow-sm-xCom shadow-black/20 cursor-pointer transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 hover:shadow-xCom hover:shadow-black/30  ${productSection ? ' top-[45%]' : 'top-[38%]'} ${lastSlide ? 'opacity-40 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}
-            >
-                <span className='p-1 text-4xl text-gray-600'><MdKeyboardArrowRight /></span>
-            </div>
-        </>
-    )
-}
-
 export const SectionOverlay = ({ children, heading, slugToAll, productSection }: SectionOverlayProps) => {
 
 
     const breakpointsArticle = {
         520: {
             slidesPerView: 2.5,
-            spaceBetween: 12
+            spaceBetween: 12,
         },
         900: {
-            slidesPerView: 3.4
+            slidesPerView: 3.4,
         },
 
         1080: {
             slidesPerView: 4,
             slidesPerGroup: 4,
             freeMode: false,
-            spaceBetween: 16
+            spaceBetween: 16,
+
         }
 
     }
@@ -83,7 +61,6 @@ export const SectionOverlay = ({ children, heading, slugToAll, productSection }:
             slidesPerGroup: 5,
             freeMode: false,
             spaceBetween: 4,
-            Navigation
         },
         1600: {
             slidesPerView: 6,
@@ -123,12 +100,16 @@ export const SectionOverlay = ({ children, heading, slugToAll, productSection }:
                             className='sectionCarousel'
                             slidesPerView={!productSection ? 1.3 : 2.3}
                             spaceBetween={12}
+                            navigation={{
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            }}
                             freeMode={{
                                 enabled: true,
                                 minimumVelocity: 0.02,
                                 momentumRatio: 0.2
                             }}
-                            modules={[FreeMode]}
+                            modules={[FreeMode, Navigation]}
                             breakpoints={!productSection ? breakpointsArticle : breakpointsProducts}
                         >
 
@@ -138,7 +119,20 @@ export const SectionOverlay = ({ children, heading, slugToAll, productSection }:
                                 </SwiperSlide>
                             ))}
 
-                            <SwiperNavButtons productSection={productSection} />
+                            {/* Nav Buttons */}
+
+                            <div className={`after:hidden swiper-button-prev ${productSection ? 'swiper-button-prev--topProduct' : 'swiper-button-prev--top'}`}>
+                                <span className='p-1 text-4xl text-gray-600'>
+                                    <MdKeyboardArrowLeft />
+                                </span>
+                            </div>
+
+                            <div className={`after:hidden swiper-button-next swiper-button-next--top ${productSection ? 'swiper-button-next--topProduct' : 'swiper-button-next--top'}`}>
+                                <span className='p-1 text-4xl text-gray-600'>
+                                    <MdKeyboardArrowRight />
+                                </span>
+                            </div>
+
                         </Swiper>
 
                     </div>

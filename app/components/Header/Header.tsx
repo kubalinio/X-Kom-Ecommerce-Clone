@@ -4,18 +4,11 @@ import {useEffect, useState } from 'react';
 
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 
-
-
 import { SearchBar } from './SearchBar';
 import LogoHeader from './HeaderLogo';
 import HeaderNav from './HeaderNav';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { CategoriesDesktopBar } from './Categories';
-import { usePathname } from 'next/navigation';
-
-
-
-
 
 export const Header = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
@@ -48,7 +41,6 @@ export const Header = () => {
 
     const scrollDirection = useScrollDirection()
     
-    const pathname = usePathname()
 
     return (
 
