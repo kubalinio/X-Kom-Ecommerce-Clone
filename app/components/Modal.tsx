@@ -11,16 +11,17 @@ export const ModalContainer = ({ children, openModal }: { children: ReactNode, o
     const refPortal = useRef<Element | null>()
     const [mounted, setMounted] = useState(false)
 
-    useEffect(() => {
-        if (openModal) {
-            document.body.style.overflow = 'hidden'
-            document.body.style.paddingRight = '16px'
-        } else {
-            document.body.style.overflow = 'hidden visible'
-            document.body.style.paddingRight = '0px'
-        }
+    // useEffect(() => {
 
-    }, [openModal])
+    //     if (openModal === true) {
+    //         document.body.style.overflow = 'hidden'
+    //         document.body.style.paddingRight = '4px'
+    //     } else if (!openModal) {
+    //         document.body.style.overflow = ''
+    //         document.body.style.paddingRight = ''
+    //     }
+
+    // }, [openModal])
 
     useEffect(() => {
         refPortal.current = document.querySelector<HTMLElement>('#react-portals')

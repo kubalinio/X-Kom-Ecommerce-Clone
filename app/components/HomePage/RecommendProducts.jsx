@@ -101,8 +101,8 @@ const RecommendProducts = ({ initialProducts }) => {
                             >
                                 {
                                     data.products.map(product => (
-                                        <SwiperSlide>
-                                            <div key={product._id} className='w-full h-full max-w-[150px] p-2 min-w-[150px] sm:min-w-[180px] sm:max-w-[180px] md:max-w-[220px] md:min-w-[220px]'>
+                                        <SwiperSlide key={product._id}>
+                                            <div className='w-full h-full max-w-[150px] p-2 min-w-[150px] sm:min-w-[180px] sm:max-w-[180px] md:max-w-[220px] md:min-w-[220px]'>
                                                 <ProductCard slug={product.slug} special={product.special} mainImage={product.mainImage} title={product.title} price={product.price} />
                                             </div>
                                         </SwiperSlide>

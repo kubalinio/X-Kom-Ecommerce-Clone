@@ -198,14 +198,14 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
 
                                     <div className='absolute flex ml-10 text-sm text-gray-600 top-9'>
                                         <div className='flex flex-col ml-4'>
-                                            {item.workTime?.map(item => (
-                                                <span className='mb-1 mr-1 whitespace-nowrap'>{item.days}</span>
+                                            {item.workTime?.map((item, i) => (
+                                                <span key={item.days + i} className='mb-1 mr-1 whitespace-nowrap'>{item.days}</span>
                                             ))}
                                         </div>
 
                                         <div className='flex flex-col ml-4'>
-                                            {item.workTime?.map(item => (
-                                                <span className='mb-1 mr-1 whitespace-nowrap'>{item.time}</span>
+                                            {item.workTime?.map((item, i) => (
+                                                <span key={item.days + i} className='mb-1 mr-1 whitespace-nowrap'>{item.time}</span>
                                             ))}
                                         </div>
                                     </div>
@@ -235,8 +235,8 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
                                 </p>
                             </div>
                             <ul>
-                                {helpItem?.subMenu?.popular?.map((item) => (
-                                    <li>
+                                {helpItem?.subMenu?.popular?.map((item, i) => (
+                                    <li key={item.name + i}>
                                         <Link
                                             href={`/${item.slug}`}
                                             className='flex items-center h-12 px-4 hover:no-underline active:no-underline focus:no-underline'
@@ -255,8 +255,8 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
                                 </p>
                             </div>
                             <ul>
-                                {helpItem?.subMenu?.contact.slice(0, 3).map((item) => (
-                                    <li>
+                                {helpItem?.subMenu?.contact.slice(0, 3).map((item, i) => (
+                                    <li key={item.name + i}>
                                         <Link href={`/${item.slug}`} className='flex items-center px-4 h-14 hover:no-underline active:no-underline focus:no-underline'>
                                             <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>
                                             <p className='flex items-center w-full text-base whitespace-nowrap'>{item.name}</p>
@@ -265,8 +265,8 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
                                 ))}
                             </ul>
 
-                            {helpItem?.subMenu?.contact.slice(3, 4).map(item => (
-                                <div className='relative h-[88px]'>
+                            {helpItem?.subMenu?.contact.slice(3, 4).map((item, i) => (
+                                <div key={item.name + i} className='relative h-[88px]'>
                                     <a href={`${item.slug}`} className='flex items-center px-4 h-14 hover:no-underline active:no-underline focus:no-underline'>
                                         <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>
                                         {item.name}
@@ -274,14 +274,14 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
 
                                     <div className='absolute flex ml-10 text-sm text-gray-600 top-12'>
                                         <div className='flex flex-col ml-4'>
-                                            {item.workTime?.map(item => (
-                                                <span className='mb-1 mr-1 whitespace-nowrap'>{item.days}</span>
+                                            {item.workTime?.map((item, i) => (
+                                                <span key={item.days + i} className='mb-1 mr-1 whitespace-nowrap'>{item.days}</span>
                                             ))}
                                         </div>
 
                                         <div className='flex flex-col ml-4'>
-                                            {item.workTime?.map(item => (
-                                                <span className='mb-1 mr-1 whitespace-nowrap'>{item.time}</span>
+                                            {item.workTime?.map((item, i) => (
+                                                <span key={item.days + i} className='mb-1 mr-1 whitespace-nowrap'>{item.time}</span>
                                             ))}
                                         </div>
                                     </div>

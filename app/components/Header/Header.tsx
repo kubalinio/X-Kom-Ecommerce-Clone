@@ -49,7 +49,7 @@ export const Header = () => {
 
             <div className={`relative z-[1000] h-[90px] md:h-[107px] lg:h-[125px]`}>
     
-                <header className={`${scrollMobile ? 'fixed animate-headerMobileHide' : 'relative'} ${scrollDirection === 'down' && scrollMobile ? 'translate-y-[-90px]' : 'translate-y-0 duration-300'} ${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
+                <header className={`${scrollMobile ? 'fixed animate-headerMobileHide' : 'relative'} ${scrollDirection === 'down' && scrollMobile ? 'translate-y-[-110px]' : 'translate-y-0 duration-300'} ${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'} bg-white top-0 left-0 z-20 w-full shadow-md lg:fixed`}>
     
                     {/* Header Top */}
                     <div className="flex relative flex-wrap items-center justify-between h-full max-w-full ml-4 md:ml-6 lg:mx-auto lg:max-w-[1156px] lg:w-[calc(100%-64px)] 2xl:max-w-[1444px]">

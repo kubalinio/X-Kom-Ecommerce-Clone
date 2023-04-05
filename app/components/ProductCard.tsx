@@ -8,7 +8,7 @@ import { IoMdHeartEmpty } from 'react-icons/io'
 import { MdOutlineAddShoppingCart, MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { useDispatch } from 'react-redux'
 import { addToBasket, getTotals } from '@/store/basketSlice';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal, ModalBody, ModalContainer, ModalHeader } from './Modal';
 import { AiOutlineCheck } from 'react-icons/ai';
 import ProductAddedToBasket from './ProductAddedToBasket';
@@ -44,6 +44,18 @@ const Basket = ({ _id, slug, special, mainImage, title, price }: Product) => {
         dispatch(getTotals())
         setShowModal(true)
     }
+
+    useEffect(() => {
+
+        if (showModal) {
+            document.body.style.overflow = 'hidden'
+            document.body.style.paddingRight = '4px'
+        } else {
+            document.body.style.overflow = ''
+            document.body.style.paddingRight = ''
+        }
+
+    }, [showModal])
 
 
     return (

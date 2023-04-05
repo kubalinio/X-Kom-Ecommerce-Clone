@@ -105,8 +105,8 @@ const SliderBox = () => {
 
                 {data.slides.map((slide, i) => (
 
-                    <SwiperSlide>
-                        <div key={slide.title + i} className='w-full h-full' >
+                    <SwiperSlide key={slide.title + i}>
+                        <div className='w-full h-full' >
 
                             <a href={slide.link} className='relative w-full h-full' >
 
@@ -115,8 +115,8 @@ const SliderBox = () => {
                                 </span>
 
 
-                                <span className='max-md:hidden'>
-                                    <Image loading='lazy' width={1200} height={500} src={urlFor(slide.imageDesktop).url()} alt={slide.title} className='object-cover w-full h-full rounded-3xl min-h-[250px] max-h-[250px] 2xl:max-h-[315px]' />
+                                <span className='overflow-hidden rounded-3xl max-md:hidden'>
+                                    <Image loading='lazy' width={1200} height={500} src={urlFor(slide.imageDesktop).url()} alt={slide.title} className='object-cover object-left-top w-full h-full rounded-3xl min-h-[250px] max-h-[250px] 2xl:max-h-[315px]' />
                                 </span>
                             </a>
                         </div>

@@ -75,9 +75,9 @@ const FooterContact = () => {
 
             {/* Socials */}
             <div className='flex flex-wrap pt-4 pb-6 -mx-2'>
-                {icons.map((icon) => (
+                {icons.map((icon, i) => (
 
-                    <Link href={`/${icon.slug}`}>
+                    <Link href={`/${icon.slug}`} key={icon.name + i}>
                         <span title={icon.name} className='flex items-center justify-center w-12 h-12 transition duration-300 grayscale hover:grayscale-0'>
                             <Image
                                 src={icon.icon}
