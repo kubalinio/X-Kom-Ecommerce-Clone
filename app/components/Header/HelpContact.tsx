@@ -103,12 +103,13 @@ type DropDownLinkProps = {
     slug: string
     name: string
     icon?: ReactNode
+    onClick: () => void
 }
 
-const DropdownLink = ({ slug, name, icon }: DropDownLinkProps) => (
+const DropdownLink = ({ slug, name, icon, onClick }: DropDownLinkProps) => (
 
     <li>
-        <Link href={`/${slug}`} className='flex items-center h-9 px-4 hover:no-underline active:no-underline focus:no-underline hover:bg-[#f5f5f5]'>
+        <Link onClick={() => onClick()} href={`/${slug}`} className='flex items-center h-9 px-4 hover:no-underline active:no-underline focus:no-underline hover:bg-[#f5f5f5]'>
             {icon && <span className='inline-block w-6 h-6 mr-3' title={name}>{icon}</span>}
             <p className='flex items-center w-full text-base whitespace-nowrap'>{name}</p>
         </Link>
@@ -176,7 +177,7 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
 
                             <ul>
                                 {helpItem?.subMenu?.popular?.map((item) => (
-                                    <DropdownLink key={item.name} slug={item.slug} name={item.name} />
+                                    <DropdownLink onClick={() => setIsHover(false)} key={item.name} slug={item.slug} name={item.name} />
                                 ))}
                             </ul>
 
@@ -184,7 +185,7 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
 
                             <ul>
                                 {helpItem?.subMenu?.contact.slice(0, 3).map((item) => (
-                                    <DropdownLink key={item.name} slug={item.slug} name={item.name} icon={item.icon} />
+                                    <DropdownLink onClick={() => setIsHover(false)} key={item.name} slug={item.slug} name={item.name} icon={item.icon} />
                                 ))}
                             </ul>
 
@@ -238,6 +239,7 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
                                 {helpItem?.subMenu?.popular?.map((item, i) => (
                                     <li key={item.name + i}>
                                         <Link
+                                            onClick={() => setShowDrawer(false)}
                                             href={`/${item.slug}`}
                                             className='flex items-center h-12 px-4 hover:no-underline active:no-underline focus:no-underline'
                                         >
@@ -257,7 +259,11 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
                             <ul>
                                 {helpItem?.subMenu?.contact.slice(0, 3).map((item, i) => (
                                     <li key={item.name + i}>
-                                        <Link href={`/${item.slug}`} className='flex items-center px-4 h-14 hover:no-underline active:no-underline focus:no-underline'>
+                                        <Link
+                                            onClick={() => setShowDrawer(false)}
+                                            href={`/${item.slug}`}
+                                            className='flex items-center px-4 h-14 hover:no-underline active:no-underline focus:no-underline'
+                                        >
                                             <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>
                                             <p className='flex items-center w-full text-base whitespace-nowrap'>{item.name}</p>
                                         </Link>
@@ -294,11 +300,6 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
 
                 ) : ''}
             </DrawerContainer>
-
-
-
-
-
         </>
 
     )

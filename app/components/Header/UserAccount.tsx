@@ -66,12 +66,13 @@ type DropDownLinkProps = {
     slug: string
     name: string
     icon?: ReactNode
+    onClick: () => void
 }
 
-const DropdownLink = ({ slug, name, icon }: DropDownLinkProps) => (
+const DropdownLink = ({ slug, name, icon, onClick }: DropDownLinkProps) => (
 
     <li>
-        <Link href={`/${slug}`} className='flex items-center h-9 px-4 hover:no-underline active:no-underline focus:no-underline hover:bg-[#f5f5f5]'>
+        <Link onClick={() => onClick()} href={`/${slug}`} className='flex items-center h-9 px-4 hover:no-underline active:no-underline focus:no-underline hover:bg-[#f5f5f5]'>
             {icon && <span className='inline-block w-6 h-6 mr-3' title={name}>{icon}</span>}
             <p className='flex items-center w-full text-base whitespace-nowrap'>{name}</p>
         </Link>
@@ -137,7 +138,7 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
                             <div className='overflow-hidden'>
                                 {/* Buttons */}
                                 <div className='p-4 pt-6'>
-                                    <AuthButton slug='logowanie'>
+                                    <AuthButton onClick={() => setIsHover(false)} slug='logowanie'>
                                         Zaloguj się
                                     </AuthButton>
 
@@ -145,7 +146,7 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
 
                                     <p className='absolute top-[78px] text-gray-500 left-1/2 transform -translate-x-1/2 bg-white px-4'>Nie masz konta?</p>
 
-                                    <AuthButtonOutlined slug='rejestracja'>
+                                    <AuthButtonOutlined onClick={() => setIsHover(false)} slug='rejestracja'>
                                         Załóż Konto
                                     </AuthButtonOutlined>
 
@@ -157,7 +158,7 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
                                 <div>
                                     <ul>
                                         {userItem?.subMenu?.contact.map((item) => (
-                                            <DropdownLink key={item.name} slug={item.slug} name={item.name} icon={item.icon} />
+                                            <DropdownLink onClick={() => setIsHover(false)} key={item.name} slug={item.slug} name={item.name} icon={item.icon} />
                                         ))}
                                     </ul>
                                 </div>
@@ -186,7 +187,7 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
                                 <div className='overflow-hidden'>
                                     {/* Buttons */}
                                     <div className='p-4 pt-6'>
-                                        <AuthButton slug='logowanie'>
+                                        <AuthButton onClick={() => setShowDrawer(false)} slug='logowanie'>
                                             Zaloguj się
                                         </AuthButton>
 
@@ -194,7 +195,7 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
 
                                         <p className='absolute top-[72px] left-1/2 transform -translate-x-1/2 bg-white px-4'>Nie masz konta?</p>
 
-                                        <AuthButtonOutlined slug='rejestracja'>
+                                        <AuthButtonOutlined onClick={() => setShowDrawer(false)} slug='rejestracja'>
                                             Załóż Konto
                                         </AuthButtonOutlined>
 
@@ -207,7 +208,10 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
                                         <ul>
                                             {userItem.subMenu?.contact.map((item) => (
                                                 <li>
-                                                    <Link href={`/${item.slug}`} className='flex items-center px-5 h-14 hover:no-underline active:no-underline focus:no-underline'>
+                                                    <Link
+                                                        onClick={() => setShowDrawer(false)}
+                                                        href={`/${item.slug}`}
+                                                        className='flex items-center px-5 h-14 hover:no-underline active:no-underline focus:no-underline'>
                                                         <span className='inline-block w-6 h-6 mr-4' title={item.name}>{item.icon}</span>
                                                         <p className='flex items-center w-full text-base whitespace-nowrap'>{item.name}</p>
                                                     </Link>

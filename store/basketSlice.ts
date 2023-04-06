@@ -9,6 +9,7 @@ export type BasketItem = {
     quantity: number
     slug: string
     special?: boolean
+    onClick?: () => void
 }
 
 export type BasketItems = {

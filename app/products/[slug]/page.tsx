@@ -1,5 +1,6 @@
 'use client'
 
+import LoadingSpinner from "@/app/components/LoadingSpinner"
 import { QuantityBasketProduct } from "@/app/koszyk/QuantityBasketProduct"
 import useWindowDimensions from "@/hooks/useWindowDimensions"
 import axios from "axios"
@@ -7,6 +8,7 @@ import { useState } from "react"
 import { useQuery } from "react-query"
 import AddToBasket from "./AddToBasket"
 import HeadingProduct from "./HeadingProduct"
+import LoadingSkelleton from "./LoadingSkelleton"
 import ProductGallery from "./ProductGallery"
 import ProductPrice from "./ProductPrice"
 import Services from "./Services"
@@ -27,12 +29,12 @@ const ProductDetail = (url: URL) => {
     const { width } = useWindowDimensions()
 
 
-    const { data, isLoading } = useQuery({
+    const { data, isLoading, isFetching } = useQuery({
         queryFn: () => fetchDetails(url.params.slug),
         queryKey: ['detail-product']
     })
 
-    if (isLoading) return <div>Loading...</div>
+    if (isLoading && isFetching) return <LoadingSkelleton />
 
     const handleNewQuantity = (newNumber: number) => {
         setQuantity(newNumber)

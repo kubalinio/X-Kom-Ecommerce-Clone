@@ -72,7 +72,7 @@ export const DrawerContainer = ({ children, close, openDrawer, direction }: Draw
     useEffect(() => {
         if (openDrawer) {
             document.body.style.overflow = 'hidden'
-            document.body.style.paddingRight = '4px'
+            document.body.style.paddingRight = '17px'
         } else {
             document.body.style.overflow = ''
             document.body.style.paddingRight = ''
