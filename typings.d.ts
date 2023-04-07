@@ -18,6 +18,16 @@ export interface Image {
 	};
 }
 
+export interface Slide {
+	title: string,
+	link: string,
+	image: Image
+}
+
+export interface Slides {
+	slides: Slide[]
+}
+
 export interface Product extends SanityBody {
 	title: string;
     mainImage: Image;
@@ -53,12 +63,16 @@ export interface Promotions {
 	promotions: Promotion[]
 }
 
-export interface Slide {
-	title: string,
-	link: string,
-	image: Image
+export interface News extends SanityBody {
+		slogan: string;
+		title: string
+		link: string
+    	image: Image;
 }
 
-export interface Slides {
-	slides: Slide[]
+export interface AllNews {
+	news: News[]
 }
+
+
+

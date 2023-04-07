@@ -11,7 +11,7 @@ import HeadingProduct from "./HeadingProduct"
 import LoadingSkelleton from "./LoadingSkelleton"
 import ProductGallery from "./ProductGallery"
 import ProductPrice from "./ProductPrice"
-import Services from "./Services"
+import Services from "./ServicesModal/Services"
 
 type URL = {
     params: {

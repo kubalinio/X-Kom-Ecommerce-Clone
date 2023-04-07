@@ -64,6 +64,7 @@ export const DrawerContainer = ({ children, close, openDrawer, direction }: Draw
     const refPortal = useRef<Element | null>()
     const [mounted, setMounted] = useState(false)
 
+
     useEffect(() => {
         refPortal.current = document.querySelector<HTMLElement>('#react-portals')
         setMounted(true)
@@ -72,10 +73,16 @@ export const DrawerContainer = ({ children, close, openDrawer, direction }: Draw
     useEffect(() => {
         if (openDrawer) {
             document.body.style.overflow = 'hidden'
-            document.body.style.paddingRight = '17px'
+            document.body.style.position = 'fixed'
+            document.body.style.top = '0px'
+            document.body.style.left = '0px'
+            document.body.style.right = '0px'
         } else {
             document.body.style.overflow = ''
-            document.body.style.paddingRight = ''
+            document.body.style.position = ''
+            document.body.style.top = ''
+            document.body.style.left = ''
+            document.body.style.right = ''
         }
 
     }, [openDrawer])

@@ -223,7 +223,7 @@ export const BasketNav = ({ isScrollDown, width }: BasketNavProps) => {
 
     const handleHover = () => {
         if (width < 1080 && pathname === '/koszyk') {
-            return
+            setIsHover(false)
         }
         else if (width >= 1080 && !isHover && pathname !== '/koszyk') {
             setIsHover(true)

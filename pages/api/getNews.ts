@@ -3,12 +3,12 @@ import { client } from '@/lib/sanity.client';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import groq from 'groq'
-import { Promotions } from '@/typings';
+import { AllNews } from '@/typings';
 
-const query = groq`*[_type == 'Promocja'] | order(_createdAt asc)`;
+const query = groq`*[_type == 'news'] | order(_createdAt asc)`;
 
 type Data = {
-  promotions: Promotions
+  news: AllNews
 }
 
 export default async function handler(
@@ -16,7 +16,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
 
-  const promotions = await client.fetch(query)
+  const news = await client.fetch(query)
 
-  res.status(200).json({promotions})
+  res.status(200).json({news})
 }

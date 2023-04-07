@@ -1,80 +1,33 @@
 'use client'
 
+import { urlFor } from "@/lib/sanity.client"
+import { AllNews, News } from "@/typings"
+import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
+import { useQuery } from "react-query"
 import { SectionOverlay } from "../SectionOverlay"
-import { CardNewsProps, NewsDataProps } from "./GuidesSection"
 
 
-
-const NewsData: NewsDataProps = {
-    heading: 'Aktualności',
-    slug: 'aktualnosci',
-    news: [
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        }]
+const fetchNews = async () => {
+    const response = await axios.get(`/api/getNews`)
+    return response.data
 }
 
-const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
+const CardNews = ({ title, image, link, slogan }: News) => {
 
     return (
         < div className='block w-[250px] lg:w-full xl:w-full' >
             <div className='h-full py-2'>
-                <Link href={`/${slug}`}>
+                <Link href={`/${link}`}>
                     <div className='flex items-center justify-center mt-[2px] rounded-lg shadow-xCom overflow-hidden'>
 
                         <span className='inline-flex items-center justify-center w-full h-[179px] lg:h-[174px] xl:h-[196px] 2xl:h-[218px] overflow-hidden min-h-full py-3'>
                             <Image
-                                src={`${image}`}
+                                src={`${urlFor(image).url()}`}
                                 width={253}
                                 height={212}
-                                alt={`${heading}`}
+                                alt={title}
                                 loading='lazy'
                                 className='object-cover w-full h-full'
                             />
@@ -82,19 +35,19 @@ const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
                     </div>
                 </Link>
 
-                <Link href={`${slug}`} className='block mt-4 ml-1'>
+                <Link href={`/${link}`} className='block mt-4'>
                     <h3 className='text-xl leading-6 font-bold max-h-[48px] max-w-[250px] overflow-hidden'>
                         <span className='block max-h-[48px] overflow-hidden'>
                             <span className='w-full overflow-hidden text-ellipsis line-clamp-2'
                             >
-                                {heading}
+                                {title}
                             </span>
                         </span>
                     </h3>
                 </Link>
 
                 <div className='my-1 text-[#4d4d4d] whitespace-nowrap line-clamp-1 text-ellipsis'>
-                    {title}
+                    {slogan}
                 </div>
 
                 <div className="flex justify-start items-center text-sm text-[#707070]">
@@ -108,7 +61,7 @@ const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
                     </time>
                     <div className="bg-[#707070] rounded-sm w-1 h-1 mx-2" />
                     <div>
-                        <Link href={`/aktualności`}>
+                        <Link href={`/aktualności`} className='hover:underline underline-offset-2'>
                             {`2 komentarze`}
                         </Link>
                     </div>
@@ -121,13 +74,24 @@ const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
 
 export const NewsSection = () => {
 
-    const { news } = NewsData
+    const { data, isLoading, isFetching } = useQuery<AllNews>({
+        queryFn: () => fetchNews(),
+        queryKey: ['news'],
+        staleTime: 3600000
+    })
+
+    if (isLoading && isFetching) return <div>Loading ...</div>
 
     return (
-        <SectionOverlay heading={NewsData.heading} slugToAll={NewsData.slug}>
+        <SectionOverlay heading={'Aktualności'} slugToAll={'aktualnosci'}>
 
-            {news.map(promo => (
-                <CardNews key={promo.slug} heading={promo.heading} image={promo.image} slug={promo.slug} title={promo.title} />
+            {data?.news.map(news => (
+                <CardNews
+                    key={news._id}
+                    title={news.title}
+                    image={news.image}
+                    link={news.link}
+                    slogan={news.slogan} />
             ))}
 
         </SectionOverlay>
