@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import image404 from '../public/Coding.png'
-import { AuthButton } from './components/AuthButtons'
+import { ButtonPrimary } from './components/Buttons'
+
 
 export default function NotFound() {
     return (
@@ -33,9 +33,9 @@ export default function NotFound() {
 
                 <h4 className='text-center text-[#1d1d1d] text-lg pb-5'>Została prawdopodobnie usunięta / przeniesiona</h4>
 
-                <AuthButton slug={''}>
+                <ButtonPrimary slug={''}>
                     Przejdź do strony głównej
-                </AuthButton>
+                </ButtonPrimary>
             </div>
 
         </main>

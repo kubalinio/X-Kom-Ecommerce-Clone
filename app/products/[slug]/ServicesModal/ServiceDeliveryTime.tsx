@@ -1,6 +1,10 @@
+'use client'
+
 import { Modal, ModalBody, ModalContainer, ModalHeader } from "@/app/components/Modal"
 import { Image as ImageData } from "@/typings"
-import { useState } from "react"
+import { usePathname, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
 import { AiOutlineCheckCircle } from "react-icons/ai"
 import { ServiceBodyBottom, ServiceBodyHead, ServiceBtn } from "./Services"
 
@@ -21,18 +25,44 @@ const ServiceDeliveryTime = ({ productImg, productTitle }: Props) => {
     const [showModal, setShowModal] = useState(false)
 
     const { title, icon, status, text } = deliveryTimeData
+    const modalID = '#modal:zamow-w-czasie'
+
+    let pathname = usePathname()
+    const router = useRouter()
+    const searchParams = useSearchParams()
+    const href = pathname + modalID
+
+
+    const handleShowModal = () => {
+        router.push(href)
+        setShowModal(true)
+    }
+
+    const handleHideModal = () => {
+        router.back()
+        setShowModal(false)
+    }
+
+
+
+    useEffect(() => {
+        console.log(pathname)
+
+    }, [searchParams, pathname])
+
+
 
     return (
         <div className='w-full hover:bg-gray-100 max-md:border max-md:border-[#ddd] max-md:border-b-[transparent]'>
 
-            <ServiceBtn onClick={() => setShowModal(true)} icon={icon} status={status} text={text || ''} title={title} />
+            <ServiceBtn onClick={() => handleShowModal()} icon={icon} status={status} text={text || ''} />
 
             <ModalContainer openModal={showModal}>
 
                 {showModal ? (
 
-                    <Modal close={() => setShowModal(false)}>
-                        <ModalHeader title={title} close={() => setShowModal(false)} />
+                    <Modal close={() => handleHideModal()}>
+                        <ModalHeader title={title} close={() => handleHideModal()} />
 
                         <ModalBody>
 
@@ -67,7 +97,7 @@ const ServiceDeliveryTime = ({ productImg, productTitle }: Props) => {
 
                                 </div>
                             </div>
-                            <ServiceBodyBottom onClick={() => setShowModal(false)} />
+                            <ServiceBodyBottom onClick={() => handleHideModal()} />
 
                         </ModalBody>
 

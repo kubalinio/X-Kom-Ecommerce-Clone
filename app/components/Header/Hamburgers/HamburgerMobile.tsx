@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import { RxHamburgerMenu } from 'react-icons/rx'
-import { DrawerContainer } from '../DrawerModal'
-import { CategoriesDrawerMobile } from './Categories'
+import { DrawerContainer } from '../../DrawerModal'
+import { CategoriesDrawerMobile } from '../ProductCategories'
+
 
 export const HamburgerMobile = () => {
     const [showDrawer, setShowDrawer] = useState(false)

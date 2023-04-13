@@ -5,7 +5,7 @@
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import axios from "axios"
 import { useQuery } from "react-query"
-import { ProductCard } from '../ProductCard';
+import { ProductCard } from '../ProductCard/ProductCard';
 import LoadingSpinner from '../LoadingSpinner';
 
 import { Swiper, SwiperSlide } from 'swiper/react'

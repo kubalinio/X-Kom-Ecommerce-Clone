@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { RxHamburgerMenu } from 'react-icons/rx'
-import { CategoriesDropdown } from './Categories'
+import { CategorieHamburgerDropdown } from '../ProductCategories'
+
 
 
 export const HamburgerDesktop = () => {
@@ -27,7 +28,7 @@ export const HamburgerDesktop = () => {
 
             {isHover ? (
 
-                <CategoriesDropdown show={isHover} />
+                <CategorieHamburgerDropdown show={isHover} />
             ) : ''}
 
         </button >

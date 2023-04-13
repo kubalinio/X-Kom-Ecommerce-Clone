@@ -180,7 +180,7 @@ const FooterMain = () => (
 )
 
 
-const Footer = () => {
+export const Footer = () => {
     const pathname = usePathname()
 
     return (
@@ -194,5 +194,3 @@ const Footer = () => {
         </>
     )
 }
-
-export default Footer

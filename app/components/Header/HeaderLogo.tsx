@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Overlay from '../Overlay'
 
-import { HamburgerDesktop } from './HamburgerDesktop'
+import { HamburgerDesktop } from './Hamburgers/HamburgerDesktop'
 import logoSmall from '../../../public/logoSmall.svg'
 import logoDesktop from '../../../public/logoDesktop.svg'
 

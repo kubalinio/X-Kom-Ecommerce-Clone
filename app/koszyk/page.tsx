@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
 
 import { useSelector } from 'react-redux'
+
 import { BasketInfo } from '../components/Basket'
 import AddToWishList from './AddToWishList'
 import BasketProduct from './BasketProduct'

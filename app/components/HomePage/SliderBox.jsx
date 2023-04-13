@@ -3,6 +3,7 @@
 // Style of Dots Added to globals
 
 import Image from 'next/image';
+import * as ReactDOMServer from "react-dom/server";
 
 // import Slider from 'react-slick'
 // import "slick-carousel/slick/slick.css";
@@ -64,8 +65,21 @@ const SliderBox = () => {
 
     const pagination = {
         clickable: true,
-        renderBullet: function (index, className) {
-            return '<button class="' + className + ' w-full">' + (data.slides[index].title) + "</button>";
+        renderBullet: (index, className) => {
+            // return '<button class="' + className + ' w-full">' + (data.slides[index].title) + "</button>";
+
+            return ReactDOMServer.renderToStaticMarkup(
+                <button className={`${className} w-full`}>
+                    <span className='text-[#4d4d4d] inline-block max-w-full overflow-hidden text-ellipsis'>
+                        <span style={{ maxHeight: '40px' }} className='block'>
+                            <span className='w-full line-clamp-2 text-ellipsis'>
+                                {data.slides[index].title}
+                            </span>
+                        </span>
+                    </span>
+                </button>
+            )
+
         }
     }
 

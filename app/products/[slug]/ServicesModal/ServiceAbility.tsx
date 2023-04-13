@@ -1,6 +1,9 @@
+'use client'
+
 import { Modal, ModalBody, ModalContainer, ModalHeader } from '@/app/components/Modal'
 import { Image as ImageData } from '@/typings'
-import React, { useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineCheckCircle } from 'react-icons/ai'
 import ServiceDeliveryTime from './ServiceDeliveryTime'
 import { ServiceBodyBottom, ServiceBodyHead, ServiceBtn } from './Services'
@@ -23,18 +26,30 @@ const ServiceAbility = ({ productImg, productTitle }: Props) => {
 
     const { title, icon, status, text } = abilityData
 
+    const pathname = usePathname()
+    const router = useRouter()
+
+    const handleShowModal = () => {
+        setShowModal(true)
+    }
+
+    const handleHideModal = () => {
+        setShowModal(false)
+    }
+
+
     return (
         <div className='w-full hover:bg-gray-100 max-md:border max-md:border-[#ddd] max-md:border-b-[transparent] max-md:rounded-t-lg md:border-0 md:border-b md:border-b-[transparent] group
         '>
 
-            <ServiceBtn onClick={() => setShowModal(true)} icon={icon} status={status} text={text || ''} title={title} />
+            <ServiceBtn onClick={() => handleShowModal()} icon={icon} status={status} text={text || ''} />
 
             <ModalContainer openModal={showModal}>
 
                 {showModal ? (
 
-                    <Modal close={() => setShowModal(false)}>
-                        <ModalHeader title={title} close={() => setShowModal(false)} />
+                    <Modal close={() => handleHideModal()}>
+                        <ModalHeader title={title} close={() => handleHideModal()} />
 
                         <ModalBody>
 
@@ -48,14 +63,14 @@ const ServiceAbility = ({ productImg, productTitle }: Props) => {
                                     <p className='text-[#4d4d4d]'>Produkty wyślemy zgodnie ze sposobem dostawy, który wybierasz.</p>
                                 </div>
 
-                                <div className='pb-[1px] border-y border-[#ddd]'>
+                                {/* <div className='pb-[1px] border-y border-[#ddd]'>
                                     <div className='w-full pl-2'>
                                     </div>
                                     <div className='w-full pl-2'>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
-                            <ServiceBodyBottom onClick={() => setShowModal(false)} />
+                            <ServiceBodyBottom onClick={() => handleHideModal()} />
 
                         </ModalBody>
 

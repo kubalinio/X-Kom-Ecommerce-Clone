@@ -4,7 +4,7 @@ import useWindowDimensions from "@/hooks/useWindowDimensions"
 import { HelpContact } from "./HelpContact"
 import UserAccount from "./UserAccount"
 import { YourFavLists } from "./YourFavLists"
-import { BasketNav } from "../Basket"
+import { BasketNav } from "../../Basket/Basket"
 
 export type MenuItemsProps = {
     name: string
@@ -31,7 +31,7 @@ type Props = {
     isScrollDown: boolean
 }
 
-const HeaderNav = ({ isScrollDown }: Props) => {
+export const HeaderNav = ({ isScrollDown }: Props) => {
 
     const { width } = useWindowDimensions()
 
@@ -50,7 +50,7 @@ const HeaderNav = ({ isScrollDown }: Props) => {
     )
 }
 
-export default HeaderNav
+
 
 
    // const handleHoverNav = (width: number | undefined, num: number) => {

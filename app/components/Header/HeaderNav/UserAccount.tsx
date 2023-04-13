@@ -8,9 +8,10 @@ import { BiMessageDots } from "react-icons/bi";
 import { BsCreditCard2Front } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { HiOutlineClipboardList } from "react-icons/hi";
-import { AuthButton, AuthButtonOutlined } from "../AuthButtons";
-import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from "../DrawerModal";
-import { NavDropdown } from "../NavDropdown";
+import { ButtonOutlined, ButtonPrimary } from "../../Buttons";
+
+import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from "../../DrawerModal";
+import { NavDropdown } from "./NavDropdown";
 
 const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full text-gray-700">{icon}</span>;
 
@@ -138,17 +139,17 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
                             <div className='overflow-hidden'>
                                 {/* Buttons */}
                                 <div className='p-4 pt-6'>
-                                    <AuthButton onClick={() => setIsHover(false)} slug='logowanie'>
+                                    <ButtonPrimary onClick={() => setIsHover(false)} slug='logowanie'>
                                         Zaloguj się
-                                    </AuthButton>
+                                    </ButtonPrimary>
 
                                     <hr className='relative my-6 h-[1px] w-full border-none bg-[#ddd]' />
 
                                     <p className='absolute top-[78px] text-gray-500 left-1/2 transform -translate-x-1/2 bg-white px-4'>Nie masz konta?</p>
 
-                                    <AuthButtonOutlined onClick={() => setIsHover(false)} slug='rejestracja'>
+                                    <ButtonOutlined onClick={() => setIsHover(false)} slug='rejestracja'>
                                         Załóż Konto
-                                    </AuthButtonOutlined>
+                                    </ButtonOutlined>
 
                                 </div>
 
@@ -187,17 +188,17 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
                                 <div className='overflow-hidden'>
                                     {/* Buttons */}
                                     <div className='p-4 pt-6'>
-                                        <AuthButton onClick={() => setShowDrawer(false)} slug='logowanie'>
+                                        <ButtonPrimary onClick={() => setShowDrawer(false)} slug='logowanie'>
                                             Zaloguj się
-                                        </AuthButton>
+                                        </ButtonPrimary>
 
                                         <hr className='relative my-6 h-[1px] w-full border-none bg-[#ddd]' />
 
                                         <p className='absolute top-[72px] left-1/2 transform -translate-x-1/2 bg-white px-4'>Nie masz konta?</p>
 
-                                        <AuthButtonOutlined onClick={() => setShowDrawer(false)} slug='rejestracja'>
+                                        <ButtonOutlined onClick={() => setShowDrawer(false)} slug='rejestracja'>
                                             Załóż Konto
-                                        </AuthButtonOutlined>
+                                        </ButtonOutlined>
 
                                     </div>
 

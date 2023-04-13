@@ -2,7 +2,7 @@
 
 import axios from "axios"
 import { useQuery } from "react-query"
-import { ProductCard } from "../ProductCard"
+import { ProductCard } from "../ProductCard/ProductCard"
 import { SectionOverlay } from "../SectionOverlay"
 import LoadingSpinner from '../../components/LoadingSpinner'
 

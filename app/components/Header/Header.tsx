@@ -6,9 +6,11 @@ import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 import { SearchBar } from './SearchBar';
 import LogoHeader from './HeaderLogo';
-import HeaderNav from './HeaderNav';
+
 import { useScrollDirection } from '@/hooks/useScrollDirection';
-import { CategoriesDesktopBar } from './Categories';
+
+import { HeaderNav } from './HeaderNav';
+import { CategoriesDesktopBar } from './ProductCategories';
 
 export const Header = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
@@ -43,9 +45,6 @@ export const Header = () => {
     
 
     return (
-
-            
-
 
             <div className={`relative z-[1000] h-[90px] md:h-[107px] lg:h-[125px]`}>
     

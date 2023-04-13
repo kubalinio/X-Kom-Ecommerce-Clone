@@ -45,11 +45,10 @@ type BtnProps = {
     icon: ReactNode
     status: string
     text?: string
-    title: string
     onClick: () => void
 }
 
-export const ServiceBtn = ({ icon, status, text, title, onClick }: BtnProps) => {
+export const ServiceBtn = ({ icon, status, text, onClick }: BtnProps) => {
 
     return (
         <button onClick={() => onClick()} className='flex items-center w-full text-[#4d4d4d] text-left '>

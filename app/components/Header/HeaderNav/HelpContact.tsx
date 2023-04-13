@@ -10,8 +10,8 @@ import { GoMail } from "react-icons/go";
 
 import { HiOutlineBuildingStorefront } from "react-icons/hi2";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
-import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from "../DrawerModal";
-import { NavDropdown } from "../NavDropdown";
+import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from "../../DrawerModal";
+import { NavDropdown } from "./NavDropdown";
 
 const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full text-gray-700">{icon}</span>;
 
