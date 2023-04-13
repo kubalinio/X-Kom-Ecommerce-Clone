@@ -12,6 +12,7 @@ const AddToWishList = () => {
         >
             <span className='inline-block w-6 h-6 mr-1'>
                 <AiOutlineHeart className='w-full h-full text-2xl' />
+
             </span>
 
             <span className='flex flex-col'>

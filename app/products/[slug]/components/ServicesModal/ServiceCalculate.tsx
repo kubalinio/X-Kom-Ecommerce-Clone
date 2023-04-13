@@ -25,7 +25,7 @@ const ServiceCalculate = ({ productImg, productTitle }: Props) => {
     return (
         <div className='w-full hover:bg-gray-100 border border-[#ddd] border-b-[transparent] md:border-none'>
 
-            <ServiceBtn onClick={() => setShowModal(true)} icon={icon} status={status} text={text || ''} title={title} />
+            <ServiceBtn onClick={() => setShowModal(true)} icon={icon} status={status} text={text || ''} />
 
             <ModalContainer openModal={showModal}>
 

@@ -5,11 +5,11 @@ import { AiOutlineCheckCircle } from "react-icons/ai"
 import { ServiceBodyBottom, ServiceBodyHead, ServiceBtn } from "./Services"
 
 
-const deliveryCostData = {
-    title: 'Koszt Dostawy',
+const ShowroomsData = {
+    title: 'Dostępność w salonach',
     icon: <AiOutlineCheckCircle className='w-full h-full' />,
-    status: 'Darmowa dostawa',
-    text: 'Sprawdź szczegóły'
+    status: 'Dostępny w salonach',
+    text: 'Wybierz salon',
 }
 
 type Props = {
@@ -17,15 +17,15 @@ type Props = {
     productTitle: string
 }
 
-const ServiceDeliveryCost = ({ productImg, productTitle }: Props) => {
+const ServiceShowrooms = ({ productImg, productTitle }: Props) => {
     const [showModal, setShowModal] = useState(false)
 
-    const { title, icon, status, text } = deliveryCostData
+    const { title, icon, status, text } = ShowroomsData
 
     return (
-        <div className='w-full hover:bg-gray-100 border border-[#ddd] border-b-[transparent] md:border-none'>
+        <div className='w-full hover:bg-gray-100 max-md:border border-[#ddd] rounded-b-lg'>
 
-            <ServiceBtn onClick={() => setShowModal(true)} icon={icon} status={status} text={text || ''} title={title} />
+            <ServiceBtn onClick={() => setShowModal(true)} icon={icon} status={status} text={text || ''} />
 
             <ModalContainer openModal={showModal}>
 
@@ -51,8 +51,8 @@ const ServiceDeliveryCost = ({ productImg, productTitle }: Props) => {
             </ModalContainer>
 
 
-        </div>
+        </div >
     )
 }
 
-export default ServiceDeliveryCost
+export default ServiceShowrooms

@@ -1,17 +1,17 @@
 'use client'
 
-import LoadingSpinner from "@/app/components/LoadingSpinner"
-import { QuantityBasketProduct } from "@/app/koszyk/QuantityBasketProduct"
+import { QuantityBasketProduct } from "@/app/koszyk/components/BasketProduct/QuantityBasketProduct"
 import useWindowDimensions from "@/hooks/useWindowDimensions"
 import axios from "axios"
 import { useState } from "react"
 import { useQuery } from "react-query"
-import AddToBasket from "./AddToBasket"
-import HeadingProduct from "./HeadingProduct"
-import LoadingSkelleton from "./LoadingSkelleton"
-import ProductGallery from "./ProductGallery"
-import ProductPrice from "./ProductPrice"
-import Services from "./ServicesModal/Services"
+import AddToBasket from "./components/AddToBasket"
+import HeadingProduct from "./components/HeadingProduct"
+import LoadingSkelleton from "./components/LoadingSkelleton"
+import ProductPrice from "./components/ProductPrice"
+import { Services } from "./components/ServicesModal"
+import { ProductGallery } from "./components/ProductGallery"
+
 
 type URL = {
     params: {
@@ -50,11 +50,11 @@ const ProductDetail = (url: URL) => {
                     ) : ''}
 
                     {/* Product */}
-                    <div className="flex flex-wrap pt-3 -mx-2 md:-mx-3 md:mt-2">
+                    <div className="flex flex-wrap pt-5 -mx-2 md:-mx-3 md:mt-2">
 
                         {/* Top/LEft Image Slider */}
                         <div className="order-1 w-full h-full px-2 mb-4 md:order-2 md:px-3 md:w-3/5 lg:w-1/2">
-                            <ProductGallery image={data?.product.mainImage} />
+                            <ProductGallery images={data?.product.images} />
 
                             {/* Compare buttons */}
                             <div></div>
@@ -109,6 +109,7 @@ const ProductDetail = (url: URL) => {
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

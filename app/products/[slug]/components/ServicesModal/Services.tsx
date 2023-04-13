@@ -75,7 +75,7 @@ type Props = {
     productMainImage: ImageData
 }
 
-const Services = ({ productTitle, productMainImage }: Props) => {
+export const Services = ({ productTitle, productMainImage }: Props) => {
 
     return (
 
@@ -94,7 +94,6 @@ const Services = ({ productTitle, productMainImage }: Props) => {
     )
 }
 
-export default Services
 
 
 

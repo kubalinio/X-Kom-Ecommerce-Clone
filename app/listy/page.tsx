@@ -1,6 +1,9 @@
 import { BiHeart } from 'react-icons/bi'
-import NavUser from './NavUser'
-import UserShopList, { NeedHelp } from './UserShopList'
+import { NavUser } from './components/NavUser'
+import { NeedHelpInfo } from './components/UserShopList/NeedHelpInfo'
+
+
+import { UserShopList } from './components/UserShopList/UserShopListContainer'
 
 export type navUserItems = {
     title: string
@@ -67,7 +70,7 @@ const ListsPage = () => {
 
                 {/* Help for mobile */}
                 <div className='lg:hidden'>
-                    <NeedHelp />
+                    <NeedHelpInfo />
                 </div>
             </div>
         </main>

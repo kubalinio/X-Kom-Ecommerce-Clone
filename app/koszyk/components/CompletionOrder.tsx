@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { MdOutlineKeyboardArrowRight } from "react-icons/md"
-import { BasketInfo } from "../components/Basket/BasketInfo"
+import { BasketInfo } from "../../components/Basket/BasketInfo"
 
 
 

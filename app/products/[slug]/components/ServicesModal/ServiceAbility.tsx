@@ -26,8 +26,6 @@ const ServiceAbility = ({ productImg, productTitle }: Props) => {
 
     const { title, icon, status, text } = abilityData
 
-    const pathname = usePathname()
-    const router = useRouter()
 
     const handleShowModal = () => {
         setShowModal(true)

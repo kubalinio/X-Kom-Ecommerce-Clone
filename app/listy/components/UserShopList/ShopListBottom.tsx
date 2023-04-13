@@ -1,42 +1,8 @@
-'use client'
+import Image from "next/image"
 
-import Link from 'next/link'
+import ShopIcon from '../../../../public/listShoping.svg'
 
-import { MdKeyboardArrowLeft } from 'react-icons/md'
-import { IconNavUser } from './NavUser'
-import ShopIcon from '../../public/listShoping.svg'
-import Image from 'next/image'
-
-export const NeedHelp = () => {
-
-    return (
-        <div className='flex flex-col items-start mt-10'>
-            <h3 className='mb-2 text-lg font-bold'>Potrzebujesz pomocy ?</h3>
-            <Link href='/centrum-pomocy' className='text-[#1c73e7] visited:text-[#6000b0] hover:text-[#6000b0] focus:text-[#6000b0] active:text-[#6000b0]'>
-                W centrum pomocy odnajdziesz pełną bazę pytań i odpowiedzi
-            </Link>
-        </div>
-    )
-}
-
-const ListHead = () => {
-    return (
-        <div className='flex flex-wrap items-center justify-between'>
-            <h2 className='text-3xl leading-10'>Listy zakupowe</h2>
-            {/* Future Build */}
-            {/* <button>Dodaj pierwszą listę</button> */}
-        </div>
-    )
-}
-
-const ListBody = () => {
-    return (
-        <div>ListBody</div>
-    )
-}
-
-
-const ListBottom = () => {
+export const ShopListBottom = () => {
     return (
         <div>
             <div className='flex flex-wrap'>
@@ -111,51 +77,3 @@ const ListBottom = () => {
         </div>
     )
 }
-
-
-
-const ReturnButtonMobile = ({ link, title }: { link: string, title: string }) => {
-    return (
-        <Link
-            href={`/${link}`}
-            title={title}
-            className='inline-flex items-center justify-center bg-[#ebebeb] pr-5 pl-4 w-auto text-[#4d4d4d] text-center rounded-full min-w-[96px] h-10 min-h-[auto] mb-8 md:mb-10 lg:hidden active:bg-gray-300 transition-colors duration-200'
-        >
-            <IconNavUser icon={<MdKeyboardArrowLeft />} />
-            <span>{title}</span>
-        </Link >
-
-
-    )
-}
-
-// Need Help
-
-type Props = {}
-
-const UserShopList = (props: Props) => {
-    return (
-        <div className='lg:pl-2'>
-            {/* Back konto */}
-            <ReturnButtonMobile link='konto' title='Wróć' />
-
-            {/* Button to Add List React Portal*/}
-            <ListHead />
-
-            <div className='min-h-[32px]'>{/* Notification */}</div>
-
-            {/* Created List Dynamic with fav products */}
-            {/* <ListBody /> */}
-
-            {/* How use lists */}
-            <ListBottom />
-
-            {/* Need Help ? */}
-            <div className='max-lg:hidden'>
-                <NeedHelp />
-            </div>
-        </div>
-    )
-}
-
-export default UserShopList

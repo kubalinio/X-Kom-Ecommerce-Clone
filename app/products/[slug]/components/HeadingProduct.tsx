@@ -36,7 +36,7 @@ const ProductReviews = () => (
 
 const HeadingProduct = ({ title }: Props) => {
     return (
-        <div className="flex w-full pb-4 break-words md:mt-6">
+        <div className="flex w-full pb-4 break-words md:mt-6 lg:pb-0">
 
             <div className="w-full">
                 {/* Title & Md:Reviews  */}
