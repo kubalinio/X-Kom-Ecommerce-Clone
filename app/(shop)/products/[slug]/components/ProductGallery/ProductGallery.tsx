@@ -26,7 +26,7 @@ export const ProductGallery = ({ images }: Props) => {
 
                 <div className='items-center justify-center hidden w-full md:flex'>
                     <div className='w-full'>
-                        <span className='inline-flex items-center justify-center w-full md:h-[343px] bg:h-[530px] lg:h-[433px] md:mb-3 bg:mb-6 lg:mb-3'>
+                        <span className='inline-flex items-center justify-center w-full md:h-[343px] bg:h-[400px] lg:h-[433px] md:mb-3 bg:mb-6 lg:mb-3'>
                             <Image
                                 src={urlFor(images[index]).url()}
                                 width={393}

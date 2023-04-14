@@ -41,7 +41,7 @@ const ProductDetail = (url: URL) => {
     }
 
     return (
-        <main className="mb-6 bg-white mx-auto max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]">
+        <main className="mb-6 bg-white mx-auto max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px]">
             <div>
                 <div>
                     {/* MD: Heading */}

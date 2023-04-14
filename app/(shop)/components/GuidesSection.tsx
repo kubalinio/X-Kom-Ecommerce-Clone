@@ -1,6 +1,7 @@
+import { SectionOverlay } from "@/app/components/SectionOverlay";
 import Image from "next/image"
 import Link from "next/link"
-import { SectionOverlay } from "../SectionOverlay"
+
 
 export type NewsDataProps = {
     heading: string;

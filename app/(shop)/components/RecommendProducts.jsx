@@ -5,8 +5,8 @@
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import axios from "axios"
 import { useQuery } from "react-query"
-import { ProductCard } from '../ProductCard/ProductCard';
-import LoadingSpinner from '../LoadingSpinner';
+
+
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -14,6 +14,8 @@ import "swiper/swiper.min.css";
 import "swiper/css/free-mode";
 
 import { FreeMode } from "swiper";
+import { ProductCard } from '@/app/components/ProductCard';
+import LoadingSpinner from '@/app/components/LoadingSpinner';
 
 // const item = {
 //     title: 'Apple Beats Fit Pro Volt Yellow',

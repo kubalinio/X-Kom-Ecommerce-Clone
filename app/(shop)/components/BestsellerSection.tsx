@@ -3,8 +3,8 @@
 import { Products } from "@/typings"
 import axios from "axios"
 import { useQuery } from "react-query"
-import { ProductCard } from "../ProductCard/ProductCard"
-import { SectionOverlay } from "../SectionOverlay"
+import { ProductCard } from "../../components/ProductCard/ProductCard"
+import { SectionOverlay } from "../../components/SectionOverlay"
 
 
 const fetchProducts = async () => {

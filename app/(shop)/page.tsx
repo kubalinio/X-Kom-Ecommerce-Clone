@@ -1,16 +1,17 @@
 // import News from "./components/News";
-import { GuidesSection } from "../components/HomePage/GuidesSection";
-import { HitsWeekSection } from "../components/HomePage/HitsWeekSection";
-import { NewsSection } from "../components/HomePage/NewsSection";
-import { PromotionSection } from "../components/HomePage/PromotionSection";
-import RecommendProducts from "../components/HomePage/RecommendProducts";
-import SliderBox from "../components/HomePage/SliderBox";
 
-import { BestsellerSection } from "../components/HomePage/BestsellerSection";
-import { BrandSection } from "../components/HomePage/BrandSection";
+
 import axios from "axios";
-import { HotShot } from "../components/HomePage/HotShot";
+import RecommendProducts from './components/RecommendProducts'
+import { BestsellerSection } from "./components/BestsellerSection";
+import { BrandSection } from "./components/BrandSection";
+import { GuidesSection } from "./components/GuidesSection";
+import { HitsWeekSection } from "./components/HitsWeekSection";
+import { HotShot } from "./components/HotShot";
+import { NewsSection } from "./components/NewsSection";
+import { PromotionSection } from "./components/PromotionSection";
 
+import SliderBox from './components/SliderBox'
 
 const fetchProducts = async () => {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/getProducts`)

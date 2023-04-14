@@ -2,11 +2,12 @@
 
 import axios from "axios"
 import { useQuery } from "react-query"
-import { ProductCard } from "../ProductCard/ProductCard"
-import { SectionOverlay } from "../SectionOverlay"
+
 import LoadingSpinner from '../../components/LoadingSpinner'
 
 import { Product } from "@/typings"
+import { SectionOverlay } from "@/app/components/SectionOverlay"
+import { ProductCard } from "@/app/components/ProductCard"
 
 const fetchProducts = async () => {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/getProducts`)

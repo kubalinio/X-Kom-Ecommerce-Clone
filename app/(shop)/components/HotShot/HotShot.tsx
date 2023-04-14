@@ -9,7 +9,7 @@ import SpecialBorder from './SpecialBorder'
 import axios from 'axios'
 import { useQuery } from 'react-query'
 import { HotShot as HotShotData } from '@/typings'
-import LoadingSpinner from '../../LoadingSpinner'
+import LoadingSpinner from '../../../components/LoadingSpinner'
 
 const fetchHotShot = async () => {
     const response = await axios.get(`/api/getHotShot`)
@@ -67,6 +67,7 @@ export const HotShot = ({ hotShotProduct }: Props) => {
                                 price={price}
                                 oldPrice={oldPrice}
                                 promotionGainTextLines={promotionGainTextLines}
+                                promotionTotalCount={promotionTotalCount}
                             />
 
                         </div>

@@ -5,7 +5,7 @@ import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
 import { useQuery } from "react-query"
-import { SectionOverlay } from "../SectionOverlay"
+import { SectionOverlay } from "@/app/components/SectionOverlay"
 import { Brands } from "@/typings"
 
 const fetchBrands = async () => {

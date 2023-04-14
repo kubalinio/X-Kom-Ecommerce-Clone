@@ -12,12 +12,13 @@ type Props = {
         title: string
         value: string
     }
+    promotionTotalCount: number
 }
 
-export const HotShotCounter = ({ startPromo, endPromo, price, oldPrice, promotionGainTextLines }: Props) => {
+export const HotShotCounter = ({ startPromo, endPromo, price, oldPrice, promotionGainTextLines, promotionTotalCount }: Props) => {
     const [finished, setFinished] = useState(false)
 
-    const [toSell, setToSell] = useState(300)
+    const [toSell, setToSell] = useState(promotionTotalCount)
     const [selled, setSelled] = useState(145)
 
     const handleSelledProduct = () => {
