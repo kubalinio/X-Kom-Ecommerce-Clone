@@ -5,10 +5,11 @@ import { NewsSection } from "./components/HomePage/NewsSection";
 import { PromotionSection } from "./components/HomePage/PromotionSection";
 import RecommendProducts from "./components/HomePage/RecommendProducts";
 import SliderBox from "./components/HomePage/SliderBox";
-import Promo from "./components/HomePage/Promo";
+
 import { BestsellerSection } from "./components/HomePage/BestsellerSection";
 import { BrandSection } from "./components/HomePage/BrandSection";
 import axios from "axios";
+import { Promo } from "./components/HomePage/Promo";
 
 
 const fetchProducts = async () => {

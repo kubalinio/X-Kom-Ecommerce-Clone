@@ -5,7 +5,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import groq from 'groq'
 import { Promotions } from '@/typings';
 
-const query = groq`*[_type == 'Promocja'] | order(_createdAt asc)`;
+const query = groq`*[_type == 'Promocja'] | order(_createdAt desc)`;
 
 type Data = {
   promotions: Promotions
