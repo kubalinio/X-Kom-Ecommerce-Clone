@@ -1,14 +1,14 @@
 'use client'
 
-import { QuantityBasketProduct } from "@/app/koszyk/components/BasketProduct/QuantityBasketProduct"
+import { QuantityBasketProduct } from "@/app/(shop)/koszyk/components/BasketProduct/QuantityBasketProduct"
 import useWindowDimensions from "@/hooks/useWindowDimensions"
 import axios from "axios"
 import { useState } from "react"
 import { useQuery } from "react-query"
 import AddToBasket from "./components/AddToBasket"
-import HeadingProduct from "./components/HeadingProduct"
-import LoadingSkelleton from "./components/LoadingSkelleton"
-import ProductPrice from "./components/ProductPrice"
+import HeadingProduct from "../../products/[slug]/components/HeadingProduct"
+import LoadingSkelleton from "../../products/[slug]/components/LoadingSkelleton"
+import ProductPrice from "../../products/[slug]/components/ProductPrice"
 import { Services } from "./components/ServicesModal"
 import { ProductGallery } from "./components/ProductGallery"
 

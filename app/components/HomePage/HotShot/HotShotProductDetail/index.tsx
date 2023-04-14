@@ -14,7 +14,6 @@ type Props = {
 
 export const HotShotProductDetail = ({ finished, image, promotionGainTextLines, title }: Props) => {
 
-    console.log(promotionGainTextLines)
 
     return (
         <div className='w-full md:w-1/2 lg:w-full'>

@@ -1,26 +1,30 @@
 // import News from "./components/News";
-import { GuidesSection } from "./components/HomePage/GuidesSection";
-import { HitsWeekSection } from "./components/HomePage/HitsWeekSection";
-import { NewsSection } from "./components/HomePage/NewsSection";
-import { PromotionSection } from "./components/HomePage/PromotionSection";
-import RecommendProducts from "./components/HomePage/RecommendProducts";
-import SliderBox from "./components/HomePage/SliderBox";
+import { GuidesSection } from "../components/HomePage/GuidesSection";
+import { HitsWeekSection } from "../components/HomePage/HitsWeekSection";
+import { NewsSection } from "../components/HomePage/NewsSection";
+import { PromotionSection } from "../components/HomePage/PromotionSection";
+import RecommendProducts from "../components/HomePage/RecommendProducts";
+import SliderBox from "../components/HomePage/SliderBox";
 
-import { BestsellerSection } from "./components/HomePage/BestsellerSection";
-import { BrandSection } from "./components/HomePage/BrandSection";
+import { BestsellerSection } from "../components/HomePage/BestsellerSection";
+import { BrandSection } from "../components/HomePage/BrandSection";
 import axios from "axios";
-import { HotShot } from "./components/HomePage/HotShot";
+import { HotShot } from "../components/HomePage/HotShot";
 
 
 const fetchProducts = async () => {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/getProducts`)
-
   return response.data
 };
 
+const fetchHotShot = async () => {
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getHotShot`)
+  return response.data
+}
+
 export default async function Home() {
   const initialProducts = await fetchProducts()
-
+  const hotShotProduct = await fetchHotShot()
 
   return (
     <main className="max-w-full mx-auto w-full lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]">
@@ -31,7 +35,7 @@ export default async function Home() {
         {/* Slider Section */}
         <SliderBox />
         {/* Hot Shot */}
-        <HotShot />
+        <HotShot hotShotProduct={hotShotProduct} />
         {/* Recommend Products */}
         <RecommendProducts initialProducts={initialProducts} />
         {/* Promotions Section */}

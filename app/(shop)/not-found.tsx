@@ -1,8 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import image404 from '../public/Coding.png'
-import { ButtonPrimary } from './components/Buttons'
+import image404 from '../../public/Coding.png'
+import { ButtonPrimary } from '../components/Buttons'
 
 
 export default function NotFound() {
