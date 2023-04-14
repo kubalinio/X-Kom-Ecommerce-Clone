@@ -9,7 +9,7 @@ import SliderBox from "./components/HomePage/SliderBox";
 import { BestsellerSection } from "./components/HomePage/BestsellerSection";
 import { BrandSection } from "./components/HomePage/BrandSection";
 import axios from "axios";
-import { Promo } from "./components/HomePage/Promo";
+import { HotShot } from "./components/HomePage/HotShot";
 
 
 const fetchProducts = async () => {
@@ -31,7 +31,7 @@ export default async function Home() {
         {/* Slider Section */}
         <SliderBox />
         {/* Hot Shot */}
-        <Promo />
+        <HotShot />
         {/* Recommend Products */}
         <RecommendProducts initialProducts={initialProducts} />
         {/* Promotions Section */}

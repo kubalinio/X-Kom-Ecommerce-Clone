@@ -29,9 +29,9 @@ export const CounterProductBar = ({ toSell, selled, sells, finished, selledAll }
     return (
         <div>
             {!finished ? (
-                <div>
+                <div className="md:max-w-[280px] mx-auto lg:max-w-none lg:mx-0">
                     {/* Numbers */}
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between md:mt-10 lg:mt-0'>
                         {/* left */}
                         <div className='flex items-center'>
                             <span className='mr-1 text-sm'>pozostało</span>
