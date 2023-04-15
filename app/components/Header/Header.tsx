@@ -12,9 +12,11 @@ import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { HeaderNav } from './HeaderNav';
 import { CategoriesDesktopBar } from './ProductCategories';
 
+
 export const Header = () => {
     const [isScrollDown, setIsScrollDown] = useState(false)
     const [scrollMobile, setScrollMobile] = useState(false)
+
     // Dać nasłuchiwanie na NAv Bottom do sumy wysokości nawigacji przy desktopach
     const { width }: {width: number | undefined} = useWindowDimensions()
   

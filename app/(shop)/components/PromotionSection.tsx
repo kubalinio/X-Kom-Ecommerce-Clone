@@ -59,7 +59,7 @@ export const PromotionSection = () => {
     const { data, isLoading } = useQuery<Promotions>({
         queryFn: () => fetchPromotions(),
         queryKey: ['promotions'],
-        staleTime: 3600000
+        staleTime: 12 * 60 * 60 * 1000
     })
     if (isLoading) return <div>Loading...</div>
 
