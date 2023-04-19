@@ -4,7 +4,7 @@ import { Promotions } from "@/typings"
 import axios from "axios"
 import { useQuery } from "react-query"
 import { Element } from "react-scroll"
-import { ArticleCard } from "../ArticleCard"
+import { ArticleCard } from "./ArticleCard"
 
 
 const fetchPromotions = async () => {
@@ -12,7 +12,8 @@ const fetchPromotions = async () => {
     return response.data
 }
 
-export const PromotionsSection = () => {
+export const PresaleSection = () => {
+
     const { data, isLoading } = useQuery<Promotions>({
         queryFn: () => fetchPromotions(),
         queryKey: ['promotions'],
@@ -22,23 +23,23 @@ export const PromotionsSection = () => {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <Element id="Promocje" name="Promocje">
-            <div className="relative top-[38px]" />
+        <Element id="Przedsprzedaże" name="Przedsprzedaże">
+            <div className="relative" />
             {/* Logic to scroll & dont hide Title */}
-            <h2 className="relative pt-[58px] -top-[58px] mt-8 -mb-11 text-2xl/7">
-                Promocje
+            <h2 className="relative pt-[58px] -top-[58px] mt-8 -mb-11 font-bold text-2xl/7 md:text-3xl/8">
+                Przedsprzedaże
                 <span className="ml-1 text-[#707070]">({data?.promotions.length})</span>
                 {/* Dynamic */}
             </h2>
 
-            <div className="flex flex-wrap -mb-2">
+            <div className="flex flex-wrap -mb-2 md:-mb-4">
                 {/* Dynamiczne producty map()*/}
-                {data?.promotions.map(promo => (
+                {data?.promotions.slice(0, 4).map(presale => (
                     <ArticleCard
-                        title={promo.title}
-                        slogan={promo.slogan}
-                        slug={promo.slug}
-                        image={promo.image} />
+                        title={presale.title}
+                        slogan={presale.slogan}
+                        slug={presale.slug}
+                        image={presale.image} />
                 ))}
             </div>
 

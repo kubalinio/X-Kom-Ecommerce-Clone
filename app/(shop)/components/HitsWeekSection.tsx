@@ -31,7 +31,7 @@ export const HitsWeekSection = () => {
         <SectionOverlay heading={'Hity tygodnia'} slugToAll={''} productSection={true} >
 
             {products.map(product => (
-                <div key={product._id} className="h-full px-2 py-1">
+                <div key={product._id} className="h-full px-2 py-1 lg:py-4">
 
                     <ProductCard
                         _id={product._id}

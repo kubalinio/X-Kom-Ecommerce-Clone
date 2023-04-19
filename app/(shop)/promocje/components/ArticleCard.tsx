@@ -56,9 +56,10 @@ const CartContextContainer = ({ slogan, slug, title }: {
     </div>
 )
 
+
 export const ArticleCard = ({ title, slogan, slug, image }: Promotion) => {
     return (
-        <div className="flex flex-col mb-2 w-full rounded-lg border border-[#ddd]">
+        <div className="flex flex-col mb-2 w-full rounded-lg border border-[#ddd] md:mr-4 md:mb-4 md:w-[calc((100%-16px)/2)] md:max-lg:even:mr-0 lg:w-[calc((100%-33px)/3)] lg:[&:nth-child(3n+3)]:mr-0">
             {/* Top */}
             <CartImgContainer image={image} title={title} />
 

@@ -12,14 +12,14 @@ const NavItem = ({ title, number }: Props) => {
     return (
         <div className="flex flex-wrap items-center justify-start">
             <Link
-                className="relative flex items-center justify-center h-12 mx-2 cursor-pointer group"
+                className="relative flex items-center justify-center h-[48px] mx-2 cursor-pointer group"
                 activeClass='activeNav'
                 to={title}
                 spy={true}
                 hashSpy={true}
                 smooth={true}
                 duration={500}
-                offset={-70}
+                offset={-115}
             >
                 <div>
                     <span>

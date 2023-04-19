@@ -27,7 +27,7 @@ export const BestsellerSection = () => {
         <SectionOverlay heading={'Bestsellers'} slugToAll={'bestsellers'} productSection={true} >
 
             {data?.products.map(product => (
-                <div key={product._id} className="py-1 px-2 h-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px]">
+                <div key={product._id} className="h-full px-2 py-1 lg:py-4">
 
                     <ProductCard
                         slug={product.slug}

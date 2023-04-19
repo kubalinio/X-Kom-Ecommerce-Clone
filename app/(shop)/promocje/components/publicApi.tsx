@@ -1,5 +1,4 @@
-export { PageTitle } from './PageTitle'
 export { PageNavigation } from './PageNavigation'
-export { PromotionsSection } from './PromotionsSection'
-export { PresaleSection } from './PresaleSection'
 export { ContestSection } from './ContestSection'
+export { PresaleSection } from './PresaleSection'
+export { PromotionsSection } from './PromotionSection'

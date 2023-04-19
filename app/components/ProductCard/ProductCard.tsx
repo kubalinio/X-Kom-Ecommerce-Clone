@@ -34,7 +34,7 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Pro
 
 
     return (
-        <div className='relative rounded-lg group lg:border lg:border-transparent lg:hover:shadow-xCom'>
+        <div className='relative rounded-lg cursor-pointer lg:duration-300 group lg:border lg:border-transparent lg:hover:shadow-xCom lg:hover:scale-105 lg:transition-all'>
 
             {/* Promotion or Recommend */}
             {special ?
