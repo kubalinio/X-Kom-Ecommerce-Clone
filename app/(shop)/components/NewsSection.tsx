@@ -1,6 +1,6 @@
 'use client'
 
-import { SectionOverlay } from "@/app/components/SectionOverlay"
+import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
 import { urlFor } from "@/lib/sanity.client"
 import { AllNews, News } from "@/typings"
 import axios from "axios"
@@ -18,7 +18,7 @@ const fetchNews = async () => {
 const CardNews = ({ title, image, link, slogan }: News) => {
 
     return (
-        < div className='block w-[250px] lg:w-full xl:w-full' >
+        < div className='block lg:w-full xl:w-full' >
             <div className='h-full py-2'>
                 <Link href={`/${link}`}>
                     <div className='flex items-center justify-center mt-[2px] rounded-lg shadow-xCom overflow-hidden'>
@@ -47,7 +47,7 @@ const CardNews = ({ title, image, link, slogan }: News) => {
                     </h3>
                 </Link>
 
-                <div className='my-1 text-[#4d4d4d] whitespace-nowrap line-clamp-1 text-ellipsis'>
+                <div className='my-1 text-[#4d4d4d] whitespace-nowrap text-ellipsis overflow-hidden'>
                     {slogan}
                 </div>
 
@@ -78,13 +78,13 @@ export const NewsSection = () => {
     const { data, isLoading, isFetching } = useQuery<AllNews>({
         queryFn: () => fetchNews(),
         queryKey: ['news'],
-        staleTime: 3600000
+        staleTime: 12 * 60 * 60 * 1000
     })
 
     if (isLoading && isFetching) return <div>Loading ...</div>
 
     return (
-        <SectionOverlay heading={'Aktualności'} slugToAll={'aktualnosci'}>
+        <SectionCarouselContainer heading={'Aktualności'} slugToAll={'aktualnosci'}>
 
             {data?.news.map(news => (
                 <CardNews
@@ -95,7 +95,7 @@ export const NewsSection = () => {
                     slogan={news.slogan} />
             ))}
 
-        </SectionOverlay>
+        </SectionCarouselContainer>
     )
 }
 

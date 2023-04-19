@@ -5,7 +5,7 @@ import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
 import { useQuery } from "react-query"
-import { SectionOverlay } from "@/app/components/SectionOverlay"
+import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
 import { Brands } from "@/typings"
 
 const fetchBrands = async () => {
@@ -27,7 +27,7 @@ export const BrandSection = () => {
 
 
     return (
-        <SectionOverlay heading={'Sekcja marek'} slugToAll={''} productSection={true} >
+        <SectionCarouselContainer heading={'Sekcja marek'} slugToAll={''} productSection={true} >
 
             {data?.brands?.map(brand => (
                 <div key={brand._id} className="h-[88px] flex items-center justify-center">
@@ -51,7 +51,7 @@ export const BrandSection = () => {
 
             ))}
 
-        </SectionOverlay>
+        </SectionCarouselContainer>
     )
 }
 

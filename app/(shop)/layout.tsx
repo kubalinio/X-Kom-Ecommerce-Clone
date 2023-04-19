@@ -1,7 +1,7 @@
 
 import './globals.css'
 
-import { Lato } from '@next/font/google'
+import { Lato } from 'next/font/google'
 import { Header } from '../components/Header/Header'
 
 import Providers from '../auth/Providers'
@@ -14,6 +14,10 @@ const lato = Lato({
   variable: '--font-lato',
   weight: ["300", "400", "700", "900"]
 })
+
+export const metadata = {
+  title: 'X Clone - Clone Ecommerce Site x-kom.pl',
+}
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
 

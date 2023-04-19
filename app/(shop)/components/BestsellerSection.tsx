@@ -4,7 +4,7 @@ import { Products } from "@/typings"
 import axios from "axios"
 import { useQuery } from "react-query"
 import { ProductCard } from "../../components/ProductCard/ProductCard"
-import { SectionOverlay } from "../../components/SectionOverlay"
+import { SectionCarouselContainer } from "../../components/SectionCarouselContainer"
 
 
 const fetchProducts = async () => {
@@ -24,7 +24,7 @@ export const BestsellerSection = () => {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <SectionOverlay heading={'Bestsellers'} slugToAll={'bestsellers'} productSection={true} >
+        <SectionCarouselContainer heading={'Bestsellers'} slugToAll={'bestsellers'} productSection={true} >
 
             {data?.products.map(product => (
                 <div key={product._id} className="h-full px-2 py-1 lg:py-4">
@@ -40,7 +40,7 @@ export const BestsellerSection = () => {
 
             ))}
 
-        </SectionOverlay>
+        </SectionCarouselContainer>
     )
 }
 

@@ -1,115 +1,50 @@
-import { SectionOverlay } from "@/app/components/SectionOverlay";
+'use client'
+
+import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer";
+import { urlFor } from "@/lib/sanity.client";
+import { AllGuide, Guide } from "@/typings";
+import axios from "axios";
 import Image from "next/image"
 import Link from "next/link"
+import { useQuery } from "react-query";
 
 
-export type NewsDataProps = {
-    heading: string;
-    slug: string;
-    news: {
-        heading: string;
-        image: string;
-        slug: string;
-        title: string;
-    }[];
-}
 
-const NewsData: NewsDataProps = {
-    heading: 'Aktualności',
-    slug: 'aktualnosci',
-    news: [
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        },
-        {
-            heading: 'Odkryj nowe procesory AMD Ryzen serii 7000X3D z technologią AMD 3D V‑Cache™',
-            image: 'https://cdn.x-kom.pl/i/img/promotions-list/320x240,,63fe0f93c8f69-x-kom-promocje-miniatura-800x600px.jpg',
-            slug: '',
-            title: 'Łącząc technologię AMD 3D V-Cache™ z procesorami AMD Ryzen serii 7000X3D, zyskujesz ogromny wzrost wydajności w grach.'
-        }]
-}
-
-export type CardNewsProps = {
-    heading: string;
-    image: string;
-    slug: string;
-    title: string;
-}
-
-const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
+const ArticleCard = ({ title, image, link, slogan }: Guide) => {
 
     return (
-        < div className='block w-[250px] lg:w-full xl:w-full' >
+        < div className='block lg:w-full xl:w-full' >
             <div className='h-full py-2'>
                 <Link href='/'>
                     <div className='flex items-center justify-center mt-[2px] rounded-lg shadow-xCom overflow-hidden'>
 
                         <span className='inline-flex items-center justify-center w-full h-[179px] lg:h-[174px] xl:h-[196px] 2xl:h-[218px] overflow-hidden min-h-full py-3'>
                             <Image
-                                src={`${image}`}
+                                src={urlFor(image).url()}
                                 width={253}
                                 height={212}
-                                alt={`${heading}`}
+                                alt={title}
                                 loading='lazy'
-                                className='object-cover w-full h-full'
+                                className='object-contain w-full h-full'
                             />
                         </span>
                     </div>
                 </Link>
 
 
-                <Link href='/' className='block mt-4 ml-1'>
+                <Link href='/poradniki' className='block mt-4 ml-1'>
                     <h3 className='text-xl leading-6 font-bold min-h-[48px] max-w-[250px]'>
                         <span className='max-h-[48px]'>
                             <span className='w-full overflow-hidden text-ellipsis line-clamp-2'
                             >
-                                {heading}
+                                {title}
                             </span>
                         </span>
                     </h3>
                 </Link>
 
-                <div className='my-1 text-[#4d4d4d] whitespace-nowrap line-clamp-1 text-ellipsis'>
-                    {title}
+                <div className='my-1 text-[#707070] whitespace-nowrap text-ellipsis overflow-hidden'>
+                    {slogan}
                 </div>
 
                 <div className="flex justify-start items-center text-sm text-[#707070]">
@@ -133,19 +68,38 @@ const CardNews = ({ heading, image, slug, title }: CardNewsProps) => {
         </div >)
 }
 
+const fetchGuides = async () => {
+    const response = await axios.get(`/api/getGuides`)
+    return response.data
+}
+
 
 export const GuidesSection = () => {
 
-    const { news } = NewsData
+    const { data, isLoading } = useQuery<AllGuide>({
+        queryFn: () => fetchGuides(),
+        queryKey: ['guides'],
+        staleTime: 12 * 60 * 60 * 1000
+    })
+
+    console.log(data)
+
+    if (isLoading) return <div></div>
 
     return (
-        <SectionOverlay heading={'Poradniki'} slugToAll={'poradniki'} >
+        <SectionCarouselContainer heading={'Poradniki'} slugToAll={'poradniki'} >
 
-            {news.map(promo => (
-                <CardNews key={promo.slug} heading={promo.heading} image={promo.image} slug={promo.slug} title={promo.title} />
+            {data?.guides.map(guide => (
+                <ArticleCard
+                    key={guide._id}
+                    title={guide.title}
+                    image={guide.image}
+                    link={guide.link}
+                    slogan={guide.slogan}
+                />
             ))}
 
-        </SectionOverlay>
+        </SectionCarouselContainer>
     )
 }
 

@@ -27,7 +27,6 @@ const CategoryItem = ({ title, onChange, selected }: { title: string, onChange: 
 }
 
 // Searchbar dropdown categories
-
 const CategoriesDropdown = () => {
     const [show, setShow] = useState(false)
     const [selectedOption, setSelectedOption] = useState('Wszędzie')

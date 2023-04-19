@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
 import { addToBasket, getTotals } from '@/store/basketSlice';
@@ -29,6 +29,19 @@ const AddToBasket = ({ product, quantity }: Props) => {
         dispatch(getTotals())
         setShowModal(true)
     }
+
+
+    useEffect(() => {
+
+        if (showModal) {
+            document.body.style.overflow = 'hidden'
+            document.body.style.paddingRight = '17px'
+        } else {
+            document.body.style.overflow = ''
+            document.body.style.paddingRight = ''
+        }
+
+    }, [showModal])
 
     return (
         <>

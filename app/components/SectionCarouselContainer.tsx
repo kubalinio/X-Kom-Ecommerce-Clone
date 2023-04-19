@@ -22,7 +22,7 @@ type SectionOverlayProps = {
     productSection?: boolean
 }
 
-export const SectionOverlay = ({ children, heading, slugToAll, productSection }: SectionOverlayProps) => {
+export const SectionCarouselContainer = ({ children, heading, slugToAll, productSection }: SectionOverlayProps) => {
 
 
     const breakpointsArticle = {

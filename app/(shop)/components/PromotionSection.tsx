@@ -1,6 +1,6 @@
 'use client'
 
-import { SectionOverlay } from "@/app/components/SectionOverlay"
+import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
 import { urlFor } from "@/lib/sanity.client"
 import { Promotion, Promotions } from "@/typings"
 import axios from "axios"
@@ -46,7 +46,7 @@ const Card = ({ title, image, slug, slogan }: Promotion) => {
                     </h3>
                 </Link>
 
-                <div className='my-1 text-[#4d4d4d] whitespace-nowrap line-clamp-1 text-ellipsis'>
+                <div className='my-1 text-[#4d4d4d] whitespace-nowrap text-ellipsis overflow-hidden'>
                     {slogan}
                 </div>
 
@@ -64,13 +64,13 @@ export const PromotionSection = () => {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <SectionOverlay heading={'Promocje'} slugToAll={'promocje'} >
+        <SectionCarouselContainer heading={'Promocje'} slugToAll={'promocje'} >
 
             {data?.promotions.map(promo => (
                 <Card key={promo.title} title={promo.title} image={promo.image} slug={promo.slug} slogan={promo.slogan} />
             ))}
 
-        </SectionOverlay>
+        </SectionCarouselContainer>
     )
 }
 

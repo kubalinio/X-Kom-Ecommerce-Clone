@@ -67,47 +67,201 @@ export const categorieItems: categorieMainProps[] = [
         icon: <SlScreenSmartphone className='w-full h-full' />,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
+        subMenu: [
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+        ]
     },
     {
         name: 'Gaming i streaming',
         icon: <IoGameControllerOutline className='w-full h-full' />,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
+        subMenu: [
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+        ]
     },
     {
         name: 'Podzespoły komputerowe',
         icon: <CgSmartphoneChip className='w-full h-full' />,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
+        subMenu: [
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+        ]
     },
     {
         name: 'Urządzenia peryferyjne',
         icon: <AiOutlinePrinter className='w-full h-full' />,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
+        subMenu: [
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+        ]
     },
     {
         name: 'TV i audio',
         icon: <IoTvOutline className='w-full h-full' />,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
+        subMenu: [
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+        ]
     },
     {
         name: 'Smarthome i lifestyle',
         icon: <SiHomeassistant className='w-full h-full' />,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
+        subMenu: [
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+        ]
     },
     {
         name: 'Akcesoria',
         icon: <MdOutlineCable className='w-full h-full' />,
         slug: 'products',
         recommendProduct: 'https://cdn.x-kom.pl/i/img/banners/normal,,f3d6e95c84bf4302bc87f0dd15938c20.png?filters=trim',
+        subMenu: [
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+        ]
     },
     {
         name: 'Trendy, promocje i nowości',
         icon: <CiPercent className='w-full h-full' />,
         slug: 'promocje',
         recommendProduct: CategoriesTrendsImage,
+        subMenu: [
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+            {
+                name: 'Polecany produkt'
+            },
+        ]
     },
 ]

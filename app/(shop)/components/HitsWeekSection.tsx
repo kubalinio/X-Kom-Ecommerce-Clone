@@ -6,7 +6,7 @@ import { useQuery } from "react-query"
 import LoadingSpinner from '../../components/LoadingSpinner'
 
 import { Product } from "@/typings"
-import { SectionOverlay } from "@/app/components/SectionOverlay"
+import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
 import { ProductCard } from "@/app/components/ProductCard"
 
 const fetchProducts = async () => {
@@ -28,7 +28,7 @@ export const HitsWeekSection = () => {
     let products: Product[] = data.products
 
     return (
-        <SectionOverlay heading={'Hity tygodnia'} slugToAll={''} productSection={true} >
+        <SectionCarouselContainer heading={'Hity tygodnia'} slugToAll={''} productSection={true} >
 
             {products.map(product => (
                 <div key={product._id} className="h-full px-2 py-1 lg:py-4">
@@ -46,7 +46,7 @@ export const HitsWeekSection = () => {
 
             ))}
 
-        </SectionOverlay>
+        </SectionCarouselContainer>
     )
 }
 

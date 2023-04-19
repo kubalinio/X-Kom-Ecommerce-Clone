@@ -92,6 +92,15 @@ export interface HotShot extends SanityBody {
 
 	}
 
+	export interface Guide extends SanityBody {
+		slogan: string;
+		title: string
+		link: string
+    	image: Image;
+}
 
+export interface AllGuide {
+	guides: Guide[]
+}
 
 

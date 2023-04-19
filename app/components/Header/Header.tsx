@@ -3,14 +3,14 @@
 import {useEffect, useState } from 'react';
 
 import useWindowDimensions from '@/hooks/useWindowDimensions';
-
-import { SearchBar } from './SearchBar';
-import LogoHeader from './HeaderLogo';
-
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 
+import { SearchBar } from './SearchBar';
 import { HeaderNav } from './HeaderNav';
 import { CategoriesDesktopBar } from './ProductCategories';
+import LogoHeader from './HeaderLogo';
+
+
 
 
 export const Header = () => {
@@ -35,9 +35,9 @@ export const Header = () => {
                 setScrollMobile(false)
             }
         }
+
         document.addEventListener('scroll', listener)
         
-
         return () => {
             document.removeEventListener('scroll', listener)
         }
@@ -57,24 +57,18 @@ export const Header = () => {
     
                         {/* Logo Box */}
                         <div className="flex items-center justify-center h-full shrink-0 lg:pl-8 2xl:pl-8" >
-                            
                             <LogoHeader isScrollDown={isScrollDown}  />
-                            
                         </div>
     
                         {/* Hamburger bottom nav & Searchbar Box*/}
                         <div className="flex items-center flex-grow order-4 w-full pt-1 pb-2 pr-2 ml-[-16px] md:ml-[-24px] lg:w-1/5 lg:order-2 lg:ml-0 lg:pl-8 lg:pr-2 lg:h-full " >
-                            
                             {/* Searchbar */}            {/* Hamburger */}
                             <SearchBar  />
-                            
                         </div>
     
                         {/* Navigation */}
                         <div className='flex order-3 h-full pt-1 lg:z-20 md:pt-1' >
-    
                            <HeaderNav isScrollDown={isScrollDown} />
-    
                         </div>
     
                     </div>
