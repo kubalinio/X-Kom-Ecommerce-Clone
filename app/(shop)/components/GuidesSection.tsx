@@ -9,7 +9,6 @@ import Link from "next/link"
 import { useQuery } from "react-query";
 
 
-
 const ArticleCard = ({ title, image, link, slogan }: Guide) => {
 
     return (
@@ -72,7 +71,6 @@ const fetchGuides = async () => {
     const response = await axios.get(`/api/getGuides`)
     return response.data
 }
-
 
 export const GuidesSection = () => {
 
