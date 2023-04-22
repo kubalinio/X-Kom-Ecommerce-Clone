@@ -4,7 +4,7 @@ import { urlFor } from "@/lib/sanity.client"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
-import { useQuery } from "react-query"
+import { useQuery } from "@tanstack/react-query"
 import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
 import { Brands } from "@/typings"
 

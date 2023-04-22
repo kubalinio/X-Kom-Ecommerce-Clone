@@ -17,7 +17,7 @@ import { Pagination } from 'swiper'
 
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import axios from "axios";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { urlFor } from "@/lib/sanity.client";
 
 const fetchSliders = async () => {

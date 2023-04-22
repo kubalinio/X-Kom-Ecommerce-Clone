@@ -38,6 +38,11 @@ module.exports = {
           '0%': {transform: 'translateY(0px)'},
           '100%': {transform: 'translateY(-120px)'}
         },
+        pulsOnce: {
+          '0%, 100%': {borderWidth: '0px'},
+          '50%': {borderWidth: '22px'},
+        },
+
         // Modal.tsx
         // showModal: {
         //   '0%': {opacity: 0},
@@ -57,6 +62,7 @@ module.exports = {
         headerExpand: 'headerAnimationExpand 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
         headerMinimize: 'headerAnimationMinimize 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
         headerMobileHide: 'headerMobileAnimationHide 0ms cubic-bezier(0.4, 0, 0.2, 1) none',
+        pulsOnceClick: 'pulsOnce 300ms ease-out forwards'
         // showModal: 'showModal 300ms cubic-bezier(0.4, 0, 0.2, 1) running',
         // hideModal: 'hideModal 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
       }

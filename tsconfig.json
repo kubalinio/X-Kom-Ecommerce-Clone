@@ -24,6 +24,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/HomePage/SliderBox.jsx", "app/components/HomePage/RecommendProducts.jsx", "app/(admin)/layout.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/HomePage/SliderBox.jsx", "app/components/HomePage/RecommendProducts.jsx", "app/(admin)/layout.jsx", "prisma/index.ts"],
   "exclude": ["node_modules"]
 }

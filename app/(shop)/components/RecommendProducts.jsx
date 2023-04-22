@@ -4,7 +4,7 @@
 
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import axios from "axios"
-import { useQuery } from "react-query"
+import { useQuery } from "@tanstack/react-query"
 
 
 
@@ -31,16 +31,14 @@ const fetchProducts = async () => {
 };
 
 
-const RecommendProducts = ({ initialProducts }) => {
-
-
+const RecommendProducts = () => {
     // Check width
     const { width } = useWindowDimensions()
 
     const { data, isLoading } = useQuery({
-        queryFn: () => fetchProducts(),
         queryKey: ['products'],
-        initialData: initialProducts
+        queryFn: () => fetchProducts(),
+        staleTime: 12 * 60 * 60 * 1000
     })
 
     if (isLoading) return (
@@ -64,9 +62,9 @@ const RecommendProducts = ({ initialProducts }) => {
                     <div className='flex-wrap hidden mt-3 -mx-2 lg:flex'>
 
                         {data.products.map(product => (
-                            <div key={product._id} className='w-1/4 px-2 mb-[22px]'>
+                            <div key={product._rev} className='w-1/4 px-2 mb-[22px]'>
                                 <ProductCard
-                                    _id={product._id}
+                                    _id={product._rev}
                                     slug={product.slug}
                                     special={product.special}
                                     mainImage={product.mainImage}
@@ -103,9 +101,15 @@ const RecommendProducts = ({ initialProducts }) => {
                             >
                                 {
                                     data.products.map(product => (
-                                        <SwiperSlide key={product._id}>
+                                        <SwiperSlide key={product._rev}>
                                             <div className='w-full h-full max-w-[150px] p-2 min-w-[150px] sm:min-w-[180px] sm:max-w-[180px] md:max-w-[220px] md:min-w-[220px]'>
-                                                <ProductCard slug={product.slug} special={product.special} mainImage={product.mainImage} title={product.title} price={product.price} />
+                                                <ProductCard
+                                                    _id={product._rev}
+                                                    slug={product.slug}
+                                                    special={product.special}
+                                                    mainImage={product.mainImage}
+                                                    title={product.title}
+                                                    price={product.price} />
                                             </div>
                                         </SwiperSlide>
                                     ))

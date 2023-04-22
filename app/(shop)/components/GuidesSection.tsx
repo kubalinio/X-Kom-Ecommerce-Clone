@@ -6,7 +6,7 @@ import { AllGuide, Guide } from "@/typings";
 import axios from "axios";
 import Image from "next/image"
 import Link from "next/link"
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 
 const ArticleCard = ({ title, image, link, slogan }: Guide) => {
@@ -14,7 +14,7 @@ const ArticleCard = ({ title, image, link, slogan }: Guide) => {
     return (
         < div className='block lg:w-full xl:w-full' >
             <div className='h-full py-2'>
-                <Link href='/'>
+                <Link href='/poradniki'>
                     <div className='flex items-center justify-center mt-[2px] rounded-lg shadow-xCom overflow-hidden'>
 
                         <span className='inline-flex items-center justify-center w-full h-[179px] lg:h-[174px] xl:h-[196px] 2xl:h-[218px] overflow-hidden min-h-full py-3'>
@@ -79,8 +79,6 @@ export const GuidesSection = () => {
         queryKey: ['guides'],
         staleTime: 12 * 60 * 60 * 1000
     })
-
-    console.log(data)
 
     if (isLoading) return <div></div>
 

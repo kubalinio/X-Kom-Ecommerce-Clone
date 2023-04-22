@@ -74,7 +74,11 @@ export interface AllNews {
 	news: News[]
 }
 
-export interface HotShot extends SanityBody {
+export interface HotShotsData {
+	hotShot: HotShotData[]
+}
+
+export interface HotShotData extends SanityBody {
 	price: number
 	oldPrice: number
 	promotionGainTextLines: 
@@ -82,15 +86,16 @@ export interface HotShot extends SanityBody {
 			title: string
 			value: string
 		};
-		
+
 	promotionTotalCount: number
 	maxBuyCount: number
 	promotionName: string
 	mainImage: Image
 	images: Image[]
 	slug: slug
+}
 
-	}
+	
 
 	export interface Guide extends SanityBody {
 		slogan: string;

@@ -4,15 +4,8 @@ import { urlFor } from '@/lib/sanity.client';
 import { Product } from '@/typings';
 import Image from 'next/image';
 import Link from 'next/link';
-import { IoMdHeartEmpty } from 'react-icons/io'
-import { MdOutlineAddShoppingCart, MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import { useDispatch } from 'react-redux'
-import { addToBasket, getTotals } from '@/store/basketSlice';
-import { useEffect, useState } from 'react';
-import { Modal, ModalBody, ModalContainer, ModalHeader } from '../Modal';
-import { AiOutlineCheck } from 'react-icons/ai';
-import ProductAddedToBasket from '../ProductAddedToBasket';
 import { AddToBasket } from './AddToBasket';
+import AddToFav from './AddToFav';
 
 
 // const ProductEvent = () => ()
@@ -88,21 +81,9 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Pro
             </div>
 
             {/* Fav */}
-            <div className='absolute hidden transition-all duration-300 top-1 right-1 lg:group-hover:block lg:top-3 lg:right-3'>
-                <div className='transition duration-300 lg:flex lg:w-8 lg:h-8 '>
-                    <div className='inline-block pointer-events-auto z-[1]'>
-                        {/* Fav Component to Add List Favorited products */}
-                        <div>
-                            <button className='flex items-center justify-center w-8 h-8 bg-white rounded-full cursor-pointer select-none z-5 hover:bg-[#ddd] transition duration-300'>
-                                <span className='inline-block w-5 h-5 overflow-hidden'>
-                                    <IoMdHeartEmpty className='w-full h-full' />
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <AddToFav
+                id={_id!}
+            />
 
             {/* Basket */}
             {/* OnClick show Modal with choose product & info where is save to basket */}

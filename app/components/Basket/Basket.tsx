@@ -43,7 +43,7 @@ export const BasketNav = ({ isScrollDown, width }: BasketNavProps) => {
     const [showDrawer, setShowDrawer] = useState(false)
     const pathname = usePathname()
 
-    const basket = useSelector((state: RootState) => state)
+    const basket = useSelector((state: RootState) => state.basket)
     const basketQuantity = basket.basketTotalQuantity
 
     const handleClick = () => {

@@ -1,15 +1,21 @@
-import { configureStore} from "@reduxjs/toolkit";
+import { combineReducers, configureStore} from "@reduxjs/toolkit";
 import { basketReducer } from "./basketSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import thunk from 'redux-thunk'
+import { purchaseReducer } from "./purchaseSlice";
 
 const persistConfig = {
     key: 'root',
     storage
 }
 
-const persistedReducer = persistReducer(persistConfig, basketReducer)
+const rootReducer = combineReducers({
+    basket: basketReducer,
+    purchaseList: purchaseReducer
+})
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
     reducer: persistedReducer,

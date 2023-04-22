@@ -6,7 +6,7 @@ import { Promotion, Promotions } from "@/typings"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
-import { useQuery } from "react-query"
+import { useQuery } from "@tanstack/react-query"
 
 
 const fetchPromotions = async () => {

@@ -27,7 +27,7 @@ const BasketHeader = ({ totalQuantity }: { totalQuantity: number }) => (
 export const MiniBasket = ({ onClick }: { onClick: () => void }) => {
     const { width } = useWindowDimensions()
 
-    const basket = useSelector((state: RootState) => state)
+    const basket = useSelector((state: RootState) => state.basket)
 
     return (
         <div className='flex flex-col justify-center min-h-[150px] h-full lg:max-h-[610px]'>

@@ -1,7 +1,3 @@
-// import News from "./components/News";
-
-
-import axios from "axios";
 import RecommendProducts from './components/RecommendProducts'
 import { BestsellerSection } from "./components/BestsellerSection";
 import { BrandSection } from "./components/BrandSection";
@@ -10,8 +6,13 @@ import { HitsWeekSection } from "./components/HitsWeekSection";
 import { HotShot } from "./components/HotShot";
 import { NewsSection } from "./components/NewsSection";
 import { PromotionSection } from "./components/PromotionSection";
-
 import SliderBox from './components/SliderBox'
+
+import axios from "axios";
+import getQueryClient from '../../utils/getQueryClient'
+import { dehydrate } from "@tanstack/query-core";
+import Hydrate from "@/utils/HydrateClient";
+
 
 const fetchProducts = async () => {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/getProducts`)
@@ -24,8 +25,11 @@ const fetchHotShot = async () => {
 }
 
 export default async function Home() {
-  const initialProducts = await fetchProducts()
-  const hotShotProduct = await fetchHotShot()
+  const queryClient = getQueryClient()
+  await queryClient.prefetchQuery(['products'], fetchProducts)
+  await queryClient.prefetchQuery(['hotShot'], fetchHotShot)
+
+  const dehydratedState = dehydrate(queryClient)
 
   return (
     <main className="max-w-full mx-auto w-full lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]">
@@ -36,9 +40,13 @@ export default async function Home() {
         {/* Slider Section */}
         <SliderBox />
         {/* Hot Shot */}
-        <HotShot hotShotProduct={hotShotProduct} />
+        <Hydrate state={dehydratedState}>
+          <HotShot />
+        </Hydrate>
         {/* Recommend Products */}
-        <RecommendProducts initialProducts={initialProducts} />
+        <Hydrate state={dehydratedState}>
+          <RecommendProducts />
+        </Hydrate>
         {/* Promotions Section */}
         <PromotionSection />
         {/* New Card Article */}
@@ -53,6 +61,6 @@ export default async function Home() {
         <BrandSection />
 
       </div>
-    </main>
+    </main >
   )
 }

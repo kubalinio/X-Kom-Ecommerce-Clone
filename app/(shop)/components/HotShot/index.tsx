@@ -7,9 +7,10 @@ import { HotShotCounter } from './HotShotCounter'
 import { HotShotProductDetail } from './HotShotProductDetail'
 import SpecialBorder from './SpecialBorder'
 import axios from 'axios'
-import { useQuery } from 'react-query'
-import { HotShot as HotShotData } from '@/typings'
+import { useQuery } from '@tanstack/react-query'
+
 import LoadingSpinner from '../../../components/LoadingSpinner'
+import { HotShotData, HotShotsData } from '@/typings'
 
 const WrapperHotShot = ({ children }: { children: ReactNode }) => (
     <section className='w-full p-4 pt-0 mb-4 bg-white border-b border-[#ebebeb] md:p-6 md:pt-3 lg:border-none lg:p-0 lg:pr-8 lg:pb-8 lg:w-[31.666%] lg:mb-0'>
@@ -26,18 +27,17 @@ const fetchHotShot = async () => {
     return response.data
 }
 
-type Props = {
-    hotShotProduct: HotShotData
-}
 
-export const HotShot = ({ hotShotProduct }: Props) => {
+export const HotShot = () => {
     const [ended, setEnded] = useState(false)
 
-    const { data, isLoading } = useQuery({
-        queryFn: () => fetchHotShot(),
+    const { data, isLoading } = useQuery<HotShotsData>({
         queryKey: ['hotShot'],
-        initialData: hotShotProduct
+        queryFn: () => fetchHotShot(),
+        staleTime: 12 * 60 * 60 * 1000
     })
+
+
 
     if (isLoading) return (
         <WrapperHotShot>
@@ -46,7 +46,7 @@ export const HotShot = ({ hotShotProduct }: Props) => {
         </WrapperHotShot>
     )
 
-    const { price, oldPrice, promotionGainTextLines, promotionTotalCount, maxBuyCount, promotionName, mainImage, slug }: HotShotData = data.hotShot[0]
+    const { price, oldPrice, promotionGainTextLines, promotionTotalCount, maxBuyCount, promotionName, mainImage, slug } = data!.hotShot[0]
 
     // const currentTime = new Date().getHours()
     // console.log(currentTime)

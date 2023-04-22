@@ -2,7 +2,7 @@
 
 import { Products } from "@/typings"
 import axios from "axios"
-import { useQuery } from "react-query"
+import { useQuery } from "@tanstack/react-query"
 import { ProductCard } from "../../components/ProductCard/ProductCard"
 import { SectionCarouselContainer } from "../../components/SectionCarouselContainer"
 

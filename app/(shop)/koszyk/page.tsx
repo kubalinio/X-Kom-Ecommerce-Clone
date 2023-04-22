@@ -18,7 +18,7 @@ import { BasketProduct } from './components/BasketProduct'
 
 const BasketPage = () => {
 
-    const basket = useSelector((state: RootState) => state)
+    const basket = useSelector((state: RootState) => state.basket)
     const { width } = useWindowDimensions()
 
     return (
