@@ -30,7 +30,7 @@ const AddToFav = ({ id }: { id: string }) => {
 
 
     const { mutate, isLoading } = useMutation(async () =>
-        await axios.post(`/api/addFav`, {
+        await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/addFav`, {
             productId: id,
         }),
         {
