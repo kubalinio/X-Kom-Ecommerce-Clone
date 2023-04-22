@@ -2,10 +2,10 @@
 import { client } from '@/lib/sanity.client';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import groq from 'groq'
-import { HotShot } from '@/typings';
+import { HotShotsData } from '@/typings';
 
 type Data = {
-  hotShot: HotShot
+  hotShot: HotShotsData
 }
 
 const query = groq`*[_type == 'hotShot']`;
