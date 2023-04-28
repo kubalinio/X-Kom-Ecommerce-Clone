@@ -3,11 +3,12 @@
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
 
-import LoadingSpinner from '../../components/LoadingSpinner'
 
-import { Product } from "@/typings"
+
+import { Product } from "@/app/typings"
 import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
 import { ProductCard } from "@/app/components/ProductCard"
+import LoadingSkelleton from "../products/[slug]/components/LoadingSkelleton"
 
 const fetchProducts = async () => {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/getProducts`)
@@ -23,7 +24,7 @@ export const HitsWeekSection = () => {
         staleTime: 3600000
     })
 
-    if (isLoading) return <div><LoadingSpinner /></div>
+    if (isLoading) return <LoadingSkelleton />
 
     let products: Product[] = data.products
 
@@ -40,6 +41,7 @@ export const HitsWeekSection = () => {
                         mainImage={product.mainImage}
                         title={product.title}
                         price={product.price}
+                        oldPrice={product.oldPrice}
                     />
 
                 </div>

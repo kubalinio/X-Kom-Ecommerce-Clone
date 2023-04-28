@@ -1,5 +1,5 @@
-import useWindowDimensions from "@/hooks/useWindowDimensions"
-import { RootState } from "@/store"
+import useWindowDimensions from "@/app/hooks/useWindowDimensions"
+import { RootState } from "@/app/store"
 import Link from "next/link"
 import { useSelector } from "react-redux"
 import { BasketInfo } from "./BasketInfo"

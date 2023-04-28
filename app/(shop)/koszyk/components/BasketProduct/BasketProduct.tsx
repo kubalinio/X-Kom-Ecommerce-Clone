@@ -4,12 +4,13 @@ import Link from "next/link"
 
 
 import { urlFor } from "@/lib/sanity.client"
-import { BasketItem, getTotals, addNewQuantity } from "@/store/basketSlice"
+import { BasketItem, getTotals, addNewQuantity } from "@/app/store/basketSlice"
 
-import { AddToWishList } from "./AddToWishList"
+
 import { ExpandActionBasketProduct } from "./ExpandActionBasketProduct"
 import { RemoveBasketProduct } from "./RemoveBasketProduct"
 import { QuantityBasketProduct } from "./QuantityBasketProduct"
+import { BasketAddToFav } from "./BasketAddToFav"
 
 
 export const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: BasketItem) => {
@@ -25,6 +26,7 @@ export const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: 
         dispatch(addNewQuantity(newProductQuantity))
         dispatch(getTotals())
     }
+
 
 
     return (
@@ -74,7 +76,7 @@ export const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: 
                             <QuantityBasketProduct basketQuantity={quantity} changeQuantity={handleChangeQuantity} />
 
                             {/* Add to Fav List */}
-                            <AddToWishList />
+                            <BasketAddToFav id={id!} />
 
                             {/* Delete Item Basket */}
                             <RemoveBasketProduct id={id!} />

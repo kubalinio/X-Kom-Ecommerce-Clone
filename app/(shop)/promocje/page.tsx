@@ -16,7 +16,7 @@ const PageTitle = () => {
 
 const PromotionPage = () => {
     return (
-        <main className='max-w-full mx-auto w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px]'>
+        <main className='max-w-full mx-auto w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]'>
             <div className='relative h-full mb-8'>
                 {/* Components */}
                 {/* #1 BreadCrumbs */}

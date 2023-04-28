@@ -1,11 +1,11 @@
 import { urlFor } from '@/lib/sanity.client'
-import { Image as ImageData } from '@/typings'
+import { Image as ImageData } from '@/app/typings'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { AiOutlineCheck } from 'react-icons/ai'
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md'
-import { Modal, ModalBody, ModalContainer, ModalHeader } from './Modal'
+import { Modal, ModalBody, ModalContainer, ModalHeader } from './Modals/Modal'
 
 
 const ModalBasketBottom = ({ close }: { close: () => void }) => {

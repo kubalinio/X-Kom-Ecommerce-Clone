@@ -2,7 +2,7 @@
 
 import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
 import { urlFor } from "@/lib/sanity.client"
-import { Promotion, Promotions } from "@/typings"
+import { Promotion, Promotions } from "@/app/typings"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"

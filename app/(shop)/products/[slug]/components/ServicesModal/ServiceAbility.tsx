@@ -1,13 +1,12 @@
 'use client'
 
-import { Modal, ModalBody, ModalContainer, ModalHeader } from '@/app/components/Modal'
-import { Image as ImageData } from '@/typings'
-import { usePathname, useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import { Modal, ModalBody, ModalContainer, ModalHeader } from '@/app/components/Modals/Modal'
+import { Image as ImageData } from '@/app/typings'
+
+import React, { useState } from 'react'
 import { AiOutlineCheckCircle } from 'react-icons/ai'
-import ServiceDeliveryTime from './ServiceDeliveryTime'
 import { ServiceBodyBottom, ServiceBodyHead, ServiceBtn } from './Services'
-import ServiceShowrooms from './ServiceShowrooms'
+
 
 const abilityData = {
     title: 'Dostępność produktu',

@@ -23,7 +23,7 @@ export const PageNavigation = () => {
 
     useEffect(() => {
         document.body.style.height = '100%'
-        document.body.style.overflow = 'visible'
+        document.body.style.overflowX = 'hidden'
     }, [])
 
     return (

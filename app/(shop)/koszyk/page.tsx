@@ -3,8 +3,8 @@
 
 import { useSelector } from 'react-redux'
 
-import useWindowDimensions from '@/hooks/useWindowDimensions'
-import { RootState } from '@/store'
+import useWindowDimensions from '@/app/hooks/useWindowDimensions'
+import { RootState } from '@/app/store'
 import { BasketInfo } from '../../components/Basket'
 import AddToWishList from './components/AddAllToWishList'
 import CompletionOrder from '../koszyk/components/CompletionOrder'

@@ -1,6 +1,6 @@
 'use client'
 
-import useDebounce from "@/hooks/useDebounce"
+import useDebounce from "@/app/hooks/useDebounce"
 import { useState } from "react"
 import Overlay from "../../Overlay"
 import { CategorieBarDropdown } from "./CategorieBarDropdown"

@@ -2,7 +2,7 @@
 
 
 
-import useWindowDimensions from '@/hooks/useWindowDimensions';
+import useWindowDimensions from '@/app/hooks/useWindowDimensions';
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
 
@@ -70,6 +70,7 @@ const RecommendProducts = () => {
                                     mainImage={product.mainImage}
                                     title={product.title}
                                     price={product.price}
+                                    oldPrice={product.oldPrice}
                                 />
                             </div>
                         ))}

@@ -145,39 +145,41 @@ const footerItems: footerItem[] = [
 
 ]
 
-const FooterMain = () => (
-    <footer>
-        {/* Foot Layout page */}
-        <div className='max-w-full w-[calc(100%-32px)] mx-auto md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px] font-lato pt-6'>
+const FooterMain = () => {
+    return (
+        <footer>
+            {/* Foot Layout page */}
+            <div className='max-w-full w-[calc(100%-32px)] mx-auto md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px] font-lato pt-6'>
 
-            {/* Top Section Newsletter , Appmobile && Partner program */}
-            <div className='flex flex-col mb-10 lg:flex-row lg:flex-wrap'>
-                {/* NewsLetter */}
-                <Newsletter />
-                {/* Mobile App Box */}
-                <MobileAppBox />
-                {/* Sales Master */}
-                <SaleMasterBox />
-            </div>
-
-            {/* Bottom Section Orders, Promotion, x-kom, Contact */}
-            <div>
-                {/* Orders... */}
-                <div className='flex flex-col-reverse justify-between pb-[52px] md:flex-row' >
-                    {/* Orders ... */}
-                    <FooterExpandNav items={footerItems} />
-                    {/* Desktop/Tablet Navigation*/}
-                    <FooterNavigation items={footerItems} />
-
-                    <FooterContact />
+                {/* Top Section Newsletter , Appmobile && Partner program */}
+                <div className='flex flex-col mb-10 lg:flex-row lg:flex-wrap'>
+                    {/* NewsLetter */}
+                    <Newsletter />
+                    {/* Mobile App Box */}
+                    <MobileAppBox />
+                    {/* Sales Master */}
+                    <SaleMasterBox />
                 </div>
 
-                {/* Companies.. */}
-                <FooterCompanies />
+                {/* Bottom Section Orders, Promotion, x-kom, Contact */}
+                <div>
+                    {/* Orders... */}
+                    <div className='flex flex-col-reverse justify-between pb-[52px] md:flex-row' >
+                        {/* Orders ... */}
+                        <FooterExpandNav items={footerItems} />
+                        {/* Desktop/Tablet Navigation*/}
+                        <FooterNavigation items={footerItems} />
+
+                        <FooterContact />
+                    </div>
+
+                    {/* Companies.. */}
+                    <FooterCompanies />
+                </div>
             </div>
-        </div>
-    </footer >
-)
+        </footer >
+    )
+}
 
 
 export const Footer = () => {

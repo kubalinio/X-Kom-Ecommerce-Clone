@@ -6,7 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useQuery } from "@tanstack/react-query"
 import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
-import { Brands } from "@/typings"
+import { Brands } from "@/app/typings"
 
 const fetchBrands = async () => {
     const response = await axios.get(`/api/getBrands`)

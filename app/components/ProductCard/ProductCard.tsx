@@ -1,33 +1,21 @@
 'use client'
 
 import { urlFor } from '@/lib/sanity.client';
-import { Product } from '@/typings';
+import { Product } from '@/app/typings';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AddToBasket } from './AddToBasket';
-import AddToFav from './AddToFav';
+import AddToFav from './ProductAddToFav';
 
+export const ProductCard = ({ _id, slug, special, mainImage, title, price, oldPrice }: Product) => {
 
-// const ProductEvent = () => ()
-
-// const ProductFav = () => ()
-
-// const dispatch = useDispatch()
-//    
-
-//     useEffect(() => {
-//         dispatch(getTotals())
-// }, [basket, dispatch])
-
-
-export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Product) => {
 
     const currentSlug = slug.current
     const formatedPrice = price.toFixed(2).replace('.', ',')
     // text-[#fa0064]
 
     return (
-        <div className='relative rounded-lg cursor-pointer lg:duration-300 group lg:border lg:border-transparent lg:hover:shadow-xCom lg:hover:scale-105 lg:transition-all'>
+        <div className='relative rounded-lg cursor-pointer lg:duration-300 group lg:border lg:border-transparent lg:hover:shadow-xCom lg:transition-all'>
 
             {/* Promotion or Recommend */}
             {special ?
@@ -71,6 +59,10 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price }: Pro
                     <div className='flex items-end mt-1 h-9 md:mx-3 lg:mt-1 lg:mb-2'>
                         <div>
                             <div className='inline-block text-left'>
+                                {oldPrice &&
+                                    <span className='text-xs text-[#707070] line-through'>
+                                        {oldPrice.toFixed(2).replace('.', ',')} zł
+                                    </span>}
                                 <span className='block whitespace-nowrap lg:group-hover:text-[#fa0064] lg:group-hover:font-bold lg:transition-all lg:duration-200'>
                                     {formatedPrice} zł
                                 </span>

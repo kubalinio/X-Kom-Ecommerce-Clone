@@ -1,7 +1,7 @@
 'use client'
 
-import { Modal, ModalBody, ModalContainer, ModalHeader } from "@/app/components/Modal"
-import { Image as ImageData } from "@/typings"
+import { Modal, ModalBody, ModalContainer, ModalHeader } from "@/app/components/Modals/Modal"
+import { Image as ImageData } from "@/app/typings"
 import { useState } from "react"
 import { AiOutlineCheckCircle } from "react-icons/ai"
 import { ServiceBodyBottom, ServiceBodyHead, ServiceBtn } from "./Services"

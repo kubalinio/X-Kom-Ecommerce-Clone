@@ -1,6 +1,6 @@
 'use client'
 
-import { Products } from "@/typings"
+import { Products } from "@/app/typings"
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
 import { ProductCard } from "../../components/ProductCard/ProductCard"
@@ -35,6 +35,7 @@ export const BestsellerSection = () => {
                         mainImage={product.mainImage}
                         title={product.title}
                         price={product.price}
+                        oldPrice={product.oldPrice}
                     />
                 </div>
 

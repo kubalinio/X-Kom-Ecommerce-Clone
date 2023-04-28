@@ -1,8 +1,8 @@
 'use client'
 
-import useWindowDimensions from '@/hooks/useWindowDimensions';
+import useWindowDimensions from '@/app/hooks/useWindowDimensions';
 import { urlFor } from '@/lib/sanity.client';
-import { Image as ImageData } from '@/typings';
+import { Image as ImageData } from '@/app/typings';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ProductImagesCarousel } from './ProductImagesCarousel';

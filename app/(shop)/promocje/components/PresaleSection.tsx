@@ -1,6 +1,6 @@
 'use client'
 
-import { Promotions } from "@/typings"
+import { Promotions } from "@/app/typings"
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
 import { Element } from "react-scroll"

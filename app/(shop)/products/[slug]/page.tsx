@@ -1,7 +1,7 @@
 'use client'
 
 import { QuantityBasketProduct } from "@/app/(shop)/koszyk/components/BasketProduct/QuantityBasketProduct"
-import useWindowDimensions from "@/hooks/useWindowDimensions"
+import useWindowDimensions from "@/app/hooks/useWindowDimensions"
 import axios from "axios"
 import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"

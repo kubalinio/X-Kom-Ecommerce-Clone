@@ -1,6 +1,6 @@
 'use client'
 
-import { RootState } from '@/store'
+import { RootState } from '@/app/store'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AiOutlineUser } from 'react-icons/ai'

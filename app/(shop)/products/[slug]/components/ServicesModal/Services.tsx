@@ -1,5 +1,5 @@
 import { urlFor } from '@/lib/sanity.client';
-import { Image as ImageData } from '@/typings';
+import { Image as ImageData } from '@/app/typings';
 import Image from 'next/image';
 import React, { ReactNode } from 'react'
 

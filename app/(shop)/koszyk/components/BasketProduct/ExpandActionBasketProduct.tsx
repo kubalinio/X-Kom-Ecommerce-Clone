@@ -1,11 +1,11 @@
 'use client'
 
 
+import { AddToFavListBtn } from "@/app/components/AddToFavList"
 import { useState } from "react"
 import { AiOutlineMore } from "react-icons/ai"
-
-import { AddToWishListExpand } from "./AddToWishList"
 import { RemoveBasketProductExpand } from "./RemoveBasketProduct"
+
 
 export const ExpandActionBasketProduct = ({ id }: { id: string }) => {
     const [expand, setExpand] = useState(false)
@@ -31,7 +31,11 @@ export const ExpandActionBasketProduct = ({ id }: { id: string }) => {
 
                 <div className={`${expand ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} absolute flex flex-col text-left rounded-lg shadow-xCom py-2 z-[2] top-full right-0 left-auto bg-white`}>
 
-                    <AddToWishListExpand />
+                    <AddToFavListBtn
+                        id={id}
+                        mobile={true}
+                        closeExpand={() => setExpand(false)}
+                    />
 
                     <RemoveBasketProductExpand id={id} />
 

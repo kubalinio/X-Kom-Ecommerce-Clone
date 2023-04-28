@@ -1,5 +1,5 @@
 import { urlFor } from "@/lib/sanity.client";
-import { BasketItem } from "@/store/basketSlice";
+import { BasketItem } from "@/app/store/basketSlice";
 import Image from "next/image";
 import Link from "next/link";
 

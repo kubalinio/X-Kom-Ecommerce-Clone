@@ -1,7 +1,7 @@
 'use client'
 
-import { addToBasket, getTotals } from "@/store/basketSlice"
-import { Product } from "@/typings"
+import { addToBasket, getTotals } from "@/app/store/basketSlice"
+import { Product } from "@/app/typings"
 import { useEffect, useState } from "react"
 import { MdOutlineAddShoppingCart } from "react-icons/md"
 import { useDispatch } from "react-redux"

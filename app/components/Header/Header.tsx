@@ -2,8 +2,8 @@
 
 import {useEffect, useState } from 'react';
 
-import useWindowDimensions from '@/hooks/useWindowDimensions';
-import { useScrollDirection } from '@/hooks/useScrollDirection';
+import useWindowDimensions from '@/app/hooks/useWindowDimensions';
+import { useScrollDirection } from '@/app/hooks/useScrollDirection';
 
 import { SearchBar } from './SearchBar';
 import { HeaderNav } from './HeaderNav';
