@@ -1,7 +1,6 @@
 'use client'
 
 import LoadingSpinner from "@/app/components/LoadingSpinner"
-
 import { RootState } from "@/app/store"
 import { addToPurchaseList, removePurchaseListItem } from "@/app/store/purchaseSlice"
 import { useMutation } from "@tanstack/react-query"
