@@ -1,24 +1,27 @@
 'use client'
 
-import useWindowDimensions from '@/app/hooks/useWindowDimensions';
+
 import { urlFor } from '@/lib/sanity.client';
 import { Image as ImageData } from '@/app/typings';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ProductImagesCarousel } from './ProductImagesCarousel';
 import { ProductImgThumbnail } from './ProductImgThumbnail';
+import ActionBtns from '../ActionBtns';
 
 type Props = {
     images: ImageData[]
+    id: string
 }
 
-export const ProductGallery = ({ images }: Props) => {
+export const ProductGallery = ({ images, id }: Props) => {
     const [index, setIndex] = useState(0)
+
 
     return (
         // container
-        <div className='flex'>
-            <div className='flex flex-col items-center justify-center w-full h-full'>
+        <div className='relative flex'>
+            <div className='relative flex flex-col items-center justify-center w-full h-full'>
                 {/* max-md:Carousel Container */}
                 <ProductImagesCarousel images={images} />
 
@@ -40,12 +43,16 @@ export const ProductGallery = ({ images }: Props) => {
                 </div>
 
                 {/* Md: Mini Images */}
-                <div className='hidden md:block w-full md:relative md:h-[180px]'>
-                    <div className='absolute top-0 left-0 right-0 h-full min-h-[180px]'>
+                <div className='hidden w-full md:h-[80px] md:block md:relative'>
+                    <div className='absolute top-0 left-0 right-0 h-full min-h-[80px]'>
                         <div className='flex flex-wrap justify-center'>
 
                             {images.map((image, i) => (
-                                <ProductImgThumbnail image={image} active={() => setIndex(i)} actived={index === i} />
+                                <ProductImgThumbnail
+                                    key={Math.random()}
+                                    image={image}
+                                    active={() => setIndex(i)}
+                                    actived={index === i} />
                             ))}
 
                         </div>
@@ -53,7 +60,12 @@ export const ProductGallery = ({ images }: Props) => {
                 </div>
 
                 {/* Buttons */}
-                {/* <div></div> */}
+                <div className='md:hidden'>
+                    <ActionBtns
+                        id={id}
+                    />
+                </div>
+
             </div>
         </div>
     )

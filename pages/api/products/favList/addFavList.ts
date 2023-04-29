@@ -10,27 +10,35 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	const id = new ObjectId();
 
 	//check to see if post was liked by user
-	const favProduct = await prisma.favProduct.findFirst({
+	const favList = await prisma.purchaseList.findFirst({
 		where: {
-			productId: req.body.productId,
+			id: req.body.favListId,
 		},
 	});
 
 	if (req.method === 'POST') {
 		//Add Like
 		try {
-			if (!favProduct) {
-				const result = await prisma.favProduct.create({
+			if (!favList) {
+				const result = await prisma.purchaseList.create({
 					data: {
-						listId: id.toString(),
-						productId: req.body.productId,
+						id: id.toString(),
+						name: 'Ulubione',
+						products: {
+							set: req.body.productId,
+						},
 					},
 				});
 				res.status(201).json(result);
 			} else {
-				const result = await prisma.favProduct.delete({
+				const result = await prisma.purchaseList.update({
 					where: {
-						id: favProduct.id,
+						id: favList.id,
+					},
+					data: {
+						products: {
+							push: req.body.productId,
+						},
 					},
 				});
 				res.status(200).json(result);

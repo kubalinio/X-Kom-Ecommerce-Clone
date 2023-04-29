@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { AddToFavListBtn } from '../AddToFavList'
 import { AddToFavPopper } from '../AddToFavList/AddToFavPopper'
-import { FavModal } from '../AddToFavList/Modal'
+
 
 
 
@@ -19,6 +19,8 @@ const AddToFav = ({ id }: { id: string }) => {
         purchaseList.purchaseListItems.map(item => {
             if (item.id === id) {
                 setLiked(true)
+            } else {
+                setLiked(false)
             }
         })
     }, [])
@@ -44,7 +46,7 @@ const AddToFav = ({ id }: { id: string }) => {
                     <div>
                         <AddToFavListBtn
                             id={id}
-                            mobile={false}
+                            versionBtn={'DesktopFavBtn'}
                             showInfo={(isLiked) => handleShowInfo(isLiked)}
                         />
                     </div>

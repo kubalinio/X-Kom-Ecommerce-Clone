@@ -15,17 +15,15 @@ model PurchaseList {
   updateAt DateTime @updatedAt
   id String @id @default(auto()) @map("_id") @db.ObjectId 
   name String
-  products FavProduct[]
+  products String[] 
 }
 
 model FavProduct {
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
   id     String @id @default(auto()) @map("_id") @db.ObjectId 
-  
   productId String
   listId String @db.ObjectId
-  purchaseList PurchaseList @relation(fields: [listId],references: [id], onDelete: Cascade)
 }
 
 // model Heart {

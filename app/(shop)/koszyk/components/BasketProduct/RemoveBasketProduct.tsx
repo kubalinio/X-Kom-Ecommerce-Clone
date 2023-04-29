@@ -4,13 +4,14 @@ import { useDispatch } from "react-redux"
 
 
 
-export const RemoveBasketProductExpand = ({ id }: { id: string }) => {
+export const RemoveBasketProductExpand = ({ id, closeExpand }: { id: string, closeExpand: () => void }) => {
     const dispatch = useDispatch()
 
     const removeItemFromBasket = () => {
 
         dispatch(removeItem(id))
         dispatch(getTotals())
+        closeExpand()
     }
 
     return (

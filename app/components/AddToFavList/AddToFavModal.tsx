@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { GrClose } from 'react-icons/gr'
 
-const AddToFavModal = ({ close }: { close: () => void }) => {
+export const AddToFavModal = ({ close }: { close: () => void }) => {
 
     const modalRef = useRef<HTMLDivElement>(null)
     const overlayRef = useRef<HTMLDivElement>(null)
@@ -58,5 +58,3 @@ const AddToFavModal = ({ close }: { close: () => void }) => {
         </div>
     )
 }
-
-export default AddToFavModal

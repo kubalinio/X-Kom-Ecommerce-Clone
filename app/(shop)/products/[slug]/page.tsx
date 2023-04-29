@@ -11,6 +11,8 @@ import LoadingSkelleton from "../../products/[slug]/components/LoadingSkelleton"
 import ProductPrice from "../../products/[slug]/components/ProductPrice"
 import { Services } from "./components/ServicesModal"
 import { ProductGallery } from "./components/ProductGallery"
+import { Products } from "@/app/typings"
+import ActionBtns from "./components/ActionBtns"
 
 
 type URL = {
@@ -44,20 +46,36 @@ const ProductDetail = (url: URL) => {
         <main className="mb-6 bg-white mx-auto max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px]">
             <div>
                 <div>
+                    {/* Action Btns & Breadcast */}
+                    <div className="flex items-center justify-end lg:pt-4">
+                        <div className="flex">
+                            <div className="justify-end hidden w-full lg:flex">
+                                <ActionBtns
+                                    id={data?.product._rev}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
                     {/* MD: Heading */}
                     {width! >= 720 && width! < 1079 ? (
                         <HeadingProduct title={data?.product.title} />
                     ) : ''}
 
                     {/* Product */}
-                    <div className="flex flex-wrap pt-5 -mx-2 md:-mx-3 md:mt-2">
+                    <div className="flex flex-wrap pt-5 -mx-2 md:-mx-3 md:mt-2 lg:mt-0 lg:pt-2">
 
                         {/* Top/LEft Image Slider */}
                         <div className="order-1 w-full h-full px-2 mb-4 md:order-2 md:px-3 md:w-3/5 lg:w-1/2">
-                            <ProductGallery images={data?.product.images} />
+                            <ProductGallery
+                                images={data?.product.images}
+                                id={data?.product._rev}
+                            />
 
                             {/* Compare buttons */}
-                            <div></div>
+                            <div className="hidden md:block lg:hidden">
+                                <ActionBtns id={data?.product._rev} />
+                            </div>
                         </div>
 
                         {/* Bottom/Right Content */}
