@@ -172,13 +172,7 @@ export const AddToFavListBtn = ({ id, versionBtn, closeExpand, showInfo }: Props
                         title='Zapisz jako liście'
                         className={`inline-flex items-center justify-start w-full h-[48px]  bg-transparent border-none py-2 px-5 cursor-pointer ${isLoading ? 'text-gray-400' : 'text-[#4d4d4d]'}`}
                     >
-                        <span className='inline-flex items-center justify-center w-6 h-6 mr-1 '>
-                            {isLoading ? <LoadingSpinner /> :
-                                isLiked ?
-                                    <IoMdHeart className='w-full h-full text-[#BE0064]' /> :
-                                    <IoMdHeartEmpty className='w-full h-full text-[#BE0064]' />
-                            }
-                        </span>
+                        <Icon />
 
                         <span className='flex flex-col'>
                             <span className='py-3 whitespace-nowrap'>
@@ -206,14 +200,7 @@ export const AddToFavListBtn = ({ id, versionBtn, closeExpand, showInfo }: Props
                                 onClick={() => handleClickBtn()}
                                 className='z-[5] relative inline-flex items-center justify-center bg-white w-10 h-10 mt-2 shadow-sm-xCom rounded-full hover:bg-[#ddd] transition-colors duration-200 cursor-pointer'
                             >
-                                <span className='flex items-center justify-center w-5 h-5 overflow-hidden'>
-                                    {isLoading ? <LoadingSpinner /> :
-                                        isLiked ?
-                                            <IoMdHeart className='w-full h-full text-[#BE0064]' /> :
-                                            <IoMdHeartEmpty className='w-full h-full text-[#BE0064]' />
-                                    }
-
-                                </span>
+                                <Icon />
 
                                 <div className={`absolute top-1/2 left-1/2 rounded-full w-10 h-10  border-[#BE0064] transform -translate-x-1/2 -translate-y-1/2 z-[10] ${effect && 'animate-pulsOnceClick'}`} />
 
