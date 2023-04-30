@@ -19,8 +19,6 @@ const AddToFav = ({ id }: { id: string }) => {
         purchaseList.purchaseListItems.map(item => {
             if (item.id === id) {
                 setLiked(true)
-            } else {
-                setLiked(false)
             }
         })
     }, [])
@@ -29,6 +27,7 @@ const AddToFav = ({ id }: { id: string }) => {
         setShow(isLiked)
         setLiked(isLiked)
     }
+
 
     return (
         <div className='absolute hidden transition-all duration-300 top-1 right-1 lg:block lg:top-3 lg:right-3'>
