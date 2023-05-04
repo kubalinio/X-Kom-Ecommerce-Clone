@@ -2,7 +2,7 @@
 
 import '../(shop)/globals.css'
 
-import { Lato } from "@next/font/google"
+import { Lato } from "next/font/google"
 import { ReactNode } from "react"
 
 const lato = Lato({
