@@ -5,7 +5,7 @@ interface SanityBody {
 	_updatedAt?: string;
 }
 
-interface slug {
+export interface Slug {
 	_type: 'slug';
 	current: string;
 }
@@ -35,7 +35,7 @@ export interface Product extends SanityBody {
 	// image: Image[];
 	price: number;
 	oldPrice?: number;
-	slug: slug | string;
+	slug: Slug;
 	special?: string;
 }
 

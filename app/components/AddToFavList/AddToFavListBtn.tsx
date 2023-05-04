@@ -31,7 +31,7 @@ const fetchProductsInFav = async (listIds: string[]) => {
 }
 
 export const AddToFavListBtn = ({ product, versionBtn, closeExpand, showInfo }: Props) => {
-    const { _id: id, mainImage, price, slug, title } = product
+    const { _id: id, mainImage, price, title } = product
 
     const queryClient = useQueryClient()
     const [effect, setEffect] = useState(false)

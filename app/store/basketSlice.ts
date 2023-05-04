@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Image as ImageData } from '../typings';
+
+import { Image as ImageData, Slug } from '../typings';
 
 export type BasketItem = {
 	_id?: string;
@@ -7,7 +8,7 @@ export type BasketItem = {
 	price: number;
 	mainImage: ImageData;
 	quantity: number;
-	slug: string;
+	slug: Slug;
 	special?: string;
 	onClick?: () => void;
 };
