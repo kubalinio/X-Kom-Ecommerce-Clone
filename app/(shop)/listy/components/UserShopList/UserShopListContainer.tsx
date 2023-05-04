@@ -10,7 +10,7 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/app/store'
 import { PurchaseList } from '@prisma/client'
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 
 // Fetch lists 
 // when create list fetch by slug look post it Project
@@ -21,21 +21,34 @@ const fetchAllList = async (listIds: string[]) => {
         ids: listIds
     })
     return response.data
+
+
 }
 
 
 export const UserShopList = () => {
-
     const purchaseLists = useSelector((state: RootState) => state.purchaseList)
-    const listIds = purchaseLists.purchaseListItems.map(item => item.id)
 
-    const { data, error, isLoading } = useQuery({
+    const [listIds, setListIds] = useState<Array<string>>([])
+    const [fetchList, setFetchList] = useState(false)
+
+    useEffect(() => {
+
+        if (purchaseLists.purchaseListItems.length > 0) {
+            setFetchList(true)
+            setListIds(purchaseLists.purchaseListItems.map(item => item.id))
+        }
+
+    }, [])
+
+
+    const { data, error, isLoading, isFetching } = useQuery({
         queryFn: () => fetchAllList(listIds),
         queryKey: ['purchaseLists'],
-        enabled: !!listIds
+        enabled: fetchList
     })
     if (error) return (<div>error</div>)
-    if (isLoading) return (<div>Loading...</div>)
+    if (isLoading && isFetching) return (<div>Loading...</div>)
 
     return (
         <div className='lg:pl-2'>
@@ -48,11 +61,11 @@ export const UserShopList = () => {
             <div className='min-h-[32px]'>{/* Notification */}</div>
 
             {/* Created List Dynamic with fav products */}
-            <ShopListBody lists={data!} />
+
 
             {/* How use lists */}
-            {data?.length! > 0 ?
-                '' :
+            {data ?
+                <ShopListBody lists={data!} /> :
                 <ShopListBottom />}
 
             {/* Need Help ? */}

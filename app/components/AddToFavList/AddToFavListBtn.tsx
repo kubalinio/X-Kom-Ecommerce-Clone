@@ -6,11 +6,12 @@ import { BasketItem } from "@/app/store/basketSlice"
 import { addToPurchaseList, removePurchaseListItem } from "@/app/store/purchaseSlice"
 import { Product, PurchaseListProduct } from "@/app/typings"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 import { useEffect, useMemo, useState } from "react"
 
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io"
 import { useDispatch, useSelector } from "react-redux"
+import { uuid } from "uuidv4"
 
 
 
@@ -33,17 +34,30 @@ const fetchProductsInFav = async (listIds: string[]) => {
 export const AddToFavListBtn = ({ product, versionBtn, closeExpand, showInfo }: Props) => {
     const { _id: id, mainImage, price, title } = product
 
+    const dispatch = useDispatch()
+    const [listIds, setListIds] = useState<Array<string>>([])
+    const [fetchFav, setFetchFav] = useState(false)
+
     const queryClient = useQueryClient()
     const [effect, setEffect] = useState(false)
-    const [isFetched, setIsFetched] = useState(false)
     const [isLiked, setIsLiked] = useState(false)
 
     const purchaseList = useSelector((state: RootState) => state.purchaseList)
-    const listIds = purchaseList.purchaseListItems.map(item => item.id)
 
-    const { isLoading: isLoadingIds } = useQuery({
+    useEffect(() => {
+        setListIds(purchaseList.purchaseListItems.map(item => item.id))
+
+        if (purchaseList.purchaseListItems.length > 0) {
+            setFetchFav(true)
+        } else {
+            setFetchFav(false)
+        }
+    }, [])
+
+    const { isLoading: isLoadingIds, isFetching } = useQuery({
         queryFn: () => fetchProductsInFav(listIds),
         queryKey: ['products-in-fav-list'],
+        enabled: fetchFav,
         onSuccess(data) {
             {
                 data.map((item: { Id: string }) => {
@@ -74,29 +88,56 @@ export const AddToFavListBtn = ({ product, versionBtn, closeExpand, showInfo }: 
             onSuccess: (data: any) => {
                 if (data.status === 201) {
                     setIsLiked(true)
-                    setIsFetched(true)
                     showInfo!(true, true)
                     setEffect(true)
                 }
 
                 if (data.status === 200) {
                     setIsLiked(false)
-                    setIsFetched(false)
                     showInfo!(false, false)
                     setEffect(false)
                 }
             }
-        }
+        },
+
+
+    )
+
+    const { mutate: mutateList, isLoading: isLoadingList } = useMutation(
+        async ({ listName, listId }: { listName: string, listId: string }) =>
+            // const id = await new ObjectId().toString()
+            await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/purchaseLists/createPurchaseList`, {
+                Name: listName,
+                Id: listId,
+                WebUrl: `/listy/${listId}`
+            }), {
+        onError: (error: AxiosError) => {
+            console.log(error)
+        },
+        onSuccess: ({ data }) => {
+            queryClient.invalidateQueries(['purchaseLists'])
+            mutate(data.Id)
+        },
+    }
     )
 
     const handleClickBtn = () => {
-        mutate(listIds[listIds.length - 1])
+        if (listIds.length > 0) {
+
+            mutate(listIds[listIds.length - 1])
+
+        } else {
+            const listId = uuid().slice(0, 8)
+            dispatch(addToPurchaseList({ id: listId }))
+
+            mutateList({ listName: 'Ulubione', listId })
+        }
     }
 
     const Icon = () => (
         <span className='flex items-center justify-center w-5 h-5 overflow-hidden'>
             {
-                isLoading || isLoadingIds ? <LoadingSpinner /> :
+                isLoading || isLoadingList || isLoadingIds && isFetching ? <LoadingSpinner /> :
                     isLiked ?
                         <IoMdHeart className='w-full h-full text-[#BE0064]' /> :
                         <IoMdHeartEmpty className='w-full h-full text-[#BE0064]' />
