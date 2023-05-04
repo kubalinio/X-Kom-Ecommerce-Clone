@@ -29,7 +29,7 @@ export const UserShopList = () => {
     const purchaseLists = useSelector((state: RootState) => state.purchaseList)
     const listIds = purchaseLists.purchaseListItems.map(item => item.id)
 
-    const { data, error, isLoading } = useQuery<PurchaseList[]>({
+    const { data, error, isLoading } = useQuery({
         queryFn: () => fetchAllList(listIds),
         queryKey: ['purchaseLists'],
         enabled: !!listIds
