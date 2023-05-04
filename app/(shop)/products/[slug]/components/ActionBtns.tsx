@@ -20,7 +20,7 @@ const ActionBtns = ({ product }: Props) => {
                     <AddToFavListBtn
                         versionBtn={'ProductGalleryFavBtn'}
                         product={product}
-                        showInfo={(isLiked) => setShow(isLiked)}
+                        showInfo={(isLiked, isShow) => setShow(isShow)}
                     />
                 </div>
             ) : (
@@ -30,7 +30,7 @@ const ActionBtns = ({ product }: Props) => {
                     <AddToFavListBtn
                         versionBtn={'LongFavBtn'}
                         product={product}
-                        showInfo={(isLiked) => setShow(isLiked)} />
+                        showInfo={(isLiked, isShow) => setShow(isShow)} />
                 </div>
             )}
 

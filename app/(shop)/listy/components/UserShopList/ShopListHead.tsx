@@ -10,6 +10,7 @@ import { FormEvent, useEffect, useState } from "react"
 import CreateListBtn from "./CreateListBtn"
 import { useDispatch } from "react-redux"
 import { addToPurchaseList } from "@/app/store/purchaseSlice"
+import { useRouter } from "next/navigation"
 
 type Props = {
     listsLength: number | undefined
@@ -18,6 +19,7 @@ type Props = {
 export const ShopListHead = ({ listsLength }: Props) => {
     const [showModal, setShowModal] = useState(false)
     const [listName, setListName] = useState('')
+    const router = useRouter()
 
     const dispatch = useDispatch()
     const queryClient = useQueryClient()
@@ -37,6 +39,7 @@ export const ShopListHead = ({ listsLength }: Props) => {
             queryClient.invalidateQueries(['purchaseLists'])
             // Redirect to list
             setListName('')
+            router.push(data.WebUrl)
         },
     }
     )

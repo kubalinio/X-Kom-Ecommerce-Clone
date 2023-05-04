@@ -27,6 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 								MainPhoto: req.body.MainPhoto,
 								IsPriceVisible: req.body.IsPriceVisible,
 								Price: req.body.Price,
+								ProductCount: req.body.ProductCount,
 							},
 						},
 						TotalPrice: {

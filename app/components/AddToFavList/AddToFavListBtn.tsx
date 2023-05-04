@@ -11,9 +11,7 @@ import { useEffect, useMemo, useState } from "react"
 
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io"
 import { useDispatch, useSelector } from "react-redux"
-import { uuid } from "uuidv4"
-
-
+import { v4 as uuid } from "uuid"
 
 type Props = {
     versionBtn: string
@@ -21,8 +19,6 @@ type Props = {
     showInfo?: (isLiked: boolean, isShow: boolean) => void
     product: Product
 }
-
-
 
 const fetchProductsInFav = async (listIds: string[]) => {
     const response = await axios.post('/api/purchaseLists/productsInFavList', {
@@ -32,7 +28,7 @@ const fetchProductsInFav = async (listIds: string[]) => {
 }
 
 export const AddToFavListBtn = ({ product, versionBtn, closeExpand, showInfo }: Props) => {
-    const { _id: id, mainImage, price, title } = product
+    const { _id: id, title, price, mainImage, slug } = product
 
     const dispatch = useDispatch()
     const [listIds, setListIds] = useState<Array<string>>([])
@@ -74,12 +70,11 @@ export const AddToFavListBtn = ({ product, versionBtn, closeExpand, showInfo }: 
         await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/purchaseLists/addProductToList`, {
             listId: listIds,
             Id: id,
+            ProductCount: 1,
             Name: title,
             MainPhoto: mainImage,
             IsPriceVisible: true,
             Price: price,
-            // ProductCount: 1,
-            // WebUrl: slug,
         }),
         {
             onError: (error: any) => {

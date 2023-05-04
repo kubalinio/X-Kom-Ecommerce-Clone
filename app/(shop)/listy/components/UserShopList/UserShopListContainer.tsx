@@ -42,7 +42,7 @@ export const UserShopList = () => {
     }, [])
 
 
-    const { data, error, isLoading, isFetching } = useQuery({
+    const { data, error, isLoading, isFetching, isSuccess } = useQuery({
         queryFn: () => fetchAllList(listIds),
         queryKey: ['purchaseLists'],
         enabled: fetchList
@@ -66,7 +66,9 @@ export const UserShopList = () => {
             {/* How use lists */}
             {data ?
                 <ShopListBody lists={data!} /> :
-                <ShopListBottom />}
+                ''}
+
+            <ShopListBottom isFetched={isSuccess} />
 
             {/* Need Help ? */}
             <div className='max-lg:hidden'>

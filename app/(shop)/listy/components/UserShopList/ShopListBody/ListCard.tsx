@@ -1,12 +1,69 @@
 
-
 import { PurchaseList } from '@/app/typings'
 import { urlFor } from '@/lib/sanity.client'
+import { useQueryClient } from '@tanstack/react-query'
+import axios, { AxiosError } from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import { AiOutlineMore } from 'react-icons/ai'
 import { IoMdHeartEmpty } from 'react-icons/io'
+import { RiDeleteBinLine, RiShareForwardLine } from 'react-icons/ri'
+import { useMutation } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
+
+type BtnProps = {
+    action: string
+    id: string
+}
+
+
+const ActionBtn = ({ action, id }: BtnProps) => {
+    const queryClient = useQueryClient()
+    const router = useRouter()
+
+    const { mutate } = useMutation(
+        async (id: string) => await axios.post('/api/purchaseLists/deletePurchaseList', {
+            listId: id
+        }), {
+        onError: (error: AxiosError) => {
+            console.log(error)
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries(['purchaseLists'])
+            // router.refresh()
+        }
+    }
+
+    )
+
+    const handleClickBtn = (action: string) => {
+        if (action === 'delete') {
+            mutate(id)
+        }
+    }
+
+    return (
+        <button
+            onClick={action === 'delete' ? () => handleClickBtn('delete') : () => handleClickBtn('share')}
+
+            title={action === 'share' ? 'Udostępnij listę' : 'Usuń listę'}
+            className='inline-flex items-center justify-start whitespace-nowrap bg-transparent rounded-none w-full h-[48px] py-3 px-4 hover:bg-[#ddd] transition-colors duration-200' >
+            <span className='inline-block w-6 h-6 mr-3 overflow-hidden'>
+                {action === 'share' ?
+                    <RiShareForwardLine className='w-full h-full text-xl ' /> :
+                    <RiDeleteBinLine className='w-full h-full text-xl' />
+                }
+            </span>
+
+            <span>
+                <span>
+                    {action === 'share' ? 'Udostępnij listę' : 'Usuń listę'}
+                </span>
+            </span>
+        </button >
+    )
+}
 
 const ExpandActionList = ({ id }: { id: string }) => {
     const [expand, setExpand] = useState(false)
@@ -28,7 +85,7 @@ const ExpandActionList = ({ id }: { id: string }) => {
     return (
         <div className={`${expand ? 'z-[999]' : 'z-[1]'} absolute right-0 flex justify-center items-start gap-1 min-h-full mt-3`}>
             {/* Icon */}
-            <div ref={buttonRef}>
+            <div ref={buttonRef} >
                 <div className="pointer-events-auto">
                     <button
                         onClick={() => setExpand(!expand)}
@@ -48,10 +105,15 @@ const ExpandActionList = ({ id }: { id: string }) => {
 
                 <div
                     ref={expandBoxRef}
-                    className={`${expand ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} absolute flex flex-col text-left rounded-lg shadow-xCom py-2 z-[2] top-1/2 right-0 left-auto bg-white`}>
+                    className={`${expand ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} absolute flex flex-col text-left rounded-lg shadow-xCom py-2 z-[2] top-[46px] right-0 left-auto bg-white`}>
 
-                    <button>Udostepnij listę</button>
-                    <button>Usuń listę</button>
+                    <ActionBtn action={'share'} id={id} />
+
+                    <ActionBtn action={'delete'} id={id} />
+
+
+
+
 
                 </div>
             </div>

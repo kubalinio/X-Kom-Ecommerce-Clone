@@ -31,15 +31,6 @@ model ProductItem {
   MainPhoto      Json?
   IsPriceVisible Boolean
   Price          Float?
-  // ProductCount Int
-  // WebUrl String
-  PurchaseList   PurchaseList? @relation(fields: [listId], references: [Id])
+  ProductCount   Int
+  PurchaseList   PurchaseList? @relation(fields: [listId], references: [Id], onDelete: Cascade)
 }
-
-// model Heart {
-//   id       String @id @default(auto()) @map("_id") @db.ObjectId
-//   createdAt DateTime @default(now())
-//   updateAt DateTime @updatedAt
-//   productId String
-
-// }
