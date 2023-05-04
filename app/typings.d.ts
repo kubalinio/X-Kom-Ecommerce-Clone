@@ -32,7 +32,7 @@ export interface Product extends SanityBody {
 	id?: string;
 	title: string;
 	mainImage: Image;
-	// image: Image[];
+	images?: Image[];
 	price: number;
 	oldPrice?: number;
 	slug: Slug;

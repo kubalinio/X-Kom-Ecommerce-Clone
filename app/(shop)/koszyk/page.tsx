@@ -56,7 +56,7 @@ const BasketPage = () => {
                                 {basket.basketItems.map(product => (
 
                                     <BasketProduct
-                                        key={product.slug}
+                                        key={product.slug.current}
                                         product={product}
                                     />
 

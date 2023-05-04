@@ -68,8 +68,7 @@ const ProductDetail = (url: URL) => {
                         {/* Top/LEft Image Slider */}
                         <div className="order-1 w-full h-full px-2 mb-4 md:order-2 md:px-3 md:w-3/5 lg:w-1/2">
                             <ProductGallery
-                                images={data?.product.images}
-                                id={data?.product._rev}
+                                product={data.product}
                             />
 
                             {/* Compare buttons */}

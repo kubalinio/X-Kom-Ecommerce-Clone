@@ -2,7 +2,7 @@
 
 
 import { urlFor } from '@/lib/sanity.client';
-import { Image as ImageData } from '@/app/typings';
+import { Image as ImageData, Product } from '@/app/typings';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ProductImagesCarousel } from './ProductImagesCarousel';
@@ -10,11 +10,11 @@ import { ProductImgThumbnail } from './ProductImgThumbnail';
 import ActionBtns from '../ActionBtns';
 
 type Props = {
-    images: ImageData[]
-    id: string
+    product: Product
 }
 
-export const ProductGallery = ({ images, id }: Props) => {
+export const ProductGallery = ({ product }: Props) => {
+    const { images } = product
     const [index, setIndex] = useState(0)
 
 
@@ -23,7 +23,7 @@ export const ProductGallery = ({ images, id }: Props) => {
         <div className='relative flex'>
             <div className='relative flex flex-col items-center justify-center w-full h-full'>
                 {/* max-md:Carousel Container */}
-                <ProductImagesCarousel images={images} />
+                <ProductImagesCarousel images={images!} />
 
                 {/* Md: Main Image */}
 
@@ -31,7 +31,7 @@ export const ProductGallery = ({ images, id }: Props) => {
                     <div className='w-full'>
                         <span className='inline-flex items-center justify-center w-full md:h-[343px] bg:h-[400px] lg:h-[433px] md:mb-3 bg:mb-6 lg:mb-3'>
                             <Image
-                                src={urlFor(images[index]).url()}
+                                src={urlFor(images![index]).url()}
                                 width={393}
                                 height={343}
                                 alt=''
@@ -47,7 +47,7 @@ export const ProductGallery = ({ images, id }: Props) => {
                     <div className='absolute top-0 left-0 right-0 h-full min-h-[80px]'>
                         <div className='flex flex-wrap justify-center'>
 
-                            {images.map((image, i) => (
+                            {images?.map((image, i) => (
                                 <ProductImgThumbnail
                                     key={Math.random()}
                                     image={image}
@@ -62,7 +62,7 @@ export const ProductGallery = ({ images, id }: Props) => {
                 {/* Buttons */}
                 <div className='md:hidden'>
                     <ActionBtns
-                        id={id}
+                        product={product}
                     />
                 </div>
 
