@@ -64,13 +64,7 @@ const RecommendProducts = () => {
                         {data.products.map(product => (
                             <div key={product._rev} className='w-1/4 px-2 mb-[22px]'>
                                 <ProductCard
-                                    _id={product._rev}
-                                    slug={product.slug}
-                                    special={product.special}
-                                    mainImage={product.mainImage}
-                                    title={product.title}
-                                    price={product.price}
-                                    oldPrice={product.oldPrice}
+                                    product={product}
                                 />
                             </div>
                         ))}
@@ -105,12 +99,7 @@ const RecommendProducts = () => {
                                         <SwiperSlide key={product._rev}>
                                             <div className='w-full h-full max-w-[150px] p-2 min-w-[150px] sm:min-w-[180px] sm:max-w-[180px] md:max-w-[220px] md:min-w-[220px]'>
                                                 <ProductCard
-                                                    _id={product._rev}
-                                                    slug={product.slug}
-                                                    special={product.special}
-                                                    mainImage={product.mainImage}
-                                                    title={product.title}
-                                                    price={product.price} />
+                                                    product={product} />
                                             </div>
                                         </SwiperSlide>
                                     ))

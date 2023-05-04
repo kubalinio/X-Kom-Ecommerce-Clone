@@ -51,7 +51,7 @@ const ProductDetail = (url: URL) => {
                         <div className="flex">
                             <div className="justify-end hidden w-full lg:flex">
                                 <ActionBtns
-                                    id={data?.product._rev}
+                                    product={data?.product}
                                 />
                             </div>
                         </div>
@@ -74,7 +74,7 @@ const ProductDetail = (url: URL) => {
 
                             {/* Compare buttons */}
                             <div className="hidden md:block lg:hidden">
-                                <ActionBtns id={data?.product._rev} />
+                                <ActionBtns product={data?.product} />
                             </div>
                         </div>
 

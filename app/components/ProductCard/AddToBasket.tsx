@@ -17,7 +17,7 @@ export const AddToBasket = ({ _id, slug, special, mainImage, title, price }: Pro
         const quantity = 1
 
         const product = {
-            id: _id, title, price, mainImage, quantity, slug: currentSlug, special
+            _id, title, price, mainImage, quantity, slug: currentSlug, special
         }
 
         dispatch(addToBasket(product))

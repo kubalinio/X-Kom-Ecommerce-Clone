@@ -1,26 +1,27 @@
 import { AddToFavListBtn, AddToFavModal } from "@/app/components/AddToFavList"
 
 import { ModalContainer } from "@/app/components/Modals/Modal"
+import { BasketItem } from "@/app/store/basketSlice"
 
 import { useState } from "react"
 
 type Props = {
-    id: string
+    product: BasketItem
 }
 
-export const BasketAddToFav = ({ id }: Props) => {
+export const BasketAddToFav = ({ product }: Props) => {
     const [show, setShow] = useState(false)
 
-    const handleShowModal = (isLiked: boolean) => {
-        setShow(isLiked)
+    const handleShowModal = (isShow: boolean) => {
+        setShow(isShow)
     }
 
     return (
         <>
             <AddToFavListBtn
-                id={id}
+                product={product}
                 versionBtn={'DesktopFavBtn'}
-                showInfo={(isLiked) => handleShowModal(isLiked)}
+                showInfo={(isLiked, isShow) => handleShowModal(isShow)}
             />
 
 

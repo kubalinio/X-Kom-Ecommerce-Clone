@@ -29,13 +29,14 @@ export interface Slides {
 }
 
 export interface Product extends SanityBody {
+	id?: string;
 	title: string;
 	mainImage: Image;
 	// image: Image[];
 	price: number;
 	oldPrice?: number;
-	slug: slug;
-	special: string;
+	slug: slug | string;
+	special?: string;
 }
 
 export interface Products {
@@ -104,4 +105,28 @@ export interface Guide extends SanityBody {
 
 export interface AllGuide {
 	guides: Guide[];
+}
+
+export interface PurchaseList {
+	id: string;
+	createdAt: Date;
+	updateAt: Date;
+	Id: string;
+	Name: string;
+	ProductItems?: PurchaseListProduct[];
+	TotalPrice: number;
+	WebUrl: string;
+}
+
+export interface PurchaseListProduct {
+	createdAt: string;
+	updateAt: Date;
+	id: string;
+	Id: string;
+	IsPriceVisible: boolean;
+	MainPhoto: Image;
+	Name: string;
+	Price: number;
+	ProductCount: number;
+	WebUrl: string;
 }

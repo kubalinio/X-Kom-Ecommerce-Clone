@@ -57,12 +57,7 @@ const BasketPage = () => {
 
                                     <BasketProduct
                                         key={product.slug}
-                                        id={product.id}
-                                        title={product.title}
-                                        price={product.price}
-                                        mainImage={product.mainImage}
-                                        quantity={product.quantity}
-                                        slug={product.slug}
+                                        product={product}
                                     />
 
                                 ))

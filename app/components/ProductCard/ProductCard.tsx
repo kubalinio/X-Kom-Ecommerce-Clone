@@ -7,8 +7,13 @@ import Link from 'next/link';
 import { AddToBasket } from './AddToBasket';
 import AddToFav from './ProductAddToFav';
 
-export const ProductCard = ({ _id, slug, special, mainImage, title, price, oldPrice }: Product) => {
+type Props = {
+    product: Product
+}
 
+export const ProductCard = ({ product }: Props) => {
+
+    const { slug, price, special, _id, mainImage, title, oldPrice } = product
 
     const currentSlug = slug.current
     const formatedPrice = price.toFixed(2).replace('.', ',')
@@ -74,7 +79,7 @@ export const ProductCard = ({ _id, slug, special, mainImage, title, price, oldPr
 
             {/* Fav */}
             <AddToFav
-                id={_id!}
+                product={product}
             />
 
             {/* Basket */}

@@ -11,19 +11,29 @@ datasource db {
 }
 
 model PurchaseList {
-  createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
-  id String @id @default(auto()) @map("_id") @db.ObjectId 
-  name String
-  products String[] 
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  Id           String?       @unique
+  createdAt    DateTime      @default(now())
+  updateAt     DateTime      @updatedAt
+  Name         String
+  ProductItems ProductItem[]
+  TotalPrice   Float         @default(0)
+  WebUrl       String
 }
 
-model FavProduct {
-  createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
-  id     String @id @default(auto()) @map("_id") @db.ObjectId 
-  productId String
-  listId String @db.ObjectId
+model ProductItem {
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  Id             String?       @unique
+  createdAt      DateTime      @default(now())
+  updateAt       DateTime      @default(now())
+  listId         String        @unique
+  Name           String
+  MainPhoto      Json?
+  IsPriceVisible Boolean
+  Price          Float?
+  // ProductCount Int
+  // WebUrl String
+  PurchaseList   PurchaseList? @relation(fields: [listId], references: [Id])
 }
 
 // model Heart {
@@ -33,5 +43,3 @@ model FavProduct {
 //   productId String
 
 // }
-
-

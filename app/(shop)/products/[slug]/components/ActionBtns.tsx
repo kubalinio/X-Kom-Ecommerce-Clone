@@ -1,13 +1,14 @@
 import { AddToFavListBtn, AddToFavModal } from "@/app/components/AddToFavList"
 import { ModalContainer } from "@/app/components/Modals/Modal"
 import useWindowDimensions from "@/app/hooks/useWindowDimensions"
+import { Product } from "@/app/typings"
 import { useState } from "react"
 
 type Props = {
-    id: string
+    product: Product
 }
 
-const ActionBtns = ({ id }: Props) => {
+const ActionBtns = ({ product }: Props) => {
     const { width } = useWindowDimensions()
 
     const [show, setShow] = useState(false)
@@ -18,7 +19,7 @@ const ActionBtns = ({ id }: Props) => {
                 <div className="absolute top-0 right-2 bottom-[36px] flex flex-col justify-center w-[40px]">
                     <AddToFavListBtn
                         versionBtn={'ProductGalleryFavBtn'}
-                        id={id}
+                        product={product}
                         showInfo={(isLiked) => setShow(isLiked)}
                     />
                 </div>
@@ -28,7 +29,7 @@ const ActionBtns = ({ id }: Props) => {
                     {/* Fav */}
                     <AddToFavListBtn
                         versionBtn={'LongFavBtn'}
-                        id={id}
+                        product={product}
                         showInfo={(isLiked) => setShow(isLiked)} />
                 </div>
             )}

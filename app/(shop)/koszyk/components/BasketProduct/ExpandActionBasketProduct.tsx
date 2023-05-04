@@ -2,12 +2,13 @@
 
 
 import { AddToFavListBtn } from "@/app/components/AddToFavList"
+import { BasketItem } from "@/app/store/basketSlice"
 import { useEffect, useRef, useState } from "react"
 import { AiOutlineMore } from "react-icons/ai"
 import { RemoveBasketProductExpand } from "./RemoveBasketProduct"
 
 
-export const ExpandActionBasketProduct = ({ id }: { id: string }) => {
+export const ExpandActionBasketProduct = ({ product }: { product: BasketItem }) => {
     const [expand, setExpand] = useState(false)
 
     const buttonRef = useRef<HTMLDivElement>(null)
@@ -51,13 +52,13 @@ export const ExpandActionBasketProduct = ({ id }: { id: string }) => {
                     className={`${expand ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} absolute flex flex-col text-left rounded-lg shadow-xCom py-2 z-[2] top-[calc(100%)] right-0 left-auto bg-white`}>
 
                     <AddToFavListBtn
-                        id={id}
+                        product={product}
                         versionBtn={'LongFavBtn'}
                         showInfo={() => setExpand(false)}
                     />
 
                     <RemoveBasketProductExpand
-                        id={id}
+                        id={product._id!}
                         closeExpand={() => setExpand(false)}
                     />
 

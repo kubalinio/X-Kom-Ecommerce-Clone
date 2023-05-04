@@ -35,13 +35,7 @@ export const HitsWeekSection = () => {
                 <div key={product._id} className="h-full px-2 py-1 lg:py-4">
 
                     <ProductCard
-                        _id={product._rev}
-                        slug={product.slug}
-                        special={product.special}
-                        mainImage={product.mainImage}
-                        title={product.title}
-                        price={product.price}
-                        oldPrice={product.oldPrice}
+                        product={product}
                     />
 
                 </div>

@@ -22,7 +22,7 @@ const AddToBasket = ({ product, quantity }: Props) => {
     const addItemToBasket = () => {
 
         const product = {
-            id: _id, title, price, mainImage, quantity, slug: currentSlug, special
+            _id, title, price, mainImage, quantity, slug: currentSlug, special
         }
 
         dispatch(addToBasket(product))

@@ -1,48 +1,66 @@
 'use client'
 
-import Link from 'next/link'
-
-import { MdKeyboardArrowLeft } from 'react-icons/md'
-
-import { ReactNode } from 'react'
 import { NeedHelpInfo } from './NeedHelpInfo'
 import { ShopListHead } from './ShopListHead'
 import { ShopListBottom } from './ShopListBottom'
 import { ReturnButtonMobile } from './ReturnBtnMobile'
+import ShopListBody from './ShopListBody'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import axios from 'axios'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/app/store'
+import { PurchaseList } from '@prisma/client'
+import { useEffect, useState } from 'react'
 
-const ShopListBody = () => {
-    return (
-        <div>ListBody</div>
-    )
+// Fetch lists 
+// when create list fetch by slug look post it Project
+
+const fetchAllList = async (listIds: string[]) => {
+
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/purchaseLists/getPurchaseLists`, {
+        ids: listIds
+    })
+    return response.data
 }
 
 
-// Need Help
+export const UserShopList = () => {
 
-type Props = {}
+    const purchaseLists = useSelector((state: RootState) => state.purchaseList)
+    const listIds = purchaseLists.purchaseListItems.map(item => item.id)
 
-export const UserShopList = (props: Props) => {
+    const { data, error, isLoading } = useQuery<PurchaseList[]>({
+        queryFn: () => fetchAllList(listIds),
+        queryKey: ['purchaseLists'],
+        enabled: !!listIds
+    })
+    if (error) return (<div>error</div>)
+    if (isLoading) return (<div>Loading...</div>)
+
     return (
         <div className='lg:pl-2'>
             {/* Back konto */}
             <ReturnButtonMobile link='konto' title='Wróć' />
 
             {/* Button to Add List React Portal*/}
-            <ShopListHead />
+            <ShopListHead listsLength={data?.length} />
 
             <div className='min-h-[32px]'>{/* Notification */}</div>
 
             {/* Created List Dynamic with fav products */}
-            {/* <ListBody /> */}
+            <ShopListBody lists={data!} />
 
             {/* How use lists */}
-            <ShopListBottom />
+            {data?.length! > 0 ?
+                '' :
+                <ShopListBottom />}
 
             {/* Need Help ? */}
             <div className='max-lg:hidden'>
                 <NeedHelpInfo />
             </div>
         </div>
+
     )
 }
 

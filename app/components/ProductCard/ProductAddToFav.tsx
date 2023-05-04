@@ -1,33 +1,24 @@
 'use client'
 
-import { RootState } from '@/app/store'
+
+import { Product } from '@/app/typings'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { AddToFavListBtn } from '../AddToFavList'
 import { AddToFavPopper } from '../AddToFavList/AddToFavPopper'
 
+type Props = {
+    product: Product
+}
 
+const AddToFav = ({ product }: Props) => {
 
-
-const AddToFav = ({ id }: { id: string }) => {
     const [show, setShow] = useState(false)
     const [liked, setLiked] = useState(false)
 
-    const purchaseList = useSelector((state: RootState) => state.purchaseList)
-
-    useEffect(() => {
-        purchaseList.purchaseListItems.map(item => {
-            if (item.id === id) {
-                setLiked(true)
-            }
-        })
-    }, [])
-
-    const handleShowInfo = (isLiked: boolean) => {
-        setShow(isLiked)
+    const handleShowInfo = (isLiked: boolean, isShow: boolean) => {
+        setShow(isShow)
         setLiked(isLiked)
     }
-
 
     return (
         <div className='absolute hidden transition-all duration-300 top-1 right-1 lg:block lg:top-3 lg:right-3'>
@@ -44,9 +35,9 @@ const AddToFav = ({ id }: { id: string }) => {
                     {/* Fav Component to Add List Favorited products */}
                     <div>
                         <AddToFavListBtn
-                            id={id}
                             versionBtn={'DesktopFavBtn'}
-                            showInfo={(isLiked) => handleShowInfo(isLiked)}
+                            showInfo={(isLiked, isShow) => handleShowInfo(isLiked, isShow)}
+                            product={product}
                         />
                     </div>
 

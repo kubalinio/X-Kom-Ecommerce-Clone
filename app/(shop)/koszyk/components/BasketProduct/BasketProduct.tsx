@@ -12,8 +12,13 @@ import { RemoveBasketProduct } from "./RemoveBasketProduct"
 import { QuantityBasketProduct } from "./QuantityBasketProduct"
 import { BasketAddToFav } from "./BasketAddToFav"
 
+type Props = {
+    product: BasketItem
+}
 
-export const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: BasketItem) => {
+export const BasketProduct = ({ product }: Props) => {
+
+    const { _id, price, mainImage, slug, title, quantity } = product
 
     const formatedPrice = price.toFixed(2).replace('.', ',')
 
@@ -21,7 +26,7 @@ export const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: 
 
     const handleChangeQuantity = (newQuantity: number) => {
 
-        const newProductQuantity = { id, newQuantity }
+        const newProductQuantity = { _id, newQuantity }
         // change Quanity from exist product
         dispatch(addNewQuantity(newProductQuantity))
         dispatch(getTotals())
@@ -58,7 +63,7 @@ export const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: 
 
                             {/* Expand to fav list or delete item*/}
 
-                            <ExpandActionBasketProduct id={id!} />
+                            <ExpandActionBasketProduct product={product} />
 
                         </div>
 
@@ -76,10 +81,10 @@ export const BasketProduct = ({ id, title, price, mainImage, quantity, slug, }: 
                             <QuantityBasketProduct basketQuantity={quantity} changeQuantity={handleChangeQuantity} />
 
                             {/* Add to Fav List */}
-                            <BasketAddToFav id={id!} />
+                            <BasketAddToFav product={product} />
 
                             {/* Delete Item Basket */}
-                            <RemoveBasketProduct id={id!} />
+                            <RemoveBasketProduct id={_id!} />
 
                         </div>
                     </div>
