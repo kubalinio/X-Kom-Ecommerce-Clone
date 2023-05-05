@@ -11,6 +11,8 @@ import { IoMdHeartEmpty } from 'react-icons/io'
 import { RiDeleteBinLine, RiShareForwardLine } from 'react-icons/ri'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
+import { useDispatch } from 'react-redux'
+import { removePurchaseListItem } from '@/app/store/purchaseSlice'
 
 type BtnProps = {
     action: string
@@ -20,21 +22,22 @@ type BtnProps = {
 
 const ActionBtn = ({ action, id }: BtnProps) => {
     const queryClient = useQueryClient()
-    const router = useRouter()
+    const dispatch = useDispatch()
 
     const { mutate } = useMutation(
         async (id: string) => await axios.post('/api/purchaseLists/deletePurchaseList', {
             listId: id
-        }), {
-        onError: (error: AxiosError) => {
-            console.log(error)
-        },
-        onSuccess: () => {
-            queryClient.invalidateQueries(['purchaseLists'])
-            // router.refresh()
-        }
-    }
+        }),
+        {
+            onError: (error: AxiosError) => {
+                console.log(error)
+            },
+            onSuccess: () => {
+                queryClient.invalidateQueries(['purchaseLists'])
+                dispatch(removePurchaseListItem({ id }))
 
+            }
+        },
     )
 
     const handleClickBtn = (action: string) => {

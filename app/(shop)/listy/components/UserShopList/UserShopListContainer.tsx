@@ -31,24 +31,38 @@ export const UserShopList = () => {
 
     const [listIds, setListIds] = useState<Array<string>>([])
     const [fetchList, setFetchList] = useState(false)
+    const [isListExist, setIsListExist] = useState(false)
 
     useEffect(() => {
 
         if (purchaseLists.purchaseListItems.length > 0) {
             setFetchList(true)
             setListIds(purchaseLists.purchaseListItems.map(item => item.id))
+            setIsListExist(true)
+        } else {
+            setIsListExist(false)
+
         }
 
-    }, [])
+    }, [purchaseLists])
 
 
     const { data, error, isLoading, isFetching, isSuccess } = useQuery({
         queryFn: () => fetchAllList(listIds),
         queryKey: ['purchaseLists'],
-        enabled: fetchList
+        enabled: fetchList,
+        onSuccess: () => {
+            // setIsListExist(true)
+        }
     })
     if (error) return (<div>error</div>)
     if (isLoading && isFetching) return (<div>Loading...</div>)
+
+    // useEffect(() => {
+    //     if (purchaseLists.purchaseListItems.length < 1) {
+    //         console.log(purchaseLists.purchaseListItems.length)
+    //     }
+    // }, [purchaseLists.purchaseListItems.length])
 
     return (
         <div className='lg:pl-2'>
@@ -64,11 +78,12 @@ export const UserShopList = () => {
 
 
             {/* How use lists */}
-            {data ?
-                <ShopListBody lists={data!} /> :
-                ''}
+            {isLoading && isFetching ? <div>Loading...</div> :
+                isListExist ?
+                    <ShopListBody lists={data!} /> :
+                    ''}
 
-            <ShopListBottom isFetched={isSuccess} />
+            <ShopListBottom isFetched={isListExist} />
 
             {/* Need Help ? */}
             <div className='max-lg:hidden'>

@@ -34,7 +34,7 @@ export const ShopListBottom = ({ isFetched }: { isFetched: boolean }) => {
 
                 <div className="md:flex md:flex-row">
                     {ListItemsData.map(item => (
-                        <div className="flex md:max-w-[250px] md:mr-6 md:last:mr-0 md:w-1/3">
+                        <div key={item.text + item.number} className="flex md:max-w-[250px] md:mr-6 md:last:mr-0 md:w-1/3">
                             <h2 className="ml-3 mr-4 text-base md:text-sm">
                                 {item.number}.
                             </h2>
@@ -71,7 +71,7 @@ export const ShopListBottom = ({ isFetched }: { isFetched: boolean }) => {
                             {/* List */}
                             <div>
                                 {ListItemsData.map(item => (
-                                    <div className='flex'>
+                                    <div key={item.text + item.number} className='flex'>
                                         <h2 className='ml-3 mr-4 text-base md:text-sm'>{item.number}.</h2>
                                         <div className='mb-4 md:mb-8'>
                                             <h3

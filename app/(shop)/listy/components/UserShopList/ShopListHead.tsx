@@ -39,18 +39,16 @@ export const ShopListHead = ({ listsLength }: Props) => {
             queryClient.invalidateQueries(['purchaseLists'])
             // Redirect to list
             setListName('')
-            router.push(data.WebUrl)
         },
     }
     )
-
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setShowModal(false)
         const id = uuid().slice(0, 8)
         dispatch(addToPurchaseList({ id }))
-
+        router.push(`/listy/${id}`)
         mutate({ listName, id })
     }
 
