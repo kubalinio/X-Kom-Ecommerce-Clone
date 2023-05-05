@@ -11,6 +11,7 @@ import { ExpandActionBasketProduct } from "./ExpandActionBasketProduct"
 import { RemoveBasketProduct } from "./RemoveBasketProduct"
 import { QuantityBasketProduct } from "./QuantityBasketProduct"
 import { BasketAddToFav } from "./BasketAddToFav"
+import { ChangeQuantityProduct } from "@/app/components/ChangeQuantityProduct"
 
 type Props = {
     product: BasketItem
@@ -78,7 +79,7 @@ export const BasketProduct = ({ product }: Props) => {
                             </div>
 
                             {/* Quantity */}
-                            <QuantityBasketProduct basketQuantity={quantity} changeQuantity={handleChangeQuantity} />
+                            <ChangeQuantityProduct basketQuantity={quantity} changeQuantity={handleChangeQuantity} />
 
                             {/* Add to Fav List */}
                             <BasketAddToFav product={product} />

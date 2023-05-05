@@ -13,6 +13,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { removePurchaseListItem } from '@/app/store/purchaseSlice'
+import { ExpandDropdownList } from '../ExpandDropdownList'
 
 type BtnProps = {
     action: string
@@ -67,63 +68,6 @@ const ActionBtn = ({ action, id }: BtnProps) => {
         </button >
     )
 }
-
-const ExpandActionList = ({ id }: { id: string }) => {
-    const [expand, setExpand] = useState(false)
-
-    const buttonRef = useRef<HTMLDivElement>(null)
-    const expandBoxRef = useRef<HTMLDivElement>(null)
-
-    useEffect(() => {
-
-        const listener = (e: MouseEvent) => {
-            if (!buttonRef.current?.contains(e.target as Node) || !buttonRef.current) {
-                setExpand(false)
-            }
-        }
-        window.addEventListener('click', listener)
-        return () => window.removeEventListener('click', listener)
-    }, [])
-
-    return (
-        <div className={`${expand ? 'z-[999]' : 'z-[1]'} absolute right-0 flex justify-center items-start gap-1 min-h-full mt-3`}>
-            {/* Icon */}
-            <div ref={buttonRef} >
-                <div className="pointer-events-auto">
-                    <button
-                        onClick={() => setExpand(!expand)}
-                        className="flex items-center justify-center rounded-full h-12 w-12 hover:bg-[#ddd] active:bg-[#ddd] focus:bg-[#ddd]"
-                    >
-                        <span className="inline-block w-6 h-6">
-                            <AiOutlineMore className="w-full h-full text-2xl" />
-                        </span>
-                    </button>
-                </div>
-            </div>
-
-            {/* Content */}
-            <div
-                className={`${expand ? '' : 'relative overflow-hidden'} pointer-events-auto`}
-            >
-
-                <div
-                    ref={expandBoxRef}
-                    className={`${expand ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} absolute flex flex-col text-left rounded-lg shadow-xCom py-2 z-[2] top-[46px] right-0 left-auto bg-white`}>
-
-                    <ActionBtn action={'share'} id={id} />
-
-                    <ActionBtn action={'delete'} id={id} />
-
-
-
-
-
-                </div>
-            </div>
-        </div>
-    )
-}
-
 type Props = {
     item: PurchaseList
 }
@@ -134,7 +78,15 @@ export const ListCard = ({ item }: Props) => {
 
     return (
         <div className='relative mt-4'>
-            <ExpandActionList id={Id} />
+            {/* <ExpandActionList id={Id} /> */}
+
+            <ExpandDropdownList className='absolute right-2 top-2' >
+
+                <ActionBtn action={'share'} id={Id} />
+
+                <ActionBtn action={'delete'} id={Id} />
+
+            </ExpandDropdownList>
 
 
             <Link

@@ -123,6 +123,7 @@ export interface PurchaseListProduct {
 	updateAt: Date;
 	id: string;
 	Id: string;
+	listId: string;
 	IsPriceVisible: boolean;
 	MainPhoto: Image;
 	Name: string;

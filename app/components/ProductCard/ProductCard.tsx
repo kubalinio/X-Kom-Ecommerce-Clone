@@ -91,6 +91,7 @@ export const ProductCard = ({ product }: Props) => {
                 mainImage={mainImage}
                 title={title}
                 price={price}
+                className='hidden lg:group-hover:block absolute right-[10px] bottom-[10px]'
             />
 
         </div>

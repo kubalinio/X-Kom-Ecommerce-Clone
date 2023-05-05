@@ -1,17 +1,30 @@
 'use client'
 
 import { addToBasket, getTotals } from "@/app/store/basketSlice"
-import { Product } from "@/app/typings"
+import { Image as ImageData, Slug } from "@/app/typings"
 import { useEffect, useState } from "react"
 import { MdOutlineAddShoppingCart } from "react-icons/md"
 import { useDispatch } from "react-redux"
 import ProductAddedToBasket from "../ProductAddedToBasket"
 
-export const AddToBasket = ({ _id, slug, special, mainImage, title, price }: Product) => {
+type Props = {
+    _id?: string
+    slug?: Slug
+    special?: string
+    mainImage: ImageData
+    title: string
+    price: number
+
+    className?: string
+}
+
+export const AddToBasket = ({ _id, slug, special, mainImage, title, price, className }: Props) => {
+
+
     const [showModal, setShowModal] = useState(false)
     const dispatch = useDispatch()
 
-    const currentSlug = slug.current
+    const currentSlug = slug?.current
 
     const addItemToBasket = () => {
         const quantity = 1
@@ -39,7 +52,7 @@ export const AddToBasket = ({ _id, slug, special, mainImage, title, price }: Pro
 
 
     return (
-        <div className='hidden lg:group-hover:block absolute right-[10px] bottom-[10px] '>
+        <div className={className}>
             <div>
                 <div className='relative'>
                     <button
