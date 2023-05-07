@@ -30,7 +30,7 @@ const fetchAllList = async (listIds: string[]) => {
 export const UserShopList = () => {
     const purchaseLists = useSelector((state: RootState) => state.purchaseList)
 
-    const [listIds, setListIds] = useState<Array<string>>([])
+    const [listIds, setListIds] = useState<Array<string>>(purchaseLists.purchaseListItems.map(item => item.id))
     const [fetchList, setFetchList] = useState(true)
     const [isListExist, setIsListExist] = useState(false)
 
