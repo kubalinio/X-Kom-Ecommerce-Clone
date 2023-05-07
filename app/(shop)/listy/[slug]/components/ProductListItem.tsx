@@ -28,9 +28,10 @@ const ChangeQuntityProductContainer = ({ ProductCount }: { ProductCount: number 
     )
 }
 
-const ExpandDropdownListContainer = ({ listId, productId }: {
+const ExpandDropdownListContainer = ({ listId, productId, product }: {
     listId: string
     productId: string
+    product: PurchaseListProduct
 }) => {
 
     return (
@@ -39,7 +40,7 @@ const ExpandDropdownListContainer = ({ listId, productId }: {
 
             {/* On MD Delete ,no hidden */}
             <div className='md:hidden'>
-                <AddToBasketBtn />
+                <AddToBasketBtn product={product} />
             </div>
         </ExpandDropdownList>
     )
@@ -99,7 +100,10 @@ const ProductListItem = ({ product }: Props) => {
             <div className='md:hidden'>
 
                 {/* Expand Btns */}
-                <ExpandDropdownListContainer listId={listId} productId={Id} />
+                <ExpandDropdownListContainer
+                    listId={listId}
+                    productId={Id}
+                    product={product} />
 
                 {/* Quantity */}
                 <ChangeQuntityProductContainer
@@ -125,7 +129,10 @@ const ProductListItem = ({ product }: Props) => {
                     className='static flex items-center justify-center min-w-[32px] h-[32px]'
                 />
 
-                <ExpandDropdownListContainer listId={listId} productId={Id} />
+                <ExpandDropdownListContainer
+                    listId={listId}
+                    productId={Id}
+                    product={product} />
             </div>
 
 

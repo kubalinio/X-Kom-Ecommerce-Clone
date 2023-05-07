@@ -32,7 +32,7 @@ const ProductsContainer = ({ details }: Props) => {
                 <div className='min-w-[188px]'>
 
                     <div >
-                        <AddAllAccessibleBtn />
+                        <AddAllAccessibleBtn products={details?.ProductItems} />
 
                     </div>
 

@@ -29,16 +29,10 @@ const DeleteProductBtn = ({ listId, productId }: {
         }) => await axios.post('/api/purchaseLists/deleteProductList', {
             listId: listId,
             productId: productId
-        }
-        ),
+        }),
         mutationKey: ['detail-list'],
-        onError(error) {
-            console.log(error)
-        },
         onSuccess(data) {
-            console.log(data)
             queryClient.invalidateQueries(['detail-list'])
-
         },
 
     })
