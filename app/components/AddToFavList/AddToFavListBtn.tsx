@@ -48,7 +48,7 @@ export const AddToFavListBtn = ({ product, versionBtn, closeExpand, showInfo }: 
         } else {
             setFetchFav(false)
         }
-    }, [])
+    }, [purchaseList.purchaseListItems.length])
 
     const { isLoading: isLoadingIds, isFetching } = useQuery({
         queryFn: () => fetchProductsInFav(listIds),
@@ -111,6 +111,7 @@ export const AddToFavListBtn = ({ product, versionBtn, closeExpand, showInfo }: 
         },
         onSuccess: ({ data }) => {
             queryClient.invalidateQueries(['purchaseLists'])
+
             mutate(data.Id)
         },
     }
@@ -124,7 +125,7 @@ export const AddToFavListBtn = ({ product, versionBtn, closeExpand, showInfo }: 
         } else {
             const listId = uuid().slice(0, 8)
             dispatch(addToPurchaseList({ id: listId }))
-
+            setListIds(purchaseList.purchaseListItems.map(item => item.id))
             mutateList({ listName: 'Ulubione', listId })
         }
     }

@@ -31,7 +31,7 @@ export const UserShopList = () => {
     const purchaseLists = useSelector((state: RootState) => state.purchaseList)
 
     const [listIds, setListIds] = useState<Array<string>>([])
-    const [fetchList, setFetchList] = useState(false)
+    const [fetchList, setFetchList] = useState(true)
     const [isListExist, setIsListExist] = useState(false)
 
     useEffect(() => {
@@ -54,7 +54,6 @@ export const UserShopList = () => {
         enabled: fetchList,
         onSuccess: () => {
             setFetchList(false)
-
         }
     })
     if (error) return (<div>error</div>)
