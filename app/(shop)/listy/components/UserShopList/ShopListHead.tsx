@@ -45,10 +45,10 @@ export const ShopListHead = ({ listsLength }: Props) => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setShowModal(false)
         const id = uuid().slice(0, 8)
-        dispatch(addToPurchaseList({ id }))
         router.push(`/listy/${id}`)
+        dispatch(addToPurchaseList({ id }))
+        setShowModal(false)
         mutate({ listName, id })
     }
 

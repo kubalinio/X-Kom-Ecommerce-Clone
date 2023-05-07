@@ -1,5 +1,7 @@
 import { PurchaseList } from '@/app/typings'
 import React from 'react'
+import AddAllAccessibleBtn from './Buttons/AddAllAccessibleBtn'
+import ListSummary from './ListSummary'
 import ProductListItem from './ProductListItem'
 
 type Props = {
@@ -21,7 +23,21 @@ const ProductsContainer = ({ details }: Props) => {
             </div>
 
             {/* Bottom - QuantityAll & Value & Add all to Basket */}
-            <div></div>
+            <div className='pt-4 md:flex md:items-center md:py-3 md:-mb-8'>
+                <ListSummary
+                    numOfProducts={details?.ProductItems?.length}
+                    totalPrice={details?.TotalPrice}
+                />
+
+                <div className='min-w-[188px]'>
+
+                    <div >
+                        <AddAllAccessibleBtn />
+
+                    </div>
+
+                </div>
+            </div>
         </>
     )
 }

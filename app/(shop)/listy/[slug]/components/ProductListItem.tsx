@@ -28,11 +28,14 @@ const ChangeQuntityProductContainer = ({ ProductCount }: { ProductCount: number 
     )
 }
 
-const ExpandDropdownListContainer = () => {
+const ExpandDropdownListContainer = ({ listId, productId }: {
+    listId: string
+    productId: string
+}) => {
 
     return (
-        <ExpandDropdownList className='max-md:absolute max-md:right-0 max-md:-top-2 md:ml-4' >
-            <DeleteProductBtn />
+        <ExpandDropdownList className='max-md:absolute max-md:right-0 max-md:top-1 md:ml-4' >
+            <DeleteProductBtn listId={listId} productId={productId} />
 
             {/* On MD Delete ,no hidden */}
             <div className='md:hidden'>
@@ -44,7 +47,7 @@ const ExpandDropdownListContainer = () => {
 
 const ProductListItem = ({ product }: Props) => {
     // console.log(product)
-    const { Name, MainPhoto, WebUrl, Price, ProductCount, listId } = product
+    const { Name, MainPhoto, WebUrl, Price, ProductCount, listId, Id } = product
 
 
 
@@ -96,7 +99,7 @@ const ProductListItem = ({ product }: Props) => {
             <div className='md:hidden'>
 
                 {/* Expand Btns */}
-                <ExpandDropdownListContainer />
+                <ExpandDropdownListContainer listId={listId} productId={Id} />
 
                 {/* Quantity */}
                 <ChangeQuntityProductContainer
@@ -122,7 +125,7 @@ const ProductListItem = ({ product }: Props) => {
                     className='static flex items-center justify-center min-w-[32px] h-[32px]'
                 />
 
-                <ExpandDropdownListContainer />
+                <ExpandDropdownListContainer listId={listId} productId={Id} />
             </div>
 
 

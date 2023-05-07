@@ -36,7 +36,6 @@ const ProductDetail = (url: URL) => {
         queryKey: ['detail-product']
     })
 
-    if (isLoading && isFetching) return <LoadingSkelleton />
 
     const handleNewQuantity = (newNumber: number) => {
         setQuantity(newNumber)
@@ -44,93 +43,96 @@ const ProductDetail = (url: URL) => {
 
     return (
         <main className="mb-6 bg-white mx-auto max-w-full w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] lg:max-w-[1156px]">
-            <div>
+            {isLoading || isFetching ? <LoadingSkelleton /> :
+
                 <div>
-                    {/* Action Btns & Breadcast */}
-                    <div className="flex items-center justify-end lg:pt-4">
-                        <div className="flex">
-                            <div className="justify-end hidden w-full lg:flex">
-                                <ActionBtns
-                                    product={data?.product}
+                    <div>
+                        {/* Action Btns & Breadcast */}
+                        <div className="flex items-center justify-end lg:pt-4">
+                            <div className="flex">
+                                <div className="justify-end hidden w-full lg:flex">
+                                    <ActionBtns
+                                        product={data?.product}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* MD: Heading */}
+                        {width! >= 720 && width! < 1079 ? (
+                            <HeadingProduct title={data?.product.title} />
+                        ) : ''}
+
+                        {/* Product */}
+                        <div className="flex flex-wrap pt-5 -mx-2 md:-mx-3 md:mt-2 lg:mt-0 lg:pt-2">
+
+                            {/* Top/LEft Image Slider */}
+                            <div className="order-1 w-full h-full px-2 mb-4 md:order-2 md:px-3 md:w-3/5 lg:w-1/2">
+                                <ProductGallery
+                                    product={data.product}
                                 />
-                            </div>
-                        </div>
-                    </div>
 
-                    {/* MD: Heading */}
-                    {width! >= 720 && width! < 1079 ? (
-                        <HeadingProduct title={data?.product.title} />
-                    ) : ''}
-
-                    {/* Product */}
-                    <div className="flex flex-wrap pt-5 -mx-2 md:-mx-3 md:mt-2 lg:mt-0 lg:pt-2">
-
-                        {/* Top/LEft Image Slider */}
-                        <div className="order-1 w-full h-full px-2 mb-4 md:order-2 md:px-3 md:w-3/5 lg:w-1/2">
-                            <ProductGallery
-                                product={data.product}
-                            />
-
-                            {/* Compare buttons */}
-                            <div className="hidden md:block lg:hidden">
-                                <ActionBtns product={data?.product} />
-                            </div>
-                        </div>
-
-                        {/* Bottom/Right Content */}
-                        <div className="order-3 w-full px-2 md:px-3 md:w-2/5 lg:w-1/2">
-                            {/* Title */}
-                            {width! <= 720 ? (
-                                <HeadingProduct title={data?.product.title} />
-                            ) :
-                                width! >= 1080 ? (
-                                    <HeadingProduct title={data?.product.title} />
-                                ) :
-                                    ''}
-
-                            {/* Price & Add to Basket, Quantity & Services */}
-                            <div className="flex justify-end">
-                                <div className="w-full lg:w-[288px]">
-
-                                    <div className="w-full rounded-lg md:pt-4 md:border md:border-[#ddd]">
-
-                                        <ProductPrice price={data?.product.price} />
-
-                                        {/* If Promotion, Previous Price last 30 days*/}
-                                        <p className="text-right mt-1 ml-[68px] md:mr-4">
-                                            Najniższa cena z ostatnich 30 dni z obniżką: {''}
-                                            <span className="whitespace-nowrap text-[#4d4d4d]">Price</span>
-                                        </p>
-
-                                        {/* Quantity & Add to Basket */}
-                                        <div className="flex items-center pt-4 pb-6 md:p-4 md:pt-3">
-
-                                            {/* Quantity */}
-                                            <div className="mr-2">
-                                                <QuantityBasketProduct changeQuantity={handleNewQuantity} />
-                                            </div>
-
-                                            {/* Add to Basket */}
-                                            <div className="flex-grow">
-                                                <AddToBasket product={data?.product} quantity={quantity} />
-                                            </div>
-                                        </div>
-
-                                        {/* Services */}
-
-                                        <Services
-                                            productTitle={data?.product.title}
-                                            productMainImage={data?.product.mainImage}
-                                        />
-
-                                    </div>
+                                {/* Compare buttons */}
+                                <div className="hidden md:block lg:hidden">
+                                    <ActionBtns product={data?.product} />
                                 </div>
                             </div>
 
+                            {/* Bottom/Right Content */}
+                            <div className="order-3 w-full px-2 md:px-3 md:w-2/5 lg:w-1/2">
+                                {/* Title */}
+                                {width! <= 720 ? (
+                                    <HeadingProduct title={data?.product.title} />
+                                ) :
+                                    width! >= 1080 ? (
+                                        <HeadingProduct title={data?.product.title} />
+                                    ) :
+                                        ''}
+
+                                {/* Price & Add to Basket, Quantity & Services */}
+                                <div className="flex justify-end">
+                                    <div className="w-full lg:w-[288px]">
+
+                                        <div className="w-full rounded-lg md:pt-4 md:border md:border-[#ddd]">
+
+                                            <ProductPrice price={data?.product.price} />
+
+                                            {/* If Promotion, Previous Price last 30 days*/}
+                                            <p className="text-right mt-1 ml-[68px] md:mr-4">
+                                                Najniższa cena z ostatnich 30 dni z obniżką: {''}
+                                                <span className="whitespace-nowrap text-[#4d4d4d]">Price</span>
+                                            </p>
+
+                                            {/* Quantity & Add to Basket */}
+                                            <div className="flex items-center pt-4 pb-6 md:p-4 md:pt-3">
+
+                                                {/* Quantity */}
+                                                <div className="mr-2">
+                                                    <QuantityBasketProduct changeQuantity={handleNewQuantity} />
+                                                </div>
+
+                                                {/* Add to Basket */}
+                                                <div className="flex-grow">
+                                                    <AddToBasket product={data?.product} quantity={quantity} />
+                                                </div>
+                                            </div>
+
+                                            {/* Services */}
+
+                                            <Services
+                                                productTitle={data?.product.title}
+                                                productMainImage={data?.product.mainImage}
+                                            />
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         </main>
     )
 }

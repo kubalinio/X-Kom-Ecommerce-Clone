@@ -9,6 +9,7 @@ import ListHeader from './components/ListHeader'
 import { PurchaseList } from '@/app/typings'
 import ProductsContainer from './components/ProductsContainer'
 import EmptyList from './components/EmptyList'
+import LoadingSkelleton from '../../koszyk/components/LoadingSkelleton'
 
 
 
@@ -34,23 +35,24 @@ const fetchProductsDetailFromCms = async (productsId: string[]) => {
 }
 
 const DetailListSection = (url: Props) => {
-    const [fetchProducts, setFetchProducts] = useState(false)
+   
 
-    const { data, isLoading, isFetching } = useQuery<PurchaseList[]>({
+    const { data, isLoading, isFetching, status } = useQuery<PurchaseList[]>({
         queryFn: () => fetchDetails(url.params.slug),
         queryKey: ['detail-list'],
+        refetchOnWindowFocus: false,
+        
         onSuccess: (data) => {
-            setFetchProducts(true)
+            
         }
     })
     
    const details = data?.find((element) => element === element)
  
-    if (isLoading && isFetching) return <div>Loading..</div>
-
-
     return (
+        
         <section className='w-full sm:px-2 md:px-3 lg:px-4 lg:w-3/4 lg:border-l lg:border-[#ddd]'>
+            {isLoading || isFetching ? <LoadingSkelleton/> :
             <div className='bg:pl-2 lg:pl-4'>
                 <ReturnBtn />
 
@@ -66,7 +68,9 @@ const DetailListSection = (url: Props) => {
                         />
 
                     {/* Lists Container */}
-                    {details?.ProductItems?.length! > 0 ? 
+                    { 
+                    details?.ProductItems?.length! > 0 ? 
+                        
                        <ProductsContainer details={details} /> : 
                         <EmptyList />  
                     }
@@ -77,6 +81,7 @@ const DetailListSection = (url: Props) => {
                     <NeedHelpInfo />
                 </div>
             </div>
+}
         </section>
     )
 }

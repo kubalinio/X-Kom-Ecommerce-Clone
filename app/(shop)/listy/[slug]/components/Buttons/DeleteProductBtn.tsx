@@ -1,9 +1,56 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import axios from 'axios'
 import React from 'react'
 import { RiDeleteBinLine } from 'react-icons/ri'
 
-const DeleteProductBtn = () => {
+const deleteProductList = async ({ listId, productId }: {
+    listId: string
+    productId: string
+}) => {
+    const response = await axios.delete('/api/purchaseLists/deleteProductList', {
+        data: { listId, productId }
+    })
+
+    return response
+}
+
+const DeleteProductBtn = ({ listId, productId }: {
+    listId: string
+    productId: string
+}) => {
+
+
+    const queryClient = useQueryClient()
+
+    const { mutate } = useMutation({
+        mutationFn: async ({ listId, productId }: {
+            listId: string
+            productId: string
+        }) => await axios.post('/api/purchaseLists/deleteProductList', {
+            listId: listId,
+            productId: productId
+        }
+        ),
+        mutationKey: ['detail-list'],
+        onError(error) {
+            console.log(error)
+        },
+        onSuccess(data) {
+            console.log(data)
+            queryClient.invalidateQueries(['detail-list'])
+
+        },
+
+    })
+
+    const handleDeleteBtn = () => {
+        mutate({ listId, productId })
+    }
+
+
     return (
         <button
+            onClick={handleDeleteBtn}
             title='Usuń z listy'
             className='inline-flex items-center justify-start whitespace-nowrap bg-transparent rounded-none w-full h-[48px] py-3 px-4 hover:bg-[#ddd] transition-colors duration-200'
         >

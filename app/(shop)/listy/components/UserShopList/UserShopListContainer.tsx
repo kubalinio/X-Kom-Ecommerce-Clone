@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '@/app/store'
 import { PurchaseList } from '@prisma/client'
 import { ReactNode, useEffect, useState } from 'react'
+import LoadingSkelleton from '@/app/(shop)/koszyk/components/LoadingSkelleton'
 
 // Fetch lists 
 // when create list fetch by slug look post it Project
@@ -41,22 +42,23 @@ export const UserShopList = () => {
             setIsListExist(true)
         } else {
             setIsListExist(false)
-
+            setFetchList(false)
         }
 
     }, [purchaseLists])
 
 
-    const { data, error, isLoading, isFetching, isSuccess } = useQuery({
+    const { data, error, isLoading, isFetching, isSuccess, } = useQuery({
         queryFn: () => fetchAllList(listIds),
         queryKey: ['purchaseLists'],
         enabled: fetchList,
         onSuccess: () => {
-            // setIsListExist(true)
+            setFetchList(false)
+
         }
     })
     if (error) return (<div>error</div>)
-    if (isLoading && isFetching) return (<div>Loading...</div>)
+
 
     // useEffect(() => {
     //     if (purchaseLists.purchaseListItems.length < 1) {
@@ -66,29 +68,34 @@ export const UserShopList = () => {
 
     return (
         <div className='lg:pl-2'>
-            {/* Back konto */}
-            <ReturnButtonMobile link='konto' title='Wróć' />
+            {isLoading || isFetching ? <LoadingSkelleton /> :
+                <>
+                    {/* Back konto */}
+                    < ReturnButtonMobile link='' title='Wróć' />
 
-            {/* Button to Add List React Portal*/}
-            <ShopListHead listsLength={data?.length} />
+                    {/* Button to Add List React Portal*/}
+                    <ShopListHead listsLength={data?.length} />
 
-            <div className='min-h-[32px]'>{/* Notification */}</div>
+                    <div className='min-h-[32px]'>{/* Notification */}</div>
 
-            {/* Created List Dynamic with fav products */}
+                    {/* Created List Dynamic with fav products */}
 
 
-            {/* How use lists */}
-            {isLoading && isFetching ? <div>Loading...</div> :
-                isListExist ?
-                    <ShopListBody lists={data!} /> :
-                    ''}
+                    {/* How use lists */}
+                    {
+                        isListExist ?
+                            <ShopListBody lists={data!} /> :
+                            ''}
 
-            <ShopListBottom isFetched={isListExist} />
+                    <ShopListBottom isFetched={isListExist} />
 
-            {/* Need Help ? */}
-            <div className='max-lg:hidden'>
-                <NeedHelpInfo />
-            </div>
+                    {/* Need Help ? */}
+                    <div className='max-lg:hidden'>
+                        <NeedHelpInfo />
+                    </div>
+                </>
+            }
+
         </div>
 
     )

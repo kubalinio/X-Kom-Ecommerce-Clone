@@ -4,7 +4,7 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 
 const IconNavUser = ({ icon }: { icon: ReactNode }) => <span className='inline-block w-6 h-6 text-2xl md:mr-3'>{icon}</span>;
 
-export const ReturnButtonMobile = ({ link, title }: { link: string, title: string }) => {
+export const ReturnButtonMobile = ({ link, title }: { link?: string, title: string }) => {
     return (
         <Link
             href={`/${link}`}
