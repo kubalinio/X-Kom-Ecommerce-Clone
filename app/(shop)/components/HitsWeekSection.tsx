@@ -5,10 +5,10 @@ import { useQuery } from "@tanstack/react-query"
 
 
 
-import { Product } from "@/app/typings"
-import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
-import { ProductCard } from "@/app/components/ProductCard"
+import { Product } from "@/types/typings"
+import { ProductCard } from "@/components/ProductCard"
 import LoadingSkelleton from "../products/[slug]/components/LoadingSkelleton"
+import { SectionCarouselContainer } from "@/components/SectionCarouselContainer"
 
 const fetchProducts = async () => {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/getProducts`)

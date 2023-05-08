@@ -1,4 +1,4 @@
-import { BasketInfo } from "@/app/components/Basket"
+import { BasketInfo } from "@/components/Basket"
 import Link from "next/link"
 import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 

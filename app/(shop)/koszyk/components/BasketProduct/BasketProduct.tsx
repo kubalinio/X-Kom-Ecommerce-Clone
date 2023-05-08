@@ -4,14 +4,14 @@ import Link from "next/link"
 
 
 import { urlFor } from "@/lib/sanity.client"
-import { BasketItem, getTotals, addNewQuantity } from "@/app/store/basketSlice"
+import { BasketItem, getTotals, addNewQuantity } from "@/store/basketSlice"
 
 
 import { ExpandActionBasketProduct } from "./ExpandActionBasketProduct"
 import { RemoveBasketProduct } from "./RemoveBasketProduct"
 import { QuantityBasketProduct } from "./QuantityBasketProduct"
 import { BasketAddToFav } from "./BasketAddToFav"
-import { ChangeQuantityProduct } from "@/app/components/ChangeQuantityProduct"
+import { ChangeQuantityProduct } from "@/components/ChangeQuantityProduct"
 
 type Props = {
     product: BasketItem

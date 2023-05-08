@@ -1,7 +1,7 @@
-import { AddToFavListBtn, AddToFavModal } from "@/app/components/AddToFavList"
-import { ModalContainer } from "@/app/components/Modals/Modal"
-import useWindowDimensions from "@/app/hooks/useWindowDimensions"
-import { Product } from "@/app/typings"
+import { AddToFavListBtn, AddToFavModal } from "@/components/AddToFavList"
+import { ModalContainer } from "@/components/Modal"
+import useWindowDimensions from "@/hooks/useWindowDimensions"
+import { Product } from "@/types/typings"
 import { useState } from "react"
 
 type Props = {

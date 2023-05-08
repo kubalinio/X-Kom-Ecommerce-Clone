@@ -1,8 +1,8 @@
 'use client'
 
 
-import { AddToFavListBtn } from "@/app/components/AddToFavList"
-import { BasketItem } from "@/app/store/basketSlice"
+import { AddToFavListBtn } from "@/components/AddToFavList"
+import { BasketItem } from "@/store/basketSlice"
 import { useEffect, useRef, useState } from "react"
 import { AiOutlineMore } from "react-icons/ai"
 import { RemoveBasketProductExpand } from "./RemoveBasketProduct"

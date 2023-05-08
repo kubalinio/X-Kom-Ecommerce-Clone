@@ -2,11 +2,12 @@
 import './globals.css'
 
 import { Lato } from 'next/font/google'
-import { Header } from '../components/Header/Header'
+import { Header } from '../../components/Header/Header'
 
-import Providers from '../auth/Providers'
+import Providers from '../../utils/Providers'
 import { ReactNode } from 'react'
-import { Footer } from '../components/Footer'
+import { Footer } from '../../components/Footer'
+import { Metadata } from 'next'
 
 
 const lato = Lato({
@@ -15,15 +16,21 @@ const lato = Lato({
   weight: ["300", "400", "700", "900"]
 })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'X Clone - Clone Ecommerce Site x-kom.pl',
+  icons: {
+    icon: {
+      url: '/favicon.ico',
+      sizes: 'any'
+    }
+  }
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <html lang="pl" className={`${lato.variable} font-lato`}>
-      <head />
+
 
       <body className='bg-white'>
         <Providers>

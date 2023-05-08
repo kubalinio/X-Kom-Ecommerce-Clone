@@ -3,7 +3,7 @@ import { client } from '@/lib/sanity.client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import groq from 'groq';
-import { Promotions } from '@/app/typings';
+import { Promotions } from '@/types/typings';
 
 const query = groq`*[_type == 'Promocja'] | order(_createdAt desc)`;
 

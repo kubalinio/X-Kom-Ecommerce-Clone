@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
-import { addToBasket, getTotals } from '@/app/store/basketSlice';
-import { Product } from '@/app/typings';
-import ProductAddedToBasket from '@/app/components/ProductAddedToBasket';
+import { addToBasket, getTotals } from '@/store/basketSlice';
+import { Product } from '@/types/typings';
+import ProductAddedToBasket from '@/components/ProductAddedToBasket';
 
 type Props = {
     product: Product,

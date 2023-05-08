@@ -9,9 +9,9 @@ import { PromotionSection } from "./components/PromotionSection";
 import SliderBox from './components/SliderBox'
 
 import axios from "axios";
-import getQueryClient from '../utils/getQueryClient'
+import getQueryClient from '../../utils/getQueryClient'
 import { dehydrate } from "@tanstack/query-core";
-import Hydrate from "@/app/utils/HydrateClient";
+import Hydrate from "@/utils/HydrateClient";
 
 
 const fetchProducts = async () => {

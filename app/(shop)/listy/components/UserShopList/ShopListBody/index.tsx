@@ -1,5 +1,5 @@
 
-import { PurchaseList } from '@/app/typings'
+import { PurchaseList } from '@/types/typings'
 import { ListCard } from './ListCard'
 
 import ListPagination from './ListPagination'

@@ -3,7 +3,7 @@ import { client } from '@/lib/sanity.client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import groq from 'groq';
-import { AllNews } from '@/app/typings';
+import { AllNews } from '@/types/typings';
 
 const query = groq`*[_type == 'news'] | order(_createdAt asc)`;
 

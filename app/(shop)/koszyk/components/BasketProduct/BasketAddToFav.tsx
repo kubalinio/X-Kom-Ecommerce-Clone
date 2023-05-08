@@ -1,7 +1,7 @@
-import { AddToFavListBtn, AddToFavModal } from "@/app/components/AddToFavList"
+import { AddToFavListBtn, AddToFavModal } from "@/components/AddToFavList"
 
-import { ModalContainer } from "@/app/components/Modals/Modal"
-import { BasketItem } from "@/app/store/basketSlice"
+import { ModalContainer } from "@/components/Modal"
+import { BasketItem } from "@/store/basketSlice"
 
 import { useState } from "react"
 

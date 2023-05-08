@@ -1,7 +1,7 @@
 'use client'
 
-import { Modal, ModalBody, ModalContainer, ModalHeader } from '@/app/components/Modals/Modal'
-import { Image as ImageData } from '@/app/typings'
+import { Modal, ModalBody, ModalContainer, ModalHeader } from '@/components/Modal'
+import { Image as ImageData } from '@/types/typings'
 
 import React, { useState } from 'react'
 import { AiOutlineCheckCircle } from 'react-icons/ai'

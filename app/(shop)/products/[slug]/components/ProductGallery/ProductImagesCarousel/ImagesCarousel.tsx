@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { urlFor } from '@/lib/sanity.client'
 
-import { Image as ImageData } from '@/app/typings'
+import { Image as ImageData } from '@/types/typings'
 
 
 type Props = {

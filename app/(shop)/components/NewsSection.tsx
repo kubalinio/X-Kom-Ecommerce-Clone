@@ -1,12 +1,13 @@
 'use client'
 
-import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
+
 import { urlFor } from "@/lib/sanity.client"
-import { AllNews, News } from "@/app/typings"
+import { AllNews, News } from "@/types/typings"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
 import { useQuery } from "@tanstack/react-query"
+import { SectionCarouselContainer } from "@/components/SectionCarouselContainer"
 
 
 

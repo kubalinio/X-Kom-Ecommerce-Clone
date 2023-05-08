@@ -1,4 +1,4 @@
-import { useCountdown } from "@/app/hooks/useCountdown"
+import { useCountdown } from "@/hooks/useCountdown"
 import { useEffect, useState } from "react"
 
 export const CountdownTimer = ({ finished }: { finished: boolean }) => {

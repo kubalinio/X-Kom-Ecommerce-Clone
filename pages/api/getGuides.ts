@@ -2,7 +2,7 @@ import { client } from '@/lib/sanity.client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import groq from 'groq';
-import { Guide } from '@/app/typings';
+import { Guide } from '@/types/typings';
 
 const query = groq`*[_type == 'guides'] | order(_createdAt asc)`;
 

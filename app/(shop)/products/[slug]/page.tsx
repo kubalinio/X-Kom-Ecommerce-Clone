@@ -1,7 +1,7 @@
 'use client'
 
 import { QuantityBasketProduct } from "@/app/(shop)/koszyk/components/BasketProduct/QuantityBasketProduct"
-import useWindowDimensions from "@/app/hooks/useWindowDimensions"
+import useWindowDimensions from "@/hooks/useWindowDimensions"
 import axios from "axios"
 import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
@@ -11,7 +11,7 @@ import LoadingSkelleton from "../../products/[slug]/components/LoadingSkelleton"
 import ProductPrice from "../../products/[slug]/components/ProductPrice"
 import { Services } from "./components/ServicesModal"
 import { ProductGallery } from "./components/ProductGallery"
-import { Products } from "@/app/typings"
+import { Products } from "@/types/typings"
 import ActionBtns from "./components/ActionBtns"
 
 

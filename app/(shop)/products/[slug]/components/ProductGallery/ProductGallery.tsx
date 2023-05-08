@@ -2,7 +2,7 @@
 
 
 import { urlFor } from '@/lib/sanity.client';
-import { Image as ImageData, Product } from '@/app/typings';
+import { Image as ImageData, Product } from '@/types/typings';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ProductImagesCarousel } from './ProductImagesCarousel';

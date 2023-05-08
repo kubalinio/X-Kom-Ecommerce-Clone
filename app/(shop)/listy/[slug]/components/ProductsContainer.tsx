@@ -1,4 +1,4 @@
-import { PurchaseList } from '@/app/typings'
+import { PurchaseList } from '@/types/typings'
 import React from 'react'
 import AddAllAccessibleBtn from './Buttons/AddAllAccessibleBtn'
 import ListSummary from './ListSummary'

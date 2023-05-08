@@ -2,7 +2,7 @@
 import { client } from '@/lib/sanity.client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import groq from 'groq';
-import { Slides } from '@/app/typings';
+import { Slides } from '@/types/typings';
 
 type Data = {
 	slides: Slides;

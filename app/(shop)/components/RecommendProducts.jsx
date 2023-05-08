@@ -2,7 +2,7 @@
 
 
 
-import useWindowDimensions from '@/app/hooks/useWindowDimensions';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
 
@@ -14,8 +14,8 @@ import "swiper/swiper.min.css";
 import "swiper/css/free-mode";
 
 import { FreeMode } from "swiper";
-import { ProductCard } from '@/app/components/ProductCard';
-import LoadingSpinner from '@/app/components/LoadingSpinner';
+import { ProductCard } from '@/components/ProductCard';
+import { LoadingSpinner } from '@/components/LoadingSpinner';
 
 // const item = {
 //     title: 'Apple Beats Fit Pro Volt Yellow',

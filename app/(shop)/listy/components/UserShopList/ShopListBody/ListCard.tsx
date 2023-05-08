@@ -1,5 +1,5 @@
 
-import { PurchaseList } from '@/app/typings'
+import { PurchaseList } from '@/types/typings'
 import { urlFor } from '@/lib/sanity.client'
 import { useQueryClient } from '@tanstack/react-query'
 import axios, { AxiosError } from 'axios'
@@ -12,7 +12,7 @@ import { RiDeleteBinLine, RiShareForwardLine } from 'react-icons/ri'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
-import { removePurchaseListItem } from '@/app/store/purchaseSlice'
+import { removePurchaseListItem } from '@/store/purchaseSlice'
 import { ExpandDropdownList } from '../ExpandDropdownList'
 
 type BtnProps = {

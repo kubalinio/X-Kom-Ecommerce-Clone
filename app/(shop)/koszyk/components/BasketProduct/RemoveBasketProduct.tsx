@@ -1,4 +1,4 @@
-import { getTotals, removeItem } from "@/app/store/basketSlice"
+import { getTotals, removeItem } from "@/store/basketSlice"
 import { HiOutlineTrash } from "react-icons/hi2"
 import { useDispatch } from "react-redux"
 

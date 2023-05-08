@@ -1,6 +1,6 @@
 import { urlFor } from '@/lib/sanity.client'
 import Image from 'next/image'
-import { Image as ImageData } from '@/app/typings';
+import { Image as ImageData } from '@/types/typings';
 
 
 export const ProductImgThumbnail = ({ image, active, actived }: { image: ImageData, active: () => void, actived: boolean }) => {

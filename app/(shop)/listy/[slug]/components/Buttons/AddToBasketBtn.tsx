@@ -1,6 +1,6 @@
 
-import { addToBasket, getTotals } from '@/app/store/basketSlice'
-import { PurchaseListProduct } from '@/app/typings'
+import { addToBasket, getTotals } from '@/store/basketSlice'
+import { PurchaseListProduct } from '@/types/typings'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'

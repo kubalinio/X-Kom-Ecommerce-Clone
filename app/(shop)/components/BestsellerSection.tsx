@@ -1,10 +1,11 @@
 'use client'
 
-import { Products } from "@/app/typings"
+import { Products } from "@/types/typings"
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
-import { ProductCard } from "../../components/ProductCard/ProductCard"
-import { SectionCarouselContainer } from "../../components/SectionCarouselContainer"
+import { ProductCard } from "../../../components/ProductCard/ProductCard"
+import { SectionCarouselContainer } from "@/components/SectionCarouselContainer"
+
 
 
 const fetchProducts = async () => {

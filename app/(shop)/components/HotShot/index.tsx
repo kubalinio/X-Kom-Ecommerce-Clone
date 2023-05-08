@@ -8,9 +8,10 @@ import { HotShotProductDetail } from './HotShotProductDetail'
 import SpecialBorder from './SpecialBorder'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
+import { LoadingSpinner } from '../../../../components/LoadingSpinner'
 
-import LoadingSpinner from '../../../components/LoadingSpinner'
-import { HotShotData, HotShotsData } from '@/app/typings'
+
+import { HotShotData, HotShotsData } from '@/types/typings'
 
 const WrapperHotShot = ({ children }: { children: ReactNode }) => (
     <section className='w-full p-4 pt-0 mb-4 bg-white border-b border-[#ebebeb] md:p-6 md:pt-3 lg:border-none lg:p-0 lg:pr-8 lg:pb-8 lg:w-[31.666%] lg:mb-0'>

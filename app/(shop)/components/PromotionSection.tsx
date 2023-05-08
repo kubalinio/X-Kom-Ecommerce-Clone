@@ -1,12 +1,13 @@
 'use client'
 
-import { SectionCarouselContainer } from "@/app/components/SectionCarouselContainer"
+
 import { urlFor } from "@/lib/sanity.client"
-import { Promotion, Promotions } from "@/app/typings"
+import { Promotion, Promotions } from "@/types/typings"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
 import { useQuery } from "@tanstack/react-query"
+import { SectionCarouselContainer } from "@/components/SectionCarouselContainer"
 
 
 const fetchPromotions = async () => {

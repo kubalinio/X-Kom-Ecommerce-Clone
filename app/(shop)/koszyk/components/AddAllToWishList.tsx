@@ -1,4 +1,4 @@
-import useWindowDimensions from '@/app/hooks/useWindowDimensions'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
 import React from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
 

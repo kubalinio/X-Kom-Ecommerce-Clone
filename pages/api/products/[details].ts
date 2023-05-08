@@ -1,7 +1,7 @@
 import { client } from '@/lib/sanity.client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import groq from 'groq';
-import { Product } from '@/app/typings';
+import { Product } from '@/types/typings';
 
 // type Data = {
 //     product: Product

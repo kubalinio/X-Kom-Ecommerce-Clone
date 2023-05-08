@@ -1,6 +1,6 @@
 'use client'
 
-import { Modal, ModalBody, ModalContainer, ModalHeader } from "@/app/components/Modals/Modal"
+import { Modal, ModalBody, ModalContainer, ModalHeader } from "@/components/Modal"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios, { AxiosError } from "axios"
 import { v4 as uuid } from 'uuid'
@@ -9,7 +9,7 @@ import { v4 as uuid } from 'uuid'
 import { FormEvent, useEffect, useState } from "react"
 import CreateListBtn from "./CreateListBtn"
 import { useDispatch } from "react-redux"
-import { addToPurchaseList } from "@/app/store/purchaseSlice"
+import { addToPurchaseList } from "@/store/purchaseSlice"
 import { useRouter } from "next/navigation"
 
 type Props = {

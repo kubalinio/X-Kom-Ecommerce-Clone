@@ -1,5 +1,5 @@
 import { urlFor } from "@/lib/sanity.client"
-import { Promotion } from "@/app/typings"
+import { Promotion } from "@/types/typings"
 import Image from "next/image"
 import Link from "next/link"
 import { MdKeyboardArrowRight } from "react-icons/md"
