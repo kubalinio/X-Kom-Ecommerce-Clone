@@ -13,7 +13,9 @@ import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { removePurchaseListItem } from '@/store/purchaseSlice'
-import { ExpandDropdownList } from '../ExpandDropdownList'
+import { ExpandDropdownList } from '../../ExpandDropdownList'
+import DeleteListBtn from '../../Buttons/DeleteListBtn'
+import ShareListBtn from '../../Buttons/ShareListBtn'
 
 type BtnProps = {
     action: string
@@ -82,9 +84,11 @@ export const ListCard = ({ item }: Props) => {
 
             <ExpandDropdownList className='absolute right-2 top-2' >
 
-                <ActionBtn action={'share'} id={Id} />
+                <ShareListBtn />
 
-                <ActionBtn action={'delete'} id={Id} />
+                <DeleteListBtn
+                    id={Id}
+                />
 
             </ExpandDropdownList>
 
