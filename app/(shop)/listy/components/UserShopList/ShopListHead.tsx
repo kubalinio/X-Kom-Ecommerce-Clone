@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid'
 
 
 import { FormEvent, useEffect, useState } from "react"
-import CreateListBtn from "./CreateListBtn"
+import CreateListBtn from "../Buttons/CreateListBtn"
 import { useDispatch } from "react-redux"
 import { addToPurchaseList } from "@/store/purchaseSlice"
 import { useRouter } from "next/navigation"

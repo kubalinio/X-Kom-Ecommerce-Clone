@@ -4,9 +4,10 @@ import { AiOutlineMore } from "react-icons/ai"
 type Props = {
     children: ReactNode,
     className: string
+    buttonSize?: string
 }
 
-export const ExpandDropdownList = ({ children, className }: Props) => {
+export const ExpandDropdownList = ({ children, className, buttonSize }: Props) => {
     const [expand, setExpand] = useState(false)
 
     const buttonRef = useRef<HTMLDivElement>(null)
@@ -23,19 +24,22 @@ export const ExpandDropdownList = ({ children, className }: Props) => {
         return () => window.removeEventListener('click', listener)
     }, [])
 
+    let style = buttonSize === 'sm' ? 'h-10 w-10 [&_span]:first:w-6 [&_span]:first:h-6' : buttonSize === 'md' ? 'h-12 w-12 [&_span]:first:w-8 [&_span]:first:h-8' : 'h-10 w-10 [&_span]:first:w-6 [&_span]:first:h-6'
+
+
+
     return (
         <div className={`${expand ? 'z-[999]' : 'z-[1]'} ${className}`}>
-
 
             {/* Icon */}
             <div ref={buttonRef} >
                 <div className="pointer-events-auto">
                     <button
                         onClick={() => setExpand(!expand)}
-                        className="flex items-center justify-center rounded-full h-10 w-10 hover:bg-[#ddd] active:bg-[#ddd] focus:bg-[#ddd]"
+                        className={`flex items-center justify-center rounded-full hover:bg-[#ddd] active:bg-[#ddd] focus:bg-[#ddd] ${style}`}
                     >
-                        <span className="inline-block w-6 h-6">
-                            <AiOutlineMore className="w-full h-full text-2xl" />
+                        <span className={`inline-block`}>
+                            <AiOutlineMore className="w-full h-full" />
                         </span>
                     </button>
                 </div>

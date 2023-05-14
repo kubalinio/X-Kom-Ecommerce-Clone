@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import DeleteListBtn from '../../components/DeleteListBtn'
+import DeleteListBtn from '../../components/Buttons/DeleteListBtn'
+import ShareListBtn from '../../components/Buttons/ShareListBtn'
 import { ExpandDropdownList } from '../../components/ExpandDropdownList'
 
 const ListTitle = ({ name, updateAt }: Props) => {
@@ -22,7 +23,7 @@ const ListTitle = ({ name, updateAt }: Props) => {
                 {/* edit Favlist Name */}
             </div>
 
-            <p className='text-[#707070]'>
+            <p>
                 {lastMod} (ostatnia zmiana)
             </p>
         </div>
@@ -42,14 +43,20 @@ const ListHeader = ({ listId, updateAt, name }: Props) => {
             <ListTitle name={name} updateAt={updateAt} />
 
             {/* BtnActions Expand Mobile */}
-            <ExpandDropdownList className='absolute right-0 md:hidden'>
+            <ExpandDropdownList
+                buttonSize='md'
+                className='absolute top-0 right-1 md:hidden '>
+                <ShareListBtn version='desktop' id={listId!} />
                 <DeleteListBtn version='mobile' id={listId!} />
             </ExpandDropdownList>
 
 
             {/* BtnActions Desktop */}
             <div>
-                <div className='absolute top-0 right-0 flex'>
+                <div className='absolute top-0 right-0 hidden md:flex '>
+
+                    <ShareListBtn version='desktop' id={listId!} />
+
                     <DeleteListBtn version='desktop' id={listId!} />
                 </div>
             </div>

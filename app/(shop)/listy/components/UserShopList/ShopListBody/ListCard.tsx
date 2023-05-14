@@ -14,6 +14,8 @@ import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { removePurchaseListItem } from '@/store/purchaseSlice'
 import { ExpandDropdownList } from '../../ExpandDropdownList'
+import DeleteListBtn from '../../Buttons/DeleteListBtn'
+import ShareListBtn from '../../Buttons/ShareListBtn'
 
 type BtnProps = {
     action: string
@@ -81,10 +83,10 @@ export const ListCard = ({ item }: Props) => {
             {/* <ExpandActionList id={Id} /> */}
 
             <ExpandDropdownList className='absolute right-2 top-2' >
+                <ShareListBtn version='mobile' id={Id} />
 
-                <ActionBtn action={'share'} id={Id} />
+                <DeleteListBtn version='mobile' id={Id} />
 
-                <ActionBtn action={'delete'} id={Id} />
 
             </ExpandDropdownList>
 

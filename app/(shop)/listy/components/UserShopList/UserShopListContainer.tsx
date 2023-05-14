@@ -3,7 +3,7 @@
 import { NeedHelpInfo } from './NeedHelpInfo'
 import { ShopListHead } from './ShopListHead'
 import { ShopListBottom } from './ShopListBottom'
-import { ReturnButtonMobile } from './ReturnBtnMobile'
+import { ReturnButtonMobile } from '../Buttons/ReturnBtnMobile'
 import ShopListBody from './ShopListBody'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
