@@ -13,7 +13,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { removePurchaseListItem } from '@/store/purchaseSlice'
-import { ExpandDropdownList } from '../ExpandDropdownList'
+import { ExpandDropdownList } from '../../ExpandDropdownList'
 
 type BtnProps = {
     action: string

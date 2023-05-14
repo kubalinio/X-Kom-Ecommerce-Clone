@@ -24,7 +24,7 @@ export const ExpandDropdownList = ({ children, className }: Props) => {
     }, [])
 
     return (
-        <div className={`${expand ? 'z-[999]' : 'z-[1]'} ${className} flex justify-center items-start gap-1 min-h-full`}>
+        <div className={`${expand ? 'z-[999]' : 'z-[1]'} ${className}`}>
 
 
             {/* Icon */}
@@ -52,12 +52,9 @@ export const ExpandDropdownList = ({ children, className }: Props) => {
 
                     {children}
 
-
-
-
-
                 </div>
             </div>
+
         </div>
     )
 }

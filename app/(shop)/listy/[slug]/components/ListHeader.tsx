@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import DeleteListBtn from '../../components/DeleteListBtn'
+import { ExpandDropdownList } from '../../components/ExpandDropdownList'
 
 const ListTitle = ({ name, updateAt }: Props) => {
     const [lastMod, setLastMod] = useState('')
@@ -36,11 +38,21 @@ type Props = {
 const ListHeader = ({ listId, updateAt, name }: Props) => {
 
     return (
-        <div className='flex justify-between mb-6'>
+        <div className='mb-6 md:flex md:justify-between max-md:relative'>
             <ListTitle name={name} updateAt={updateAt} />
-            {/* BtnActions */}
-            <div></div>
-            <div></div>
+
+            {/* BtnActions Expand Mobile */}
+            <ExpandDropdownList className='absolute right-0 md:hidden'>
+                <DeleteListBtn version='mobile' id={listId!} />
+            </ExpandDropdownList>
+
+
+            {/* BtnActions Desktop */}
+            <div>
+                <div className='absolute top-0 right-0 flex'>
+                    <DeleteListBtn version='desktop' id={listId!} />
+                </div>
+            </div>
         </div>
     )
 }

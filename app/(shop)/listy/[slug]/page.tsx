@@ -51,7 +51,7 @@ const DetailListSection = (url: Props) => {
  
     return (
         
-        <section className='w-full sm:px-2 md:px-3 lg:px-4 lg:w-3/4 lg:border-l lg:border-[#ddd]'>
+        <section className='relative w-full sm:px-2 md:px-3 lg:px-4 lg:w-3/4 lg:border-l lg:border-[#ddd]'>
             {isLoading || isFetching ? <LoadingSkelleton/> :
             <div className='bg:pl-2 lg:pl-4'>
                 <ReturnBtn />
