@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import DeleteListBtn from '../../components/Buttons/DeleteListBtn'
+import SaveListBtn from '../../components/Buttons/SaveListBtn'
 import ShareListBtn from '../../components/Buttons/ShareListBtn'
 import { ExpandDropdownList } from '../../components/ExpandDropdownList'
 
@@ -54,6 +55,7 @@ const ListHeader = ({ listId, updateAt, name }: Props) => {
             {/* BtnActions Desktop */}
             <div>
                 <div className='absolute top-0 right-0 hidden md:flex '>
+                    <SaveListBtn version='desktop' id={listId!} />
 
                     <ShareListBtn version='desktop' id={listId!} />
 

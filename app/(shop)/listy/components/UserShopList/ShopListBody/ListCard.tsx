@@ -22,54 +22,6 @@ type BtnProps = {
     id: string
 }
 
-
-const ActionBtn = ({ action, id }: BtnProps) => {
-    const queryClient = useQueryClient()
-    const dispatch = useDispatch()
-
-    const { mutate } = useMutation(
-        async (id: string) => await axios.post('/api/purchaseLists/deletePurchaseList', {
-            listId: id
-        }),
-        {
-            onError: (error: AxiosError) => {
-                console.log(error)
-            },
-            onSuccess: () => {
-                queryClient.invalidateQueries(['purchaseLists'])
-                dispatch(removePurchaseListItem({ id }))
-
-            }
-        },
-    )
-
-    const handleClickBtn = (action: string) => {
-        if (action === 'delete') {
-            mutate(id)
-        }
-    }
-
-    return (
-        <button
-            onClick={action === 'delete' ? () => handleClickBtn('delete') : () => handleClickBtn('share')}
-
-            title={action === 'share' ? 'Udostępnij listę' : 'Usuń listę'}
-            className='inline-flex items-center justify-start whitespace-nowrap bg-transparent rounded-none w-full h-[48px] py-3 px-4 hover:bg-[#ddd] transition-colors duration-200' >
-            <span className='inline-block w-6 h-6 mr-3 overflow-hidden'>
-                {action === 'share' ?
-                    <RiShareForwardLine className='w-full h-full text-xl ' /> :
-                    <RiDeleteBinLine className='w-full h-full text-xl' />
-                }
-            </span>
-
-            <span>
-                <span>
-                    {action === 'share' ? 'Udostępnij listę' : 'Usuń listę'}
-                </span>
-            </span>
-        </button >
-    )
-}
 type Props = {
     item: PurchaseList
 }
@@ -86,7 +38,6 @@ export const ListCard = ({ item }: Props) => {
                 <ShareListBtn version='mobile' id={Id} />
 
                 <DeleteListBtn version='mobile' id={Id} />
-
 
             </ExpandDropdownList>
 
@@ -151,6 +102,8 @@ export const ListCard = ({ item }: Props) => {
                 <div></div>
 
             </Link >
+
+
         </div >
     )
 }

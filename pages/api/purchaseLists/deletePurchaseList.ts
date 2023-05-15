@@ -12,7 +12,6 @@ type Data = {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	if (req.method === 'POST') {
 		const Id: string = req.body.listId;
-		console.log(Id);
 
 		try {
 			const result = await prisma.purchaseList.delete({
