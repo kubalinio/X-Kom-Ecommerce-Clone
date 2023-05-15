@@ -22,7 +22,7 @@ const purchaseListSlice = createSlice({
 			const itemInList = state.purchaseListItems.find(item => item.id === action.payload.id);
 
 			if (itemInList) {
-				console.log('Product in List');
+				return;
 			} else {
 				state.purchaseListItems.push({ ...action.payload });
 			}

@@ -15,8 +15,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			},
 		});
 
-		console.log('Price: ', priceDeleteProduct);
-
 		try {
 			const data = await prisma.purchaseList.update({
 				where: {

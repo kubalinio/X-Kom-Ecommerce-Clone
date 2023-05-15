@@ -6,9 +6,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { ExpandDropdownList } from '../../components/ExpandDropdownList'
+import DeleteProductBtn from '../../components/Buttons/DeleteProductBtn'
+import AddToBasketBtn from '../../components/Buttons/AddToBasketBtn'
 
-import AddToBasketBtn from './Buttons/AddToBasketBtn'
-import DeleteProductBtn from './Buttons/DeleteProductBtn'
+
 
 
 type Props = {
