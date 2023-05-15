@@ -13,7 +13,6 @@ type UserBody = {
 export const NavUserBody = ({ activeLink, links }: UserBody) => {
 
 
-
     return (
         <div className="-mx-4">
             {links.map(link => (
@@ -21,9 +20,9 @@ export const NavUserBody = ({ activeLink, links }: UserBody) => {
                     key={link.slug + Math.random()}
                     href={link.slug}
                     title={link.title}
-                    className={`${activeLink?.search(link.slug) ? 'font-bold' : 'font-normal'} flex items-center py-3 px-4 hover:bg-gray-100`}>
+                    className={`${activeLink?.includes(link.slug) ? 'font-bold' : 'font-normal'} flex items-center py-3 px-4 hover:bg-gray-100`}>
 
-                    <IconNavUser icon={activeLink?.search(link.slug) ? link.iconActive : link.icon} />
+                    <IconNavUser icon={activeLink?.includes(link.slug) ? link.iconActive : link.icon} />
 
                     <span>
                         {link.title}

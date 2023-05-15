@@ -1,6 +1,6 @@
 import { PurchaseList } from '@/types/typings'
 import React from 'react'
-import AddAllAccessibleBtn from './Buttons/AddAllAccessibleBtn'
+import AddAllAccessibleBtn from '../../components/Buttons/AddAllAccessibleBtn'
 import ListSummary from './ListSummary'
 import ProductListItem from './ProductListItem'
 

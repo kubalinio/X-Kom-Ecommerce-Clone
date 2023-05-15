@@ -28,7 +28,7 @@ export const ChangeQuantityProduct = ({ changeQuantity, basketQuantity, classNam
     return (
         <div
             onClick={() => setIsOpen(!isOpen)}
-            className={`${isOpen ? 'rounded-t-2xl' : 'rounded-2xl'} w-[56px] h-[32px] text-center max-w-full cursor-pointer ${className}`}>
+            className={`${isOpen ? 'rounded-t-2xl z-50' : 'rounded-2xl'} w-[56px] h-[32px] text-center max-w-full cursor-pointer ${className}`}>
 
             <div className="relative w-[56px] h-[32px] rounded-[inherit]">
                 {/* Control */}
