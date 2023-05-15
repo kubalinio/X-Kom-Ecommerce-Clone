@@ -40,6 +40,7 @@ type Props = {
 const ListHeader = ({ listId, updateAt, name }: Props) => {
 
     return (
+
         <div className='mb-6 md:flex md:justify-between max-md:relative'>
             <ListTitle name={name} updateAt={updateAt} />
 
@@ -60,6 +61,8 @@ const ListHeader = ({ listId, updateAt, name }: Props) => {
                     <ShareListBtn version='desktop' id={listId!} />
 
                     <DeleteListBtn version='desktop' id={listId!} />
+
+      
                 </div>
             </div>
         </div>
