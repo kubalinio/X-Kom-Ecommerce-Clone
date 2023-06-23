@@ -1,40 +1,40 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
 export type PurchaseListItem = {
-	id: string;
-};
+  id: string
+}
 
 export type PurchaseList = {
-	// id: string
-	purchaseListItems: PurchaseListItem[];
-};
+  // id: string
+  purchaseListItems: PurchaseListItem[]
+}
 
 const initialState: PurchaseList = {
-	// id: '',
-	purchaseListItems: [],
-};
+  // id: '',
+  purchaseListItems: [],
+}
 
 const purchaseListSlice = createSlice({
-	name: 'purchaseList',
-	initialState,
-	reducers: {
-		addToPurchaseList: (state, action) => {
-			const itemInList = state.purchaseListItems.find(item => item.id === action.payload.id);
+  name: 'purchaseList',
+  initialState,
+  reducers: {
+    addToPurchaseList: (state, action) => {
+      const itemInList = state.purchaseListItems.find((item) => item.id === action.payload.id)
 
-			if (itemInList) {
-				return;
-			} else {
-				state.purchaseListItems.push({ ...action.payload });
-			}
-		},
+      if (itemInList) {
+        return
+      } else {
+        state.purchaseListItems.push({ ...action.payload })
+      }
+    },
 
-		removePurchaseListItem: (state, action) => {
-			const removeItem = state.purchaseListItems.filter(item => item.id !== action.payload.id);
-			state.purchaseListItems = removeItem;
-		},
-	},
-});
+    removePurchaseListItem: (state, action) => {
+      const removeItem = state.purchaseListItems.filter((item) => item.id !== action.payload.id)
+      state.purchaseListItems = removeItem
+    },
+  },
+})
 
-export const purchaseReducer = purchaseListSlice.reducer;
+export const purchaseReducer = purchaseListSlice.reducer
 
-export const { addToPurchaseList, removePurchaseListItem } = purchaseListSlice.actions;
+export const { addToPurchaseList, removePurchaseListItem } = purchaseListSlice.actions

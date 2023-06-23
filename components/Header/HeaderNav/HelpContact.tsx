@@ -1,326 +1,348 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 'use client'
 
+import Link from 'next/link'
+import { ReactNode, useState } from 'react'
+import { BsTelephone } from 'react-icons/bs'
+import { GoMail } from 'react-icons/go'
+import { HiOutlineBuildingStorefront } from 'react-icons/hi2'
+import { TfiHeadphoneAlt } from 'react-icons/tfi'
 
-import Link from "next/link"
-import { ReactNode, useState } from "react"
+import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../../DrawerModal'
+import { NavDropdown } from './NavDropdown'
 
-import { BsTelephone } from "react-icons/bs";
-
-import { GoMail } from "react-icons/go";
-
-import { HiOutlineBuildingStorefront } from "react-icons/hi2";
-import { TfiHeadphoneAlt } from "react-icons/tfi";
-import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from "../../DrawerModal";
-import { NavDropdown } from "./NavDropdown";
-
-const Icon = ({ icon }: { icon: ReactNode }) => <span className="flex items-center justify-center w-full h-full text-gray-700">{icon}</span>;
+const Icon = ({ icon }: { icon: ReactNode }) => (
+  <span className="flex h-full w-full items-center justify-center text-gray-700">{icon}</span>
+)
 
 const helpItem = {
-    name: 'Pomoc i kontakt',
-    icon: <TfiHeadphoneAlt />,
-    slug: 'centrum-pomocy',
-    subMenu: {
-        popular: [
-            {
-                name: 'Status przesyłki',
-                slug: 'status-przesylki'
-            },
-            {
-                name: 'Dostawa',
-                slug: 'dostawa'
-            },
-            {
-                name: 'Raty',
-                slug: 'raty'
-            },
-            {
-                name: 'Leasing',
-                slug: 'leasing'
-            },
-            {
-                name: 'Ubezpieczenie sprzętu',
-                slug: 'ubezpieczenia'
-            },
-            {
-                name: 'Zwroty i reklamacje',
-                slug: 'serwis'
-            },
-            {
-                name: 'Najczęsciej zadawane pytania',
-                slug: 'centrum-pomocy'
-            },
+  name: 'Pomoc i kontakt',
+  icon: <TfiHeadphoneAlt />,
+  slug: 'centrum-pomocy',
+  subMenu: {
+    popular: [
+      {
+        name: 'Status przesyłki',
+        slug: 'status-przesylki',
+      },
+      {
+        name: 'Dostawa',
+        slug: 'dostawa',
+      },
+      {
+        name: 'Raty',
+        slug: 'raty',
+      },
+      {
+        name: 'Leasing',
+        slug: 'leasing',
+      },
+      {
+        name: 'Ubezpieczenie sprzętu',
+        slug: 'ubezpieczenia',
+      },
+      {
+        name: 'Zwroty i reklamacje',
+        slug: 'serwis',
+      },
+      {
+        name: 'Najczęsciej zadawane pytania',
+        slug: 'centrum-pomocy',
+      },
+    ],
+    contact: [
+      {
+        name: 'Kontakt',
+        icon: <TfiHeadphoneAlt className="h-full w-full" />,
+        slug: 'kontakt',
+      },
+      {
+        name: 'Salony',
+        icon: <HiOutlineBuildingStorefront className="h-full w-full" />,
+        slug: 'salony',
+      },
+      {
+        name: 'x-kom@x-kom.pl',
+        icon: <GoMail className="h-full w-full" />,
+        slug: 'mailto:x-kom@x-kom.pl',
+      },
+      {
+        name: '12 312 31 23',
+        icon: <BsTelephone className="h-full w-full" />,
+        slug: 'tel:123123123',
+        workTime: [
+          {
+            days: 'pn. - pt.',
+            time: '8:00 - 21:00',
+          },
+          {
+            days: 'sob. - niedz.',
+            time: '8:00 - 19:00',
+          },
         ],
-        contact: [
-            {
-                name: 'Kontakt',
-                icon: <TfiHeadphoneAlt className='w-full h-full' />,
-                slug: 'kontakt'
-            },
-            {
-                name: 'Salony',
-                icon: <HiOutlineBuildingStorefront className='w-full h-full' />,
-                slug: 'salony'
-            },
-            {
-                name: 'x-kom@x-kom.pl',
-                icon: <GoMail className='w-full h-full' />,
-                slug: 'mailto:x-kom@x-kom.pl'
-            },
-            {
-                name: '12 312 31 23',
-                icon: <BsTelephone className='w-full h-full' />,
-                slug: 'tel:123123123',
-                workTime: [
-                    {
-                        days: 'pn. - pt.',
-                        time: '8:00 - 21:00'
-                    },
-                    {
-                        days: 'sob. - niedz.',
-                        time: '8:00 - 19:00'
-                    }
-                ]
-            },
-        ]
-    }
-
+      },
+    ],
+  },
 }
 
 type Props = {
-    isScrollDown: boolean
-    width: number
+  isScrollDown: boolean
+  width: number
 }
 
 const DropdownHeader = ({ title }: { title: string }) => (
-    <div className='flex items-center w-full h-9'>
-        <p className='ml-4 text-[#707070] font-bold'>
-            {title}
-        </p>
-    </div>
+  <div className="flex h-9 w-full items-center">
+    <p className="ml-4 font-bold text-[#707070]">{title}</p>
+  </div>
 )
 
 type DropDownLinkProps = {
-    slug: string
-    name: string
-    icon?: ReactNode
-    onClick: () => void
+  slug: string
+  name: string
+  icon?: ReactNode
+  onClick: () => void
 }
 
 const DropdownLink = ({ slug, name, icon, onClick }: DropDownLinkProps) => (
-
-    <li>
-        <Link onClick={() => onClick()} href={`/${slug}`} className='flex items-center h-9 px-4 hover:no-underline active:no-underline focus:no-underline hover:bg-[#f5f5f5]'>
-            {icon && <span className='inline-block w-6 h-6 mr-3' title={name}>{icon}</span>}
-            <p className='flex items-center w-full text-base whitespace-nowrap'>{name}</p>
-        </Link>
-    </li>
+  <li>
+    <Link
+      onClick={() => onClick()}
+      href={`/${slug}`}
+      className="flex h-9 items-center px-4 hover:bg-[#f5f5f5] hover:no-underline focus:no-underline active:no-underline"
+    >
+      {icon && (
+        <span className="mr-3 inline-block h-6 w-6" title={name}>
+          {icon}
+        </span>
+      )}
+      <p className="flex w-full items-center whitespace-nowrap text-base">{name}</p>
+    </Link>
+  </li>
 )
 
-
-
 export const HelpContact = ({ isScrollDown, width }: Props) => {
-    const [isHover, setIsHover] = useState(false)
-    const [showDrawer, setShowDrawer] = useState(false)
+  const [isHover, setIsHover] = useState(false)
+  const [showDrawer, setShowDrawer] = useState(false)
 
-    const handleClick = () => {
-        if (width >= 1080) {
-            setShowDrawer(false)
-        } else if (width < 1080 && !showDrawer) {
-            setShowDrawer(true)
-        } else if (width < 1080 && showDrawer) {
-            setShowDrawer(false)
-        }
+  const handleClick = () => {
+    if (width >= 1080) {
+      setShowDrawer(false)
+    } else if (width < 1080 && !showDrawer) {
+      setShowDrawer(true)
+    } else if (width < 1080 && showDrawer) {
+      setShowDrawer(false)
     }
+  }
 
-    const handleHover = () => {
-        if (width < 1080) {
-            return
-        }
-        else if (width >= 1080 && !isHover) {
-            setIsHover(true)
-        } else if (width >= 1080 && isHover) {
-            setIsHover(false)
-        }
-
+  const handleHover = () => {
+    if (width < 1080) {
+      return
+    } else if (width >= 1080 && !isHover) {
+      setIsHover(true)
+    } else if (width >= 1080 && isHover) {
+      setIsHover(false)
     }
+  }
 
-    return (
-        <>
-            <div
-                onMouseEnter={() => handleHover()}
-                onMouseLeave={() => handleHover()}
-                className={`relative hidden md:flex h-12 md:h-16 z-10 ${isHover ? 'nav-item-after' : ''}`}>
-
-                <div
-                    onClick={() => handleClick()}
-                    className={`flex justify-center items-center min-w-[64px] md:min-w-[88px] cursor-pointer ${isHover ? 'shadow-xCom rounded-t-lg' : ''}`} >
-
-
-                    <Link href='/' className="flex flex-col items-center justify-center h-full max-lg:pointer-events-none" >
-                        <div className="relative flex items-center text-2xl 2xl:text-3xl w-7 h-7 md:w-8 md:h-8" >
-
-                            <Icon icon={helpItem.icon} />
-
-                        </div>
-
-                        <span className={`${!isScrollDown ? 'lg:scale-100 lg:opacity-100 lg:translate-y-0' : 'lg:scale-0 lg:opacity-0 lg:translate-y-[-20px] lg:h-0 '} transition-all duration-500 text-[10px] whitespace-nowrap mt-1`}>{helpItem.name}</span>
-
-                    </Link>
-
-                </div>
-
-                {isHover ? (
-                    <NavDropdown>
-
-                        <div>
-                            <DropdownHeader title={'Popularne tematy'} />
-
-                            <ul>
-                                {helpItem?.subMenu?.popular?.map((item) => (
-                                    <DropdownLink onClick={() => setIsHover(false)} key={item.name} slug={item.slug} name={item.name} />
-                                ))}
-                            </ul>
-
-                            <DropdownHeader title={'Skontaktuj się z nami'} />
-
-                            <ul>
-                                {helpItem?.subMenu?.contact.slice(0, 3).map((item) => (
-                                    <DropdownLink onClick={() => setIsHover(false)} key={item.name} slug={item.slug} name={item.name} icon={item.icon} />
-                                ))}
-                            </ul>
-
-                            {/* Contact */}
-                            {helpItem?.subMenu?.contact.slice(3, 4).map((item) => (
-                                <div key={item.name} className='relative h-[72px]'>
-                                    <a href={`${item.slug}`} className='flex items-center h-full px-4 pb-9 hover:no-underline active:no-underline focus:no-underline'>
-                                        <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>
-                                        {item.name}
-                                    </a>
-
-                                    <div className='absolute flex ml-10 text-sm text-gray-600 top-9'>
-                                        <div className='flex flex-col ml-4'>
-                                            {item.workTime?.map((item, i) => (
-                                                <span key={item.days + i} className='mb-1 mr-1 whitespace-nowrap'>{item.days}</span>
-                                            ))}
-                                        </div>
-
-                                        <div className='flex flex-col ml-4'>
-                                            {item.workTime?.map((item, i) => (
-                                                <span key={item.days + i} className='mb-1 mr-1 whitespace-nowrap'>{item.time}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                    </NavDropdown>
-                ) : ''}
-
-
+  return (
+    <>
+      <div
+        onMouseEnter={() => handleHover()}
+        onMouseLeave={() => handleHover()}
+        className={`relative z-10 hidden h-12 md:flex md:h-16 ${isHover ? 'nav-item-after' : ''}`}
+      >
+        <div
+          onClick={() => handleClick()}
+          className={`flex min-w-[64px] cursor-pointer items-center justify-center md:min-w-[88px] ${
+            isHover ? 'rounded-t-lg shadow-xCom' : ''
+          }`}
+        >
+          <Link href="/" className="flex h-full flex-col items-center justify-center max-lg:pointer-events-none">
+            <div className="relative flex h-7 w-7 items-center text-2xl md:h-8 md:w-8 2xl:text-3xl">
+              <Icon icon={helpItem.icon} />
             </div>
 
+            <span
+              className={`${
+                !isScrollDown
+                  ? 'lg:translate-y-0 lg:scale-100 lg:opacity-100'
+                  : 'lg:h-0 lg:translate-y-[-20px] lg:scale-0 lg:opacity-0 '
+              } mt-1 whitespace-nowrap text-[10px] transition-all duration-500`}
+            >
+              {helpItem.name}
+            </span>
+          </Link>
+        </div>
 
-            <DrawerContainer close={() => setShowDrawer(false)} openDrawer={showDrawer} direction={'right'}>
-                {showDrawer && width! <= 1080 ? (
+        {isHover ? (
+          <NavDropdown>
+            <div>
+              <DropdownHeader title={'Popularne tematy'} />
 
-                    <DrawerModal>
-                        <DrawerHeader name={helpItem.name} closeDrawer={() => setShowDrawer(false)} basketQuantity={0} />
+              <ul>
+                {helpItem?.subMenu?.popular?.map((item) => (
+                  <DropdownLink onClick={() => setIsHover(false)} key={item.name} slug={item.slug} name={item.name} />
+                ))}
+              </ul>
 
-                        {/* Tylko Conterner 1 Div */}
-                        <DrawerBody>
+              <DropdownHeader title={'Skontaktuj się z nami'} />
 
-                            <div className='flex items-end w-full h-14'>
-                                <p className='ml-4 text-[#707070] font-bold'>
-                                    Popularne tematy
-                                </p>
-                            </div>
-                            <ul>
-                                {helpItem?.subMenu?.popular?.map((item, i) => (
-                                    <li key={item.name + i}>
-                                        <Link
-                                            onClick={() => setShowDrawer(false)}
-                                            href={`/${item.slug}`}
-                                            className='flex items-center h-12 px-4 hover:no-underline active:no-underline focus:no-underline'
-                                        >
-                                            <p className='flex items-center w-full text-base whitespace-nowrap'>
-                                                {item.name}
-                                            </p>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className='border border-[#ddd] mt-4' />
-                            <div className='flex items-end w-full mb-1 h-14'>
-                                <p className='ml-4 text-[#707070] font-bold'>
-                                    Skontaktuj się z nami
-                                </p>
-                            </div>
-                            <ul>
-                                {helpItem?.subMenu?.contact.slice(0, 3).map((item, i) => (
-                                    <li key={item.name + i}>
-                                        <Link
-                                            onClick={() => setShowDrawer(false)}
-                                            href={`/${item.slug}`}
-                                            className='flex items-center px-4 h-14 hover:no-underline active:no-underline focus:no-underline'
-                                        >
-                                            <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>
-                                            <p className='flex items-center w-full text-base whitespace-nowrap'>{item.name}</p>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
+              <ul>
+                {helpItem?.subMenu?.contact.slice(0, 3).map((item) => (
+                  <DropdownLink
+                    onClick={() => setIsHover(false)}
+                    key={item.name}
+                    slug={item.slug}
+                    name={item.name}
+                    icon={item.icon}
+                  />
+                ))}
+              </ul>
 
-                            {helpItem?.subMenu?.contact.slice(3, 4).map((item, i) => (
-                                <div key={item.name + i} className='relative h-[88px]'>
-                                    <a href={`${item.slug}`} className='flex items-center px-4 h-14 hover:no-underline active:no-underline focus:no-underline'>
-                                        <span className='inline-block w-6 h-6 mr-3' title={item.name}>{item.icon}</span>
-                                        {item.name}
-                                    </a>
+              {/* Contact */}
+              {helpItem?.subMenu?.contact.slice(3, 4).map((item) => (
+                <div key={item.name} className="relative h-[72px]">
+                  <a
+                    href={`${item.slug}`}
+                    className="flex h-full items-center px-4 pb-9 hover:no-underline focus:no-underline active:no-underline"
+                  >
+                    <span className="mr-3 inline-block h-6 w-6" title={item.name}>
+                      {item.icon}
+                    </span>
+                    {item.name}
+                  </a>
 
-                                    <div className='absolute flex ml-10 text-sm text-gray-600 top-12'>
-                                        <div className='flex flex-col ml-4'>
-                                            {item.workTime?.map((item, i) => (
-                                                <span key={item.days + i} className='mb-1 mr-1 whitespace-nowrap'>{item.days}</span>
-                                            ))}
-                                        </div>
+                  <div className="absolute top-9 ml-10 flex text-sm text-gray-600">
+                    <div className="ml-4 flex flex-col">
+                      {item.workTime?.map((item, i) => (
+                        <span key={item.days + i} className="mb-1 mr-1 whitespace-nowrap">
+                          {item.days}
+                        </span>
+                      ))}
+                    </div>
 
-                                        <div className='flex flex-col ml-4'>
-                                            {item.workTime?.map((item, i) => (
-                                                <span key={item.days + i} className='mb-1 mr-1 whitespace-nowrap'>{item.time}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </DrawerBody>
+                    <div className="ml-4 flex flex-col">
+                      {item.workTime?.map((item, i) => (
+                        <span key={item.days + i} className="mb-1 mr-1 whitespace-nowrap">
+                          {item.time}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </NavDropdown>
+        ) : (
+          ''
+        )}
+      </div>
 
+      <DrawerContainer close={() => setShowDrawer(false)} openDrawer={showDrawer} direction={'right'}>
+        {showDrawer && (width ?? 0) <= 1080 ? (
+          <DrawerModal>
+            <DrawerHeader name={helpItem.name} closeDrawer={() => setShowDrawer(false)} basketQuantity={0} />
 
-                    </DrawerModal>
+            {/* Tylko Conterner 1 Div */}
+            <DrawerBody>
+              <div className="flex h-14 w-full items-end">
+                <p className="ml-4 font-bold text-[#707070]">Popularne tematy</p>
+              </div>
+              <ul>
+                {helpItem?.subMenu?.popular?.map((item, i) => (
+                  <li key={item.name + i}>
+                    <Link
+                      onClick={() => setShowDrawer(false)}
+                      href={`/${item.slug}`}
+                      className="flex h-12 items-center px-4 hover:no-underline focus:no-underline active:no-underline"
+                    >
+                      <p className="flex w-full items-center whitespace-nowrap text-base">{item.name}</p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-4 border border-[#ddd]" />
+              <div className="mb-1 flex h-14 w-full items-end">
+                <p className="ml-4 font-bold text-[#707070]">Skontaktuj się z nami</p>
+              </div>
+              <ul>
+                {helpItem?.subMenu?.contact.slice(0, 3).map((item, i) => (
+                  <li key={item.name + i}>
+                    <Link
+                      onClick={() => setShowDrawer(false)}
+                      href={`/${item.slug}`}
+                      className="flex h-14 items-center px-4 hover:no-underline focus:no-underline active:no-underline"
+                    >
+                      <span className="mr-3 inline-block h-6 w-6" title={item.name}>
+                        {item.icon}
+                      </span>
+                      <p className="flex w-full items-center whitespace-nowrap text-base">{item.name}</p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
 
-                ) : ''}
-            </DrawerContainer>
-        </>
+              {helpItem?.subMenu?.contact.slice(3, 4).map((item, i) => (
+                <div key={item.name + i} className="relative h-[88px]">
+                  <a
+                    href={`${item.slug}`}
+                    className="flex h-14 items-center px-4 hover:no-underline focus:no-underline active:no-underline"
+                  >
+                    <span className="mr-3 inline-block h-6 w-6" title={item.name}>
+                      {item.icon}
+                    </span>
+                    {item.name}
+                  </a>
 
-    )
+                  <div className="absolute top-12 ml-10 flex text-sm text-gray-600">
+                    <div className="ml-4 flex flex-col">
+                      {item.workTime?.map((item, i) => (
+                        <span key={item.days + i} className="mb-1 mr-1 whitespace-nowrap">
+                          {item.days}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="ml-4 flex flex-col">
+                      {item.workTime?.map((item, i) => (
+                        <span key={item.days + i} className="mb-1 mr-1 whitespace-nowrap">
+                          {item.time}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </DrawerBody>
+          </DrawerModal>
+        ) : (
+          ''
+        )}
+      </DrawerContainer>
+    </>
+  )
 }
 
-
-
-{/* DropDown */ }
-{/* {isHover && item.subMenu ? (
+{
+  /* DropDown */
+}
+{
+  /* {isHover && item.subMenu ? (
                 <NavDropdown
                     index={i}
                     isActiveContent={activeNav}
                     navItem={menuItems[activeNav]} />
             )
                 : ''
-            }  */}
+            }  */
+}
 
-
-
-{/* Portals */ }
-{/* {
+{
+  /* Portals */
+}
+{
+  /* {
             item.subMenu && (mounted && refPortal.current ? createPortal(
                 <Drawer
                     show={isModalShow && activeNav === i}
@@ -330,6 +352,5 @@ export const HelpContact = ({ isScrollDown, width }: Props) => {
                 />
                 , refPortal.current) : null
             )
-        } */}
-
-
+        } */
+}

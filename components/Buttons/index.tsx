@@ -1,2 +1,2 @@
-export { ButtonPrimary } from './ButtonSolid'
 export { ButtonOutlined } from './ButtonOutlined'
+export { ButtonPrimary } from './ButtonSolid'

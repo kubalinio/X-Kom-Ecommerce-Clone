@@ -1,26 +1,27 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import prisma from '@/prisma';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-type Data = {
-	name: string;
-};
+import prisma from '@/prisma'
+
+// type Data = {
+//   name: string
+// }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-	if (req.method === 'POST') {
-		try {
-			const data = await prisma.productItem.findMany({
-				where: {
-					listId: { in: req.body.purchaseListsId },
-				},
-				select: {
-					Id: true,
-				},
-			});
+  if (req.method === 'POST') {
+    try {
+      const data = await prisma.productItem.findMany({
+        where: {
+          listId: { in: req.body.purchaseListsId },
+        },
+        select: {
+          Id: true,
+        },
+      })
 
-			res.status(200).json(data);
-		} catch (error) {
-			res.status(403).json({ message: 'Error fetching Lists' });
-		}
-	}
+      res.status(200).json(data)
+    } catch (error) {
+      res.status(403).json({ message: 'Error fetching Lists' })
+    }
+  }
 }

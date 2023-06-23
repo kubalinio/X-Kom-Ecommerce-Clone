@@ -1,19 +1,20 @@
 import { useRouter } from 'next/navigation'
-import React from 'react'
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 
 const ReturnBtn = () => {
-    const router = useRouter()
+  const router = useRouter()
 
-    return (
-        <button onClick={() => router.back()} className='flex items-center justify-center rounded-full bg-[#ebebeb] text-[#4d4d4d] w-full py-2 hover:bg-[#ddd] bg:px-4 bg:w-auto'>
-
-            <span className='inline-block w-5 h-5 mr-1 overflow-hidden text-center'>
-                <MdOutlineKeyboardArrowLeft className='w-full h-full text-lg' />
-            </span>
-            Wróć do zakupów
-        </button>
-    )
+  return (
+    <button
+      onClick={() => router.back()}
+      className="flex w-full items-center justify-center rounded-full bg-[#ebebeb] py-2 text-[#4d4d4d] hover:bg-[#ddd] bg:w-auto bg:px-4"
+    >
+      <span className="mr-1 inline-block h-5 w-5 overflow-hidden text-center">
+        <MdOutlineKeyboardArrowLeft className="h-full w-full text-lg" />
+      </span>
+      Wróć do zakupów
+    </button>
+  )
 }
 
 export default ReturnBtn

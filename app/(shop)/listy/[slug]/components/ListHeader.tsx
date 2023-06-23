@@ -1,80 +1,64 @@
-import React, { useEffect, useState } from 'react'
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from 'react'
+
 import DeleteListBtn from '../../components/Buttons/DeleteListBtn'
 import SaveListBtn from '../../components/Buttons/SaveListBtn'
 import ShareListBtn from '../../components/Buttons/ShareListBtn'
 import { ExpandDropdownList } from '../../components/ExpandDropdownList'
 
 const ListTitle = ({ name, updateAt }: Props) => {
-    const [lastMod, setLastMod] = useState('')
+  const [lastMod, setLastMod] = useState('')
 
-    useEffect(() => {
-        const changeTime = new Date(updateAt!).toLocaleDateString()
-        setLastMod(changeTime)
-    }, [])
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const changeTime = new Date(updateAt!).toLocaleDateString()
+    setLastMod(changeTime)
+  }, [])
 
-    return (
-        <div className='flex flex-col'>
+  return (
+    <div className="flex flex-col">
+      <div className="flex">
+        <h3 title={name} className="mb-2 mt-1 whitespace-nowrap text-xl font-bold">
+          {name}
+        </h3>
+        {/* edit Favlist Name */}
+      </div>
 
-            <div className='flex'>
-                <h3
-                    title={name}
-                    className='mt-1 mb-2 text-xl font-bold whitespace-nowrap'>
-                    {name}
-                </h3>
-                {/* edit Favlist Name */}
-            </div>
-
-            <p>
-                {lastMod} (ostatnia zmiana)
-            </p>
-        </div>
-    )
+      <p>{lastMod} (ostatnia zmiana)</p>
+    </div>
+  )
 }
 
 type Props = {
-    listId?: string | null | undefined
-    updateAt?: Date
-    name?: string
+  listId?: string | null | undefined
+  updateAt?: Date
+  name?: string
 }
 
 const ListHeader = ({ listId, updateAt, name }: Props) => {
+  return (
+    <div className="mb-6 max-md:relative md:flex md:justify-between">
+      <ListTitle name={name} updateAt={updateAt} />
 
-    return (
+      {/* BtnActions Expand Mobile */}
+      <ExpandDropdownList buttonSize="md" className="absolute right-1 top-0 md:hidden ">
+        <ShareListBtn version="desktop" id={listId!} />
+        <DeleteListBtn id={listId!} variant="mobile" size="sm" />
+      </ExpandDropdownList>
 
-        <div className='mb-6 md:flex md:justify-between max-md:relative'>
-            <ListTitle name={name} updateAt={updateAt} />
+      {/* BtnActions Desktop */}
+      <div>
+        <div className="absolute right-0 top-0 hidden md:flex ">
+          <SaveListBtn version="desktop" id={listId!} />
 
-            {/* BtnActions Expand Mobile */}
-            <ExpandDropdownList
-                buttonSize='md'
-                className='absolute top-0 right-1 md:hidden '>
-                <ShareListBtn version='desktop' id={listId!} />
-                <DeleteListBtn
-                    id={listId!}
-                    variant='mobile'
-                    size='sm'
-                />
-            </ExpandDropdownList>
+          <ShareListBtn version="desktop" id={listId!} />
 
-
-            {/* BtnActions Desktop */}
-            <div>
-                <div className='absolute top-0 right-0 hidden md:flex '>
-                    <SaveListBtn version='desktop' id={listId!} />
-
-                    <ShareListBtn version='desktop' id={listId!} />
-
-                    <DeleteListBtn
-                        id={listId!}
-                        variant='mobile'
-                        size='lg'
-                    />
-
-
-                </div>
-            </div>
+          <DeleteListBtn id={listId!} variant="mobile" size="lg" />
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
 export default ListHeader

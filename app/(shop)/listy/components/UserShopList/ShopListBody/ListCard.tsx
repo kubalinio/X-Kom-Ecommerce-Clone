@@ -1,110 +1,88 @@
-
-import { PurchaseList } from '@/types/typings'
-import { urlFor } from '@/lib/sanity.client'
-import { useQueryClient } from '@tanstack/react-query'
-import axios, { AxiosError } from 'axios'
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { ReactNode, useEffect, useRef, useState } from 'react'
-import { AiOutlineMore } from 'react-icons/ai'
 import { IoMdHeartEmpty } from 'react-icons/io'
-import { RiDeleteBinLine, RiShareForwardLine } from 'react-icons/ri'
-import { useMutation } from '@tanstack/react-query'
-import { useRouter } from 'next/navigation'
-import { useDispatch } from 'react-redux'
-import { removePurchaseListItem } from '@/store/purchaseSlice'
-import { ExpandDropdownList } from '../../ExpandDropdownList'
+
+import { urlFor } from '@/lib/sanity.client'
+import { PurchaseList } from '@/types/typings'
+
 import DeleteListBtn from '../../Buttons/DeleteListBtn'
 import ShareListBtn from '../../Buttons/ShareListBtn'
-
-type BtnProps = {
-    action: string
-    id: string
-}
+import { ExpandDropdownList } from '../../ExpandDropdownList'
 
 type Props = {
-    item: PurchaseList
+  item: PurchaseList
 }
 
 export const ListCard = ({ item }: Props) => {
-    const { Id, Name, createdAt, updateAt, WebUrl, ProductItems, TotalPrice } = item
+  const { Id, Name, createdAt, updateAt, WebUrl, ProductItems, TotalPrice } = item
 
+  return (
+    <div className="relative mt-4">
+      {/* <ExpandActionList id={Id} /> */}
 
-    return (
-        <div className='relative mt-4'>
-            {/* <ExpandActionList id={Id} /> */}
+      <ExpandDropdownList className="absolute right-2 top-2">
+        <ShareListBtn version="mobile" id={Id} />
 
-            <ExpandDropdownList className='absolute right-2 top-2' >
-                <ShareListBtn version='mobile' id={Id} />
+        <DeleteListBtn id={Id} variant="mobile" />
+      </ExpandDropdownList>
 
-                <DeleteListBtn version='mobile' id={Id} />
+      <Link
+        href={`${WebUrl}`}
+        className="flex min-h-[50px] flex-col rounded-lg p-4 shadow-sm-xCom transition-shadow duration-200 hover:shadow-xCom md:px-6 md:py-4"
+      >
+        {/* ListName & ListLastChange */}
+        <div className="mb-4 pr-12">
+          <h2 title="Ulubiona" className="mb-1 break-words text-lg font-bold">
+            {Name}
+          </h2>
 
-            </ExpandDropdownList>
+          <div className="text-[#707070]">Przed chwilą (ostatnia zmiana)</div>
+        </div>
 
+        {/* Lista jest Pusta */}
+        {ProductItems?.length! > 0 ? (
+          <>
+            <div>
+              <div className="relative left-0 right-0 top-0 w-full overflow-hidden">
+                {ProductItems?.map((product) => (
+                  <div
+                    key={product.Id}
+                    className="mr-3 inline-flex h-[60px] w-[72px] flex-wrap items-center justify-center"
+                  >
+                    <span className="m-1 inline-flex h-[calc(100%-8px)] max-h-full w-[calc(100%-8px)] max-w-full items-center justify-center">
+                      <Image
+                        src={urlFor(product.MainPhoto).url()}
+                        alt={product.Name}
+                        title={product.Name}
+                        loading="lazy"
+                        className="h-auto max-h-full w-full max-w-full"
+                        width={64}
+                        height={52}
+                      />
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-            <Link
-                href={`${WebUrl}`}
-                className='flex flex-col rounded-lg shadow-sm-xCom p-4 min-h-[50px] md:py-4 md:px-6 hover:shadow-xCom transition-shadow duration-200'
-            >
-                {/* ListName & ListLastChange */}
-                <div className='pr-12 mb-4'>
-                    <h2 title='Ulubiona' className='mb-1 text-lg font-bold break-words'>
-                        {Name}
-                    </h2>
+            <p>{TotalPrice.toFixed(2).replace('.', ',')} zł</p>
+          </>
+        ) : (
+          <div className="-mt-2 flex items-center">
+            <span className="inline-block h-6 w-6">
+              <IoMdHeartEmpty className="mr-3 h-full w-full text-2xl" />
+            </span>
 
-                    <div className='text-[#707070]'>
-                        Przed chwilą (ostatnia zmiana)
-                    </div>
-                </div>
+            <p>Lista jest pusta - dodaj produkty</p>
+          </div>
+        )}
 
-                {/* Lista jest Pusta */}
-                {ProductItems?.length! > 0 ? (
-                    <>
-                        <div>
-                            <div className='relative top-0 left-0 right-0 w-full overflow-hidden'>
-                                {ProductItems?.map(product => (
-
-                                    <div key={product.Id} className='inline-flex flex-wrap items-center justify-center w-[72px] h-[60px] mr-3'>
-                                        <span className='inline-flex items-center justify-center m-1 max-w-full max-h-full w-[calc(100%-8px)] h-[calc(100%-8px)]'>
-                                            <Image
-                                                src={urlFor(product.MainPhoto).url()}
-                                                alt={product.Name}
-                                                title={product.Name}
-                                                loading='lazy'
-                                                className='w-full h-auto max-w-full max-h-full'
-                                                width={64}
-                                                height={52}
-                                            />
-                                        </span>
-                                    </div>
-
-                                ))}
-                            </div>
-                        </div>
-
-                        <p>{TotalPrice.toFixed(2).replace('.', ',')} zł</p>
-                    </>
-                ) : (
-                    <div className='flex items-center -mt-2'>
-                        <span className='inline-block w-6 h-6'>
-                            <IoMdHeartEmpty className='w-full h-full mr-3 text-2xl' />
-                        </span>
-
-                        <p>
-                            Lista jest pusta - dodaj produkty
-                        </p>
-                    </div>
-
-                )}
-
-
-                {/* ??? */}
-                <div></div>
-
-            </Link >
-
-
-        </div >
-    )
+        {/* ??? */}
+        <div></div>
+      </Link>
+    </div>
+  )
 }
-

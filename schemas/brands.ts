@@ -1,5 +1,4 @@
-
-import {defineType, defineField} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -40,6 +39,5 @@ export default defineType({
         hotspot: true,
       },
     }),
-  ]
-  
+  ],
 })

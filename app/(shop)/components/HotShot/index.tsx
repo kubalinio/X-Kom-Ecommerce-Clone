@@ -1,88 +1,80 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
-import { ReactNode, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
 import Link from 'next/link'
+import { ReactNode, useState } from 'react'
 
+import { HotShotsData } from '@/types/typings'
+
+import { LoadingSpinner } from '../../../../components/LoadingSpinner'
 import { HotShotCounter } from './HotShotCounter'
 import { HotShotProductDetail } from './HotShotProductDetail'
 import SpecialBorder from './SpecialBorder'
-import axios from 'axios'
-import { useQuery } from '@tanstack/react-query'
-import { LoadingSpinner } from '../../../../components/LoadingSpinner'
-
-
-import { HotShotData, HotShotsData } from '@/types/typings'
 
 const WrapperHotShot = ({ children }: { children: ReactNode }) => (
-    <section className='w-full p-4 pt-0 mb-4 bg-white border-b border-[#ebebeb] md:p-6 md:pt-3 lg:border-none lg:p-0 lg:pr-8 lg:pb-8 lg:w-[31.666%] lg:mb-0'>
-        <div className='flex p-[2px] relative'>
-            {children}
-        </div>
-
-
-    </section>
+  <section className="mb-4 w-full border-b border-[#ebebeb] bg-white p-4 pt-0 md:p-6 md:pt-3 lg:mb-0 lg:w-[31.666%] lg:border-none lg:p-0 lg:pb-8 lg:pr-8">
+    <div className="relative flex p-[2px]">{children}</div>
+  </section>
 )
 
 const fetchHotShot = async () => {
-    const response = await axios.get(`/api/getHotShot`)
-    return response.data
+  const response = await axios.get(`/api/getHotShot`)
+  return response.data
 }
-
 
 export const HotShot = () => {
-    const [ended, setEnded] = useState(false)
+  const [ended, setEnded] = useState(false)
 
-    const { data, isLoading } = useQuery<HotShotsData>({
-        queryKey: ['hotShot'],
-        queryFn: () => fetchHotShot(),
-        staleTime: 12 * 60 * 60 * 1000
-    })
+  const { data, isLoading } = useQuery<HotShotsData>({
+    queryKey: ['hotShot'],
+    queryFn: () => fetchHotShot(),
+    staleTime: 12 * 60 * 60 * 1000,
+  })
 
-
-
-    if (isLoading) return (
-        <WrapperHotShot>
-            <LoadingSpinner />
-            <SpecialBorder />
-        </WrapperHotShot>
-    )
-
-    const { price, oldPrice, promotionGainTextLines, promotionTotalCount, maxBuyCount, promotionName, mainImage, slug } = data!.hotShot[0]
-
-    // const currentTime = new Date().getHours()
-    // console.log(currentTime)
+  if (isLoading)
     return (
-        <WrapperHotShot>
-
-            {/* Content */}
-            < div className='relative w-full overflow-hidden rounded-xl z-[1]' >
-                <Link href={`/${slug.current}`}>
-                    <div className='flex flex-wrap rounded-xl mt-[18px] mb-8 mx-6 md:mt-6 md:mx-6 md:mb-10 lg:mt-[22px] lg:mb-[30px] '>
-                        {/* Top */}
-                        <HotShotProductDetail
-                            finished={ended}
-                            image={mainImage}
-                            promotionGainTextLines={promotionGainTextLines}
-                            title={promotionName}
-                        />
-
-                        {/* Bottom */}
-                        <HotShotCounter
-                            startPromo={() => setEnded(false)}
-                            endPromo={() => setEnded(true)}
-                            price={price}
-                            oldPrice={oldPrice}
-                            promotionGainTextLines={promotionGainTextLines}
-                            promotionTotalCount={promotionTotalCount}
-                        />
-
-                    </div>
-                </Link>
-
-            </div >
-            {/* Border with spans */}
-            < SpecialBorder />
-        </WrapperHotShot>
+      <WrapperHotShot>
+        <LoadingSpinner />
+        <SpecialBorder />
+      </WrapperHotShot>
     )
-}
 
+  const { price, oldPrice, promotionGainTextLines, promotionTotalCount, maxBuyCount, promotionName, mainImage, slug } =
+    data!.hotShot[0]
+
+  // const currentTime = new Date().getHours()
+  // console.log(currentTime)
+  return (
+    <WrapperHotShot>
+      {/* Content */}
+      <div className="relative z-[1] w-full overflow-hidden rounded-xl">
+        <Link href={`/${slug.current}`}>
+          <div className="mx-6 mb-8 mt-[18px] flex flex-wrap rounded-xl md:mx-6 md:mb-10 md:mt-6 lg:mb-[30px] lg:mt-[22px] ">
+            {/* Top */}
+            <HotShotProductDetail
+              finished={ended}
+              image={mainImage}
+              promotionGainTextLines={promotionGainTextLines}
+              title={promotionName}
+            />
+
+            {/* Bottom */}
+            <HotShotCounter
+              startPromo={() => setEnded(false)}
+              endPromo={() => setEnded(true)}
+              price={price}
+              oldPrice={oldPrice}
+              promotionGainTextLines={promotionGainTextLines}
+              promotionTotalCount={promotionTotalCount}
+            />
+          </div>
+        </Link>
+      </div>
+      {/* Border with spans */}
+      <SpecialBorder />
+    </WrapperHotShot>
+  )
+}

@@ -2,17 +2,13 @@
 
 import { NextStudio } from 'next-sanity/studio'
 
-
 import config from '../../../../sanity.config'
 
-
 export default function StudioPage() {
-    //  Supports the same props as `import {Studio} from 'sanity'`, `config` is required
-    return (
-
-        <section>
-            <NextStudio config={config} />
-        </section>
-
-    )
+  //  Supports the same props as `import {Studio} from 'sanity'`, `config` is required
+  return (
+    <section>
+      <NextStudio config={config} />
+    </section>
+  )
 }

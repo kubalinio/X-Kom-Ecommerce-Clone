@@ -1,14 +1,16 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable @typescript-eslint/no-namespace */
 import { PrismaClient } from '@prisma/client'
 
 declare global {
-    namespace NodeJS {
-        interface Global { }
-    }
+  namespace NodeJS {
+    interface Global {}
+  }
 }
 
 // add prisma to the NodeJS global type
 interface CustomNodeJsGlobal extends NodeJS.Global {
-    prisma: PrismaClient
+  prisma: PrismaClient
 }
 
 // Prevent multiple instances of Prisma Client in development
@@ -17,6 +19,5 @@ declare const global: CustomNodeJsGlobal
 const prisma = global.prisma || new PrismaClient()
 
 if (process.env.NODE_ENV !== 'development') global.prisma = prisma
-
 
 export default prisma

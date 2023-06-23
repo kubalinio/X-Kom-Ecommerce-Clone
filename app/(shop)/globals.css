@@ -3,18 +3,16 @@
 @tailwind utilities;
 
 @layer components {
-  
   .searchBox {
-    @apply flex justify-between items-center h-[30px] lg:h-[40px] lg:border lg:border-[#ccc] rounded-[20px] lg:after:content-[] lg:after:rounded-[20px] lg:after:block lg:after:absolute lg:after:inset-0 lg:after:opacity-0 lg:after:transition-opacity lg:after:shadow-xCom lg:after:pointer-events-none
+    @apply flex h-[30px] items-center justify-between rounded-[20px] lg:h-[40px] lg:border lg:border-[#ccc] lg:after:pointer-events-none lg:after:absolute lg:after:inset-0 lg:after:block lg:after:rounded-[20px] lg:after:opacity-0 lg:after:shadow-xCom lg:after:transition-opacity lg:after:content-[];
   }
 }
 
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
+    'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -28,22 +26,11 @@
     #0071ff33 160deg,
     transparent 360deg
   );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+  --secondary-glow: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 
   --tile-start-rgb: 239, 245, 249;
   --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
+  --tile-border: conic-gradient(#00000080, #00000040, #00000030, #00000020, #00000010, #00000010, #00000080);
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
@@ -58,24 +45,11 @@
     --background-end-rgb: 0, 0, 0;
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+    --secondary-glow: linear-gradient(to bottom right, rgba(1, 65, 255, 0), rgba(1, 65, 255, 0), rgba(1, 65, 255, 0.3));
 
     --tile-start-rgb: 2, 13, 46;
     --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+    --tile-border: conic-gradient(#ffffff80, #ffffff40, #ffffff30, #ffffff20, #ffffff10, #ffffff10, #ffffff80);
 
     --callout-rgb: 20, 20, 20;
     --callout-border-rgb: 108, 108, 108;
@@ -95,7 +69,7 @@ body {
   max-width: 100vw;
   font-size: 14px;
   font-family: var(--font-lato);
-  -webkit-tap-highlight-color: transparent; 
+  -webkit-tap-highlight-color: transparent;
   /* overflow-x: hidden; */
 }
 
@@ -125,28 +99,27 @@ a {
 
 .bannersCarousel {
   padding: 0px 16px !important;
-  margin:  16px -16px !important;
+  margin: 16px -16px !important;
 }
 
 @media (min-width: 720px) {
   .bannersCarousel {
-  padding: 0px 24px !important;
-  margin:  16px -24px !important;
-}
+    padding: 0px 24px !important;
+    margin: 16px -24px !important;
+  }
 }
 @media (min-width: 1080px) {
   .bannersCarousel {
-  padding: 0px !important;
-  margin:  16px 0px !important;
-  position: static !important;
-}
+    padding: 0px !important;
+    margin: 16px 0px !important;
+    position: static !important;
+  }
 }
 
 .bannersCarousel .swiper-slide {
   text-align: center;
   font-size: 18px;
   width: 100%;
-  
 
   /* Center slide text vertically */
   display: flex;
@@ -155,23 +128,23 @@ a {
 }
 
 .bannersCarousel .swiper-pagination {
-	/* position: absolute; */
-	display: none;
+  /* position: absolute; */
+  display: none;
   overflow: hidden;
   opacity: 0;
-	justify-content: space-around;
-	margin-left: 25px;
+  justify-content: space-around;
+  margin-left: 25px;
   margin-right: 25px;
 }
 
 .bannersCarousel .swiper-pagination button {
-	position: relative;
-	display: flex;
+  position: relative;
+  display: flex;
   flex-grow: 1;
-	align-items: center;
+  align-items: center;
   justify-content: center;
   text-align: center;
-	min-width: 64px;
+  min-width: 64px;
   min-height: 48px;
   max-height: 56px;
   padding: 14px 8px;
@@ -181,8 +154,7 @@ a {
 }
 
 .bannersCarousel .swiper-pagination button::after {
-	
-  content: "";
+  content: '';
   display: none;
   position: absolute;
   left: 50%;
@@ -198,9 +170,8 @@ a {
 }
 
 .bannersCarousel .swiper-pagination .swiper-pagination-bullet-active::after {
-	display: flex;
+  display: flex;
 }
-
 
 .bannersCarousel .swiper-pagination button:hover {
   background: #ebebeb;
@@ -210,85 +181,79 @@ a {
 }
 
 .bannersCarousel .swiper-pagination .swiper-pagination-bullet-active {
-	color: #222020;
+  color: #222020;
   font-weight: bold;
 }
 
-
-
-@media (min-width: 900px ) {
+@media (min-width: 900px) {
   /* .slick-slider {
     max-height: 340px;
     height: 310px;
     margin-bottom: 15px;
   }  */
-  
+
   .bannersCarousel .swiper-pagination {
     display: flex;
     overflow: visible;
     opacity: 1;
   }
-  
-  }
+}
 
-  .productsCarousel {
-    padding: 0px 16px !important;
-  }
+.productsCarousel {
+  padding: 0px 16px !important;
+}
 
+.sectionCarousel {
+  padding: 0px 16px !important;
+}
+
+@media (min-width: 1080px) {
   .sectionCarousel {
-    padding: 0px 16px !important;
+    position: static !important;
+    padding: 4px 8px !important;
   }
+}
 
-  @media (min-width: 1080px ) {
-    .sectionCarousel {
-      position: static !important;
-      padding: 4px 8px !important;
-    }
-  }
+.sectionCarousel .swiper-button-prev,
+.sectionCarousel .swiper-button-next {
+  display: none;
+  background-color: #fff;
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 0 2px 1px rgb(0 0 0 / 20%);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
 
-   .sectionCarousel .swiper-button-prev, 
-  .sectionCarousel .swiper-button-next {
-    display: none;
-    background-color: #fff;
-    border-radius: 999px;
-    width: 40px;
-    height: 40px;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 0 2px 1px rgb(0 0 0 / 20%);
-    transition: background-color 0.2s, box-shadow 0.2s;
-  }
+.sectionCarousel .swiper-button-prev:hover,
+.sectionCarousel .swiper-button-next:hover {
+  background-color: rgb(243 244 246);
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%), 0 0 2px 1px rgb(0 0 0 / 30%);
+}
+.sectionCarousel .swiper-button-prev:active,
+.sectionCarousel .swiper-button-next:active {
+  background-color: rgb(229 231 235);
+}
 
-  .sectionCarousel .swiper-button-prev:hover, 
-  .sectionCarousel .swiper-button-next:hover {
-    background-color: rgb(243 244 246);
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%), 0 0 2px 1px rgb(0 0 0 / 30%);
-  }
-  .sectionCarousel .swiper-button-prev:active, 
-  .sectionCarousel .swiper-button-next:active {
-    background-color: rgb(229 231 235);
-  }
+.swiper-button-prev--top,
+.swiper-button-next--top {
+  top: 42% !important;
+}
+.swiper-button-prev--topProduct,
+.swiper-button-next--topProduct {
+  top: 50% !important;
+}
 
-  .swiper-button-prev--top,
-  .swiper-button-next--top {
-    top: 42% !important;
-  }
-  .swiper-button-prev--topProduct,
-  .swiper-button-next--topProduct {
-    top: 50% !important;
-  }
+.sectionCarousel .swiper-button-prev {
+  left: -12px !important;
+}
 
-  .sectionCarousel .swiper-button-prev {
-    left: -12px !important;
-  }
+.sectionCarousel .swiper-button-next {
+  right: -12px !important;
+}
 
-  .sectionCarousel .swiper-button-next {
-    right: -12px !important;
-  }
-
-
-  
-  @media (min-width: 1080px) {
-
-    .sectionCarousel .swiper-button-prev, 
+@media (min-width: 1080px) {
+  .sectionCarousel .swiper-button-prev,
   .sectionCarousel .swiper-button-next {
     display: flex;
   }
@@ -296,21 +261,14 @@ a {
   .sectionCarousel .swiper-button-disabled {
     display: none;
   }
-  
-  } 
-  @media (min-width: 1280px) {
+}
+@media (min-width: 1280px) {
+  .sectionCarousel .swiper-button-prev {
+    left: -20px !important;
+  }
+  .sectionCarousel .swiper-button-next {
+    right: -20px !important;
+  }
+}
 
-    .sectionCarousel .swiper-button-prev {
-      left: -20px !important;
-    }
-    .sectionCarousel .swiper-button-next {
-      right: -20px !important;
-    }
-
-  } 
-
-
-
-  /* ' top-[45%]' : 'top-[38%] */
-
-
+/* ' top-[45%]' : 'top-[38%] */

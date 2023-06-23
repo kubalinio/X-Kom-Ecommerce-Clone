@@ -1,3 +1,3 @@
-export { AddToFavListBtn } from './AddToFavListBtn';
-export { AddToFavPopper } from './AddToFavPopper';
-export { AddToFavModal } from './AddToFavModal';
+export { AddToFavListBtn } from './AddToFavListBtn'
+export { AddToFavModal } from './AddToFavModal'
+export { AddToFavPopper } from './AddToFavPopper'

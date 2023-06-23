@@ -1,23 +1,20 @@
-import React from 'react'
 import { HiOutlineTrash } from 'react-icons/hi2'
 
 const RemoveAllFromBasket = () => {
+  return (
+    <button
+      title="Wyczysc koszyk"
+      className="inline-flex h-10 w-full cursor-pointer items-center justify-start rounded-full border-none bg-transparent px-3 py-2 text-[#4d4d4d] transition-colors duration-200 hover:bg-gray-100"
+    >
+      <span className="mr-1 inline-block h-6 w-6">
+        <HiOutlineTrash className="h-full w-full text-2xl" />
+      </span>
 
-    return (
-        <button
-            title='Wyczysc koszyk'
-            className='inline-flex items-center justify-start w-full h-10 text-[#4d4d4d] bg-transparent border-none rounded-full py-2 px-3 cursor-pointer hover:bg-gray-100 transition-colors duration-200'
-        >
-            <span className='inline-block w-6 h-6 mr-1'>
-                <HiOutlineTrash className='w-full h-full text-2xl' />
-            </span>
-
-            <span className='flex flex-col'>
-                <span className='py-3 whitespace-nowrap'>Wyczyść koszyk</span>
-            </span>
-        </button>
-    )
-
+      <span className="flex flex-col">
+        <span className="whitespace-nowrap py-3">Wyczyść koszyk</span>
+      </span>
+    </button>
+  )
 }
 
 export default RemoveAllFromBasket

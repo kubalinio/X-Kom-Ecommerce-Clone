@@ -1,4 +1,4 @@
-export { CategoriesDrawerMobile } from './CategoriesDrawerMobile'
+export { CategorieBarDropdown } from './CategorieBarDropdown'
 export { CategorieHamburgerDropdown } from './CategorieHamburgerDropdown'
 export { CategoriesDesktopBar } from './CategoriesBar'
-export { CategorieBarDropdown } from './CategorieBarDropdown'
+export { CategoriesDrawerMobile } from './CategoriesDrawerMobile'

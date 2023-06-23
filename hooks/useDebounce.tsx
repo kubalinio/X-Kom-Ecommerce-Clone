@@ -1,16 +1,15 @@
-import { DependencyList, useEffect } from 'react';
-import useTimeoutFn from './useTimeoutFn';
+import { DependencyList, useEffect } from 'react'
 
-export type UseDebounceReturn = [() => boolean | null, () => void];
+import useTimeoutFn from './useTimeoutFn'
 
-export default function useDebounce(
-    fn: Function,
-    ms: number = 0,
-    deps: DependencyList = []
-): UseDebounceReturn {
-    const [isReady, cancel, reset] = useTimeoutFn(fn, ms);
+export type UseDebounceReturn = [() => boolean | null, () => void]
 
-    useEffect(reset, deps);
+// eslint-disable-next-line @typescript-eslint/ban-types
+export default function useDebounce(fn: Function, ms = 0, deps: DependencyList = []): UseDebounceReturn {
+  const [isReady, cancel, reset] = useTimeoutFn(fn, ms)
 
-    return [isReady, cancel];
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(reset, deps)
+
+  return [isReady, cancel]
 }

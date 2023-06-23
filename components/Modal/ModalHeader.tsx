@@ -1,46 +1,46 @@
-import { ReactNode } from "react"
-import { AiOutlineClose } from "react-icons/ai"
-import { RiArrowLeftSLine } from "react-icons/ri"
+import { ReactNode } from 'react'
+import { AiOutlineClose } from 'react-icons/ai'
+import { RiArrowLeftSLine } from 'react-icons/ri'
 
 type HeaderProps = {
-    children?: ReactNode
-    title: string
-    close: () => void
-
+  children?: ReactNode
+  title: string
+  close: () => void
 }
 
-const Icon = ({ icon }: { icon: ReactNode }) => <span className='inline-flex items-center justify-center h-[30px] w-[30px] first:text-[30px] sm:first:text-[22px] first:text-gray-600'>{icon}</span>;
-
+const Icon = ({ icon }: { icon: ReactNode }) => (
+  <span className="inline-flex h-[30px] w-[30px] items-center justify-center first:text-[30px] first:text-gray-600 sm:first:text-[22px]">
+    {icon}
+  </span>
+)
 
 export const ModalHeader = ({ children, title, close }: HeaderProps) => {
+  return (
+    <div className="fixed top-0 z-[1001] inline-flex min-h-[56px] w-full max-w-full items-center justify-between rounded-none border-b border-[#ddd] bg-[#f5f5f5] p-2 pr-4 sm:static sm:min-h-[48px] sm:max-w-[600px] sm:rounded-t-lg sm:py-2 sm:pl-4 sm:pr-3">
+      <div className="flex w-full items-center">
+        <button
+          onClick={() => close()}
+          className="flex h-[40px] w-[40px] items-center justify-center rounded-full hover:bg-[#ddd] focus:bg-[#ddd] sm:hidden"
+        >
+          <Icon icon={<RiArrowLeftSLine />} />
+        </button>
 
-    return (
-        <div className="z-[1001] fixed top-0 inline-flex items-center justify-between max-w-full w-full p-2 pr-4 min-h-[56px] rounded-none bg-[#f5f5f5] border-b border-[#ddd] sm:py-2 sm:pl-4 sm:pr-3 sm:min-h-[48px] sm:static sm:rounded-t-lg sm:max-w-[600px]">
+        {children}
 
-            <div className="flex items-center w-full">
-
-                <button
-                    onClick={() => close()}
-                    className="flex sm:hidden items-center justify-center w-[40px] h-[40px] rounded-full hover:bg-[#ddd] focus:bg-[#ddd]"
-                >
-                    <Icon icon={<RiArrowLeftSLine />} />
-                </button>
-
-                {children}
-
-                {/* title */}
-                <div className="inline-flex flex-col flex-auto flex-shrink-[6] pl-2">
-                    <h3 title={title} className='text-[18px] text-[#4d4d4d] font-bold whitespace-nowrap overflow-ellipsis'>{title}</h3>
-                </div>
-
-                <button
-                    onClick={() => close()}
-                    className="hidden sm:flex items-center justify-center w-[36px] h-[36px] rounded-full hover:bg-[#ddd] focus:bg-[#ddd]"
-                >
-                    <Icon icon={<AiOutlineClose />} />
-                </button>
-
-            </div>
+        {/* title */}
+        <div className="inline-flex flex-auto flex-shrink-[6] flex-col pl-2">
+          <h3 title={title} className="overflow-ellipsis whitespace-nowrap text-[18px] font-bold text-[#4d4d4d]">
+            {title}
+          </h3>
         </div>
-    )
+
+        <button
+          onClick={() => close()}
+          className="hidden h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#ddd] focus:bg-[#ddd] sm:flex"
+        >
+          <Icon icon={<AiOutlineClose />} />
+        </button>
+      </div>
+    </div>
+  )
 }
