@@ -6,31 +6,45 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
-model PurchaseList {
-  id           String        @id @default(auto()) @map("_id") @db.ObjectId
-  Id           String?       @unique
-  createdAt    DateTime      @default(now())
-  updateAt     DateTime      @updatedAt
-  Name         String
-  ProductItems ProductItem[]
-  TotalPrice   Float         @default(0)
-  WebUrl       String
+model Product {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updateAt    DateTime @default(now())
+  price       Float
+  oldPrice    Float
+  name        String
+  rating      Int
+  ratingCount Int
+  photo       String
+  slug        String
 }
 
-model ProductItem {
-  id             String        @id @default(auto()) @map("_id") @db.ObjectId
-  Id             String?       @unique
-  createdAt      DateTime      @default(now())
-  updateAt       DateTime      @default(now())
-  listId         String        @unique
-  Name           String
-  MainPhoto      Json?
-  IsPriceVisible Boolean
-  Price          Float?
-  ProductCount   Int
-  PurchaseList   PurchaseList? @relation(fields: [listId], references: [Id], onDelete: Cascade)
-}
+// model PurchaseList {
+//   id           String        @id @default(auto()) @map("_id") @db.ObjectId
+//   Id           String?       @unique
+//   createdAt    DateTime      @default(now())
+//   updateAt     DateTime      @updatedAt
+//   Name         String
+//   ProductItems ProductItem[]
+//   TotalPrice   Float         @default(0)
+//   WebUrl       String
+// }
+
+// model ProductItem {
+//   id             String        @id @default(auto()) @map("_id") @db.ObjectId
+//   Id             String?       @unique
+//   createdAt      DateTime      @default(now())
+//   updateAt       DateTime      @default(now())
+//   listId         String        @unique
+//   Name           String
+//   MainPhoto      Json?
+//   IsPriceVisible Boolean
+//   Price          Float?
+//   ProductCount   Int
+//   PurchaseList   PurchaseList? @relation(fields: [listId], references: [Id], onDelete: Cascade)
+// }

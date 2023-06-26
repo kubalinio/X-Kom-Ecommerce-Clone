@@ -1,0 +1,1 @@
+export { UserShopList } from './UserShopListContainer'

@@ -1,1 +1,0 @@
-export { UserShopList } from './UserShopListContainer'

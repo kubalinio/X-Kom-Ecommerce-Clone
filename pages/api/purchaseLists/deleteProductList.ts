@@ -1,43 +1,46 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import prisma from '@/prisma';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-	if (req.method === 'POST') {
-		const { listId, productId } = req.body;
+import prisma from '../../../prisma'
 
-		const priceDeleteProduct = await prisma.productItem.findUnique({
-			where: {
-				Id: productId,
-			},
-			select: {
-				Price: true,
-			},
-		});
+// export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+//   if (req.method === 'POST') {
+//     const { listId, productId } = req.body
 
-		try {
-			const data = await prisma.purchaseList.update({
-				where: {
-					Id: listId,
-				},
-				data: {
-					ProductItems: {
-						delete: {
-							Id: productId,
-						},
-					},
-					TotalPrice: {
-						decrement: priceDeleteProduct?.Price!,
-					},
-				},
-			});
+//     const priceDeleteProduct = await prisma.productItem.findUnique({
+//       where: {
+//         Id: productId,
+//       },
+//       select: {
+//         Price: true,
+//       },
+//     })
 
-			res.status(200).json(data);
-		} catch (error) {
-			res.status(403).json({ message: error });
-		}
-	}
-}
+//     try {
+//       const data = await prisma.purchaseList.update({
+//         where: {
+//           Id: listId,
+//         },
+//         data: {
+//           ProductItems: {
+//             delete: {
+//               Id: productId,
+//             },
+//           },
+//           TotalPrice: {
+//             decrement: priceDeleteProduct!.Price!,
+//           },
+//         },
+//       })
+
+//       res.status(200).json(data)
+//     } catch (error) {
+//       res.status(403).json({ message: error })
+//     }
+//   }
+// }
 
 // const data = await prisma.productItem.create({
 // 	data: {
