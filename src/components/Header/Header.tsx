@@ -10,7 +10,7 @@ import { HeaderNav } from './HeaderNav'
 import { CategoriesDesktopBar } from './ProductCategories'
 import { SearchBar } from './SearchBar'
 
-export const Header = () => {
+export const Header = ({ basketToken }: { basketToken: string }) => {
   const [isScrollDown, setIsScrollDown] = useState(false)
   const [scrollMobile, setScrollMobile] = useState(false)
 
@@ -66,7 +66,7 @@ export const Header = () => {
 
           {/* Navigation */}
           <div className="order-3 flex h-full pt-1 md:pt-1 lg:z-20">
-            <HeaderNav isScrollDown={isScrollDown} />
+            <HeaderNav isScrollDown={isScrollDown} basketToken={basketToken} />
           </div>
         </div>
 

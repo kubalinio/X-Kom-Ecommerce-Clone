@@ -4,9 +4,9 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { useState } from 'react'
 
+import { QuantityBasketProduct } from '@/components/features/basket/BasketProduct'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 
-import { QuantityBasketProduct } from '../../koszyk/components/BasketProduct'
 import HeadingProduct from '../../products/[slug]/components/HeadingProduct'
 import LoadingSkelleton from '../../products/[slug]/components/LoadingSkelleton'
 import ProductPrice from '../../products/[slug]/components/ProductPrice'

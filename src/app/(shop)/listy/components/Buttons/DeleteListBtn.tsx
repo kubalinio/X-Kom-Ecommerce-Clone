@@ -9,8 +9,8 @@ import { HiOutlineTrash } from 'react-icons/hi2'
 import { useDispatch } from 'react-redux'
 
 import { ModalContainer } from '@/components/Modal'
+import { cn } from '@/lib/utils'
 import { removePurchaseListItem } from '@/store/purchaseSlice'
-import { cn } from '@/utils/classUtils'
 
 import { DialogBox } from '../DialogBox'
 

@@ -1,8 +1,6 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable simple-import-sort/imports */
-import { PrismaClient } from '@prisma/client'
-
 import 'server-only'
+
+import { PrismaClient } from '@prisma/client'
 
 declare global {
   // eslint-disable-next-line no-var, no-unused-vars

@@ -1,28 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { Image as ImageData, Slug } from '../types/typings'
-
 export type BasketItem = {
-  _id?: string
-  title: string
-  price: number
-  mainImage: ImageData
+  id?: string
   quantity: number
-  slug: Slug
-  special?: string
-  onClick?: () => void
 }
 
 export type BasketItems = {
   basketItems: BasketItem[]
   basketTotalQuantity: number
-  basketTotalAmount: number
 }
 
 const initialState: BasketItems = {
   basketItems: [],
   basketTotalQuantity: 0,
-  basketTotalAmount: 0,
 }
 
 const basketSlice = createSlice({
@@ -30,7 +20,7 @@ const basketSlice = createSlice({
   initialState,
   reducers: {
     addToBasket: (state, action) => {
-      const itemInBasket = state.basketItems.find((item) => item._id === action.payload._id)
+      const itemInBasket = state.basketItems.find((item) => item.id === action.payload.id)
 
       if (itemInBasket) {
         itemInBasket.quantity = itemInBasket.quantity + action.payload.quantity
@@ -40,7 +30,7 @@ const basketSlice = createSlice({
     },
 
     addNewQuantity: (state, action) => {
-      const itemInBasket = state.basketItems.find((item) => item._id === action.payload._id)
+      const itemInBasket = state.basketItems.find((item) => item.id === action.payload.id)
 
       if (itemInBasket) {
         itemInBasket.quantity = action.payload.newQuantity
@@ -48,30 +38,22 @@ const basketSlice = createSlice({
     },
 
     removeItem: (state, action) => {
-      const removeItem = state.basketItems.filter((item) => item._id !== action.payload)
+      const removeItem = state.basketItems.filter((item) => item.id !== action.payload)
       state.basketItems = removeItem
     },
 
     getTotals(state) {
-      // eslint-disable-next-line prefer-const
-      let { total, quantity } = state.basketItems.reduce(
+      const { quantity } = state.basketItems.reduce(
         (basketTotal, basketItem) => {
-          const { price, quantity } = basketItem
-          const itemTotal = price * quantity
-
-          basketTotal.total += itemTotal
+          const { quantity } = basketItem
           basketTotal.quantity += quantity
-
           return basketTotal
         },
         {
-          total: 0,
           quantity: 0,
         }
       )
-      total = parseFloat(total.toFixed(2))
       state.basketTotalQuantity = quantity
-      state.basketTotalAmount = total
     },
   },
 })

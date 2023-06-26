@@ -3,9 +3,6 @@ import Link from 'next/link'
 import { AiOutlineCheck } from 'react-icons/ai'
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md'
 
-import { urlFor } from '@/lib/sanity.client'
-import { Image as ImageData } from '@/types/typings'
-
 import { Modal, ModalBody, ModalContainer, ModalHeader } from './Modal'
 
 const ModalBasketBottom = ({ close }: { close: () => void }) => {
@@ -41,7 +38,7 @@ const ModalBasketBottom = ({ close }: { close: () => void }) => {
 type Props = {
   title: string
   price: number
-  mainImage: ImageData
+  mainImage: string
   closeModal: () => void
   showed: boolean
 }
@@ -70,7 +67,7 @@ const ProductAddedToBasket = ({ title, price, mainImage, closeModal, showed }: P
                 <div className="pr-2">
                   <span className="inline-flex w-[108px] items-center justify-center overflow-hidden">
                     <Image
-                      src={urlFor(mainImage).url()}
+                      src={mainImage}
                       width={108}
                       height={93}
                       alt={title}

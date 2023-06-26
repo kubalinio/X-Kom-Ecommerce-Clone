@@ -14,6 +14,7 @@ export const BasketBottom = ({
   <>
     <div className="flex justify-between text-base font-bold">
       <span>Do zapłaty</span>
+      {/* TODO */}
       <span>{totalAmount.toFixed(2).replace('.', ',')} zł</span>
     </div>
 

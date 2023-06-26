@@ -16,21 +16,23 @@ const CompanyImage = () => (
 
 const MethodPayments = () => {
   return (
-    <div className="py-2">
-      <h2 className="mb-2 text-xl leading-6">Akceptujemy</h2>
-      <div className="flex flex-wrap">
-        <CompanyImage />
-        <CompanyImage />
-        <CompanyImage />
-        <CompanyImage />
-        <CompanyImage />
-        <CompanyImage />
-        <CompanyImage />
-        <CompanyImage />
-        <CompanyImage />
-        <CompanyImage />
-        <CompanyImage />
-        <CompanyImage />
+    <div className="w-full md:pt-1 bg:py-4">
+      <div className="py-2">
+        <h2 className="mb-2 text-xl leading-6">Akceptujemy</h2>
+        <div className="flex flex-wrap">
+          <CompanyImage />
+          <CompanyImage />
+          <CompanyImage />
+          <CompanyImage />
+          <CompanyImage />
+          <CompanyImage />
+          <CompanyImage />
+          <CompanyImage />
+          <CompanyImage />
+          <CompanyImage />
+          <CompanyImage />
+          <CompanyImage />
+        </div>
       </div>
     </div>
   )

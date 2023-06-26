@@ -6,9 +6,9 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
+import LoadingSkelleton from '@/components/features/basket/LoadingSkelleton'
 import { RootState } from '@/store'
 
-import LoadingSkelleton from '../../../koszyk/components/LoadingSkelleton'
 import { ReturnButtonMobile } from '../Buttons/ReturnBtnMobile'
 import { NeedHelpInfo } from './NeedHelpInfo'
 import ShopListBody from './ShopListBody'

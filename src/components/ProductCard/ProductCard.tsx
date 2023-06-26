@@ -1,52 +1,43 @@
 'use client'
 
+import { Products } from '@prisma/client'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { urlFor } from '@/lib/sanity.client'
-import { Product } from '@/types/typings'
-
 import { AddToBasket } from './AddToBasket'
-import AddToFav from './ProductAddToFav'
+// import AddToFav from './ProductAddToFav'
 
 type Props = {
-  product: Product
+  product: Products
 }
 
 export const ProductCard = ({ product }: Props) => {
-  const { slug, price, special, _id, mainImage, title, oldPrice } = product
+  const { name, oldPrice, photo, price, slug } = product
 
-  const currentSlug = slug.current
   const formatedPrice = price.toFixed(2).replace('.', ',')
-  // text-[#fa0064]
 
   return (
     <div className="group relative cursor-pointer rounded-lg lg:border lg:border-transparent lg:transition-all lg:duration-300 lg:hover:shadow-xCom">
       {/* Promotion or Recommend */}
-      {special ? (
-        <div className="absolute left-0 h-5 w-full lg:top-3 lg:pl-3">
+      {/* {special ? (
+        <div className="absolute left-0 w-full h-5 lg:top-3 lg:pl-3">
           <span className="inline-flex h-5 max-w-[70%] items-center whitespace-nowrap rounded-full border border-[#ccc] bg-white px-2 py-[2px] text-sm text-[#4d4d4d]">
             {special}
           </span>
         </div>
       ) : (
         ''
-      )}
+      )} */}
       {/* Details */}
       <div className="pointer">
         <div>
           {/* Image */}
           <div className="mt-7 h-[125px] w-full lg:mt-8 lg:h-[130px]">
             <div className="mt-4 h-full w-full">
-              <Link href={`/products/${currentSlug}`}>
+              {/* @TODO Add slug string, no object */}
+              <Link href={`/products/${slug}`}>
                 <div className="inline-flex h-full max-h-[125px] w-full max-w-[150px] items-center justify-center sm:max-w-[200px] md:max-w-[250px]">
-                  <Image
-                    src={`${urlFor(mainImage).url()}`}
-                    width={136}
-                    height={125}
-                    alt={title}
-                    className="h-full w-full object-contain"
-                  />
+                  <Image src={photo} width={136} height={125} alt={name} className="h-full w-full object-contain" />
                 </div>
               </Link>
             </div>
@@ -54,12 +45,13 @@ export const ProductCard = ({ product }: Props) => {
 
           {/* Title */}
           <div className="mr-2 md:mx-3">
-            <Link href={`/products/${currentSlug}`}>
+            {/* @TODO Add slug string, no object */}
+            <Link href={`/products/${slug}`}>
               <h3
                 style={{ maxHeight: '40px' }}
                 className="mt-2 h-[40px] max-h-10 overflow-hidden whitespace-normal break-words text-sm lg:mt-0"
               >
-                <span className="line-clamp-2 w-full">{title}</span>
+                <span className="line-clamp-2 w-full">{name}</span>
               </h3>
             </Link>
           </div>
@@ -83,19 +75,11 @@ export const ProductCard = ({ product }: Props) => {
       </div>
 
       {/* Fav */}
-      <AddToFav product={product} />
+      {/* <AddToFav product={product} /> */}
 
       {/* Basket */}
       {/* OnClick show Modal with choose product & info where is save to basket */}
-      <AddToBasket
-        _id={_id}
-        slug={slug}
-        special={special}
-        mainImage={mainImage}
-        title={title}
-        price={price}
-        className="absolute bottom-[10px] right-[10px] hidden lg:group-hover:block"
-      />
+      <AddToBasket product={product} className="absolute bottom-[10px] right-[10px] hidden lg:group-hover:block" />
     </div>
   )
 }

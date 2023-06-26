@@ -2,6 +2,7 @@ import './globals.css'
 
 import { Metadata } from 'next'
 import { Lato } from 'next/font/google'
+import { cookies } from 'next/headers'
 import { ReactNode } from 'react'
 
 import { Footer } from '../../components/Footer'
@@ -25,11 +26,14 @@ export const metadata: Metadata = {
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
+  const cookieStore = cookies()
+  const basketToken = cookieStore.get('basketToken')?.value
+
   return (
     <html lang="pl" className={`${lato.variable} font-lato`}>
       <body className="bg-white font-lato">
         <Providers>
-          <Header />
+          <Header basketToken={basketToken ?? ''} />
           {/* Category Buttons ? (MAYBE) */}
           {children}
           <Footer />

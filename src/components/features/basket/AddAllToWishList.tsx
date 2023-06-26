@@ -1,3 +1,5 @@
+'use client'
+
 import { AiOutlineHeart } from 'react-icons/ai'
 
 import useWindowDimensions from '@/hooks/useWindowDimensions'

@@ -2,39 +2,40 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { urlFor } from '@/lib/sanity.client'
-import { BasketItem } from '@/store/basketSlice'
+import { formatPrice } from '@/lib/utils'
 
-export const BasketProduct = ({ title, quantity, price, mainImage, slug, onClick }: BasketItem) => (
+type basketProps = {
+  onClick: () => void
+  count: number
+  price: number
+  photo: string
+  slug: string
+  name: string
+}
+
+export const BasketProduct = ({ price, photo, slug, name, count, onClick }: basketProps) => (
   <div className="overflow-hidden border-b border-[#ddd] py-3">
     <div className="flex">
       <Link onClick={() => onClick!()} href={`/products/${slug}`}>
         <span className="inline-flex h-[60px] w-[72px] items-center justify-center overflow-hidden">
-          <Image
-            src={urlFor(mainImage).url()}
-            width={72}
-            height={60}
-            alt={title}
-            title={title}
-            loading="lazy"
-            className="h-full w-full object-contain"
-          />
+          <Image src={photo} width={72} height={60} alt={name} title={name} className="h-full w-full object-contain" />
         </span>
       </Link>
 
       <div className="ml-3 block w-full">
         <div className="flex flex-col items-start">
-          <Link onClick={() => onClick!()} href={`/products/${slug}`} title={title}>
+          <Link onClick={() => onClick!()} href={`/products/${slug}`} title={name}>
             <h3 className="mb-1 line-clamp-2 max-w-[145px] overflow-hidden underline-offset-auto hover:underline">
-              {title}
+              {name}
             </h3>
           </Link>
         </div>
 
         <div className="flex items-end justify-between">
-          <span className="mr-2 min-w-[40px] text-left text-[#707070]">{quantity} szt.</span>
+          <span className="mr-2 min-w-[40px] text-left text-[#707070]">{count} szt.</span>
           <div className="inline-block text-right">
-            <span>{price.toFixed(2).replace('.', ',')} zł</span>
+            {/* @TODO */}
+            <span>{formatPrice(price)} zł</span>
           </div>
         </div>
       </div>

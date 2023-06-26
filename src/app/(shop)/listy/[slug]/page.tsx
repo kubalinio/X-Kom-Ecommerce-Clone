@@ -6,9 +6,9 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
+import LoadingSkelleton from '@/components/features/basket/LoadingSkelleton'
 import { PurchaseList } from '@/types/typings'
 
-import LoadingSkelleton from '../../koszyk/components/LoadingSkelleton'
 import { NeedHelpInfo } from '../components/UserShopList/NeedHelpInfo'
 import EmptyList from './components/EmptyList'
 import ListHeader from './components/ListHeader'

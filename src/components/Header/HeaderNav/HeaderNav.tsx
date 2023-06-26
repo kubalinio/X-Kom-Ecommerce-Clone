@@ -1,5 +1,4 @@
 'use client'
-
 import { ReactNode } from 'react'
 
 import useWindowDimensions from '@/hooks/useWindowDimensions'
@@ -32,9 +31,10 @@ export type MenuItemsProps = {
 
 type Props = {
   isScrollDown: boolean
+  basketToken: string
 }
 
-export const HeaderNav = ({ isScrollDown }: Props) => {
+export const HeaderNav = ({ isScrollDown, basketToken }: Props) => {
   const { width } = useWindowDimensions()
 
   return (
@@ -45,7 +45,7 @@ export const HeaderNav = ({ isScrollDown }: Props) => {
 
       <UserAccount isScrollDown={isScrollDown} width={width ?? 0} />
       <YourFavLists isScrollDown={isScrollDown} />
-      <BasketNav isScrollDown={isScrollDown} width={width ?? 0} />
+      <BasketNav isScrollDown={isScrollDown} width={width ?? 0} basketToken={basketToken} />
     </div>
   )
 }

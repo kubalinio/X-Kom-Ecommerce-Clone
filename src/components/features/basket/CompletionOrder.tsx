@@ -1,12 +1,16 @@
+'use client'
+import { FC } from 'react'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 
 import { BasketInfo } from '@/components/Basket'
+// import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 type Props = {
   totalAmount: number
 }
 
-const CompletionOrder = ({ totalAmount }: Props) => {
+const CompletionOrderContent = ({ totalAmount }: Props) => {
   return (
     // tranisition top animation
     <div className="sticky top-[84px] transition-[top] duration-300 bg:z-[15]">
@@ -46,4 +50,39 @@ const CompletionOrder = ({ totalAmount }: Props) => {
   )
 }
 
-export default CompletionOrder
+interface CompletionOrderProps {
+  totalPrice: number
+  mobile: boolean
+}
+
+// export const CompletionOrderMobile: FC<CompletionOrderProps> = ({ totalPrice }) => {
+//   const matches = useMediaQuery('(min-width: 900px)')
+
+//   return (
+//     !matches ? (
+//       <div className="flex flex-wrap mt-8 -mx-2 bg:hidden md:-mx-3 md:mt-6">
+//         <div className="w-0 md:w-[18%] md:px-3" />
+//         <div className="w-full px-2 md:w-[65%] md:px-3">
+//           <CompletionOrderContent totalAmount={totalPrice} />
+//         </div>
+//       </div>
+//     ) : null
+//   )
+// }
+
+export const CompletionOrder: FC<CompletionOrderProps> = ({ totalPrice, mobile }) => {
+  const matches = useMediaQuery('(min-width: 900px)')
+
+  return matches && mobile === false ? (
+    <div className="hidden bg:block bg:w-1/3 bg:px-4">
+      <CompletionOrderContent totalAmount={totalPrice} />
+    </div>
+  ) : !matches && mobile === true ? (
+    <div className="-mx-2 mt-8 flex flex-wrap md:-mx-3 md:mt-6 bg:hidden">
+      <div className="w-0 md:w-[18%] md:px-3" />
+      <div className="w-full px-2 md:w-[65%] md:px-3">
+        <CompletionOrderContent totalAmount={totalPrice} />
+      </div>
+    </div>
+  ) : null
+}

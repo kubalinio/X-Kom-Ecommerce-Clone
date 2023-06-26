@@ -18,11 +18,44 @@ model Product {
   price       Float
   oldPrice    Float
   name        String
-  rating      Int
-  ratingCount Int
+  rating      Int?
+  ratingCount Int?
   photo       String
   slug        String
 }
+
+model Basket {
+  id           String       @id @default(cuid())
+  basketToken  String
+  createdAt    DateTime     @default(now())
+  updateAt     DateTime     @default(now())
+  productCount Int          @default(0)
+  totalPrice   Float        @default(0)
+  Items        BasketItem[]
+}
+
+model BasketItem {
+  id            String  @id @default(cuid())
+  count         Int
+  productId     String  @unique
+  basket        Basket  @relation(fields: [basketId], references: [id], onDelete: Cascade)
+  basketId      String
+  basketToken   String?
+  productHeader Json
+}
+
+//  ProductHeader {
+//   id          String
+//   createdAt   DateTime @default(now())
+//   updateAt    DateTime @default(now())
+//   price       Float
+//   oldPrice    Float
+//   name        String
+//   rating      Int?
+//   ratingCount Int?
+//   photo       String
+//   slug        String
+// }
 
 // model PurchaseList {
 //   id           String        @id @default(auto()) @map("_id") @db.ObjectId
