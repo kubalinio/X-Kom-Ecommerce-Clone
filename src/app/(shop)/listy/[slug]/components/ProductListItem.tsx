@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { ChangeQuantityProduct } from '@/components/ChangeQuantityProduct'
-import { AddToBasket } from '@/components/ProductCard/AddToBasket'
+// import { AddToBasket } from '@/components/ProductCard/AddToBasket'
 import { urlFor } from '@/lib/sanity.client'
 import { PurchaseListProduct } from '@/types/typings'
 
@@ -103,14 +103,15 @@ const ProductListItem = ({ product }: Props) => {
       <div className="hidden md:flex md:items-center">
         <ChangeQuntityProductContainer ProductCount={ProductCount} />
 
-        <AddToBasket
-          _id={product.Id}
+        {/* @TODO Types */}
+        {/* <AddToBasket
+          id={product.Id}
           // slug={''}
           mainImage={product.MainPhoto}
           title={product.Name}
           price={product.Price}
           className="static flex h-[32px] min-w-[32px] items-center justify-center"
-        />
+        /> */}
 
         <ExpandDropdownListContainer listId={listId} productId={Id} product={product} />
       </div>

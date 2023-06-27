@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
 
-import ProductAddedToBasket from '@/components/ProductAddedToBasket'
+// import ProductAddedToBasket from '@/components/ProductAddedToBasket'
 import { addToBasket, getTotals } from '@/store/basketSlice'
 import { Product } from '@/types/typings'
 
@@ -64,7 +64,8 @@ const AddToBasket = ({ product, quantity }: Props) => {
         </button>
       </div>
 
-      {!showModal ? (
+      {/* @TODO Fix types passed to component */}
+      {/* {!showModal ? (
         ''
       ) : (
         <ProductAddedToBasket
@@ -74,7 +75,8 @@ const AddToBasket = ({ product, quantity }: Props) => {
           mainImage={mainImage}
           closeModal={() => setShowModal(false)}
         />
-      )}
+        
+      )} */}
     </>
   )
 }

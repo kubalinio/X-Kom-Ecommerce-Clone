@@ -1,6 +1,8 @@
 import { ProductCard } from '@/components/ProductCard'
 import { db } from '@/lib/db'
 
+import { ProductsFeedMobile } from './ProductsFeedMobile'
+
 export const RecommendProducts = async () => {
   const products = await db.product.findMany({
     take: 8,
@@ -31,6 +33,7 @@ export const RecommendProducts = async () => {
           </div>
 
           {/* Mobile */}
+          <ProductsFeedMobile products={products} />
         </div>
       </div>
     </section>
