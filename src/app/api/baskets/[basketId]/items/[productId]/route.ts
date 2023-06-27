@@ -39,6 +39,6 @@ export async function DELETE(req: NextRequest, { params }: { params: { productId
 
     return new Response('OK')
   } catch (err) {
-    return new Response('Could not delete product at this time, please try again later.', { status: 500 })
+    return new Response('Could not delete product from basket at this time, please try again later.', { status: 500 })
   }
 }

@@ -45,12 +45,13 @@ export const BasketPageFeed: FC<BasketPageFeedProps> = ({ basketData: initialBas
       // @ts-expect-error object error type
       return data.find((b) => b.id === b.id) as BasketData
     },
+    refetchOnWindowFocus: false,
     initialData: initialBasketData,
   })
 
   const basketData: BasketData = data ?? initialBasketData
 
-  const { productCount, totalPrice } = basketData
+  const { productCount, totalPrice, basketToken } = basketData
 
   return (
     <>
@@ -74,7 +75,7 @@ export const BasketPageFeed: FC<BasketPageFeedProps> = ({ basketData: initialBas
               {/* Fav & Basket */}
               <div className="flex h-[28px] w-auto items-center justify-start text-[#4d4d4d] md:pt-2">
                 <AddToWishList />
-                <RemoveAllFromBasket />
+                <RemoveAllFromBasket basketToken={basketToken} />
               </div>
             </div>
 

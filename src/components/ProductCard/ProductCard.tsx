@@ -1,20 +1,20 @@
 'use client'
 
-import { Products } from '@prisma/client'
+import { Product } from '@prisma/client'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { formatPrice } from '@/lib/utils'
 
 import { AddToBasket } from './AddToBasket'
 // import AddToFav from './ProductAddToFav'
 
 type Props = {
-  product: Products
+  product: Product
 }
 
 export const ProductCard = ({ product }: Props) => {
   const { name, oldPrice, photo, price, slug } = product
-
-  const formatedPrice = price.toFixed(2).replace('.', ',')
 
   return (
     <div className="group relative cursor-pointer rounded-lg lg:border lg:border-transparent lg:transition-all lg:duration-300 lg:hover:shadow-xCom">
@@ -60,13 +60,11 @@ export const ProductCard = ({ product }: Props) => {
           <div className="mt-1 flex h-9 items-end md:mx-3 lg:mb-2 lg:mt-1">
             <div>
               <div className="inline-block text-left">
-                {oldPrice && (
-                  <span className="text-xs text-[#707070] line-through">
-                    {oldPrice.toFixed(2).replace('.', ',')} zł
-                  </span>
+                {oldPrice !== 0 && (
+                  <span className="text-xs text-[#707070] line-through">{formatPrice(oldPrice)} zł</span>
                 )}
                 <span className="block whitespace-nowrap lg:transition-all lg:duration-200 lg:group-hover:font-bold lg:group-hover:text-[#fa0064]">
-                  {formatedPrice} zł
+                  {formatPrice(price)} zł
                 </span>
               </div>
             </div>
@@ -74,7 +72,7 @@ export const ProductCard = ({ product }: Props) => {
         </div>
       </div>
 
-      {/* Fav */}
+      {/* Fav @TODO */}
       {/* <AddToFav product={product} /> */}
 
       {/* Basket */}
