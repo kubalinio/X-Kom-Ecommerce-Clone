@@ -3,7 +3,6 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 export const BasketInfoBox = () => {
   const matches = useMediaQuery('(min-width: 720px) and (max-width: 900px)')
-  console.log(matches)
 
   // 720+ 900-
   return matches ? (

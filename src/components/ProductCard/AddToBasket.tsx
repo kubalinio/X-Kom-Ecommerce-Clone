@@ -3,6 +3,7 @@
 import { Product } from '@prisma/client'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
+import { Loader2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'
 
@@ -22,7 +23,7 @@ export const AddToBasket = ({ product, className }: Props) => {
   const { id, name, price, photo } = product
   const quantity = 1
 
-  const { mutate: addProductToBasket } = useMutation({
+  const { mutate: addProductToBasket, isLoading } = useMutation({
     mutationFn: async () => {
       const payload: basketProductRequest = {
         productId: id,
@@ -56,12 +57,17 @@ export const AddToBasket = ({ product, className }: Props) => {
       <div>
         <div className="relative">
           <button
+            disabled={isLoading}
             onClick={() => addProductToBasket()}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-[#119e00] bg-white text-[#119e00] transition duration-300 hover:bg-[#109e00] hover:text-white focus:bg-[#1f8014] focus:text-white "
           >
-            <span className="h-5 w-5">
-              <MdOutlineAddShoppingCart className="h-full w-full" />
-            </span>
+            {isLoading ? (
+              <Loader2 className="h-5 w-5 animate-spin" />
+            ) : (
+              <span className="h-5 w-5">
+                <MdOutlineAddShoppingCart className="h-full w-full" />
+              </span>
+            )}
           </button>
         </div>
       </div>

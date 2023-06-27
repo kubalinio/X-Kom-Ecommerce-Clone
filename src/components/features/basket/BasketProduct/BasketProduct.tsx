@@ -15,7 +15,7 @@ type Props = {
 }
 
 export const BasketProduct = ({ product }: Props) => {
-  const { count, productHeader, id } = product
+  const { count, productHeader, id: basketItemId, basketToken } = product
   const { name, price, photo, slug } = productHeader
 
   const handleChangeQuantity = (newQuantity: number) => {
@@ -71,7 +71,7 @@ export const BasketProduct = ({ product }: Props) => {
               {/* <BasketAddToFav product={product} /> */}
 
               {/* Delete Item Basket */}
-              <RemoveBasketProduct id={id} />
+              <RemoveBasketProduct id={basketItemId} basketToken={basketToken!} />
             </div>
           </div>
         </div>

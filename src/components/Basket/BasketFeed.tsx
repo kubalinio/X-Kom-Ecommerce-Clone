@@ -33,7 +33,7 @@ interface BasketFeedProps {
 export const BasketFeed: FC<BasketFeedProps> = ({ onClick, basketQuantity, products, totalPrice }) => {
   return (
     <>
-      {basketQuantity < 0 ? (
+      {basketQuantity <= 0 ? (
         <EmptyMiniBasket onClick={() => onClick()} />
       ) : (
         <MiniBasket onClick={() => onClick()} products={products} basketAmt={basketQuantity} totalPrice={totalPrice} />

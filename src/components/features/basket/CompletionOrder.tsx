@@ -5,6 +5,7 @@ import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import { BasketInfo } from '@/components/Basket'
 // import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { formatPrice } from '@/lib/utils'
 
 type Props = {
   totalAmount: number
@@ -25,7 +26,7 @@ const CompletionOrderContent = ({ totalAmount }: Props) => {
           <div className="static w-full bg-[#f5f5f5]">
             <div className="flex justify-between text-lg font-bold">
               <span>Do zapłaty</span>
-              <span>{totalAmount.toFixed(2).replace('.', ',')} zł</span>
+              <span>{formatPrice(totalAmount ?? 0)} zł</span>
             </div>
 
             <button className="mt-3 flex min-h-[40px] w-full items-center justify-center rounded-full bg-green-600 px-4 py-3 text-white hover:bg-green-700">
