@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { AiOutlineCheckCircle } from 'react-icons/ai'
 
 import { Modal, ModalBody, ModalContainer, ModalHeader } from '@/components/Modal'
-import { Image as ImageData } from '@/types/typings'
 
 import { ServiceBodyBottom, ServiceBodyHead, ServiceBtn } from './Services'
 
@@ -16,7 +15,7 @@ const deliveryTimeData = {
 }
 
 type Props = {
-  productImg: ImageData
+  productImg: string
   productTitle: string
 }
 

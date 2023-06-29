@@ -2,16 +2,14 @@
 
 import { useState } from 'react'
 
-import { Product } from '@/types/typings'
-
-import { AddToFavListBtn } from '../AddToFavList'
+import { AddToFavList } from '../AddToFavList'
 import { AddToFavPopper } from '../AddToFavList/AddToFavPopper'
 
 type Props = {
-  product: Product
+  productId: string
 }
 
-const AddToFav = ({ product }: Props) => {
+const AddToFav = ({ productId }: Props) => {
   const [show, setShow] = useState(false)
   const [liked, setLiked] = useState(false)
 
@@ -41,10 +39,10 @@ const AddToFav = ({ product }: Props) => {
         <div className="pointer-events-auto relative z-[106] inline-block align-middle">
           {/* Fav Component to Add List Favorited products */}
           <div>
-            <AddToFavListBtn
-              versionBtn={'DesktopFavBtn'}
+            <AddToFavList
+              versionBtn={'FavDesktop'}
               showInfo={(isLiked, isShow) => handleShowInfo(isLiked, isShow)}
-              product={product}
+              productId={productId}
             />
           </div>
 

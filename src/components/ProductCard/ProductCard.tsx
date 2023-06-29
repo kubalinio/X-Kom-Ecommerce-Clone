@@ -1,19 +1,17 @@
-'use client'
-
 import { Product } from '@prisma/client'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { formatPrice } from '@/lib/utils'
 
-import { AddToBasket } from './AddToBasket'
-// import AddToFav from './ProductAddToFav'
+import { AddToBasket } from '../Basket/AddToBasket'
+import AddToFav from './ProductAddToFav'
 
 type Props = {
   product: Product
 }
 
-export const ProductCard = ({ product }: Props) => {
+export const ProductCard = async ({ product }: Props) => {
   const { name, oldPrice, photo, price, slug } = product
 
   return (
@@ -73,11 +71,16 @@ export const ProductCard = ({ product }: Props) => {
       </div>
 
       {/* Fav @TODO */}
-      {/* <AddToFav product={product} /> */}
+      <AddToFav productId={product.id} />
 
       {/* Basket */}
       {/* OnClick show Modal with choose product & info where is save to basket */}
-      <AddToBasket product={product} className="absolute bottom-[10px] right-[10px] hidden lg:group-hover:block" />
+      <AddToBasket
+        comVariant="ProductCard"
+        count={1}
+        product={product}
+        className="absolute bottom-[10px] right-[10px] hidden lg:group-hover:block"
+      />
     </div>
   )
 }

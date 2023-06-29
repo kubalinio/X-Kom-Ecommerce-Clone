@@ -1,9 +1,6 @@
 import Image from 'next/image'
 import { ReactNode } from 'react'
 
-import { urlFor } from '@/lib/sanity.client'
-import { Image as ImageData } from '@/types/typings'
-
 import ServiceAbility from './ServiceAbility'
 import ServiceCalculate from './ServiceCalculate'
 import ServiceDeliveryCost from './ServiceDeliveryCost'
@@ -14,12 +11,12 @@ const Icon = ({ icon }: { icon: ReactNode }) => (
   <span className="inline-block h-[24px] w-[24px] first:text-[20px] first:text-gray-600">{icon}</span>
 )
 
-export const ServiceBodyHead = ({ image, title }: { image: ImageData; title: string }) => {
+export const ServiceBodyHead = ({ image, title }: { image: string; title: string }) => {
   return (
     <div className="mb-4 flex items-center">
       <span className="inline-flex h-[72px] w-[66px] items-center justify-center">
         <Image
-          src={`${urlFor(image).url()}`}
+          src={image}
           width={72}
           height={60}
           alt={title || 'Image Error'}
@@ -72,7 +69,7 @@ export const ServiceBtn = ({ icon, status, text, onClick }: BtnProps) => {
 
 type Props = {
   productTitle: string
-  productMainImage: ImageData
+  productMainImage: string
 }
 
 export const Services = ({ productTitle, productMainImage }: Props) => {

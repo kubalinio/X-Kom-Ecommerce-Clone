@@ -1,30 +1,26 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 'use client'
 
+import { Product } from '@prisma/client'
 import Image from 'next/image'
-import { useState } from 'react'
 
-import { urlFor } from '@/lib/sanity.client'
-import { Product } from '@/types/typings'
-
-import ActionBtns from '../ActionBtns'
+import { AddToFavBox } from '../AddToFavBox'
 import { ProductImagesCarousel } from './ProductImagesCarousel'
-import { ProductImgThumbnail } from './ProductImgThumbnail'
+// import { ProductImgThumbnail } from './ProductImgThumbnail'
 
 type Props = {
   product: Product
 }
 
 export const ProductGallery = ({ product }: Props) => {
-  const { images } = product
-  const [index, setIndex] = useState(0)
+  const { photo } = product
+  // const [index, setIndex] = useState(0)
 
   return (
     // container
     <div className="relative flex">
       <div className="relative flex h-full w-full flex-col items-center justify-center">
         {/* max-md:Carousel Container */}
-        <ProductImagesCarousel images={images!} />
+        <ProductImagesCarousel images={photo} />
 
         {/* Md: Main Image */}
 
@@ -33,7 +29,7 @@ export const ProductGallery = ({ product }: Props) => {
             <span className="inline-flex w-full items-center justify-center md:mb-3 md:h-[343px] bg:mb-6 bg:h-[400px] lg:mb-3 lg:h-[433px]">
               <Image
                 // eslint-disable-next-line security/detect-object-injection
-                src={urlFor(images![index]).url()}
+                src={photo}
                 width={393}
                 height={343}
                 alt=""
@@ -48,21 +44,22 @@ export const ProductGallery = ({ product }: Props) => {
         <div className="hidden w-full md:relative md:block md:h-[80px]">
           <div className="absolute left-0 right-0 top-0 h-full min-h-[80px]">
             <div className="flex flex-wrap justify-center">
-              {images?.map((image, i) => (
-                <ProductImgThumbnail
+              {/* @TODO when add many photos build thumbnail */}
+              {/* {images?.map((image, i) => ( */}
+              {/* <ProductImgThumbnail
                   key={Math.random()}
-                  image={image}
+                  image={photo}
                   active={() => setIndex(i)}
                   actived={index === i}
-                />
-              ))}
+                /> */}
+              {/* ))} */}
             </div>
           </div>
         </div>
 
         {/* Buttons */}
         <div className="md:hidden">
-          <ActionBtns product={product} />
+          <AddToFavBox productId={product.id} />
         </div>
       </div>
     </div>

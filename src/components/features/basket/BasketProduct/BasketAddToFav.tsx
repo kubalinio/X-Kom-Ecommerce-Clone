@@ -19,7 +19,7 @@ export const BasketAddToFav = () => {
   return (
     <>
       {/* @TODO Fix passed props */}
-      {/* <AddToFavListBtn
+      {/* <AddToFavList
         product={product}
         versionBtn={'DesktopFavBtn'}
         showInfo={(isLiked, isShow) => handleShowModal(isShow)}

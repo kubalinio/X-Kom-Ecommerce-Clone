@@ -1,10 +1,7 @@
 import Image from 'next/image'
 
-import { urlFor } from '@/lib/sanity.client'
-import { Image as ImageData } from '@/types/typings'
-
 type Props = {
-  images: ImageData[]
+  images: string
 }
 
 export const ImagesCarousel = ({ images }: Props) => {
@@ -14,7 +11,7 @@ export const ImagesCarousel = ({ images }: Props) => {
       <div className="flex items-center justify-center">
         <span className="inline-flex w-3/4 items-center justify-center">
           <Image
-            src={urlFor(images[0]).url()}
+            src={images}
             width={230}
             height={200}
             alt=""

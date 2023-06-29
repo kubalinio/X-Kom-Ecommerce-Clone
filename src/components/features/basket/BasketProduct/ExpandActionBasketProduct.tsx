@@ -4,14 +4,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { AiOutlineMore } from 'react-icons/ai'
 
-// import { AddToFavListBtn } from '@/components/AddToFavList'
+import { AddToFavList } from '@/components/AddToFavList'
 // import { BasketItem } from '@/store/basketSlice'
 
 // import { RemoveBasketProductExpand } from './RemoveBasketProduct'
 
-// export const ExpandActionBasketProduct = ({ product }: { product: BasketItem }) => {
-// @TODO Upper correct props
-export const ExpandActionBasketProduct = () => {
+export const ExpandActionBasketProduct = ({ productId }: { productId: string }) => {
   const [expand, setExpand] = useState(false)
 
   const buttonRef = useRef<HTMLDivElement>(null)
@@ -52,7 +50,7 @@ export const ExpandActionBasketProduct = () => {
           } absolute left-auto right-0 top-[calc(100%)] z-[2] flex flex-col rounded-lg bg-white py-2 text-left shadow-xCom`}
         >
           {/* @TODO Fix passed props into components */}
-          {/* <AddToFavListBtn product={product} versionBtn={'LongFavBtn'} showInfo={() => setExpand(false)} /> */}
+          <AddToFavList productId={productId} versionBtn={'FavLong'} showInfo={() => setExpand(false)} />
 
           {/* <RemoveBasketProductExpand id={product._id!} closeExpand={() => setExpand(false)} /> */}
         </div>
