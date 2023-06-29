@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable react-hooks/exhaustive-deps */
+'use client'
 import { useEffect, useState } from 'react'
 
-import DeleteListBtn from '../../components/Buttons/DeleteListBtn'
-import SaveListBtn from '../../components/Buttons/SaveListBtn'
-import ShareListBtn from '../../components/Buttons/ShareListBtn'
-import { ExpandDropdownList } from '../../components/ExpandDropdownList'
+import DeleteListBtn from '../../../listy/components/Buttons/DeleteListBtn'
+import SaveListBtn from '../../../listy/components/Buttons/SaveListBtn'
+import ShareListBtn from '../../../listy/components/Buttons/ShareListBtn'
+import { ExpandDropdownList } from '../../../listy/components/ExpandDropdownList'
 
 const ListTitle = ({ name, updateAt }: Props) => {
   const [lastMod, setLastMod] = useState('')

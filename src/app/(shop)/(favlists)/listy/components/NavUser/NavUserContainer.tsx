@@ -26,7 +26,7 @@ const navUserItems: navUserItems[] = [
   },
   {
     title: 'Listy zakupowe',
-    slug: '/listy',
+    slug: '/list',
     icon: <IoMdHeartEmpty />,
     iconActive: <IoMdHeart />,
   },

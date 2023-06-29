@@ -1,9 +1,9 @@
-import { PurchaseList } from '@/types/typings'
+import { ExtendedPurchaseListItem } from '@/types/db'
 
 import { ListCard } from './ListCard'
 
 type Props = {
-  lists: PurchaseList[]
+  lists: ExtendedPurchaseListItem[]
 }
 
 const ShopListBody = ({ lists }: Props) => {
@@ -15,7 +15,7 @@ const ShopListBody = ({ lists }: Props) => {
       {/* Listy */}
       <div>
         {lists.map((list) => (
-          <ListCard key={list.Id} item={list} />
+          <ListCard key={list.id} item={list} />
         ))}
       </div>
 

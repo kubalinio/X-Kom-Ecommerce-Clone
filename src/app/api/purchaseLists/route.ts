@@ -2,6 +2,7 @@
 // name: "ulubione"
 // items: [{productId: "1154532", count: 1}]
 
+import { NextApiRequest } from 'next'
 import { NextRequest, NextResponse } from 'next/server'
 import { v4 as uuid } from 'uuid'
 import { z } from 'zod'
@@ -61,7 +62,40 @@ export async function POST(req: NextRequest) {
     if (err instanceof z.ZodError) {
       return new Response('Invalid request data passed', { status: 422 })
     }
-    console.log(err)
+    return new Response('Could not post to needit at this time, please try again later.', { status: 500 })
+  }
+}
+
+export async function GET(req: NextApiRequest) {
+  try {
+    const url = new URL(req.url ?? 'purchaseListIds')
+    // console.log(url)
+    const { ids } = z
+      .object({
+        ids: z.string().array(),
+      })
+      .parse({
+        ids: url.searchParams.getAll('purchaseListIds'),
+      })
+
+    // console.log(ids)
+
+    const lists = await db.purchaseListItem.findMany({
+      where: {
+        id: {
+          in: ids,
+        },
+      },
+      include: {
+        productItems: true,
+      },
+    })
+
+    return NextResponse.json(lists, { status: 200 })
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return new Response('Invalid request data passed', { status: 422 })
+    }
     return new Response('Could not post to needit at this time, please try again later.', { status: 500 })
   }
 }

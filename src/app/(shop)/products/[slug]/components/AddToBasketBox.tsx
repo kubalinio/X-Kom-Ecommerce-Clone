@@ -25,7 +25,15 @@ export const AddToBasketBox: FC<AddToBasketBoxProps> = ({ product }) => {
 
       {/* Add to Basket */}
       <div className="flex-grow">
-        <AddToBasket product={product} comVariant="DetailPage" count={quantity} className="" />
+        <AddToBasket
+          name={product.name}
+          photo={product.photo}
+          price={product.price}
+          productId={product.id}
+          comVariant="DetailPage"
+          count={quantity}
+          className=""
+        />
       </div>
     </div>
   )

@@ -64,15 +64,13 @@ export const AddToFavList = ({ productId, versionBtn, closeExpand, showInfo }: P
     refetchOnWindowFocus: false,
     queryKey: ['products-in-fav-list'],
     onSuccess(data) {
-      {
-        setFetchFav(false)
-        data.map((item: { id: string }) => {
-          if (item.id === productId) {
-            setIsLiked(true)
-            showInfo!(true, false)
-          }
-        })
-      }
+      setFetchFav(false)
+      data.map((item: { id: string }) => {
+        if (item.id === productId) {
+          setIsLiked(true)
+          showInfo!(true, false)
+        }
+      })
     },
   })
   // #3 RemoveItem,

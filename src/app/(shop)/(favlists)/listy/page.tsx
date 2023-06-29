@@ -7,12 +7,10 @@ export type navUserItems = {
   iconActive?: JSX.Element
 }
 
-const ListsPage = () => {
+export default async function ListsPage() {
   return (
     <section className="w-full sm:px-2 md:px-3 lg:w-3/4 lg:border-l lg:border-[#ddd] lg:px-4">
       <UserShopList />
     </section>
   )
 }
-
-export default ListsPage

@@ -10,7 +10,7 @@ import { v4 as uuid } from 'uuid'
 import { Modal, ModalContainer, ModalHeader } from '@/components/Modal'
 import { addToPurchaseList } from '@/store/purchaseSlice'
 
-import CreateListBtn from '../Buttons/CreateListBtn'
+import CreateListBtn from '../../../listy/components/Buttons/CreateListBtn'
 
 type Props = {
   listsLength: number | undefined

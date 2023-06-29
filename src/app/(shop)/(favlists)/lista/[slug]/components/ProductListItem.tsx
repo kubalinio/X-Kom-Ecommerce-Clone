@@ -1,18 +1,14 @@
+import { ProductItem } from '@prisma/client'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { AddToBasket } from '@/components/Basket/AddToBasket'
 import { ChangeQuantityProduct } from '@/components/ChangeQuantityProduct'
 // import { AddToBasket } from '@/components/ProductCard/AddToBasket'
-import { urlFor } from '@/lib/sanity.client'
-import { PurchaseListProduct } from '@/types/typings'
+import { formatPrice } from '@/lib/utils'
 
-import AddToBasketBtn from '../../components/Buttons/AddToBasketBtn'
-import DeleteProductBtn from '../../components/Buttons/DeleteProductBtn'
-import { ExpandDropdownList } from '../../components/ExpandDropdownList'
-
-type Props = {
-  product: PurchaseListProduct
-}
+import DeleteProductBtn from '../../../listy/components/Buttons/DeleteProductBtn'
+import { ExpandDropdownList } from '../../../listy/components/ExpandDropdownList'
 
 const ChangeQuntityProductContainer = ({ ProductCount }: { ProductCount: number }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -36,23 +32,38 @@ const ExpandDropdownListContainer = ({
 }: {
   listId: string
   productId: string
-  product: PurchaseListProduct
+  product: ProductItem
 }) => {
+  const { name, id, Price, mainPhoto } = product
+
   return (
     <ExpandDropdownList className="max-md:absolute max-md:right-0 max-md:top-1 md:ml-4">
       <DeleteProductBtn listId={listId} productId={productId} />
 
       {/* On MD Delete ,no hidden */}
       <div className="md:hidden">
-        <AddToBasketBtn product={product} />
+        <AddToBasket
+          comVariant="ProductCard"
+          className=""
+          count={1}
+          name={name}
+          productId={id}
+          photo={mainPhoto}
+          price={Price}
+        />
       </div>
     </ExpandDropdownList>
   )
 }
 
-const ProductListItem = ({ product }: Props) => {
+type Props = {
+  product: ProductItem
+  productCount: number
+}
+
+const ProductListItem = ({ product, productCount }: Props) => {
   // console.log(product)
-  const { Name, MainPhoto, WebUrl, Price, ProductCount, listId, Id } = product
+  const { name, mainPhoto, webUrl, Price, listId, id } = product
 
   return (
     <div className="relative flex min-h-[84px] border-b border-[#ddd] py-2 md:min-h-[auto] md:items-center md:justify-between">
@@ -68,9 +79,9 @@ const ProductListItem = ({ product }: Props) => {
             <Image
               width={70}
               height={60}
-              alt={Name}
-              title={Name}
-              src={urlFor(MainPhoto).url()}
+              alt={name}
+              title={name}
+              src={mainPhoto}
               className="h-auto w-full object-contain"
             />
           </span>
@@ -79,13 +90,13 @@ const ProductListItem = ({ product }: Props) => {
         {/* Title & price */}
         <div className="mr-11 flex h-full flex-col justify-between md:mr-10 md:w-full md:flex-row md:items-center md:self-center lg:mr-14">
           <div className="flex flex-col">
-            <Link href={`/products/${WebUrl}`} title={Name} className="mr-2 break-words md:mr-8 lg:mr-16">
-              {Name}
+            <Link href={`/products/${webUrl}`} title={name} className="mr-2 break-words md:mr-8 lg:mr-16">
+              {name}
             </Link>
           </div>
 
           <div className="mt-2 md:mt-0 md:text-right">
-            <p className="whitespace-nowrap">{Price.toFixed(2).replace('.', ',')} zł</p>
+            <p className="whitespace-nowrap">{formatPrice(Price)} zł</p>
           </div>
         </div>
       </div>
@@ -93,15 +104,15 @@ const ProductListItem = ({ product }: Props) => {
       {/* Mobile: Expand Btn Action & Counting Product */}
       <div className="md:hidden">
         {/* Expand Btns */}
-        <ExpandDropdownListContainer listId={listId} productId={Id} product={product} />
+        <ExpandDropdownListContainer listId={listId} productId={id} product={product} />
 
         {/* Quantity */}
-        <ChangeQuntityProductContainer ProductCount={ProductCount} />
+        <ChangeQuntityProductContainer ProductCount={productCount} />
       </div>
 
       {/* Desktop: Btn Actions ALl from Product Card */}
       <div className="hidden md:flex md:items-center">
-        <ChangeQuntityProductContainer ProductCount={ProductCount} />
+        <ChangeQuntityProductContainer ProductCount={productCount} />
 
         {/* @TODO Types */}
         {/* <AddToBasket
@@ -113,7 +124,7 @@ const ProductListItem = ({ product }: Props) => {
           className="static flex h-[32px] min-w-[32px] items-center justify-center"
         /> */}
 
-        <ExpandDropdownListContainer listId={listId} productId={Id} product={product} />
+        <ExpandDropdownListContainer listId={listId} productId={id} product={product} />
       </div>
     </div>
   )

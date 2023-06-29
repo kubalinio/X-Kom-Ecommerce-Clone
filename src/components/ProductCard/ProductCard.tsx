@@ -76,9 +76,12 @@ export const ProductCard = async ({ product }: Props) => {
       {/* Basket */}
       {/* OnClick show Modal with choose product & info where is save to basket */}
       <AddToBasket
+        productId={product.id}
+        name={product.name}
+        photo={product.photo}
+        price={product.price}
         comVariant="ProductCard"
         count={1}
-        product={product}
         className="absolute bottom-[10px] right-[10px] hidden lg:group-hover:block"
       />
     </div>

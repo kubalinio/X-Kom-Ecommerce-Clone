@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import ShopIcon from '../../../../../../public/listShoping.svg'
+import ShopIcon from '../../../../../../../public/listShoping.svg'
 
 const EmptyList = () => {
   return (

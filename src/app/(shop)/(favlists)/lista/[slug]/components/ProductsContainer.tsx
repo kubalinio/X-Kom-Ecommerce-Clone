@@ -1,11 +1,11 @@
-import { PurchaseList } from '@/types/typings'
+import { ExtendedPurchaseListItem } from '@/types/db'
 
-import AddAllAccessibleBtn from '../../components/Buttons/AddAllAccessibleBtn'
+import { AddAllAccessibleBtn } from '../../../listy/components/Buttons/AddAllAccessibleBtn'
 import ListSummary from './ListSummary'
 import ProductListItem from './ProductListItem'
 
 type Props = {
-  details?: PurchaseList
+  details: ExtendedPurchaseListItem
 }
 
 const ProductsContainer = ({ details }: Props) => {
@@ -16,18 +16,18 @@ const ProductsContainer = ({ details }: Props) => {
 
       {/* Middle - Product Info & Actions */}
       <div>
-        {details?.ProductItems?.map((product) => (
-          <ProductListItem key={product.id} product={product} />
+        {details.productItems.map((product) => (
+          <ProductListItem key={product.id} product={product} productCount={details.productCount} />
         ))}
       </div>
 
       {/* Bottom - QuantityAll & Value & Add all to Basket */}
       <div className="pt-4 md:-mb-8 md:flex md:items-center md:py-3">
-        <ListSummary numOfProducts={details?.ProductItems?.length} totalPrice={details?.TotalPrice} />
+        <ListSummary numOfProducts={details.productCount} totalPrice={details.totalPrice} />
 
         <div className="min-w-[188px]">
           <div>
-            <AddAllAccessibleBtn products={details?.ProductItems} />
+            <AddAllAccessibleBtn products={details.productItems} />
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
-import { NavUser } from './components/NavUser'
-import { NeedHelpInfo } from './components/UserShopList/NeedHelpInfo'
+import { NavUser } from './listy/components/NavUser'
+import { NeedHelpInfo } from './listy/components/UserShopList/NeedHelpInfo'
 
 export default function ListsLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +11,6 @@ export default function ListsLayout({ children }: { children: React.ReactNode })
           <div className="w-0 max-lg:hidden lg:w-1/4 lg:px-4">
             <NavUser />
           </div>
-
           {children}
         </div>
 

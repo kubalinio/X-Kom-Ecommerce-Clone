@@ -5,9 +5,6 @@ import { db } from '@/lib/db'
 
 export async function GET(req: Request) {
   const url = new URL(req.url)
-  // console.log(url)
-
-  // const followedListsIds: string[] = []
 
   try {
     const { ids } = z

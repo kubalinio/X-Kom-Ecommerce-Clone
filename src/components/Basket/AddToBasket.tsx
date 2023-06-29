@@ -1,6 +1,5 @@
 'use client'
 // Main Component to adding product to basket
-import { Product } from '@prisma/client'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { Loader2 } from 'lucide-react'
@@ -12,23 +11,24 @@ import { basketProductRequest } from '@/lib/validators/basketProduct'
 import ProductAddedToBasket from '../ProductAddedToBasket'
 
 type Props = {
-  product: Product
+  productId: string
+  name: string
+  price: number
+  photo: string
   className: string
   count: number
   comVariant: 'ProductCard' | 'DetailPage'
 }
 
-export const AddToBasket = ({ product, count, comVariant, className }: Props) => {
+export const AddToBasket = ({ count, name, photo, price, productId, comVariant, className }: Props) => {
   const [showModal, setShowModal] = useState(false)
   const queryClient = useQueryClient()
-
-  const { id, name, price, photo } = product
   const quantity = count
 
   const { mutate: addProductToBasket, isLoading } = useMutation({
     mutationFn: async () => {
       const payload: basketProductRequest = {
-        productId: id,
+        productId,
         count: quantity,
       }
 
