@@ -1,8 +1,8 @@
-import { BasketItem, Product, ProductItem, PurchaseListItem } from '@prisma/client'
+import { BasketItem, ListItem, Product, PurchaseList } from '@prisma/client'
 
 export type ExtendedBasketItem = Omit<BasketItem, 'productHeader'> & {
   productHeader: Product
 }
-export type ExtendedPurchaseListItem = PurchaseListItem & {
-  productItems: ProductItem[]
+export type ExtendedPurchaseListItem = PurchaseList & {
+  productItems: ListItem[]
 }

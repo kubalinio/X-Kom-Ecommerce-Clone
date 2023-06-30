@@ -18,7 +18,7 @@ type Props = {
 }
 
 export default async function DetailListSection(url: Props) {
-  const listData = await db.purchaseListItem.findUnique({
+  const listData = await db.purchaseList.findUnique({
     where: {
       id: url.params.slug,
     },

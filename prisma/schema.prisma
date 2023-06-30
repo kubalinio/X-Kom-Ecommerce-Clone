@@ -44,94 +44,30 @@ model BasketItem {
   productHeader Json
 }
 
-model PurchaseListItem {
-  id           String        @id @default(cuid())
+model PurchaseList {
+  id           String     @id @default(cuid())
   // Id           String        @unique
   name         String
-  createdAt    DateTime      @default(now())
-  lastUpdate   DateTime      @updatedAt
-  productItems ProductItem[]
+  createdAt    DateTime   @default(now())
+  lastUpdate   DateTime   @updatedAt
+  productItems ListItem[]
   totalPrice   Float
   productCount Int
   webUrl       String
 }
 
-model ProductItem {
-  id             String           @id @default(cuid())
+model ListItem {
+  id             String       @id @default(cuid())
   // Id             String?          @unique
-  createdAt      DateTime         @default(now())
-  updateAt       DateTime         @default(now())
+  createdAt      DateTime     @default(now())
+  updateAt       DateTime     @default(now())
   name           String
   mainPhoto      String
   webUrl         String
   Price          Float
   IsPriceVisible Boolean
-  PurchaseList   PurchaseListItem @relation(fields: [listId], references: [id], onDelete: Cascade)
+  Count          Int
+  OldPrice       Float
+  PurchaseList   PurchaseList @relation(fields: [listId], references: [id], onDelete: Cascade)
   listId         String
 }
-
-//  ProductHeader {
-//   id          String
-//   createdAt   DateTime @default(now())
-//   updateAt    DateTime @default(now())
-//   price       Float
-//   oldPrice    Float
-//   name        String
-//   rating      Int?
-//   ratingCount Int?
-//   photo       String
-//   slug        String
-// }
-
-// {
-// "Id": "1154532",
-// "Name": "Redmi 12 4/128GB Midnight Black",
-// "MainPhoto": {
-// "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2023/6/pr_2023_6_20_11_2_18_319_00.jpg",
-// "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2023/6/pr_2023_6_20_11_2_18_319_00.jpg",
-// "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2023/6/pr_2023_6_20_11_2_18_319_00.jpg"
-// },
-// "WebUrl": "https://www.x-kom.pl/p/1154532-smartfon-telefon-xiaomi-redmi-12-4-128gb-midnight-black.html",
-// "Price": 799.0,
-//   "IsPriceVisible": true,
-//   "Producer": {
-//   "Id": "1023",
-//   "Name": "Xiaomi"
-// }
-
-// "Items": [
-// {
-// "Id": "snjl6cqjy",
-// "Name": "Ulubione",
-// "LastUpdate": "2023-06-28T07:38:35Z",
-// "ProductItems": [
-// {
-// "Id": "1154532",
-// "Name": "Redmi 12 4/128GB Midnight Black",
-// "MainPhoto": {
-// "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2023/6/pr_2023_6_20_11_2_18_319_00.jpg",
-// "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2023/6/pr_2023_6_20_11_2_18_319_00.jpg",
-// "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2023/6/pr_2023_6_20_11_2_18_319_00.jpg"
-// },
-// "WebUrl": "https://www.x-kom.pl/p/1154532-smartfon-telefon-xiaomi-redmi-12-4-128gb-midnight-black.html",
-// "Price": 799.0,
-// "IsPriceVisible": true,
-// "Producer": {
-// "Id": "1023",
-// "Name": "Xiaomi"
-// },
-// "ProductCount": 1
-// }
-// ],
-// "TotalPrice": {
-// "GrossValue": 799.0,
-// "NetValue": 649.59,
-// "TaxValue": 149.41
-// },
-// "PartnerId": 0,
-// "WebUrl": "https://www.x-kom.pl/lista/snjl6cqjy"
-// }
-// ],
-// "TotalCount": 1,
-// "TotalPages": 1,
-// "Page": 1

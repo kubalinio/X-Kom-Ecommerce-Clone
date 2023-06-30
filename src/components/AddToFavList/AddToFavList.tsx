@@ -41,11 +41,12 @@ export const AddToFavList = ({ productId, versionBtn, closeExpand, showInfo }: P
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
-      const purchaseListsId = JSON.parse(localStorage.getItem('purchase_lists')!)
-      const listIds = Object.keys(purchaseListsId)
-      setPurchaseListsId(listIds)
-
-      setFetchFav(true)
+      if (localStorage.getItem('purchase_lists')) {
+        const purchaseListsId = JSON.parse(localStorage.getItem('purchase_lists') ?? '')
+        const listIds = Object.keys(purchaseListsId)
+        setPurchaseListsId(listIds)
+        setFetchFav(true)
+      }
     }
   }, [])
 
@@ -54,7 +55,7 @@ export const AddToFavList = ({ productId, versionBtn, closeExpand, showInfo }: P
 
   // many purchase
   // /api/v1/xkom/purchaseLists/getProductsByPurchaseListIds?purchaseListIds=8peewrxhz%2Cahjq7qqb4
-  const { isLoading: isLoadingIds } = useQuery({
+  const { data: listsData, isLoading: isLoadingIds } = useQuery({
     queryFn: async () => {
       const ids = purchaseListsId
       const { data } = await axios.get(`/api/purchaseLists/getProductsByPurchaseListIds?purchaseListIds=${ids?.join()}`)
@@ -73,13 +74,14 @@ export const AddToFavList = ({ productId, versionBtn, closeExpand, showInfo }: P
       })
     },
   })
+
   // #3 RemoveItem,
   // api/v1/xkom/purchaseLists/8peewrxhz/items?productId=1154532&modificationToken=a4f0218e2f50d9ee456dd4cfd827dbb0
   const { mutate: removeItemToList, isLoading: isRemoveItem } = useMutation({
-    mutationFn: async (listId: string[]) => {
-      const id = listId.join()
+    mutationFn: async (listId: string) => {
+      // Take id where
 
-      const { data } = await axios.delete(`/api/purchaseLists/${id}/items?productId=${productId}`)
+      const { data } = await axios.delete(`/api/purchaseLists/${listId}/items?productId=${productId}`)
       return data
     },
     onError: (error: AxiosError) => {
@@ -95,11 +97,12 @@ export const AddToFavList = ({ productId, versionBtn, closeExpand, showInfo }: P
   // #2 Add Item to list
   const { mutate: addItemToList, isLoading: isAddItem } = useMutation({
     mutationFn: async (listId: string[]) => {
+      const lastList = listId[listId.length - 1]
       const payload: addItemToListRequest = {
         productId,
         count: 1,
       }
-      const { data } = await axios.post(`/api/purchaseLists/${listId.join()}/items`, payload)
+      const { data } = await axios.post(`/api/purchaseLists/${lastList}/items`, payload)
       return data
     },
     onError: (error: AxiosError) => {
@@ -129,7 +132,7 @@ export const AddToFavList = ({ productId, versionBtn, closeExpand, showInfo }: P
       return data
     },
     onSuccess: ({ listId, listName }: DataStoradgeResponse) => {
-      const data = { [listId]: { name: [listName] } }
+      const data = { [listId]: { name: listName } }
       localStorage.setItem('purchase_lists', JSON.stringify(data))
       const list = localStorage.getItem('purchase_lists')
       setPurchaseListsId(JSON.parse(list!))
@@ -147,7 +150,11 @@ export const AddToFavList = ({ productId, versionBtn, closeExpand, showInfo }: P
     console.log(purchaseListsId)
 
     if (purchaseListsId !== null && isLiked === true) {
-      removeItemToList(Object.keys(purchaseListsId))
+      // Uzycie danych zfechowanych productid i idlisty
+      const listWhereIsProduct = listsData.find((item: { id: string }) => item.id === productId)
+
+      const { listId } = listWhereIsProduct
+      removeItemToList(listId)
     } else if (purchaseListsId !== null && isLiked === false) {
       addItemToList(Object.keys(purchaseListsId))
     } else {

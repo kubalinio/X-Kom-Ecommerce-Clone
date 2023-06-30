@@ -2,8 +2,7 @@
 // name: "ulubione"
 // items: [{productId: "1154532", count: 1}]
 
-import { NextApiRequest } from 'next'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { v4 as uuid } from 'uuid'
 import { z } from 'zod'
 
@@ -15,14 +14,12 @@ export type DataStoradgeResponse = {
   listName: string
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   try {
     const body = await req.json()
     // console.log(body)
     const { name: listName, items } = purchaseListValidator.parse(body)
     const item = items.find((i) => i.productId === i.productId)
-    // console.log(name)
-    // console.log(item)
 
     const listId = uuid().slice(0, 8)
 
@@ -32,8 +29,20 @@ export async function POST(req: NextRequest) {
       },
     })
 
+    if (items.length === 0) {
+      await db.purchaseList.create({
+        data: {
+          id: listId,
+          name: listName,
+          productCount: 0,
+          totalPrice: 0,
+          webUrl: `/lista/${listId}`,
+        },
+      })
+    }
+
     if (p && item) {
-      await db.purchaseListItem.create({
+      await db.purchaseList.create({
         data: {
           id: listId,
           name: listName,
@@ -47,6 +56,8 @@ export async function POST(req: NextRequest) {
               mainPhoto: p.photo,
               name: p.name,
               Price: p.price,
+              Count: item.count,
+              OldPrice: p.oldPrice,
               webUrl: `/products/${p.slug}`,
             },
           },
@@ -66,28 +77,29 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: Request) {
   try {
     const url = new URL(req.url ?? 'purchaseListIds')
     // console.log(url)
     const { ids } = z
       .object({
-        ids: z.string().array(),
+        ids: z.string(),
       })
       .parse({
-        ids: url.searchParams.getAll('purchaseListIds'),
+        ids: url.searchParams.get('purchaseListIds'),
       })
 
-    // console.log(ids)
-
-    const lists = await db.purchaseListItem.findMany({
+    const lists = await db.purchaseList.findMany({
       where: {
         id: {
-          in: ids,
+          in: ids.split(','),
         },
       },
       include: {
         productItems: true,
+      },
+      orderBy: {
+        lastUpdate: 'desc',
       },
     })
 

@@ -3,9 +3,9 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-import DeleteListBtn from '../../../listy/components/Buttons/DeleteListBtn'
 import SaveListBtn from '../../../listy/components/Buttons/SaveListBtn'
 import ShareListBtn from '../../../listy/components/Buttons/ShareListBtn'
+import { DeleteList } from '../../../listy/components/DeleteList'
 import { ExpandDropdownList } from '../../../listy/components/ExpandDropdownList'
 
 const ListTitle = ({ name, updateAt }: Props) => {
@@ -45,7 +45,7 @@ const ListHeader = ({ listId, updateAt, name }: Props) => {
       {/* BtnActions Expand Mobile */}
       <ExpandDropdownList buttonSize="md" className="absolute right-1 top-0 md:hidden ">
         <ShareListBtn version="desktop" id={listId!} />
-        <DeleteListBtn id={listId!} variant="mobile" size="sm" />
+        <DeleteList id={listId!} variant="mobile" size="sm" />
       </ExpandDropdownList>
 
       {/* BtnActions Desktop */}
@@ -55,7 +55,7 @@ const ListHeader = ({ listId, updateAt, name }: Props) => {
 
           <ShareListBtn version="desktop" id={listId!} />
 
-          <DeleteListBtn id={listId!} variant="mobile" size="lg" />
+          <DeleteList id={listId!} variant="mobile" size="lg" />
         </div>
       </div>
     </div>

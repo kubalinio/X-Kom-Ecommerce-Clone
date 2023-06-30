@@ -1,4 +1,6 @@
-import { ProductItem } from '@prisma/client'
+'use client'
+
+import { ListItem } from '@prisma/client'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -32,7 +34,7 @@ const ExpandDropdownListContainer = ({
 }: {
   listId: string
   productId: string
-  product: ProductItem
+  product: ListItem
 }) => {
   const { name, id, Price, mainPhoto } = product
 
@@ -57,13 +59,13 @@ const ExpandDropdownListContainer = ({
 }
 
 type Props = {
-  product: ProductItem
+  product: ListItem
   productCount: number
 }
 
-const ProductListItem = ({ product, productCount }: Props) => {
+const ProductListItem = ({ product }: Props) => {
   // console.log(product)
-  const { name, mainPhoto, webUrl, Price, listId, id } = product
+  const { name, mainPhoto, webUrl, Price, listId, id, Count } = product
 
   return (
     <div className="relative flex min-h-[84px] border-b border-[#ddd] py-2 md:min-h-[auto] md:items-center md:justify-between">
@@ -107,22 +109,23 @@ const ProductListItem = ({ product, productCount }: Props) => {
         <ExpandDropdownListContainer listId={listId} productId={id} product={product} />
 
         {/* Quantity */}
-        <ChangeQuntityProductContainer ProductCount={productCount} />
+        <ChangeQuntityProductContainer ProductCount={Count} />
       </div>
 
       {/* Desktop: Btn Actions ALl from Product Card */}
       <div className="hidden md:flex md:items-center">
-        <ChangeQuntityProductContainer ProductCount={productCount} />
+        <ChangeQuntityProductContainer ProductCount={Count} />
 
         {/* @TODO Types */}
-        {/* <AddToBasket
-          id={product.Id}
-          // slug={''}
-          mainImage={product.MainPhoto}
-          title={product.Name}
-          price={product.Price}
+        <AddToBasket
+          comVariant="ProductCard"
+          count={Count}
+          name={name}
+          price={Price}
+          photo={mainPhoto}
+          productId={id}
           className="static flex h-[32px] min-w-[32px] items-center justify-center"
-        /> */}
+        />
 
         <ExpandDropdownListContainer listId={listId} productId={id} product={product} />
       </div>

@@ -22,7 +22,7 @@ export async function POST(req: Request, { params }: { params: { listId: string 
     })
 
     if (listId && p) {
-      await db.purchaseListItem.update({
+      await db.purchaseList.update({
         where: {
           id: listId,
         },
@@ -36,6 +36,8 @@ export async function POST(req: Request, { params }: { params: { listId: string 
               mainPhoto: p.photo,
               name: p.name,
               Price: p.price,
+              Count: count,
+              OldPrice: p.oldPrice,
               webUrl: `/products/${p.slug}`,
             },
           },
@@ -76,7 +78,7 @@ export async function DELETE(req: Request, { params }: { params: { listId: strin
     })
 
     if (p) {
-      await db.purchaseListItem.update({
+      await db.purchaseList.update({
         where: {
           id: listId,
         },

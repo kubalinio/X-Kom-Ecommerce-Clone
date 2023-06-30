@@ -43,6 +43,7 @@ export const ProductsFeedMobile: FC<ProductsFeedMobileProps> = ({ products }) =>
       {products.map((product) => (
         <SwiperSlide key={product.id}>
           <div className="h-full w-full min-w-[150px] max-w-[150px] p-2 sm:min-w-[180px] sm:max-w-[180px] md:min-w-[220px] md:max-w-[220px]">
+            {/* @ts-expect-error server component */}
             <ProductCard product={product} />
           </div>
         </SwiperSlide>

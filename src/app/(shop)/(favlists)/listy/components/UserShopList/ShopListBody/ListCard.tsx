@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import Image from 'next/image'
 import Link from 'next/link'
 import { IoMdHeartEmpty } from 'react-icons/io'
@@ -8,8 +5,8 @@ import { IoMdHeartEmpty } from 'react-icons/io'
 import { formatPrice } from '@/lib/utils'
 import { ExtendedPurchaseListItem } from '@/types/db'
 
-import DeleteListBtn from '../../Buttons/DeleteListBtn'
 import ShareListBtn from '../../Buttons/ShareListBtn'
+import { DeleteList } from '../../DeleteList'
 import { ExpandDropdownList } from '../../ExpandDropdownList'
 
 type Props = {
@@ -26,7 +23,7 @@ export const ListCard = ({ item }: Props) => {
       <ExpandDropdownList className="absolute right-2 top-2">
         <ShareListBtn version="mobile" id={id} />
 
-        <DeleteListBtn id={id} variant="mobile" />
+        <DeleteList id={id} variant="mobile" />
       </ExpandDropdownList>
 
       <Link

@@ -15,14 +15,15 @@ export async function GET(req: Request) {
         ids: url.searchParams.get('purchaseListIds'),
       })
 
-    console.log(ids)
-
-    const itemIds = await db.productItem.findMany({
+    const itemIds = await db.listItem.findMany({
       where: {
-        listId: ids,
+        listId: {
+          in: ids.split(','),
+        },
       },
       select: {
         id: true,
+        listId: true,
       },
     })
 

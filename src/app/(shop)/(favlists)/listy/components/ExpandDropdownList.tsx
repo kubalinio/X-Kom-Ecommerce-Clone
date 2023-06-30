@@ -1,3 +1,4 @@
+'use client'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { AiOutlineMore } from 'react-icons/ai'
 

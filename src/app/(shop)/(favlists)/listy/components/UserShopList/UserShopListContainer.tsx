@@ -2,7 +2,6 @@
 
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
 
 import LoadingSkelleton from '@/components/features/basket/LoadingSkelleton'
 import { ExtendedPurchaseListItem } from '@/types/db'
@@ -13,34 +12,24 @@ import ShopListBody from './ShopListBody'
 import { ShopListBottom } from './ShopListBottom'
 import { ShopListHead } from './ShopListHead'
 
-// Fetch lists
-// when create list fetch by slug look post it Project
-
 export const UserShopList = () => {
-  const [listIds, setListIds] = useState<string[]>([])
-  const [fetchLists, setFetchLists] = useState(false)
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.localStorage) {
+  // /purchaseLists?pagination.currentPage=1&pagination.pageSize=5&sort=lastUpdate%20desc&purchaseListIds=z8y6nf2ep
+  const { data: listsData, isFetching } = useQuery<ExtendedPurchaseListItem[]>({
+    queryFn: async () => {
       const purchaseListsId = JSON.parse(localStorage.getItem('purchase_lists') ?? '')
       const listIds = Object.keys(purchaseListsId)
-      setListIds(listIds)
-      setFetchLists(true)
-    }
-  }, [])
+      const ids = listIds.join()
+      console.log('queryIds', ids)
 
-  // /purchaseLists?pagination.currentPage=1&pagination.pageSize=5&sort=lastUpdate%20desc&purchaseListIds=z8y6nf2ep
-  const { data: listsData, isLoading } = useQuery<ExtendedPurchaseListItem[]>({
-    queryFn: async () => {
-      const ids = listIds
-      const { data } = await axios.get(`/api/purchaseLists/?purchaseListIds=${ids?.join()}`)
+      const { data } = await axios.get(`/api/purchaseLists/?purchaseListIds=${ids}`)
       return data
     },
-    enabled: fetchLists,
+
+    // enabled: fetchLists,
     refetchOnWindowFocus: false,
-    queryKey: ['products-in-fav-list'],
+    queryKey: ['purchaseLists'],
     onSuccess() {
-      setFetchLists(false)
+      // setFetchLists(false)
       // data.map((item: { id: string }) => {
       //   if (item.id === productId) {
       //     setIsLiked(true)
@@ -50,7 +39,7 @@ export const UserShopList = () => {
     },
   })
 
-  return isLoading ? (
+  return isFetching ? (
     <LoadingSkelleton />
   ) : (
     <div className="lg:pl-2">
@@ -65,7 +54,7 @@ export const UserShopList = () => {
       {/* Created List Dynamic with fav products */}
 
       {/* How use lists */}
-      {listsData?.length ?? 0 > 0 ? <ShopListBody lists={listsData ?? []} /> : null}
+      {listsData ? <ShopListBody lists={listsData ?? []} /> : null}
 
       <ShopListBottom isFetched={(listsData?.length ?? 0) > 0} />
 

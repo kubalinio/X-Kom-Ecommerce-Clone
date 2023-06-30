@@ -1,18 +1,15 @@
-/* eslint-disable react/display-name */
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import axios, { AxiosError } from 'axios'
+import axios from 'axios'
 import { cva, VariantProps } from 'class-variance-authority'
 import { useRouter } from 'next/navigation'
-import { ButtonHTMLAttributes, forwardRef, useState } from 'react'
+import { ButtonHTMLAttributes, FC, forwardRef, useState } from 'react'
 import { GrFormClose } from 'react-icons/gr'
 import { HiOutlineTrash } from 'react-icons/hi2'
-import { useDispatch } from 'react-redux'
 
 import { ModalContainer } from '@/components/Modal'
 import { cn } from '@/lib/utils'
-import { removePurchaseListItem } from '@/store/purchaseSlice'
 
-import { DialogBox } from '../DialogBox'
+import { DialogBox } from './DialogBox'
 
 const buttonVariants = cva(
   'inline-flex items-center justify-start whitespace-nowrap bg-transparent w-full py-3 px-4 text-[#2a2a2a] hover:bg-[#f5f5f5] transition-colors duration-200',
@@ -36,32 +33,54 @@ const buttonVariants = cva(
   }
 )
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {}
+
+// eslint-disable-next-line react/display-name
+const DeleteListBtn = forwardRef<HTMLButtonElement, ButtonProps>(({ className, variant, size, ...props }, ref) => (
+  <button title="Usuń listę" className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props}>
+    <span className="inline-block h-6 w-6 overflow-hidden ">
+      <HiOutlineTrash className="h-full w-full text-xl" />
+    </span>
+
+    <span>
+      <span>Usuń listę</span>
+    </span>
+  </button>
+))
+
+interface DeleteListProps extends VariantProps<typeof buttonVariants> {
   id: string
+  className?: string
 }
 
-const DeleteListBtn = forwardRef<HTMLButtonElement, ButtonProps>(({ id, className, variant, size, ...props }, ref) => {
+export const DeleteList: FC<DeleteListProps> = ({ id, className, variant, size }) => {
   const [showModal, setShowModal] = useState(false)
 
   const queryClient = useQueryClient()
-  const dispatch = useDispatch()
   const router = useRouter()
 
-  const { mutate } = useMutation(
-    async (id: string) =>
-      await axios.post('/api/purchaseLists/deletePurchaseList', {
-        listId: id,
-      }),
-    {
-      onError: (error: AxiosError) => {
-        console.log(error)
-      },
-      onSuccess: () => {
-        queryClient.invalidateQueries(['purchaseLists'])
-        dispatch(removePurchaseListItem({ id }))
-      },
-    }
-  )
+  const { mutate: deleteList } = useMutation({
+    mutationFn: async () => {
+      const { data } = await axios.delete(`/api/purchaseLists/${id}`)
+      return data
+    },
+    onSuccess: (listId) => {
+      setShowModal(false)
+      removeStoradgeListData(listId)
+      queryClient.invalidateQueries(['purchaseLists'])
+      router.refresh()
+      router.push('/listy')
+    },
+  })
+
+  const removeStoradgeListData = (listId: string) => {
+    const existingLists = JSON.parse(localStorage.getItem('purchase_lists') ?? '')
+    console.log(listId)
+    // eslint-disable-next-line security/detect-object-injection
+    delete existingLists[listId]
+    const data = { ...existingLists }
+    localStorage.setItem('purchase_lists', JSON.stringify(data))
+  }
 
   const handleShowModal = () => {
     if (showModal) {
@@ -75,28 +94,9 @@ const DeleteListBtn = forwardRef<HTMLButtonElement, ButtonProps>(({ id, classNam
     }
   }
 
-  const handleDeleteList = () => {
-    mutate(id)
-    router.push('/listy')
-  }
-
   return (
     <>
-      <button
-        onClick={() => handleShowModal()}
-        title="Usuń listę"
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      >
-        <span className="inline-block h-6 w-6 overflow-hidden ">
-          <HiOutlineTrash className="h-full w-full text-xl" />
-        </span>
-
-        <span>
-          <span>Usuń listę</span>
-        </span>
-      </button>
+      <DeleteListBtn onClick={() => handleShowModal()} className={className} variant={variant} size={size} />
 
       {/* Modal Confirmation */}
       <ModalContainer openModal={showModal}>
@@ -130,7 +130,7 @@ const DeleteListBtn = forwardRef<HTMLButtonElement, ButtonProps>(({ id, classNam
                 </button>
 
                 <button
-                  onClick={() => handleDeleteList()}
+                  onClick={() => deleteList()}
                   className="ml-2 h-11 w-[136px] rounded-full bg-red-600 px-4 py-2 text-white hover:bg-red-700 active:bg-red-800"
                 >
                   Tak, usuń
@@ -142,6 +142,4 @@ const DeleteListBtn = forwardRef<HTMLButtonElement, ButtonProps>(({ id, classNam
       </ModalContainer>
     </>
   )
-})
-
-export default DeleteListBtn
+}
