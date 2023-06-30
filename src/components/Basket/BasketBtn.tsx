@@ -1,6 +1,6 @@
 import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
-import { FC, ReactNode } from 'react'
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -8,7 +8,7 @@ const Icon = ({ icon }: { icon: ReactNode }) => (
   <span className="flex h-full w-full items-center justify-center text-gray-700">{icon}</span>
 )
 
-interface BasketBtnProps {
+interface BasketBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isHover: boolean
   isScrollDown: boolean
   isLoading: boolean

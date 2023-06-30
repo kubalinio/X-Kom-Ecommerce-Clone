@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 'use client'
 
 import { Basket } from '@prisma/client'
@@ -10,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
 import { SlBasket } from 'react-icons/sl'
 
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { ExtendedBasketItem } from '@/types/db'
 
 import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../../components/DrawerModal'
@@ -34,11 +33,10 @@ const basketItem = {
 
 type BasketNavProps = {
   isScrollDown: boolean
-  width: number
   basketToken: string
 }
 
-export const BasketNav = ({ isScrollDown, width, basketToken }: BasketNavProps) => {
+export const BasketNav = ({ isScrollDown, basketToken }: BasketNavProps) => {
   const [isHover, setIsHover] = useState(false)
   const [showDrawer, setShowDrawer] = useState(false)
   const pathname = usePathname()
@@ -64,13 +62,15 @@ export const BasketNav = ({ isScrollDown, width, basketToken }: BasketNavProps) 
   const totalPrice = basket?.totalPrice ?? 0
   const { Items: products } = basket ?? []
 
+  const maxlg = useMediaQuery('(max-width: 1080px)')
+
   const handleClick = () => {
-    if (width >= 1080 && pathname === '/koszyk') {
+    if (!maxlg && pathname === '/koszyk') {
       setIsHover(false)
       setShowDrawer(false)
-    } else if (width < 1080 && !showDrawer && pathname !== '/koszyk') {
+    } else if (maxlg && !showDrawer && pathname !== '/koszyk') {
       setShowDrawer(true)
-    } else if (width < 1080 && showDrawer) {
+    } else if (maxlg && showDrawer) {
       setShowDrawer(false)
     }
   }
@@ -83,11 +83,11 @@ export const BasketNav = ({ isScrollDown, width, basketToken }: BasketNavProps) 
   }, [pathname])
 
   const handleHover = () => {
-    if (width < 1080 && pathname === '/koszyk') {
+    if (maxlg && pathname === '/koszyk') {
       setIsHover(false)
-    } else if (width >= 1080 && !isHover && pathname !== '/koszyk') {
+    } else if (!maxlg && !isHover && pathname !== '/koszyk') {
       setIsHover(true)
-    } else if (width >= 1080 && isHover) {
+    } else if (!maxlg && isHover) {
       setIsHover(false)
     }
   }
@@ -95,13 +95,13 @@ export const BasketNav = ({ isScrollDown, width, basketToken }: BasketNavProps) 
   return (
     <>
       <div
-        onClick={() => handleClick()}
         onMouseEnter={() => handleHover()}
         onMouseLeave={() => handleHover()}
         className={`relative z-10 flex h-12 md:h-16 ${isHover ? 'nav-item-after' : ''}`}
       >
         {/* btn */}
         <BasketBtn
+          onClick={() => handleClick()}
           isLoading={isFetching}
           isHover={isHover}
           basketQuantity={productCount}
@@ -126,7 +126,7 @@ export const BasketNav = ({ isScrollDown, width, basketToken }: BasketNavProps) 
 
       {/* mobile */}
       <DrawerContainer close={() => setShowDrawer(false)} openDrawer={showDrawer} direction={'right'}>
-        {showDrawer && (width ?? 0) <= 1080 ? (
+        {showDrawer && !maxlg ? (
           <DrawerModal>
             <DrawerHeader
               name={basketItem.name}

@@ -45,7 +45,7 @@ export const HeaderNav = ({ isScrollDown, basketToken }: Props) => {
 
       <UserAccount isScrollDown={isScrollDown} width={width ?? 0} />
       <YourFavLists isScrollDown={isScrollDown} />
-      <BasketNav isScrollDown={isScrollDown} width={width ?? 0} basketToken={basketToken} />
+      <BasketNav isScrollDown={isScrollDown} basketToken={basketToken} />
     </div>
   )
 }
