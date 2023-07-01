@@ -112,12 +112,13 @@ export const BasketNav = ({ isScrollDown, basketToken }: BasketNavProps) => {
         {/* ToDo setishover false z feed containera */}
         {isHover ? (
           <NavDropdown last={true}>
-            <BasketFeed
+            {/* <BasketFeed
               onClick={() => setIsHover(false)}
               basketQuantity={productCount}
               totalPrice={totalPrice}
               products={products}
-            />
+            /> */}
+            <div>Here Basket Feed</div>
           </NavDropdown>
         ) : (
           ''
