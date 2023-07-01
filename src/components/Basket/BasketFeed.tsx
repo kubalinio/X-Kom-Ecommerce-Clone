@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 import { FC } from 'react'
 
@@ -35,7 +34,6 @@ export const BasketFeed: FC<BasketFeedProps> = ({ onClick, basketQuantity, produ
   return basketQuantity <= 0 ? (
     <EmptyMiniBasket onClick={() => onClick()} />
   ) : (
-    // <MiniBasket onClick={() => onClick()} products={products} basketAmt={basketQuantity} totalPrice={totalPrice} />
-    <div>Here Mini Basket</div>
+    <MiniBasket onClick={() => onClick()} products={products} basketAmt={basketQuantity} totalPrice={totalPrice} />
   )
 }

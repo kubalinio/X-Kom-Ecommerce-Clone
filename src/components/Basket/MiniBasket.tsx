@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
 import Link from 'next/link'
@@ -47,17 +48,18 @@ export const MiniBasket = ({ onClick, products, basketAmt, totalPrice }: MiniBas
 
       {/* 3 */}
       <div className="-mb-1 h-full overflow-y-auto break-words px-4">
-        {products.map((item) => (
+        {/* {products.map((item) => (
           <BasketProduct
             onClick={() => onClick()}
             key={item.id}
             name={item.productHeader.name}
             count={item.count}
-            price={item.productHeader.price}
+            price={item.productHeader.price}s
             photo={item.productHeader.photo}
             slug={item.productHeader.slug}
           />
-        ))}
+        ))} */}
+        <div>Here products</div>
       </div>
 
       {/* 5 */}

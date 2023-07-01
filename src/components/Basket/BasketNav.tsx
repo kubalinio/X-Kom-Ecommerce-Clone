@@ -118,7 +118,6 @@ export const BasketNav = ({ isScrollDown, basketToken }: BasketNavProps) => {
               totalPrice={totalPrice}
               products={products}
             />
-            <div>Here Basket Feed</div>
           </NavDropdown>
         ) : (
           ''
