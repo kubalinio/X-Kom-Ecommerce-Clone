@@ -11,7 +11,7 @@ import { SlBasket } from 'react-icons/sl'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { ExtendedBasketItem } from '@/types/db'
 
-import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../../components/DrawerModal'
+import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../DrawerModal'
 import { NavDropdown } from '../Header/HeaderNav/NavDropdown'
 import { BasketBtn } from './BasketBtn'
 import { BasketFeed } from './BasketFeed'

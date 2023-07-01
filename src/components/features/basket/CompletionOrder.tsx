@@ -2,8 +2,7 @@
 import { FC } from 'react'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 
-import { BasketInfo } from '@/components/Basket'
-// import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { BasketInfo } from '@/components/Basket/BasketInfo'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { formatPrice } from '@/lib/utils'
 

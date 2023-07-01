@@ -1,6 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 
-import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { ExtendedBasketItem } from '@/types/db'
 
 import { BasketBottom } from './BasketBottom'
@@ -27,7 +29,7 @@ type MiniBasketProps = {
 }
 
 export const MiniBasket = ({ onClick, products, basketAmt, totalPrice }: MiniBasketProps) => {
-  const { width } = useWindowDimensions()
+  const minLg = useMediaQuery('(min-width: 1080px)')
 
   return (
     <div className="flex h-full min-h-[150px] flex-col justify-center lg:max-h-[610px]">
@@ -37,20 +39,18 @@ export const MiniBasket = ({ onClick, products, basketAmt, totalPrice }: MiniBas
       </div>
 
       {/* 15 */}
-      {width ?? 0 < 1079 ? (
+      {!minLg ? (
         <div className="border-b border-[#ddd] px-2">
           <BasketInfo />
         </div>
-      ) : (
-        ''
-      )}
+      ) : null}
 
       {/* 3 */}
       <div className="-mb-1 h-full overflow-y-auto break-words px-4">
         {products.map((item) => (
           <BasketProduct
             onClick={() => onClick()}
-            key={item.id + Math.random()}
+            key={item.id}
             name={item.productHeader.name}
             count={item.count}
             price={item.productHeader.price}
@@ -62,7 +62,7 @@ export const MiniBasket = ({ onClick, products, basketAmt, totalPrice }: MiniBas
 
       {/* 5 */}
       <div className="sticky mt-auto rounded-lg border border-[#ddd] bg-[#f5f5f5] p-4 pb-3 ">
-        <BasketBottom onClick={() => onClick()} totalAmount={totalPrice} width={width ?? 0} />
+        <BasketBottom onClick={() => onClick()} totalAmount={totalPrice} isDesktop={minLg} />
       </div>
     </div>
   )

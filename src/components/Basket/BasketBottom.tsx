@@ -1,14 +1,15 @@
+'use client'
 import Link from 'next/link'
 
 import { BasketInfo } from './BasketInfo'
 
 export const BasketBottom = ({
   totalAmount,
-  width,
+  isDesktop,
   onClick,
 }: {
   totalAmount: number
-  width: number
+  isDesktop: boolean
   onClick: () => void
 }) => (
   <>
@@ -26,6 +27,6 @@ export const BasketBottom = ({
       Przejdź do koszyka
     </Link>
 
-    {width > 1079 ? <BasketInfo /> : ''}
+    {isDesktop ? <BasketInfo /> : ''}
   </>
 )

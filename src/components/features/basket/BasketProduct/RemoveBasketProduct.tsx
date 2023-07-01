@@ -35,7 +35,7 @@ export const RemoveBasketProductExpand = ({ id, closeExpand }: { id: string; clo
   )
 }
 
-export const RemoveBasketProduct = ({ id, basketToken }: { id: string; basketToken: string }) => {
+export const RemoveBasketProduct = ({ id, basketToken }: { id: string; basketToken: string | null }) => {
   const queryClient = useQueryClient()
   const router = useRouter()
   const { setIsLoading } = useLoadingContext()

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -16,7 +16,7 @@ type basketProps = {
 export const BasketProduct = ({ price, photo, slug, name, count, onClick }: basketProps) => (
   <div className="overflow-hidden border-b border-[#ddd] py-3">
     <div className="flex">
-      <Link onClick={() => onClick!()} href={`/products/${slug}`}>
+      <Link onClick={() => onClick()} href={`/products/${slug}`}>
         <span className="inline-flex h-[60px] w-[72px] items-center justify-center overflow-hidden">
           <Image src={photo} width={72} height={60} alt={name} title={name} className="h-full w-full object-contain" />
         </span>
@@ -24,7 +24,7 @@ export const BasketProduct = ({ price, photo, slug, name, count, onClick }: bask
 
       <div className="ml-3 block w-full">
         <div className="flex flex-col items-start">
-          <Link onClick={() => onClick!()} href={`/products/${slug}`} title={name}>
+          <Link onClick={() => onClick()} href={`/products/${slug}`} title={name}>
             <h3 className="mb-1 line-clamp-2 max-w-[145px] overflow-hidden underline-offset-auto hover:underline">
               {name}
             </h3>

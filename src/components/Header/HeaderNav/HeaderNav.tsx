@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 
-import { BasketNav } from '../../Basket/Basket'
+import { BasketNav } from '../../Basket/BasketNav'
 import { HelpContact } from './HelpContact'
 import UserAccount from './UserAccount'
 import { YourFavLists } from './YourFavLists'

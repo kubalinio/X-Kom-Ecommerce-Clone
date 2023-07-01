@@ -1,4 +1,4 @@
-import { BasketInfo } from '@/components/Basket'
+import { BasketInfo } from '@/components/Basket/BasketInfo'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 export const BasketInfoBox = () => {

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -71,7 +70,7 @@ export const BasketProduct = ({ product }: Props) => {
               {/* <BasketAddToFav product={product} /> */}
 
               {/* Delete Item Basket */}
-              <RemoveBasketProduct id={basketItemId} basketToken={basketToken!} />
+              <RemoveBasketProduct id={basketItemId} basketToken={basketToken ?? null} />
             </div>
           </div>
         </div>
