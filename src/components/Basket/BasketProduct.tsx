@@ -35,7 +35,7 @@ export const BasketProduct = ({ price, photo, slug, name, count, onClick }: bask
           <span className="mr-2 min-w-[40px] text-left text-[#707070]">{count} szt.</span>
           <div className="inline-block text-right">
             {/* @TODO */}
-            <span>{formatPrice(price)} zł</span>
+            <span>{formatPrice(price ?? 0)} zł</span>
           </div>
         </div>
       </div>

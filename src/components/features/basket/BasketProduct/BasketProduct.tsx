@@ -15,7 +15,7 @@ type Props = {
 
 export const BasketProduct = ({ product }: Props) => {
   const { count, productHeader, id: basketItemId, basketToken } = product
-  const { name, price, photo, slug } = productHeader
+  const { name, price, photo, slug } = productHeader.create
 
   const handleChangeQuantity = (newQuantity: number) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
 import Link from 'next/link'
@@ -31,7 +30,7 @@ type MiniBasketProps = {
 
 export const MiniBasket = ({ onClick, products, basketAmt, totalPrice }: MiniBasketProps) => {
   const minLg = useMediaQuery('(min-width: 1080px)')
-
+  console.log(products)
   return (
     <div className="flex h-full min-h-[150px] flex-col justify-center lg:max-h-[610px]">
       {/* 0 in dekstop Heeader Desktop */}
@@ -48,18 +47,17 @@ export const MiniBasket = ({ onClick, products, basketAmt, totalPrice }: MiniBas
 
       {/* 3 */}
       <div className="-mb-1 h-full overflow-y-auto break-words px-4">
-        {/* {products.map((item) => (
+        {products.map((item) => (
           <BasketProduct
             onClick={() => onClick()}
-            key={item.id}
-            name={item.productHeader.name}
+            key={item.productHeader.productId}
+            name={item.productHeader.create.name}
             count={item.count}
-            price={item.productHeader.price}s
-            photo={item.productHeader.photo}
-            slug={item.productHeader.slug}
+            price={item.productHeader.create.price}
+            photo={item.productHeader.create.photo}
+            slug={item.productHeader.create.slug}
           />
-        ))} */}
-        <div>Here products</div>
+        ))}
       </div>
 
       {/* 5 */}
