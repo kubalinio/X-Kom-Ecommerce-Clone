@@ -79,7 +79,6 @@ export async function POST(req: NextRequest) {
 
     // WhatDo Have basket and equel Items
     if (existingBasket?.basketToken && existingProductInBasket?.productId === productId && p) {
-      console.log(existingProductInBasket?.productId === productId)
       await db.basket.update({
         where: {
           id: existingBasket.id,
@@ -108,7 +107,6 @@ export async function POST(req: NextRequest) {
 
     // WhatDo Have basket and items
     if (existingBasket?.basketToken && existingProductInBasket?.productId !== productId && p) {
-      console.log(existingProductInBasket?.productId !== productId)
       await db.basket.update({
         where: {
           id: existingBasket.id,

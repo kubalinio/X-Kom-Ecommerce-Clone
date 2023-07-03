@@ -8,7 +8,6 @@ type Props = {
 
 export const AddAllAccessibleBtn = ({ products }: Props) => {
   // const [showModal, setShowModal] = useState(false)
-  // console.log(product)
   // const { _id, slug, special, mainImage, title, price } = product
 
   // const currentSlug = slug.current

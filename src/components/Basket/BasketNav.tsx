@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 'use client'
 
 import { Basket } from '@prisma/client'
@@ -108,13 +110,13 @@ export const BasketNav = ({ isScrollDown, basketToken }: BasketNavProps) => {
   return (
     <>
       <div
+        onClick={() => handleClick()}
         onMouseEnter={() => handleHover()}
         onMouseLeave={() => handleHover()}
         className={`relative z-10 flex h-12 md:h-16 ${isHover ? 'nav-item-after' : ''}`}
       >
         {/* btn */}
         <BasketBtn
-          onClick={() => handleClick()}
           isLoading={isFetching}
           isHover={isHover}
           basketQuantity={productCount}
@@ -139,7 +141,7 @@ export const BasketNav = ({ isScrollDown, basketToken }: BasketNavProps) => {
 
       {/* mobile */}
       <DrawerContainer close={() => setShowDrawer(false)} openDrawer={showDrawer} direction={'right'}>
-        {showDrawer && !maxlg ? (
+        {showDrawer && maxlg ? (
           <DrawerModal>
             <DrawerHeader
               name={basketItem.name}

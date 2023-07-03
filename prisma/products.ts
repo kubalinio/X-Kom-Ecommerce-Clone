@@ -78,14 +78,12 @@ const productsData: Prisma.ProductCreateInput[] = [
 ]
 
 async function main() {
-  console.log(`Start seeding ...`)
   for (const p of productsData) {
     const product = await prisma.product.create({
       data: p,
     })
     console.log(`Created user with id: ${product.id}`)
   }
-  console.log(`Seeding finished.`)
 }
 
 main()

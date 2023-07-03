@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
 import { useMutation, useQueryClient } from '@tanstack/react-query'
@@ -55,6 +56,8 @@ export const RemoveBasketProduct = ({ id, basketToken }: { id: string; basketTok
 
   useEffect(() => {
     setIsLoading(isLoading)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading])
 
   return (

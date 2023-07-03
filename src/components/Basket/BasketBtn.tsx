@@ -19,7 +19,7 @@ interface BasketBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const BasketBtn: FC<BasketBtnProps> = ({ isHover, basketQuantity, icon, isScrollDown, isLoading }) => {
   return (
     <div
-      className={cn('flex min-w-[64px] cursor-pointer items-center justify-center md:min-w-[88px]', {
+      className={cn('z-10 flex min-w-[64px] cursor-pointer items-center justify-center md:min-w-[88px]', {
         'rounded-t-lg shadow-xCom': isHover,
       })}
     >
