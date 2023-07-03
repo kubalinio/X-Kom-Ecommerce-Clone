@@ -150,7 +150,7 @@ export const AddToFavList = ({ productId, versionBtn, closeExpand, showInfo }: P
 
     if (purchaseListsId !== null && isLiked === true) {
       // Uzycie danych zfechowanych productid i idlisty
-      const listWhereIsProduct = listsData.find((item: { id: string }) => item.id === productId)
+      const listWhereIsProduct = listsData.find((item: { productId: string }) => item.productId === productId)
 
       const { listId } = listWhereIsProduct
       removeItemToList(listId)

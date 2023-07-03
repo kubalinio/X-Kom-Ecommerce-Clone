@@ -1,3 +1,5 @@
+'use client'
+
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { cva, VariantProps } from 'class-variance-authority'
@@ -65,20 +67,29 @@ export const DeleteList: FC<DeleteListProps> = ({ id, className, variant, size }
       return data
     },
     onSuccess: (listId) => {
-      setShowModal(false)
       removeStoradgeListData(listId)
-      queryClient.invalidateQueries(['purchaseLists'])
-      router.refresh()
+
+      setShowModal(false)
+
       router.push('/listy')
     },
   })
 
   const removeStoradgeListData = (listId: string) => {
     const existingLists = JSON.parse(localStorage.getItem('purchase_lists') ?? '')
+    console.log(existingLists)
+
     // eslint-disable-next-line security/detect-object-injection
     delete existingLists[listId]
-    const data = { ...existingLists }
-    localStorage.setItem('purchase_lists', JSON.stringify(data))
+
+    if (existingLists === true) {
+      const data = { ...existingLists }
+      localStorage.setItem('purchase_lists', JSON.stringify(data))
+      queryClient.invalidateQueries(['purchaseLists'])
+    } else {
+      localStorage.removeItem('purchase_lists')
+      queryClient.fetchQuery(['purchaseLists'])
+    }
   }
 
   const handleShowModal = () => {
