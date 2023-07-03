@@ -51,7 +51,7 @@ export async function POST(req: Request) {
           webUrl: `/lista/${listId}`,
           productItems: {
             create: {
-              id: p.id,
+              productId: p.id,
               IsPriceVisible: true,
               mainPhoto: p.photo,
               name: p.name,
@@ -70,6 +70,7 @@ export async function POST(req: Request) {
     return NextResponse.json(dataStoradge, { status: 200 })
     // return new Response('OK').json<dataStoradgeType>(dataStoradge)
   } catch (err) {
+    console.log(err)
     if (err instanceof z.ZodError) {
       return new Response('Invalid request data passed', { status: 422 })
     }

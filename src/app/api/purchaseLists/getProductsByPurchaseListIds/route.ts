@@ -22,7 +22,7 @@ export async function GET(req: Request) {
         },
       },
       select: {
-        id: true,
+        productId: true,
         listId: true,
       },
     })

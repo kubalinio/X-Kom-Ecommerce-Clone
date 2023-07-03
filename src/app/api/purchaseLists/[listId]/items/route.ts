@@ -31,7 +31,7 @@ export async function POST(req: Request, { params }: { params: { listId: string 
           totalPrice: { increment: p.price },
           productItems: {
             create: {
-              id: p.id,
+              productId: p.id,
               IsPriceVisible: true,
               mainPhoto: p.photo,
               name: p.name,
@@ -87,7 +87,10 @@ export async function DELETE(req: Request, { params }: { params: { listId: strin
           totalPrice: { decrement: p.price },
           productItems: {
             delete: {
-              id: productId,
+              listId_productId: {
+                listId,
+                productId,
+              },
             },
           },
         },

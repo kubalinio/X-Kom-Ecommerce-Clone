@@ -66,8 +66,8 @@ export const AddToFavList = ({ productId, versionBtn, closeExpand, showInfo }: P
     queryKey: ['products-in-fav-list'],
     onSuccess(data) {
       setFetchFav(false)
-      data.map((item: { id: string }) => {
-        if (item.id === productId) {
+      data.map((item: { productId: string }) => {
+        if (item.productId === productId) {
           setIsLiked(true)
           showInfo!(true, false)
         }

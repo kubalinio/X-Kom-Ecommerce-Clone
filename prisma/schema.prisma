@@ -58,8 +58,7 @@ model PurchaseList {
 }
 
 model ListItem {
-  id             String       @id @default(cuid())
-  // Id             String?          @unique
+  productId      String
   createdAt      DateTime     @default(now())
   updateAt       DateTime     @default(now())
   name           String
@@ -71,4 +70,6 @@ model ListItem {
   OldPrice       Float
   PurchaseList   PurchaseList @relation(fields: [listId], references: [id], onDelete: Cascade)
   listId         String
+
+  @@id([listId, productId])
 }
