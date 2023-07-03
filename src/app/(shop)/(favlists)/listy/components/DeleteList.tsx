@@ -75,7 +75,6 @@ export const DeleteList: FC<DeleteListProps> = ({ id, className, variant, size }
 
   const removeStoradgeListData = (listId: string) => {
     const existingLists = JSON.parse(localStorage.getItem('purchase_lists') ?? '')
-    console.log(listId)
     // eslint-disable-next-line security/detect-object-injection
     delete existingLists[listId]
     const data = { ...existingLists }

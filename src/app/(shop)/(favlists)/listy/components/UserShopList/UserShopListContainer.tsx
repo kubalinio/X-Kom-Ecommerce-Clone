@@ -19,7 +19,6 @@ export const UserShopList = () => {
       const purchaseListsId = JSON.parse(localStorage.getItem('purchase_lists') ?? '')
       const listIds = Object.keys(purchaseListsId)
       const ids = listIds.join()
-      console.log('queryIds', ids)
 
       const { data } = await axios.get(`/api/purchaseLists/?purchaseListIds=${ids}`)
       return data

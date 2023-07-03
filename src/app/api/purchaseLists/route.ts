@@ -17,7 +17,6 @@ export type DataStoradgeResponse = {
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-    // console.log(body)
     const { name: listName, items } = purchaseListValidator.parse(body)
     const item = items.find((i) => i.productId === i.productId)
 
@@ -80,7 +79,6 @@ export async function POST(req: Request) {
 export async function GET(req: Request) {
   try {
     const url = new URL(req.url ?? 'purchaseListIds')
-    // console.log(url)
     const { ids } = z
       .object({
         ids: z.string(),

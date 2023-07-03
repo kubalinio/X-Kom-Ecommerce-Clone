@@ -46,7 +46,6 @@ export const HotShot = () => {
     data!.hotShot[0]
 
   // const currentTime = new Date().getHours()
-  // console.log(currentTime)
   return (
     <WrapperHotShot>
       {/* Content */}

@@ -32,7 +32,6 @@ export const CreateEmptyList = ({ listsLength }: Props) => {
       return data
     },
     onSuccess: ({ listId, listName }: DataStoradgeResponse) => {
-      console.log(listName, listId)
       // Add to localstoradge listid
       addToStoradgeListData({ listId, listName })
 
