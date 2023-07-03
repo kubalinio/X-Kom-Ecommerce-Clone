@@ -11,9 +11,9 @@ export default async function BasketPage() {
   const cookieStore = cookies()
   const basketToken = cookieStore.get('basketToken')?.value
 
-  const basketData = (await db.basket.findFirst({
+  const basketData = (await db.basket.findUnique({
     where: {
-      basketToken: basketToken,
+      id: basketToken,
     },
     include: {
       Items: true,
@@ -23,22 +23,15 @@ export default async function BasketPage() {
   }
 
   return (
-    <>
-      <main className="relative mx-auto mt-5 w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:mt-12 lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]">
-        {basketData.productCount > 0 ? (
-          <BasketPageFeed basketData={basketData} />
-        ) : (
-          // More contents...
-          <EmptyBasket />
-        )}
+    <main className="relative mx-auto mt-5 w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:mt-12 lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]">
+      {(basketData.productCount ?? 0) > 0 ? <BasketPageFeed basketData={basketData} /> : <EmptyBasket />}
 
-        <hr className="-mx-4 h-[1px] w-[calc(100%+32px)] bg-[#ddd] md:hidden" />
+      <hr className="-mx-4 h-[1px] w-[calc(100%+32px)] bg-[#ddd] md:hidden" />
 
-        {/* Are you have questions ? */}
-        <div className="flex w-full flex-col border-t border-[#ddd] py-4">
-          <Information />
-        </div>
-      </main>
-    </>
+      {/* Are you have questions ? */}
+      <div className="flex w-full flex-col border-t border-[#ddd] py-4">
+        <Information />
+      </div>
+    </main>
   )
 }

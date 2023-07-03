@@ -26,7 +26,7 @@ model Product {
 
 model Basket {
   id           String       @id @default(cuid())
-  basketToken  String       @unique
+  basketToken  String
   createdAt    DateTime     @default(now())
   updateAt     DateTime     @default(now())
   productCount Int          @default(0)
@@ -35,13 +35,14 @@ model Basket {
 }
 
 model BasketItem {
-  id            String  @id @default(cuid())
   count         Int
-  productId     String  @unique
-  basket        Basket  @relation(fields: [basketId], references: [id], onDelete: Cascade)
+  productId     String
+  basket        Basket @relation(fields: [basketId], references: [id], onDelete: Cascade)
   basketId      String
-  basketToken   String?
+  basketToken   String
   productHeader Json
+
+  @@id([basketToken, productId])
 }
 
 model PurchaseList {

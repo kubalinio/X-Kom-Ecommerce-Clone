@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'
 
 import { basketProductRequest } from '@/lib/validators/basketProduct'
+import { useBasketToken } from '@/store/basketToken'
 
 import ProductAddedToBasket from '../ProductAddedToBasket'
 
@@ -23,22 +24,22 @@ type Props = {
 export const AddToBasket = ({ count, name, photo, price, productId, comVariant, className }: Props) => {
   const [showModal, setShowModal] = useState(false)
   const queryClient = useQueryClient()
-  const quantity = count
+  const updateBasketToken = useBasketToken((state) => state.setBasketToken)
 
   const { mutate: addProductToBasket, isLoading } = useMutation({
     mutationFn: async () => {
       const payload: basketProductRequest = {
         productId,
-        count: quantity,
+        count,
       }
-
       const { data } = await axios.post(`/api/baskets`, payload)
       return data
     },
     onError: (err) => {
       console.log(err)
     },
-    onSuccess: () => {
+    onSuccess: ({ basketToken }) => {
+      updateBasketToken(basketToken)
       setShowModal(true)
       queryClient.invalidateQueries(['basketProducts'])
     },

@@ -65,7 +65,7 @@ export const GuidesSection = () => {
     staleTime: 12 * 60 * 60 * 1000,
   })
 
-  if (isLoading) return <div></div>
+  if (isLoading) return <div>Load</div>
 
   return (
     <SectionCarouselContainer heading={'Poradniki'} slugToAll={'poradniki'}>

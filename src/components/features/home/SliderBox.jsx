@@ -151,25 +151,3 @@ const SliderBox = () => {
 }
 
 export default SliderBox
-
-/* <Slider {...settings} >
-
-                {data.slides.map((slide, i) => (
-
-                    <div key={slide.title + i} className='w-full pl-4 md:px-6 lg:px-6 xl:px-0' >
-
-                        <a href={slide.link} className='relative mx-2 overflow-hidden' >
-
-                            <span className=' md:hidden'>
-                                <Image loading='lazy' width={800} height={255} src={urlFor(slide.image).url()} alt={slide.title} className='object-cover w-full h-full rounded-2xl max-md:max-h-[175px] max-md:max-w-[325px]' />
-                            </span>
-
-
-                            <span className='hidden w-full h-full md:block'>
-                                <Image loading='lazy' width={1200} height={500} src={urlFor(slide.imageDesktop).url()} alt={slide.title} className='object-cover w-full h-auto min-h-[250px] rounded-3xl' />
-                            </span>
-                        </a>
-                    </div>
-
-                ))}
-            </Slider> */

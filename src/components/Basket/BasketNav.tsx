@@ -9,6 +9,7 @@ import { AiOutlineUser } from 'react-icons/ai'
 import { SlBasket } from 'react-icons/sl'
 
 import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { useBasketToken } from '@/store/basketToken'
 import { ExtendedBasketItem } from '@/types/db'
 
 import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../DrawerModal'
@@ -40,6 +41,19 @@ export const BasketNav = ({ isScrollDown, basketToken }: BasketNavProps) => {
   const [isHover, setIsHover] = useState(false)
   const [showDrawer, setShowDrawer] = useState(false)
   const pathname = usePathname()
+  const [fetchData, setFetchData] = useState(false)
+  const basketCookie = useBasketToken((state) => state.basketToken)
+  const [basketTok, setBasketTok] = useState(basketToken ?? basketCookie)
+
+  useEffect(() => {
+    if (basketToken) {
+      setFetchData(true)
+      setBasketTok(basketToken)
+    } else if (basketCookie) {
+      setFetchData(true)
+      setBasketTok(basketCookie)
+    } else return setFetchData(false)
+  }, [basketCookie, basketToken])
 
   const {
     data: basketProducts,
@@ -48,13 +62,12 @@ export const BasketNav = ({ isScrollDown, basketToken }: BasketNavProps) => {
     // isFetched,
   } = useQuery({
     queryFn: async () => {
-      const { data } = await axios.get(`/api/baskets/${basketToken}/basicData`)
-
+      const { data } = await axios.get(`/api/baskets/${basketTok}/basicData`)
       return data as Basket[]
     },
     queryKey: ['basketProducts'],
     refetchOnWindowFocus: false,
-    // enabled: false,
+    enabled: fetchData,
   })
 
   const basket = basketProducts?.find((item) => item.id === item.id) as Basket & { Items: ExtendedBasketItem[] }

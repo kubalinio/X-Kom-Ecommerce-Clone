@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -14,8 +16,8 @@ type Props = {
 }
 
 export const BasketProduct = ({ product }: Props) => {
-  const { count, productHeader, id: basketItemId, basketToken } = product
-  const { name, price, photo, slug } = productHeader.create
+  const { count, productHeader, productId: basketItemId, basketToken } = product
+  const { name, price, photo, slug } = productHeader
 
   const handleChangeQuantity = (newQuantity: number) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -69,7 +71,7 @@ export const BasketProduct = ({ product }: Props) => {
               {/* Add to Fav List */}
               {/* <BasketAddToFav product={product} /> */}
 
-              {/* Delete Item Basket */}
+              {/* Delete Item Basket @TODO Error browser */}
               <RemoveBasketProduct id={basketItemId} basketToken={basketToken ?? null} />
             </div>
           </div>

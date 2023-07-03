@@ -27,7 +27,6 @@ export const RecommendProducts = async () => {
           <div className="-mx-2 mt-3 hidden flex-wrap lg:flex">
             {products.map((product) => (
               <div key={product.id} className="mb-[22px] w-1/4 px-2">
-                {/* @ts-expect-error server component */}
                 <ProductCard product={product} />
               </div>
             ))}

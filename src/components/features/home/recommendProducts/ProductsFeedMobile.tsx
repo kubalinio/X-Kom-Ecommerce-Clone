@@ -17,10 +17,9 @@ interface ProductsFeedMobileProps {
 }
 
 export const ProductsFeedMobile: FC<ProductsFeedMobileProps> = ({ products }) => {
-  const matched = useMediaQuery('(min-width: 1080px)')
+  const matched = useMediaQuery('(max-width: 1079px)')
 
-  return !matched ? (
-    // <ScrollingCarousel className='[&>*]:px-4'>
+  return matched ? (
     <Swiper
       slidesPerView={2.3}
       spaceBetween={8}
@@ -43,7 +42,6 @@ export const ProductsFeedMobile: FC<ProductsFeedMobileProps> = ({ products }) =>
       {products.map((product) => (
         <SwiperSlide key={product.id}>
           <div className="h-full w-full min-w-[150px] max-w-[150px] p-2 sm:min-w-[180px] sm:max-w-[180px] md:min-w-[220px] md:max-w-[220px]">
-            {/* @ts-expect-error server component */}
             <ProductCard product={product} />
           </div>
         </SwiperSlide>

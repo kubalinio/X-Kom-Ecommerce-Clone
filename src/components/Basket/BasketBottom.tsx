@@ -9,7 +9,7 @@ export const BasketBottom = ({
   onClick,
 }: {
   totalAmount: number
-  isDesktop: boolean
+  isDesktop: boolean | undefined
   onClick: () => void
 }) => (
   <>

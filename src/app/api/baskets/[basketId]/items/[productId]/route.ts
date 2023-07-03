@@ -9,7 +9,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { productId
 
     const existingBasketItem = await db.basketItem.findFirst({
       where: {
-        id: basketItemId,
+        basketToken: basketCookie,
       },
       select: {
         count: true,
@@ -22,7 +22,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { productId
 
       await db.basket.update({
         where: {
-          basketToken: basketCookie,
+          id: basketCookie,
         },
         data: {
           productCount: { decrement: count },
@@ -30,7 +30,10 @@ export async function DELETE(req: NextRequest, { params }: { params: { productId
           totalPrice: { decrement: productHeader?.price * count },
           Items: {
             delete: {
-              id: basketItemId,
+              basketToken_productId: {
+                basketToken: basketCookie,
+                productId: basketItemId,
+              },
             },
           },
         },

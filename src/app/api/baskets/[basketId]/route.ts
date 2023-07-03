@@ -8,7 +8,7 @@ export async function PUT(req: NextRequest, { params }: { params: { basketId: st
     if (basketToken) {
       await db.basket.update({
         where: {
-          basketToken: basketToken,
+          id: basketToken,
         },
         data: {
           Items: {

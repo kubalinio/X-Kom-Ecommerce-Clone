@@ -3,6 +3,7 @@
 import { Basket } from '@prisma/client'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import { getCookie } from 'cookies-next'
 import { Loader2 } from 'lucide-react'
 import { createContext, Dispatch, FC, SetStateAction, useContext, useState } from 'react'
 
@@ -37,19 +38,21 @@ type BasketData = Basket & { Items: ExtendedBasketItem[] }
 
 export const BasketPageFeed: FC<BasketPageFeedProps> = ({ basketData: initialBasketData }) => {
   const [isLoading, setIsLoading] = useState(false)
+  const currentBasketToken = getCookie('basketToken')
 
   const { data, isFetching } = useQuery({
-    queryKey: ['basketPageData'],
+    queryKey: ['basketProducts'],
     queryFn: async () => {
-      const { data } = await axios.get(`/api/baskets/${initialBasketData.basketToken}/basicData`)
-      // @ts-expect-error object error type
-      return data.find((b) => b.id === b.id) as BasketData
+      const { data } = await axios.get<BasketData>(`/api/baskets/${currentBasketToken}/basicData`)
+      return data
     },
     refetchOnWindowFocus: false,
     initialData: initialBasketData,
+    // enabled: false
   })
 
-  const basketData: BasketData = data ?? initialBasketData
+  // @ts-expect-error react query type @TODO find resolve of problem
+  const basketData: BasketData = data?.find((item) => item.id === item.id) ?? initialBasketData
 
   const { productCount, totalPrice, basketToken } = basketData
 
@@ -69,7 +72,7 @@ export const BasketPageFeed: FC<BasketPageFeedProps> = ({ basketData: initialBas
               {/* Heading */}
               <div className="hidden text-3xl font-bold leading-7 md:block">
                 Koszyk
-                <span className="ml-1 text-[#707070]">{`(${productCount})`}</span>
+                <span className="ml-1 text-[#707070]">{`(${productCount ?? 0})`}</span>
               </div>
 
               {/* Fav & Basket */}
@@ -83,12 +86,12 @@ export const BasketPageFeed: FC<BasketPageFeedProps> = ({ basketData: initialBas
             <div>
               <ul>
                 {basketData?.Items?.map((product) => (
-                  <BasketProduct key={product.id} product={product} />
+                  <BasketProduct key={product.productId} product={product} />
                 ))}
               </ul>
             </div>
 
-            <CompletionOrder totalPrice={totalPrice} mobile={true} />
+            <CompletionOrder variant="mobile" totalPrice={totalPrice} />
 
             <BasketInfoBox />
 
@@ -97,7 +100,7 @@ export const BasketPageFeed: FC<BasketPageFeedProps> = ({ basketData: initialBas
             <ReturnBtn mobile={false} />
           </div>
 
-          <CompletionOrder mobile={false} totalPrice={totalPrice} />
+          <CompletionOrder variant="desktop" totalPrice={totalPrice ?? 0} />
 
           <ReturnBtn mobile={true} />
 

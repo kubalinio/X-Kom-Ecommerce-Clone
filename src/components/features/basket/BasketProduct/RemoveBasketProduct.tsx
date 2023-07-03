@@ -1,20 +1,21 @@
+'use client'
+
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import { HiOutlineTrash } from 'react-icons/hi2'
-import { useDispatch } from 'react-redux'
 
-import { getTotals, removeItem } from '@/store/basketSlice'
-
+// import { getTotals, removeItem } from '@/store/basketSlice'
 import { useLoadingContext } from '../BasketPageFeed'
 
 export const RemoveBasketProductExpand = ({ id, closeExpand }: { id: string; closeExpand: () => void }) => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   const removeItemFromBasket = () => {
-    dispatch(removeItem(id))
-    dispatch(getTotals())
+    // dispatch(removeItem(id))
+    // dispatch(getTotals())
     closeExpand()
   }
 
@@ -51,7 +52,10 @@ export const RemoveBasketProduct = ({ id, basketToken }: { id: string; basketTok
       router.refresh()
     },
   })
-  setIsLoading(isLoading)
+
+  useEffect(() => {
+    setIsLoading(isLoading)
+  }, [isLoading])
 
   return (
     <>

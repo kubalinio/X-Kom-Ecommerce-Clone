@@ -1,3 +1,5 @@
+'use client'
+
 import { useRouter } from 'next/navigation'
 import { FC } from 'react'
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
@@ -26,12 +28,13 @@ interface ReturnBtnProps {
 
 export const ReturnBtn: FC<ReturnBtnProps> = ({ mobile }) => {
   const matches = useMediaQuery('(min-width: 900px)')
+  const matchesMax = useMediaQuery('(max-width: 900px)')
 
   return matches && mobile === false ? (
     <div className="mt-3">
       <Button />
     </div>
-  ) : !matches && mobile === true ? (
+  ) : matchesMax && mobile === true ? (
     <div className="mt-2 flex w-full items-end px-2 md:mt-4 md:w-1/3 md:px-3">
       <Button />
     </div>

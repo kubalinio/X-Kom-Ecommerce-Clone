@@ -3,7 +3,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { HiOutlineTrash } from 'react-icons/hi2'
 
 import { useLoadingContext } from './BasketPageFeed'
@@ -30,7 +30,9 @@ const RemoveAllFromBasket: FC<RemoveAllFromBasketProp> = ({ basketToken }) => {
       router.refresh()
     },
   })
-  setIsLoading(isLoading)
+  useEffect(() => {
+    setIsLoading(isLoading)
+  }, [isLoading, setIsLoading])
 
   return (
     <button

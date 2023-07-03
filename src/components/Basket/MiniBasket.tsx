@@ -49,13 +49,13 @@ export const MiniBasket = ({ onClick, products, basketAmt, totalPrice }: MiniBas
       <div className="-mb-1 h-full overflow-y-auto break-words px-4">
         {products.map((item) => (
           <BasketProduct
+            key={item.productId}
             onClick={() => onClick()}
-            key={item.productHeader.productId}
-            name={item.productHeader.create.name}
+            name={item.productHeader.name}
             count={item.count}
-            price={item.productHeader.create.price}
-            photo={item.productHeader.create.photo}
-            slug={item.productHeader.create.slug}
+            price={item.productHeader.price}
+            photo={item.productHeader.photo}
+            slug={item.productHeader.slug}
           />
         ))}
       </div>

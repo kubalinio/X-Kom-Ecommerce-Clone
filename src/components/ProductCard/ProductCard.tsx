@@ -11,7 +11,7 @@ type Props = {
   product: Product
 }
 
-export const ProductCard = async ({ product }: Props) => {
+export const ProductCard = ({ product }: Props) => {
   const { name, oldPrice, photo, price, slug } = product
 
   return (

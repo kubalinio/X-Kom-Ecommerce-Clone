@@ -14,7 +14,6 @@ export const HitsWeekSection = async () => {
     <SectionCarouselContainer heading={'Hity tygodnia'} slugToAll={''} productSection={true}>
       {products.map((product) => (
         <div key={product.id} className="h-full px-2 py-1 lg:py-4">
-          {/* @ts-expect-error server component */}
           <ProductCard product={product} />
         </div>
       ))}

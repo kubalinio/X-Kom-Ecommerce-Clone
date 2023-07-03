@@ -34,6 +34,7 @@ export async function POST(req: NextRequest) {
     const existingProductInBasket = await db.basketItem.findFirst({
       where: {
         productId: productId,
+        basketToken: basketToken,
       },
       select: {
         productId: true,
@@ -51,67 +52,10 @@ export async function POST(req: NextRequest) {
     if (!existingBasket?.basketToken && p) {
       await db.basket.create({
         data: {
+          id: basketToken,
           basketToken: basketToken,
           productCount: count,
           totalPrice: p.price,
-          Items: {
-            create: [
-              {
-                count: count,
-                productId: p.id,
-                basketToken: basketToken,
-                productHeader: {
-                  create: {
-                    name: p.name,
-                    oldPrice: p.oldPrice,
-                    price: p.price,
-                    photo: p.photo,
-                    slug: p.slug,
-                    id: p.id,
-                  },
-                },
-              },
-            ],
-          },
-        },
-      })
-    }
-
-    // WhatDo Have basket and equel Items
-    if (existingBasket?.basketToken && existingProductInBasket?.productId === productId && p) {
-      await db.basket.update({
-        where: {
-          id: existingBasket.id,
-        },
-        data: {
-          productCount: { increment: count },
-          totalPrice: { increment: p.price },
-          Items: {
-            update: [
-              {
-                where: {
-                  productId: productId,
-                },
-                data: {
-                  count: { increment: count },
-                },
-              },
-            ],
-          },
-        },
-      })
-    }
-
-    // WhatDo Have basket and items
-    if (existingBasket?.basketToken && existingProductInBasket?.productId !== productId && p) {
-      await db.basket.update({
-        where: {
-          id: existingBasket.id,
-        },
-        data: {
-          productCount: { increment: count },
-          totalPrice: { increment: p.price },
-          basketToken: basketToken,
           Items: {
             create: [
               {
@@ -133,7 +77,83 @@ export async function POST(req: NextRequest) {
       })
     }
 
-    const res = NextResponse.json('OK')
+    // WhatDo Have basket and equel Items
+    if (existingBasket?.basketToken && existingProductInBasket?.productId === productId && p) {
+      console.log(existingProductInBasket?.productId === productId)
+      await db.basket.update({
+        where: {
+          id: existingBasket.id,
+        },
+        data: {
+          productCount: { increment: count },
+          totalPrice: { increment: p.price },
+          Items: {
+            update: [
+              {
+                where: {
+                  basketToken_productId: {
+                    basketToken,
+                    productId,
+                  },
+                },
+                data: {
+                  count: { increment: count },
+                },
+              },
+            ],
+          },
+        },
+      })
+    }
+
+    // WhatDo Have basket and items
+    if (existingBasket?.basketToken && existingProductInBasket?.productId !== productId && p) {
+      console.log(existingProductInBasket?.productId !== productId)
+      await db.basket.update({
+        where: {
+          id: existingBasket.id,
+        },
+        data: {
+          productCount: { increment: count },
+          totalPrice: { increment: p.price },
+          Items: {
+            create: [
+              {
+                count: count,
+                productId: p.id,
+                basketToken: basketToken,
+                productHeader: {
+                  name: p.name,
+                  oldPrice: p.oldPrice,
+                  price: p.price,
+                  photo: p.photo,
+                  slug: p.slug,
+                  id: p.id,
+                },
+              },
+            ],
+          },
+        },
+      })
+      // await db.basketItem.create({
+      //   data: {
+      //     basketToken: basketToken,
+      //     count: count,
+      //     productId: productId,
+      //     basketId: existingBasket.id,
+      //     productHeader: {
+      //       name: p.name,
+      //       oldPrice: p.oldPrice,
+      //       price: p.price,
+      //       photo: p.photo,
+      //       slug: p.slug,
+      //       id: p.id,
+      //     },
+      //   },
+      // })
+    }
+
+    const res = NextResponse.json({ basketToken }, { status: 200 })
     // Then set a cookie
     if (!basketCookie) {
       res.cookies.set({
