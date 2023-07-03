@@ -25,7 +25,6 @@ export default async function ProductDetail(url: URL) {
 
   if (!product) return notFound()
 
-  // console.log(product)
   const { id: productId, name } = product as Product
 
   return (

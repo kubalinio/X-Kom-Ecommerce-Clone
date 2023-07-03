@@ -30,7 +30,7 @@ type MiniBasketProps = {
 
 export const MiniBasket = ({ onClick, products, basketAmt, totalPrice }: MiniBasketProps) => {
   const minLg = useMediaQuery('(min-width: 1080px)')
-  console.log(products)
+
   return (
     <div className="flex h-full min-h-[150px] flex-col justify-center lg:max-h-[610px]">
       {/* 0 in dekstop Heeader Desktop */}

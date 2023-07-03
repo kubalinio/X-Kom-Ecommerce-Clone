@@ -64,7 +64,6 @@ type Props = {
 }
 
 const ProductListItem = ({ product }: Props) => {
-  // console.log(product)
   const { name, mainPhoto, webUrl, Price, listId, id, Count } = product
 
   return (

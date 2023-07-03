@@ -147,7 +147,6 @@ export const AddToFavList = ({ productId, versionBtn, closeExpand, showInfo }: P
   // #3 Kiedy Produkt jest dodany a chcemy go usunąć
   const handleClickBtn = () => {
     const purchaseListsId = JSON.parse(localStorage.getItem('purchase_lists')!)
-    console.log(purchaseListsId)
 
     if (purchaseListsId !== null && isLiked === true) {
       // Uzycie danych zfechowanych productid i idlisty

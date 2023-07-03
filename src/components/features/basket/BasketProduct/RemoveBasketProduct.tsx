@@ -57,6 +57,8 @@ export const RemoveBasketProduct = ({ id, basketToken }: { id: string; basketTok
 
   useEffect(() => {
     setIsLoading(isLoading)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading])
 
   return (
