@@ -46,7 +46,7 @@ export const ListCard = ({ item }: Props) => {
               <div className="relative left-0 right-0 top-0 w-full overflow-hidden">
                 {productItems.map((product) => (
                   <div
-                    key={product.id}
+                    key={product.productId}
                     className="mr-3 inline-flex h-[60px] w-[72px] flex-wrap items-center justify-center"
                   >
                     <span className="m-1 inline-flex h-[calc(100%-8px)] max-h-full w-[calc(100%-8px)] max-w-full items-center justify-center">

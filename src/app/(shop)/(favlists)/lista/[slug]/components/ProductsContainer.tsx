@@ -17,7 +17,7 @@ const ProductsContainer = ({ details }: Props) => {
       {/* Middle - Product Info & Actions */}
       <div>
         {details.productItems.map((product) => (
-          <ProductListItem key={product.id} product={product} productCount={details.productCount} />
+          <ProductListItem key={product.productId} product={product} productCount={details.productCount} />
         ))}
       </div>
 

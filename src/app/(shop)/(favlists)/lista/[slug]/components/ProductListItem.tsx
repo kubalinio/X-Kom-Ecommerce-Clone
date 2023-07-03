@@ -36,7 +36,7 @@ const ExpandDropdownListContainer = ({
   productId: string
   product: ListItem
 }) => {
-  const { name, id, Price, mainPhoto } = product
+  const { name, Price, mainPhoto } = product
 
   return (
     <ExpandDropdownList className="max-md:absolute max-md:right-0 max-md:top-1 md:ml-4">
@@ -49,7 +49,7 @@ const ExpandDropdownListContainer = ({
           className=""
           count={1}
           name={name}
-          productId={id}
+          productId={productId}
           photo={mainPhoto}
           price={Price}
         />
@@ -64,7 +64,7 @@ type Props = {
 }
 
 const ProductListItem = ({ product }: Props) => {
-  const { name, mainPhoto, webUrl, Price, listId, id, Count } = product
+  const { name, mainPhoto, webUrl, Price, listId, Count, productId } = product
 
   return (
     <div className="relative flex min-h-[84px] border-b border-[#ddd] py-2 md:min-h-[auto] md:items-center md:justify-between">
@@ -105,7 +105,7 @@ const ProductListItem = ({ product }: Props) => {
       {/* Mobile: Expand Btn Action & Counting Product */}
       <div className="md:hidden">
         {/* Expand Btns */}
-        <ExpandDropdownListContainer listId={listId} productId={id} product={product} />
+        <ExpandDropdownListContainer listId={listId} productId={productId} product={product} />
 
         {/* Quantity */}
         <ChangeQuntityProductContainer ProductCount={Count} />
@@ -122,11 +122,11 @@ const ProductListItem = ({ product }: Props) => {
           name={name}
           price={Price}
           photo={mainPhoto}
-          productId={id}
+          productId={productId}
           className="static flex h-[32px] min-w-[32px] items-center justify-center"
         />
 
-        <ExpandDropdownListContainer listId={listId} productId={id} product={product} />
+        <ExpandDropdownListContainer listId={listId} productId={productId} product={product} />
       </div>
     </div>
   )
