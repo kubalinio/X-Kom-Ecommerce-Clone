@@ -16,27 +16,28 @@ export const UserShopList = () => {
   // /purchaseLists?pagination.currentPage=1&pagination.pageSize=5&sort=lastUpdate%20desc&purchaseListIds=z8y6nf2ep
   const { data: listsData, isFetching } = useQuery<ExtendedPurchaseListItem[]>({
     queryFn: async () => {
-      const purchaseListsId = JSON.parse(localStorage.getItem('purchase_lists') ?? '')
-      const listIds = Object.keys(purchaseListsId)
-      const ids = listIds.join()
-      console.log('ids', ids)
-
-      const { data } = await axios.get(`/api/purchaseLists/?purchaseListIds=${ids}`)
-      return data
+      const purchaseListsId = localStorage.getItem('purchase_lists') ?? null
+      if (purchaseListsId) {
+        const purchaseListsIdparsed = JSON.parse(purchaseListsId)
+        const listIds = Object.keys(purchaseListsIdparsed)
+        const ids = listIds.join()
+        const { data } = await axios.get(`/api/purchaseLists/?purchaseListIds=${ids}`)
+        return data
+      } else return []
     },
 
     // enabled: fetchLists,
     refetchOnWindowFocus: false,
     queryKey: ['purchaseLists'],
-    onSuccess() {
-      // setFetchLists(false)
-      // data.map((item: { id: string }) => {
-      //   if (item.id === productId) {
-      //     setIsLiked(true)
-      //     showInfo!(true, false)
-      //   }
-      // })
-    },
+    // onSuccess() {
+    // setFetchLists(false)
+    // data.map((item: { id: string }) => {
+    //   if (item.id === productId) {
+    //     setIsLiked(true)
+    //     showInfo!(true, false)
+    //   }
+    // })
+    // },
   })
 
   return isFetching ? (

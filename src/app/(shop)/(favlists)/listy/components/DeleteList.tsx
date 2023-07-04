@@ -68,27 +68,24 @@ export const DeleteList: FC<DeleteListProps> = ({ id, className, variant, size }
     },
     onSuccess: (listId) => {
       removeStoradgeListData(listId)
-
       setShowModal(false)
-
       router.push('/listy')
+      router.refresh()
+      queryClient.invalidateQueries(['purchaseLists'])
     },
   })
 
   const removeStoradgeListData = (listId: string) => {
-    const existingLists = JSON.parse(localStorage.getItem('purchase_lists') ?? '')
+    const existingLists = JSON.parse(localStorage.getItem('purchase_lists') ?? '') ?? null
     console.log(existingLists)
 
-    // eslint-disable-next-line security/detect-object-injection
-    delete existingLists[listId]
-
     if (existingLists === true) {
+      // eslint-disable-next-line security/detect-object-injection
+      delete existingLists[listId]
       const data = { ...existingLists }
       localStorage.setItem('purchase_lists', JSON.stringify(data))
-      queryClient.invalidateQueries(['purchaseLists'])
     } else {
       localStorage.removeItem('purchase_lists')
-      queryClient.fetchQuery(['purchaseLists'])
     }
   }
 
