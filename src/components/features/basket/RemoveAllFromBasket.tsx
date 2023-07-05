@@ -3,10 +3,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import { HiOutlineTrash } from 'react-icons/hi2'
 
-import { useLoadingContext } from './BasketPageFeed'
+import { useLoadingState } from '@/store/LoadingState'
 
 interface RemoveAllFromBasketProp {
   basketToken: string
@@ -17,22 +17,21 @@ interface RemoveAllFromBasketProp {
 const RemoveAllFromBasket: FC<RemoveAllFromBasketProp> = ({ basketToken }) => {
   const queryClient = useQueryClient()
   const router = useRouter()
-  const { setIsLoading } = useLoadingContext()
+  const { setIsLoading } = useLoadingState()
 
-  const { mutate: deleteAllItems, isLoading } = useMutation({
+  const { mutate: deleteAllItems } = useMutation({
     mutationFn: async () => {
+      setIsLoading(true)
       const { data } = await axios.put(`/api/baskets/${basketToken}`)
       return data
     },
     onSuccess: () => {
       queryClient.invalidateQueries(['basketPageData'])
       queryClient.invalidateQueries(['basketProducts'])
+      setIsLoading(false)
       router.refresh()
     },
   })
-  useEffect(() => {
-    setIsLoading(isLoading)
-  }, [isLoading, setIsLoading])
 
   return (
     <button
