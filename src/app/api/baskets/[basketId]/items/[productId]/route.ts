@@ -10,6 +10,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { productId
     const existingBasketItem = await db.basketItem.findFirst({
       where: {
         basketToken: basketCookie,
+        productId: basketItemId,
       },
       select: {
         count: true,
