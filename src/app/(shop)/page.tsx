@@ -1,12 +1,12 @@
-import { BestsellerSection } from '@/components/features/home/BestsellerSection'
-import { BrandSection } from '@/components/features/home/BrandSection'
-import { GuidesSection } from '@/components/features/home/GuidesSection'
-import { HitsWeekSection } from '@/components/features/home/HitsWeekSection'
-import { NewsSection } from '@/components/features/home/NewsSection'
-import { PromotionSection } from '@/components/features/home/PromotionSection'
-import { RecommendProducts } from '@/components/features/home/recommendProducts/RecommendProducts'
-import SliderBox from '@/components/features/home/SliderBox'
-import { HotShot } from '@/components/HotShot'
+import { BestsellerSection } from '@/features/homePage/BestsellerSection'
+import { BrandSection } from '@/features/homePage/BrandSection'
+import { GuidesSection } from '@/features/homePage/GuidesSection'
+import { HitsWeekSection } from '@/features/homePage/HitsWeekSection'
+import { HotShot } from '@/features/homePage/hotshot'
+import { NewsSection } from '@/features/homePage/NewsSection'
+import { PromotionSection } from '@/features/homePage/PromotionSection'
+import { RecommendProducts } from '@/features/homePage/recommendProducts/RecommendProducts'
+import SliderBox from '@/features/homePage/SliderBox'
 
 export default async function Home() {
   return (

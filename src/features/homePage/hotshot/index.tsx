@@ -10,7 +10,7 @@ import { ReactNode, useState } from 'react'
 import { LoadingSpinner } from '@/components/LoadingSpinner'
 import { HotShotsData } from '@/types/typings'
 
-import { HotShotCounter } from './HotShotCounter'
+import { HotShotCounter } from './hotshotCounter'
 import { HotShotProductDetail } from './HotShotProductDetail'
 import SpecialBorder from './SpecialBorder'
 
