@@ -33,7 +33,6 @@ const AddToFavList = ({ productId }: Props) => {
     getFavListItem.data?.map((item: { productId: string }) => {
       if (item.productId === productId) {
         setIsLiked(true)
-        setShowPopper(false)
       }
     })
   }, [getFavListItem.data, getFavListItem.isSuccess, productId])

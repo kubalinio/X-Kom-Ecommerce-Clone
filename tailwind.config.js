@@ -51,6 +51,14 @@ module.exports = {
           '0%, 100%': { borderWidth: '0px' },
           '50%': { borderWidth: '22px' },
         },
+        'accordion-down': {
+          from: { height: 0 },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: 0 },
+        },
 
         // Modal.tsx
         // showModal: {
@@ -70,6 +78,8 @@ module.exports = {
         headerMinimize: 'headerAnimationMinimize 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
         headerMobileHide: 'headerMobileAnimationHide 0ms cubic-bezier(0.4, 0, 0.2, 1) none',
         pulsOnceClick: 'pulsOnce 300ms ease-out forwards',
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
         // showModal: 'showModal 300ms cubic-bezier(0.4, 0, 0.2, 1) running',
         // hideModal: 'hideModal 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
       },
@@ -102,5 +112,5 @@ module.exports = {
       lato: ['var(--font-lato)'],
     },
   },
-  plugins: [require('prettier-plugin-tailwindcss')],
+  plugins: [require('prettier-plugin-tailwindcss', 'tailwindcss-animate')],
 }
