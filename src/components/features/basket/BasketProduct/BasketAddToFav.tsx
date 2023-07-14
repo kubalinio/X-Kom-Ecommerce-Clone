@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import { AddToFavModal } from '@/components/AddToFavList'
 import { ModalContainer } from '@/components/Modal'
+import { AddToFavModal } from '@/features/favList'
 // import { BasketItem } from '@/store/basketSlice'
 
 // type Props = {

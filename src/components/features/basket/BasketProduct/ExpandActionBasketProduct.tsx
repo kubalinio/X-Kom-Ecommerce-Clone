@@ -4,12 +4,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { AiOutlineMore } from 'react-icons/ai'
 
-import { AddToFavList } from '@/components/AddToFavList'
+import { FavListBtn, useFavList } from '@/features/favList'
 // import { BasketItem } from '@/store/basketSlice'
 
 // import { RemoveBasketProductExpand } from './RemoveBasketProduct'
 
 export const ExpandActionBasketProduct = ({ productId }: { productId: string }) => {
+  const { isLiked, isLoading, toggleFav } = useFavList(productId)
   const [expand, setExpand] = useState(false)
 
   const buttonRef = useRef<HTMLDivElement>(null)
@@ -24,6 +25,11 @@ export const ExpandActionBasketProduct = ({ productId }: { productId: string }) 
     window.addEventListener('click', listener)
     return () => window.removeEventListener('click', listener)
   }, [])
+
+  const handleClick = () => {
+    toggleFav()
+    setExpand(false)
+  }
 
   return (
     <div className={`${expand ? 'z-[999]' : 'z-[1]'} pointer-events-none relative inline-block md:hidden`}>
@@ -50,7 +56,7 @@ export const ExpandActionBasketProduct = ({ productId }: { productId: string }) 
           } absolute left-auto right-0 top-[calc(100%)] z-[2] flex flex-col rounded-lg bg-white py-2 text-left shadow-xCom`}
         >
           {/* @TODO Fix passed props into components */}
-          <AddToFavList productId={productId} versionBtn={'FavLong'} showInfo={() => setExpand(false)} />
+          <FavListBtn onClick={() => handleClick()} variant={'FavLong'} isLiked={isLiked} isLoading={isLoading} />
 
           {/* <RemoveBasketProductExpand id={product._id!} closeExpand={() => setExpand(false)} /> */}
         </div>
