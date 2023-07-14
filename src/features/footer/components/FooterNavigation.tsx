@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { footerItem } from './Footer'
+import { footerItem } from '../dataAccess/footerNavItems'
 
 const FooterNavigation = ({ items }: { items: footerItem[] }) => {
   return (
