@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 
-import { footerItem } from './Footer'
+import { footerItem } from '../dataAccess/footerNavItems'
 
 const FooterExpandNav = ({ items }: { items: footerItem[] }) => {
   const [isShow, setIsShow] = useState(false)

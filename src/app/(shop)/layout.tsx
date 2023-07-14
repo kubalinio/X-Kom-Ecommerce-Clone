@@ -5,7 +5,8 @@ import { Lato } from 'next/font/google'
 import { cookies } from 'next/headers'
 import { ReactNode } from 'react'
 
-import { Footer } from '../../components/Footer'
+import { Footer } from '@/features/footer/containers/Footer'
+
 import { Header } from '../../components/Header/Header'
 import Providers from '../../utils/Providers'
 

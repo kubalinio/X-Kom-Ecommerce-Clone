@@ -4,10 +4,10 @@ import { BsEnvelopeFill } from 'react-icons/bs'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { ImLocation } from 'react-icons/im'
 
-import facebookIcon from '../../../public/icons/facebook.svg'
-import instagramIcon from '../../../public/icons/instagram-color.svg'
-import twitterIcon from '../../../public/icons/twitter-color.svg'
-import youtubeIcon from '../../../public/icons/youtube-color.svg'
+import facebookIcon from '../../../../public/icons/facebook.svg'
+import instagramIcon from '../../../../public/icons/instagram-color.svg'
+import twitterIcon from '../../../../public/icons/twitter-color.svg'
+import youtubeIcon from '../../../../public/icons/youtube-color.svg'
 
 const icons = [
   {
