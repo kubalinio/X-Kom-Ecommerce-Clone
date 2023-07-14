@@ -6,7 +6,7 @@ type Props = {
   lists: ExtendedPurchaseListItem[]
 }
 
-const ShopListBody = ({ lists }: Props) => {
+export const ShopListBody = ({ lists }: Props) => {
   return (
     <>
       {/* Sortuj */}
@@ -24,5 +24,3 @@ const ShopListBody = ({ lists }: Props) => {
     </>
   )
 }
-
-export default ShopListBody

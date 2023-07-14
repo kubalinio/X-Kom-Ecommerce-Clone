@@ -1,5 +1,6 @@
-import { NavUser } from './listy/components/NavUser'
-import { NeedHelpInfo } from './listy/components/UserShopList/NeedHelpInfo'
+import { NeedHelpInfo } from '@/features/listyPage/containers/userShopList/NeedHelpInfo'
+
+import { NavUser } from '../../../features/listyPage/containers/NavUser'
 
 export default function ListsLayout({ children }: { children: React.ReactNode }) {
   return (

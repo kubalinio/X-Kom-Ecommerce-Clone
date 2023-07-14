@@ -6,11 +6,11 @@ import Link from 'next/link'
 
 import { AddToBasket } from '@/components/Basket/AddToBasket'
 import { ChangeQuantityProduct } from '@/components/ChangeQuantityProduct'
+import { ExpandDropdownList } from '@/features/listyPage'
 // import { AddToBasket } from '@/components/ProductCard/AddToBasket'
 import { formatPrice } from '@/lib/utils'
 
-import DeleteProductBtn from '../../../listy/components/Buttons/DeleteProductBtn'
-import { ExpandDropdownList } from '../../../listy/components/ExpandDropdownList'
+import DeleteProductBtn from '../../../../../../features/listyPage/Buttons/DeleteProductBtn'
 
 const ChangeQuntityProductContainer = ({ ProductCount }: { ProductCount: number }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

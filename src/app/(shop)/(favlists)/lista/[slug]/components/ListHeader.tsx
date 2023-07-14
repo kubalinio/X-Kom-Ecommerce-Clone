@@ -3,10 +3,10 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-import SaveListBtn from '../../../listy/components/Buttons/SaveListBtn'
-import ShareListBtn from '../../../listy/components/Buttons/ShareListBtn'
-import { DeleteList } from '../../../listy/components/DeleteList'
-import { ExpandDropdownList } from '../../../listy/components/ExpandDropdownList'
+import { DeleteList, ExpandDropdownList } from '@/features/listyPage'
+
+import SaveListBtn from '../../../../../../features/listyPage/Buttons/SaveListBtn'
+import ShareListBtn from '../../../../../../features/listyPage/Buttons/ShareListBtn'
 
 const ListTitle = ({ name, updateAt }: Props) => {
   const [lastMod, setLastMod] = useState('')

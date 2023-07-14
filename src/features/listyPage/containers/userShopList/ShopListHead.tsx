@@ -1,4 +1,4 @@
-import { CreateEmptyList } from '../CreateEmptyList'
+import { CreateEmptyList } from '../../../../features/listyPage/CreateEmptyList'
 
 type Props = {
   listsLength: number | undefined

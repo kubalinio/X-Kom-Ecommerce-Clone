@@ -2,12 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { IoMdHeartEmpty } from 'react-icons/io'
 
+import { DeleteList } from '@/features/listyPage/DeleteList'
+import { ExpandDropdownList } from '@/features/listyPage/ExpandDropdownList'
 import { formatPrice } from '@/lib/utils'
 import { ExtendedPurchaseListItem } from '@/types/db'
 
-import ShareListBtn from '../../Buttons/ShareListBtn'
-import { DeleteList } from '../../DeleteList'
-import { ExpandDropdownList } from '../../ExpandDropdownList'
+import ShareListBtn from '../../../Buttons/ShareListBtn'
 
 type Props = {
   item: ExtendedPurchaseListItem

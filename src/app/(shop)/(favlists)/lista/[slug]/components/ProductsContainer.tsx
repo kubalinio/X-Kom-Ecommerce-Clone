@@ -1,6 +1,6 @@
 import { ExtendedPurchaseListItem } from '@/types/db'
 
-import { AddAllAccessibleBtn } from '../../../listy/components/Buttons/AddAllAccessibleBtn'
+import { AddAllAccessibleBtn } from '../../../../../../features/listyPage/Buttons/AddAllAccessibleBtn'
 import ListSummary from './ListSummary'
 import ProductListItem from './ProductListItem'
 

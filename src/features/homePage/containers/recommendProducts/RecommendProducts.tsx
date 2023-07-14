@@ -1,4 +1,4 @@
-import { ProductCard } from '@/components/ProductCard'
+import { ProductCard } from '@/features/homePage/components/ProductCard'
 import { db } from '@/lib/db'
 
 import { ProductsFeedMobile } from './ProductsFeedMobile'

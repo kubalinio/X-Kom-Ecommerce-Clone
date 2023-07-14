@@ -3,9 +3,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { notFound } from 'next/navigation'
 
+import { NeedHelpInfo } from '@/features/listyPage/containers/userShopList/NeedHelpInfo'
 import { db } from '@/lib/db'
 
-import { NeedHelpInfo } from '../../listy/components/UserShopList/NeedHelpInfo'
 import EmptyList from './components/EmptyList'
 import ListHeader from './components/ListHeader'
 import ProductsContainer from './components/ProductsContainer'

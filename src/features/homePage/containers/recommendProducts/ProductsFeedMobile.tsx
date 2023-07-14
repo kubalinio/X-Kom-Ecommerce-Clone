@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 
-import { ProductCard } from '../../../components/ProductCard'
+import { ProductCard } from '../../components/ProductCard'
 
 interface ProductsFeedMobileProps {
   products: Product[]
