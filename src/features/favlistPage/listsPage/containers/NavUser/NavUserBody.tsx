@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
 
-import { navUserItems } from '../../../../app/(shop)/(favlists)/listy/page'
+import { navUserItems } from '@/app/(shop)/(favlists)/listy/page'
 
 const IconNavUser = ({ icon }: { icon: ReactNode }) => (
   <span className="inline-block h-6 w-6 text-2xl md:mr-3">{icon}</span>

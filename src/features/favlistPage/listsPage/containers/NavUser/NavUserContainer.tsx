@@ -9,7 +9,8 @@ import { IoSettingsOutline } from 'react-icons/io5'
 import { MdOutlineReviews } from 'react-icons/md'
 import { TbNotes } from 'react-icons/tb'
 
-import { navUserItems } from '../../../../app/(shop)/(favlists)/listy/page'
+import { navUserItems } from '@/app/(shop)/(favlists)/listy/page'
+
 import { NavUserBody } from './NavUserBody'
 import { NavUserHeader } from './NavUserHeader'
 

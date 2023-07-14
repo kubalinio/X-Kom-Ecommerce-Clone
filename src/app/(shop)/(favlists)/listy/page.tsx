@@ -1,12 +1,12 @@
 'use client'
 
 import LoadingSkelleton from '@/components/features/basket/LoadingSkelleton'
-import { ReturnButtonMobile } from '@/features/listyPage/Buttons/ReturnBtnMobile'
-import { ShopListBody } from '@/features/listyPage/containers/userShopList'
-import { NeedHelpInfo } from '@/features/listyPage/containers/userShopList/NeedHelpInfo'
-import { ShopListBottom } from '@/features/listyPage/containers/userShopList/ShopListBottom'
-import { ShopListHead } from '@/features/listyPage/containers/userShopList/ShopListHead'
-import { useGetFavLists } from '@/features/listyPage/dataAccess/getFavLists'
+import { ReturnButtonMobile } from '@/features/favlistPage/listsPage/Buttons/ReturnBtnMobile'
+import { ShopListBody } from '@/features/favlistPage/listsPage/containers/userShopList'
+import { NeedHelpInfo } from '@/features/favlistPage/listsPage/containers/userShopList/NeedHelpInfo'
+import { ShopListBottom } from '@/features/favlistPage/listsPage/containers/userShopList/ShopListBottom'
+import { ShopListHead } from '@/features/favlistPage/listsPage/containers/userShopList/ShopListHead'
+import { useGetFavLists } from '@/features/favlistPage/listsPage/dataAccess/getFavLists'
 
 export type navUserItems = {
   title: string

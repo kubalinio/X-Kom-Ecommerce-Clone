@@ -1,15 +1,11 @@
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { notFound } from 'next/navigation'
 
-import { NeedHelpInfo } from '@/features/listyPage/containers/userShopList/NeedHelpInfo'
+import EmptyList from '@/features/favlistPage/detailPage/components/EmptyList'
+import ListHeader from '@/features/favlistPage/detailPage/components/ListHeader'
+import ProductsContainer from '@/features/favlistPage/detailPage/components/ProductsContainer'
+import ReturnBtn from '@/features/favlistPage/detailPage/components/ReturnBtn'
+import { NeedHelpInfo } from '@/features/favlistPage/listsPage/containers/userShopList/NeedHelpInfo'
 import { db } from '@/lib/db'
-
-import EmptyList from './components/EmptyList'
-import ListHeader from './components/ListHeader'
-import ProductsContainer from './components/ProductsContainer'
-import ReturnBtn from './components/ReturnBtn'
 
 type Props = {
   params: {
