@@ -9,7 +9,7 @@ import { Promotions } from '@/types/typings'
 import { ArticleCard } from './ArticleCard'
 
 const fetchPromotions = async () => {
-  const response = await axios.get(`/api/getPromotions`)
+  const response = await axios.get(`/api/promotions`)
   return response.data
 }
 

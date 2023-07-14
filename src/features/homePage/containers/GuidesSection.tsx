@@ -54,7 +54,7 @@ const ArticleCard = ({ title, image, link, slogan }: Guide) => {
 }
 
 const fetchGuides = async () => {
-  const response = await axios.get(`/api/getGuides`)
+  const response = await axios.get(`/api/guides`)
   return response.data
 }
 

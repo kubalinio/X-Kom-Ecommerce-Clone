@@ -21,7 +21,7 @@ const WrapperHotShot = ({ children }: { children: ReactNode }) => (
 )
 
 const fetchHotShot = async () => {
-  const response = await axios.get(`/api/getHotShot`)
+  const response = await axios.get(`/api/hotShot`)
   return response.data
 }
 

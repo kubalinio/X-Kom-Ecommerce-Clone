@@ -10,7 +10,7 @@ import { urlFor } from '@/lib/sanity.client'
 import { AllNews, News } from '@/types/typings'
 
 const fetchNews = async () => {
-  const response = await axios.get(`/api/getNews`)
+  const response = await axios.get(`/api/news`)
   return response.data
 }
 

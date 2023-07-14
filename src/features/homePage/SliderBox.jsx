@@ -21,7 +21,7 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
 import { urlFor } from '@/lib/sanity.client'
 
 const fetchSliders = async () => {
-  const response = await axios.get(`/api/getSlides`)
+  const response = await axios.get(`/api/slides`)
   return response.data
 }
 

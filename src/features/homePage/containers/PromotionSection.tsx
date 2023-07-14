@@ -10,7 +10,7 @@ import { urlFor } from '@/lib/sanity.client'
 import { Promotion, Promotions } from '@/types/typings'
 
 const fetchPromotions = async () => {
-  const response = await axios.get(`/api/getPromotions`)
+  const response = await axios.get(`/api/promotions`)
   return response.data
 }
 
