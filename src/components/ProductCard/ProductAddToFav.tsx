@@ -2,20 +2,19 @@
 
 import { useState } from 'react'
 
-import { AddToFavList } from '../AddToFavList'
-import { AddToFavPopper } from '../AddToFavList/AddToFavPopper'
+import { AddToFavPopper, FavListBtn, useFavList } from '@/features/favList'
 
 type Props = {
   productId: string
 }
 
 const AddToFav = ({ productId }: Props) => {
-  const [show, setShow] = useState(false)
-  const [liked, setLiked] = useState(false)
+  const { isLiked, isLoading, showPopper, toggleFav } = useFavList(productId)
+  const [show, setShow] = useState(showPopper)
 
-  const handleShowInfo = (isLiked: boolean, isShow: boolean) => {
-    setShow(isShow)
-    setLiked(isLiked)
+  const handleClick = (showPopper: boolean) => {
+    toggleFav()
+    setShow(showPopper)
   }
 
   return (
@@ -33,16 +32,17 @@ const AddToFav = ({ productId }: Props) => {
 
       <div
         className={`duration-400 transition-opacity lg:flex lg:h-8 lg:w-8 lg:group-hover:opacity-100 ${
-          liked ? 'lg:opacity-100' : 'lg:opacity-0'
+          isLiked ? 'lg:opacity-100' : 'lg:opacity-0'
         }`}
       >
         <div className="pointer-events-auto relative z-[106] inline-block align-middle">
           {/* Fav Component to Add List Favorited products */}
           <div>
-            <AddToFavList
-              versionBtn={'FavDesktop'}
-              showInfo={(isLiked, isShow) => handleShowInfo(isLiked, isShow)}
-              productId={productId}
+            <FavListBtn
+              onClick={() => handleClick(showPopper)}
+              variant={'FavDesktop'}
+              isLiked={isLiked}
+              isLoading={isLoading}
             />
           </div>
 

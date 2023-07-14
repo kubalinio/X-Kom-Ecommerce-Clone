@@ -92,7 +92,7 @@ const ProductAddedToBasket = ({ title, price, mainImage, closeModal, showed }: P
 
                 {/* <div className='w-full h-[32px] bg-[#f5f5f5] border-y border-[#ddd] sm:border-t-0 sm:h-0' /> */}
 
-                {/* Recommend Section */}
+                {/* @TODO Recommend Section */}
               </div>
             </div>
           </div>
