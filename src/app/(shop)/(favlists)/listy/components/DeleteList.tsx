@@ -1,93 +1,26 @@
 'use client'
 
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import axios from 'axios'
-import { cva, VariantProps } from 'class-variance-authority'
-import { useRouter } from 'next/navigation'
-import { ButtonHTMLAttributes, FC, forwardRef, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { GrFormClose } from 'react-icons/gr'
-import { HiOutlineTrash } from 'react-icons/hi2'
 
 import { ModalContainer } from '@/components/Modal'
-import { cn } from '@/lib/utils'
+import { DeleteListBtn, useDeleteFavList } from '@/features/favList'
 
 import { DialogBox } from './DialogBox'
 
-const buttonVariants = cva(
-  'inline-flex items-center justify-start whitespace-nowrap bg-transparent w-full py-3 px-4 text-[#2a2a2a] hover:bg-[#f5f5f5] transition-colors duration-200',
-  {
-    variants: {
-      variant: {
-        default: '[&_span]:first:mr-3',
-        mobile: '[&_span]:first:mr-3',
-        desktop: ' [&_span]:first:mr-2',
-      },
-      size: {
-        default: 'rounded-none h-[48px]',
-        sm: 'rounded-none h-[48px]',
-        lg: 'rounded-full h-[32px]',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
-  }
-)
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {}
-
-// eslint-disable-next-line react/display-name
-const DeleteListBtn = forwardRef<HTMLButtonElement, ButtonProps>(({ className, variant, size, ...props }, ref) => (
-  <button title="Usuń listę" className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props}>
-    <span className="inline-block h-6 w-6 overflow-hidden ">
-      <HiOutlineTrash className="h-full w-full text-xl" />
-    </span>
-
-    <span>
-      <span>Usuń listę</span>
-    </span>
-  </button>
-))
-
-interface DeleteListProps extends VariantProps<typeof buttonVariants> {
+interface DeleteListProps {
   id: string
-  className?: string
 }
 
-export const DeleteList: FC<DeleteListProps> = ({ id, className, variant, size }) => {
+export const DeleteList: FC<DeleteListProps> = ({ id }) => {
   const [showModal, setShowModal] = useState(false)
+  const { mutate: deleteList, isSuccess } = useDeleteFavList(id)
 
-  const queryClient = useQueryClient()
-  const router = useRouter()
-
-  const { mutate: deleteList } = useMutation({
-    mutationFn: async () => {
-      const { data } = await axios.delete(`/api/purchaseLists/${id}`)
-      return data
-    },
-    onSuccess: (listId) => {
-      removeStoradgeListData(listId)
-      setShowModal(false)
-      router.push('/listy')
-      router.refresh()
-      queryClient.invalidateQueries(['purchaseLists'])
-    },
-  })
-
-  const removeStoradgeListData = (listId: string) => {
-    const existingLists = JSON.parse(localStorage.getItem('purchase_lists') ?? '') ?? null
-    console.log(existingLists)
-
-    if (existingLists === true) {
-      // eslint-disable-next-line security/detect-object-injection
-      delete existingLists[listId]
-      const data = { ...existingLists }
-      localStorage.setItem('purchase_lists', JSON.stringify(data))
-    } else {
-      localStorage.removeItem('purchase_lists')
+  useEffect(() => {
+    if (isSuccess) {
+      setShowModal(true)
     }
-  }
+  }, [isSuccess])
 
   const handleShowModal = () => {
     if (showModal) {
@@ -103,7 +36,7 @@ export const DeleteList: FC<DeleteListProps> = ({ id, className, variant, size }
 
   return (
     <>
-      <DeleteListBtn onClick={() => handleShowModal()} className={className} variant={variant} size={size} />
+      <DeleteListBtn onClick={() => handleShowModal()} variant={'mobile'} />
 
       {/* Modal Confirmation */}
       <ModalContainer openModal={showModal}>

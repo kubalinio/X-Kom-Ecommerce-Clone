@@ -45,7 +45,7 @@ const ListHeader = ({ listId, updateAt, name }: Props) => {
       {/* BtnActions Expand Mobile */}
       <ExpandDropdownList buttonSize="md" className="absolute right-1 top-0 md:hidden ">
         <ShareListBtn version="desktop" id={listId!} />
-        <DeleteList id={listId!} variant="mobile" size="sm" />
+        <DeleteList id={listId!} />
       </ExpandDropdownList>
 
       {/* BtnActions Desktop */}
@@ -55,7 +55,7 @@ const ListHeader = ({ listId, updateAt, name }: Props) => {
 
           <ShareListBtn version="desktop" id={listId!} />
 
-          <DeleteList id={listId!} variant="mobile" size="lg" />
+          <DeleteList id={listId!} />
         </div>
       </div>
     </div>
