@@ -1,29 +1,34 @@
-import { useState } from 'react'
+'use client'
+
+import { useEffect, useState } from 'react'
 
 import { ModalContainer } from '@/features/shared/components/Modal'
-import { AddToFavModal } from '@/features/shared/services/favLists'
-// import { BasketItem } from '@/store/basketSlice'
+import { AddToFavModal, FavListBtn, ToggleFavList } from '@/features/shared/services/favLists'
 
-// type Props = {
-//   product: BasketItem
-// }
+type Props = {
+  productId: string
+}
 
 // pass Props
-export const BasketAddToFav = () => {
+export const BasketAddToFav = ({ productId }: Props) => {
   const [show, setShow] = useState(false)
+  const { isLiked, isLoading, showPopper, toggleFav } = ToggleFavList(productId)
 
-  // const handleShowModal = (isShow: boolean) => {
-  //   setShow(isShow)
-  // }
+  const handleClick = () => {
+    toggleFav()
+  }
+
+  useEffect(() => {
+    if (showPopper) {
+      setShow(true)
+    } else {
+      setShow(false)
+    }
+  }, [showPopper])
 
   return (
     <>
-      {/* @TODO Fix passed props */}
-      {/* <AddToFavList
-        product={product}
-        versionBtn={'DesktopFavBtn'}
-        showInfo={(isLiked, isShow) => handleShowModal(isShow)}
-      /> */}
+      <FavListBtn onClick={() => handleClick()} isLiked={isLiked} isLoading={isLoading} variant={'FavDesktop'} />
 
       <ModalContainer openModal={show}>{show ? <AddToFavModal close={() => setShow(false)} /> : null}</ModalContainer>
     </>

@@ -4,13 +4,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { AiOutlineMore } from 'react-icons/ai'
 
-import { FavListBtn, useFavList } from '@/features/shared/services/favLists'
+import { FavListBtn, ToggleFavList } from '@/features/shared/services/favLists'
 // import { BasketItem } from '@/store/basketSlice'
 
 // import { RemoveBasketProductExpand } from './RemoveBasketProduct'
 
 export const ExpandActionBasketProduct = ({ productId }: { productId: string }) => {
-  const { isLiked, isLoading, toggleFav } = useFavList(productId)
+  const { isLiked, isLoading, toggleFav } = ToggleFavList(productId)
   const [expand, setExpand] = useState(false)
 
   const buttonRef = useRef<HTMLDivElement>(null)

@@ -7,8 +7,8 @@ import { ChangeQuantityProduct } from '@/features/shared/services/changeQuantity
 import { formatPrice } from '@/lib/utils'
 import { ExtendedBasketItem } from '@/types/db'
 
+import { BasketAddToFav } from './BasketAddToFav'
 import { ExpandActionBasketProduct } from './ExpandActionBasketProduct'
-// import { BasketAddToFav } from './BasketAddToFav'
 import { RemoveBasketProduct } from './RemoveBasketProduct'
 
 type Props = {
@@ -69,7 +69,7 @@ export const BasketProduct = ({ product }: Props) => {
               <ChangeQuantityProduct basketQuantity={count} changeQuantity={handleChangeQuantity} />
 
               {/* Add to Fav List */}
-              {/* <BasketAddToFav product={product} /> */}
+              <BasketAddToFav productId={product.productId} />
 
               {/* Delete Item Basket @TODO Error browser */}
               <RemoveBasketProduct id={basketItemId} basketToken={basketToken ?? null} />

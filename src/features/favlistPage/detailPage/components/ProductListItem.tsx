@@ -10,7 +10,7 @@ import { ChangeQuantityProduct } from '@/features/shared/services/changeQuantity
 import { formatPrice } from '@/lib/utils'
 
 import { ExpandDropdownList } from '../../listsPage'
-import DeleteProductBtn from '../../listsPage/Buttons/DeleteProductBtn'
+import DeleteProductBtn from './DeleteListItem'
 
 const ChangeQuntityProductContainer = ({ ProductCount }: { ProductCount: number }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

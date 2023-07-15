@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from 'react'
 
-import { AddToFavPopper, FavListBtn, useFavList } from '@/features/shared/services/favLists'
+import { AddToFavPopper, FavListBtn, ToggleFavList } from '@/features/shared/services/favLists'
 
 type Props = {
   productId: string
 }
 
 const AddToFav = ({ productId }: Props) => {
-  const { isLiked, isLoading, showPopper, toggleFav } = useFavList(productId)
+  const { isLiked, isLoading, showPopper, toggleFav } = ToggleFavList(productId)
   const [show, setShow] = useState(false)
 
   const handleClick = () => {

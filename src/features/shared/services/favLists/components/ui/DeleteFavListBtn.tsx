@@ -26,17 +26,23 @@ const buttonVariants = cva(
   }
 )
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {}
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+  text?: string
+}
 
-export const DeleteListBtn: FC<ButtonProps> = ({ className, variant, size, ...props }) => {
+export const DeleteFavListBtn: FC<ButtonProps> = ({ className, variant, size, text, ...props }) => {
   return (
-    <button title="Usuń listę" className={cn(buttonVariants({ variant, size, className, ...props }))} {...props}>
-      <span className="inline-block h-6 w-6 overflow-hidden ">
+    <button
+      title={!text ? 'Usuń listę' : `${text}`}
+      className={cn(buttonVariants({ variant, size, className, ...props }))}
+      {...props}
+    >
+      <span className="mr-3 inline-block h-6 w-6 overflow-hidden">
         <HiOutlineTrash className="h-full w-full text-xl" />
       </span>
 
       <span>
-        <span>Usuń listę</span>
+        <span>{!text ? 'Usuń listę' : `${text}`}</span>
       </span>
     </button>
   )

@@ -2,7 +2,7 @@
 import { FC, useState } from 'react'
 
 import { ModalContainer } from '@/features/shared/components/Modal'
-import { AddToFavModal, FavListBtn, useFavList } from '@/features/shared/services/favLists'
+import { AddToFavModal, FavListBtn, ToggleFavList } from '@/features/shared/services/favLists'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 interface AddToFavBoxProps {
@@ -12,7 +12,7 @@ interface AddToFavBoxProps {
 export const AddToFavBox: FC<AddToFavBoxProps> = ({ productId }) => {
   const matches = useMediaQuery('(min-width: 720px)')
   const [show, setShow] = useState(false)
-  const { isLiked, isLoading, toggleFav } = useFavList(productId)
+  const { isLiked, isLoading, toggleFav } = ToggleFavList(productId)
 
   const handleClick = () => {
     toggleFav()

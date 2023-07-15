@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from 'react'
 import { GrFormClose } from 'react-icons/gr'
 
 import { ModalContainer } from '@/features/shared/components/Modal'
-import { DeleteListBtn, useDeleteFavList } from '@/features/shared/services/favLists'
+import { DeleteFavListBtn, useDeleteFavList } from '@/features/shared/services/favLists'
 
 import { DialogBox } from './DialogBox'
 
@@ -36,7 +36,7 @@ export const DeleteList: FC<DeleteListProps> = ({ id }) => {
 
   return (
     <>
-      <DeleteListBtn onClick={() => handleShowModal()} variant={'mobile'} />
+      <DeleteFavListBtn onClick={() => handleShowModal()} variant={'mobile'} />
 
       {/* Modal Confirmation */}
       <ModalContainer openModal={showModal}>

@@ -19,6 +19,7 @@ export const useRemoveItemFavList = ({ productId }: MutationProps) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries(['products-in-fav-list'])
+      queryClient.invalidateQueries(['detail-list'])
     },
   })
 }

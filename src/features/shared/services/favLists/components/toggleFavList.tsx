@@ -2,16 +2,16 @@
 
 import { useEffect, useState } from 'react'
 
-import { useGetFavListItem } from './dataAccess/getFavListItem'
-import { useAddItemToExistFavList } from './dataAccess/mutations/addItemToExistFavList'
-import { useCreateNewFavList } from './dataAccess/mutations/createNewFavList'
-import { useRemoveItemFavList } from './dataAccess/mutations/removeItemFavList'
+import { useGetFavListItem } from '../dataAccess/getFavListItem'
+import { useAddItemToExistFavList } from '../dataAccess/mutations/addItemToExistFavList'
+import { useCreateNewFavList } from '../dataAccess/mutations/createNewFavList'
+import { useRemoveItemFavList } from '../dataAccess/mutations/removeItemFavList'
 
 type Props = {
   productId: string
 }
 
-const AddToFavList = ({ productId }: Props) => {
+const ToggleFavListLogic = ({ productId }: Props) => {
   const [isLiked, setIsLiked] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [showPopper, setShowPopper] = useState(false)
@@ -73,7 +73,6 @@ const AddToFavList = ({ productId }: Props) => {
       // Uzycie danych zfechowanych productid i idlisty
       // Użyć localstoradge key id
       if (getFavListItem.data) {
-        console.log(getFavListItem.data)
         const listWhereIsProduct = getFavListItem.data.find(
           (item: { productId: string }) => item.productId === productId
         )
@@ -94,6 +93,6 @@ const AddToFavList = ({ productId }: Props) => {
   return { toggleFav, isLoading, isLiked, showPopper }
 }
 
-export const useFavList = (productId: string) => {
-  return AddToFavList({ productId })
+export const ToggleFavList = (productId: string) => {
+  return ToggleFavListLogic({ productId })
 }
