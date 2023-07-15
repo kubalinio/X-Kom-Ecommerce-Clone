@@ -5,7 +5,7 @@ import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { SectionCarouselContainer } from '@/components/SectionCarouselContainer'
+import { SectionCarouselContainer } from '@/features/homePage/containers/SectionCarouselContainer'
 import { urlFor } from '@/lib/sanity.client'
 import { AllNews, News } from '@/types/typings'
 

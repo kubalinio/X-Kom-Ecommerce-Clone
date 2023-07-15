@@ -4,8 +4,8 @@ import { ListItem } from '@prisma/client'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { AddToBasket } from '@/components/Basket/AddToBasket'
-import { ChangeQuantityProduct } from '@/components/ChangeQuantityProduct'
+import { AddToBasket } from '@/features/shared/components/Basket/AddToBasket'
+import { ChangeQuantityProduct } from '@/features/shared/services/changeQuantity/ChangeQuantityProduct'
 // import { AddToBasket } from '@/components/ProductCard/AddToBasket'
 import { formatPrice } from '@/lib/utils'
 

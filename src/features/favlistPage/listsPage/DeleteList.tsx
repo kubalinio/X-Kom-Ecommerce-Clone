@@ -3,8 +3,8 @@
 import { FC, useEffect, useState } from 'react'
 import { GrFormClose } from 'react-icons/gr'
 
-import { ModalContainer } from '@/components/Modal'
-import { DeleteListBtn, useDeleteFavList } from '@/features/favList'
+import { ModalContainer } from '@/features/shared/components/Modal'
+import { DeleteListBtn, useDeleteFavList } from '@/features/shared/services/favLists'
 
 import { DialogBox } from './DialogBox'
 

@@ -1,5 +1,5 @@
-import { SectionCarouselContainer } from '@/components/SectionCarouselContainer'
 import { ProductCard } from '@/features/homePage/components/ProductCard'
+import { SectionCarouselContainer } from '@/features/homePage/containers/SectionCarouselContainer'
 import { db } from '@/lib/db'
 
 export const HitsWeekSection = async () => {

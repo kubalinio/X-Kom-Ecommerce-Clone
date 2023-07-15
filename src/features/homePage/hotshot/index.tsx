@@ -7,7 +7,7 @@ import axios from 'axios'
 import Link from 'next/link'
 import { ReactNode, useState } from 'react'
 
-import { LoadingSpinner } from '@/components/LoadingSpinner'
+import { LoadingSpinner } from '@/features/shared/components/LoadingSpinner'
 import { HotShotsData } from '@/types/typings'
 
 import { HotShotCounter } from './hotshotCounter'

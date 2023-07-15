@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import { formatPrice } from '@/lib/utils'
 
-import { AddToBasket } from '../../../../components/Basket/AddToBasket'
+import { AddToBasket } from '../../../shared/components/Basket/AddToBasket'
 import AddToFav from './ProductAddToFav'
 
 type Props = {

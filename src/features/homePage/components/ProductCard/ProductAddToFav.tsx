@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-import { AddToFavPopper, FavListBtn, useFavList } from '@/features/favList'
+import { AddToFavPopper, FavListBtn, useFavList } from '@/features/shared/services/favLists'
 
 type Props = {
   productId: string

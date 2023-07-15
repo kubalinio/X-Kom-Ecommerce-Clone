@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-import { ButtonPrimary } from '@/components/Buttons'
+import { ButtonPrimary } from '@/features/shared/components/Buttons'
 
 import image404 from '../../../public/Coding.png'
 

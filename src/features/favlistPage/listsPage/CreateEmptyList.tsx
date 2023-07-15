@@ -7,7 +7,7 @@ import { FormEvent, useState } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 
 import { DataStoradgeResponse } from '@/app/api/purchaseLists/route'
-import { Modal, ModalContainer, ModalHeader } from '@/components/Modal'
+import { Modal, ModalContainer, ModalHeader } from '@/features/shared/components/Modal'
 import { purchaseListRequest } from '@/lib/validators/purchaseList'
 
 type Props = {

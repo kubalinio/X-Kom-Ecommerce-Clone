@@ -1,8 +1,8 @@
 'use client'
 import { FC, useState } from 'react'
 
-import { ModalContainer } from '@/components/Modal'
-import { AddToFavModal, FavListBtn, useFavList } from '@/features/favList'
+import { ModalContainer } from '@/features/shared/components/Modal'
+import { AddToFavModal, FavListBtn, useFavList } from '@/features/shared/services/favLists'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 interface AddToFavBoxProps {

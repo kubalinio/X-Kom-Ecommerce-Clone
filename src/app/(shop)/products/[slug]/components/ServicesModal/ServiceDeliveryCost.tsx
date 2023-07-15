@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { AiOutlineCheckCircle } from 'react-icons/ai'
 
-import { Modal, ModalBody, ModalContainer, ModalHeader } from '@/components/Modal'
+import { Modal, ModalBody, ModalContainer, ModalHeader } from '@/features/shared/components/Modal'
 
 import { ServiceBodyBottom, ServiceBodyHead, ServiceBtn } from './Services'
 

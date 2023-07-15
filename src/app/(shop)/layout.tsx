@@ -7,7 +7,7 @@ import { ReactNode } from 'react'
 
 import { Footer } from '@/features/footer/containers/Footer'
 
-import { Header } from '../../components/Header/Header'
+import { Header } from '../../features/header/containers/Header'
 import Providers from '../../utils/Providers'
 
 const lato = Lato({
