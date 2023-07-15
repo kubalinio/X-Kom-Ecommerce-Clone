@@ -9,19 +9,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: '[&_span]:first:mr-3',
-        mobile: '[&_span]:first:mr-3',
-        desktop: ' [&_span]:first:mr-2',
-      },
-      size: {
-        default: 'rounded-none h-[48px]',
-        sm: 'rounded-none h-[48px]',
-        lg: 'rounded-full h-[32px]',
+        default: '[&_span]:first:mr-3 rounded-none h-[48px]',
+        mobile: '[&_span]:first:mr-3 rounded-none h-[48px]',
+        desktop: ' [&_span]:first:mr-2 rounded-full h-[32px]',
       },
     },
     defaultVariants: {
       variant: 'default',
-      size: 'default',
     },
   }
 )
@@ -30,11 +24,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantPr
   text?: string
 }
 
-export const DeleteFavListBtn: FC<ButtonProps> = ({ className, variant, size, text, ...props }) => {
+export const DeleteFavListBtn: FC<ButtonProps> = ({ className, variant, text, ...props }) => {
   return (
     <button
       title={!text ? 'Usuń listę' : `${text}`}
-      className={cn(buttonVariants({ variant, size, className, ...props }))}
+      className={cn(buttonVariants({ variant, className, ...props }))}
       {...props}
     >
       <span className="mr-3 inline-block h-6 w-6 overflow-hidden">

@@ -10,14 +10,14 @@ import { FC } from 'react'
 import { useLoadingState } from '@/store/LoadingState'
 import { ExtendedBasketItem } from '@/types/db'
 
-import AddToWishList from './AddAllToWishList'
-import { BasketInfoBox } from './BasketInfoBox'
-import { BasketProduct } from './BasketProduct'
-import { CompletionOrder } from './CompletionOrder'
-import MethodPayments from './MethodPayments'
-import RemoveAllFromBasket from './RemoveAllFromBasket'
-import { ReturnBtn } from './ReturnBtn'
-import ServiceItems from './ServiceItems'
+import AddToWishList from '../components/AddAllToWishList'
+import { BasketInfoBox } from '../components/BasketInfoBox'
+import { BasketProduct } from '../components/BasketProduct'
+import { CompletionOrder } from '../components/CompletionOrder'
+import MethodPayments from '../components/MethodPayments'
+import RemoveAllFromBasket from '../components/RemoveAllFromBasket'
+import { ReturnBtn } from '../components/ReturnBtn'
+import ServiceItems from '../components/ServiceItems'
 
 interface BasketPageFeedProps {
   basketData: Basket & {

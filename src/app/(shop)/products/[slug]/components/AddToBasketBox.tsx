@@ -1,9 +1,9 @@
 'use client'
 import { Product } from '@prisma/client'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
-import { AddToBasket } from '@/features/shared/components/Basket/AddToBasket'
-import { QuantityBasketProduct } from '@/features/shared/services/basket/BasketProduct'
+import { QuantityBasketProduct } from '@/features/basketPage/components/BasketProduct'
+import { AddToBasketBtn, ProductAddedToBasket, useAddProductToBasket } from '@/features/shared/services/basket'
 
 interface AddToBasketBoxProps {
   product: Product
@@ -11,10 +11,26 @@ interface AddToBasketBoxProps {
 
 export const AddToBasketBox: FC<AddToBasketBoxProps> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(1)
+  const [show, setShow] = useState(false)
+  const { mutate, isSuccess, isLoading } = useAddProductToBasket()
 
   const handleNewQuantity = (newNumber: number) => {
     setQuantity(newNumber)
   }
+
+  const handleClick = () => {
+    const productId = product.id
+    const count = quantity
+    mutate({ productId, count })
+  }
+
+  useEffect(() => {
+    if (isSuccess) {
+      setShow(true)
+    } else {
+      setShow(false)
+    }
+  }, [isSuccess])
 
   return (
     <div className="flex items-center pb-6 pt-4 md:p-4 md:pt-3">
@@ -25,15 +41,16 @@ export const AddToBasketBox: FC<AddToBasketBoxProps> = ({ product }) => {
 
       {/* Add to Basket */}
       <div className="flex-grow">
-        <AddToBasket
-          name={product.name}
-          photo={product.photo}
-          price={product.price}
-          productId={product.id}
-          comVariant="DetailPage"
-          count={quantity}
-          className=""
-        />
+        <AddToBasketBtn variant={'long'} onClick={() => handleClick()} isLoading={isLoading} />
+        {show ? (
+          <ProductAddedToBasket
+            mainImage={product.photo}
+            price={product.price}
+            title={product.name}
+            closeModal={() => setShow(false)}
+            showed={show}
+          />
+        ) : null}
       </div>
     </div>
   )

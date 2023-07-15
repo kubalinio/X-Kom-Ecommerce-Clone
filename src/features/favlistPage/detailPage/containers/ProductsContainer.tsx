@@ -1,8 +1,8 @@
 import { ExtendedPurchaseListItem } from '@/types/db'
 
-import { AddAllAccessibleBtn } from '../../listsPage/Buttons/AddAllAccessibleBtn'
-import ListSummary from './ListSummary'
-import ProductListItem from './ProductListItem'
+import { AddAllAccessibleBtn } from '../components/AddAllAccessibleBtn'
+import ListSummary from '../components/ListSummary'
+import ProductListItem from '../components/ProductListItem'
 
 type Props = {
   details: ExtendedPurchaseListItem

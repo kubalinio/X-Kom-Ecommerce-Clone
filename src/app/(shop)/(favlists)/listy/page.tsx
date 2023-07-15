@@ -1,12 +1,12 @@
 'use client'
 
+import LoadingSkelleton from '@/features/basketPage/components/LoadingSkelleton'
 import { ReturnButtonMobile } from '@/features/favlistPage/listsPage/Buttons/ReturnBtnMobile'
 import { ShopListBody } from '@/features/favlistPage/listsPage/containers/userShopList'
 import { NeedHelpInfo } from '@/features/favlistPage/listsPage/containers/userShopList/NeedHelpInfo'
 import { ShopListBottom } from '@/features/favlistPage/listsPage/containers/userShopList/ShopListBottom'
 import { ShopListHead } from '@/features/favlistPage/listsPage/containers/userShopList/ShopListHead'
 import { useGetFavLists } from '@/features/favlistPage/listsPage/dataAccess/getFavLists'
-import LoadingSkelleton from '@/features/shared/services/basket/LoadingSkelleton'
 
 export type navUserItems = {
   title: string

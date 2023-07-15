@@ -1,9 +1,9 @@
 import { Basket } from '@prisma/client'
 import { cookies } from 'next/headers'
 
-import { BasketPageFeed } from '@/features/shared/services/basket/BasketPageFeed'
-import EmptyBasket from '@/features/shared/services/basket/EmptyBasket'
-import { Information } from '@/features/shared/services/basket/Information'
+import { BasketPageFeed } from '@/features/basketPage/containers/BasketPageFeed'
+import EmptyBasket from '@/features/basketPage/containers/EmptyBasket'
+import { Information } from '@/features/basketPage/containers/Information'
 import { db } from '@/lib/db'
 import { ExtendedBasketItem } from '@/types/db'
 

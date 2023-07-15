@@ -1,4 +1,4 @@
-import LoadingSkelleton from '@/features/shared/services/basket/LoadingSkelleton'
+import LoadingSkelleton from '@/features/basketPage/components/LoadingSkelleton'
 
 export default function Loading() {
   return <LoadingSkelleton />

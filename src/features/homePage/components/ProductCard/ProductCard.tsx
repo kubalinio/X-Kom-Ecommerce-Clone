@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import { formatPrice } from '@/lib/utils'
 
-import { AddToBasket } from '../../../shared/components/Basket/AddToBasket'
+import { AddToBasket } from './ProductAddToBasket'
 import AddToFav from './ProductAddToFav'
 
 type Props = {
@@ -73,17 +73,19 @@ export const ProductCard = ({ product }: Props) => {
       {/* Fav @TODO */}
       <AddToFav productId={product.id} />
 
+      {/* New Basket */}
+      <AddToBasket productId={product.id} title={product.name} price={product.price} mainImage={product.photo} />
+
       {/* Basket */}
       {/* OnClick show Modal with choose product & info where is save to basket */}
-      <AddToBasket
-        productId={product.id}
-        name={product.name}
-        photo={product.photo}
-        price={product.price}
-        comVariant="ProductCard"
-        count={1}
-        className="absolute bottom-[10px] right-[10px] hidden lg:group-hover:block"
-      />
+
+      {/* productId={product.id}
+         name={product.name}
+         photo={product.photo}
+         price={product.price}
+         comVariant="ProductCard"
+         count={1}
+         className="absolute bottom-[10px] right-[10px] hidden lg:group-hover:block" */}
     </div>
   )
 }

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { AiOutlineCheck } from 'react-icons/ai'
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md'
 
-import { Modal, ModalBody, ModalContainer, ModalHeader } from '../Modal'
+import { Modal, ModalBody, ModalContainer, ModalHeader } from '../../../components/Modal'
 
 const ModalBasketBottom = ({ close }: { close: () => void }) => {
   return (
@@ -43,7 +43,7 @@ type Props = {
   showed: boolean
 }
 
-const ProductAddedToBasket = ({ title, price, mainImage, closeModal, showed }: Props) => {
+export const ProductAddedToBasket = ({ title, price, mainImage, closeModal, showed }: Props) => {
   return (
     <ModalContainer openModal={showed}>
       <Modal close={() => closeModal()}>
@@ -105,5 +105,3 @@ const ProductAddedToBasket = ({ title, price, mainImage, closeModal, showed }: P
     </ModalContainer>
   )
 }
-
-export default ProductAddedToBasket

@@ -10,9 +10,10 @@ import { DialogBox } from './DialogBox'
 
 interface DeleteListProps {
   id: string
+  variant: 'mobile' | 'desktop'
 }
 
-export const DeleteList: FC<DeleteListProps> = ({ id }) => {
+export const DeleteList: FC<DeleteListProps> = ({ id, variant }) => {
   const [showModal, setShowModal] = useState(false)
   const { mutate: deleteList, isSuccess } = useDeleteFavList(id)
 
@@ -36,7 +37,7 @@ export const DeleteList: FC<DeleteListProps> = ({ id }) => {
 
   return (
     <>
-      <DeleteFavListBtn onClick={() => handleShowModal()} variant={'mobile'} />
+      <DeleteFavListBtn onClick={() => handleShowModal()} variant={variant} />
 
       {/* Modal Confirmation */}
       <ModalContainer openModal={showModal}>
