@@ -4,13 +4,12 @@ import { ListItem } from '@prisma/client'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { AddToBasket } from '@/features/shared/components/Basket/AddToBasket'
 import { ChangeQuantityProduct } from '@/features/shared/services/changeQuantity/ChangeQuantityProduct'
-// import { AddToBasket } from '@/components/ProductCard/AddToBasket'
 import { formatPrice } from '@/lib/utils'
 
 import { ExpandDropdownList } from '../../listsPage'
-import DeleteProductBtn from './DeleteListItem'
+import { AddToBasketItem } from './AddToBasketItem'
+import { DeleteListItem } from './DeleteListItem'
 
 const ChangeQuntityProductContainer = ({ ProductCount }: { ProductCount: number }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -31,27 +30,27 @@ const ExpandDropdownListContainer = ({
   listId,
   productId,
   product,
+  count,
 }: {
   listId: string
   productId: string
   product: ListItem
+  count: number
 }) => {
   const { name, Price, mainPhoto } = product
 
   return (
     <ExpandDropdownList className="max-md:absolute max-md:right-0 max-md:top-1 md:ml-4">
-      <DeleteProductBtn listId={listId} productId={productId} />
-
+      <DeleteListItem listId={listId} productId={productId} />
       {/* On MD Delete ,no hidden */}
       <div className="md:hidden">
-        <AddToBasket
-          comVariant="ProductCard"
-          className=""
-          count={1}
-          name={name}
-          productId={productId}
-          photo={mainPhoto}
+        <AddToBasketItem
+          variant="mobile"
+          mainImage={mainPhoto}
           price={Price}
+          productId={productId}
+          title={name}
+          count={count}
         />
       </div>
     </ExpandDropdownList>
@@ -105,7 +104,7 @@ const ProductListItem = ({ product }: Props) => {
       {/* Mobile: Expand Btn Action & Counting Product */}
       <div className="md:hidden">
         {/* Expand Btns */}
-        <ExpandDropdownListContainer listId={listId} productId={productId} product={product} />
+        <ExpandDropdownListContainer listId={listId} productId={productId} product={product} count={Count} />
 
         {/* Quantity */}
         <ChangeQuntityProductContainer ProductCount={Count} />
@@ -115,18 +114,16 @@ const ProductListItem = ({ product }: Props) => {
       <div className="hidden md:flex md:items-center">
         <ChangeQuntityProductContainer ProductCount={Count} />
 
-        {/* @TODO Types */}
-        <AddToBasket
-          comVariant="ProductCard"
-          count={Count}
-          name={name}
+        <AddToBasketItem
+          variant="desktop"
+          mainImage={mainPhoto}
           price={Price}
-          photo={mainPhoto}
           productId={productId}
-          className="static flex h-[32px] min-w-[32px] items-center justify-center"
+          title={name}
+          count={Count}
         />
 
-        <ExpandDropdownListContainer listId={listId} productId={productId} product={product} />
+        <ExpandDropdownListContainer listId={listId} productId={productId} product={product} count={Count} />
       </div>
     </div>
   )

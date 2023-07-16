@@ -17,7 +17,6 @@ const AddToFav = ({ productId }: Props) => {
   }
 
   useEffect(() => {
-    console.log(showPopper)
     if (showPopper) {
       setShow(true)
     } else {

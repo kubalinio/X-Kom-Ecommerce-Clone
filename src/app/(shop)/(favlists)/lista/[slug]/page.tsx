@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation'
 
 import EmptyList from '@/features/favlistPage/detailPage/components/EmptyList'
-import ListHeader from '@/features/favlistPage/detailPage/components/ListHeader'
-import ProductsContainer from '@/features/favlistPage/detailPage/components/ProductsContainer'
 import ReturnBtn from '@/features/favlistPage/detailPage/components/ReturnBtn'
+import ListHeader from '@/features/favlistPage/detailPage/containers/ListHeader'
+import ProductsContainer from '@/features/favlistPage/detailPage/containers/ProductsContainer'
 import { NeedHelpInfo } from '@/features/favlistPage/listsPage/containers/userShopList/NeedHelpInfo'
 import { db } from '@/lib/db'
 

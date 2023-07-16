@@ -1,4 +1,4 @@
-import { NavUser } from '@/features/favlistPage/listsPage/containers/NavUser'
+import { NavUser } from '@/features/favlistPage/listsPage/containers/navUser'
 import { NeedHelpInfo } from '@/features/favlistPage/listsPage/containers/userShopList/NeedHelpInfo'
 
 export default function ListsLayout({ children }: { children: React.ReactNode }) {
