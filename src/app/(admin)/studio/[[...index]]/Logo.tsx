@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from 'next/image'
 
-import XCloneLogo from '@/features/header/assets/logoSmall.svg'
+import XCloneLogo from '@/features/layouts/header/assets/logoSmall.svg'
 
 const Logo = (props: any) => {
   const { renderDefault, title } = props

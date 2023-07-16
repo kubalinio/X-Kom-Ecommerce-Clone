@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 
+import Overlay from '@/features/shared/components/Overlay'
 import useDebounce from '@/hooks/useDebounce'
 
-import Overlay from '../../../shared/components/Overlay'
 import { categorieItems } from '../../dataAccess/CategoriesData'
 import { CategorieBarDropdown } from './CategorieBarDropdown'
 

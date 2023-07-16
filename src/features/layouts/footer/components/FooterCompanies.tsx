@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
-import blikImg from '../../../../public/images/footerBanner/blikImage.png'
-import fedexImg from '../../../../public/images/footerBanner/fedexImage.png'
-import inpostImg from '../../../../public/images/footerBanner/inpostImage.png'
-import upsImg from '../../../../public/images/footerBanner/upsImage.png'
-import visaImg from '../../../../public/images/footerBanner/visaImage.png'
+import blikImg from '../../../../../public/images/footerBanner/blikImage.png'
+import fedexImg from '../../../../../public/images/footerBanner/fedexImage.png'
+import inpostImg from '../../../../../public/images/footerBanner/inpostImage.png'
+import upsImg from '../../../../../public/images/footerBanner/upsImage.png'
+import visaImg from '../../../../../public/images/footerBanner/visaImage.png'
 
 const companiesData = [
   {

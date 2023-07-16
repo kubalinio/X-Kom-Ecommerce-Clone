@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import { RxHamburgerMenu } from 'react-icons/rx'
 
-import { DrawerContainer } from '../../../shared/components/DrawerModal'
+import { DrawerContainer } from '@/features/shared/components/DrawerModal'
+
 import { CategoriesDrawerMobile } from '../../containers/ProductCategories'
 
 export const HamburgerMobile = () => {

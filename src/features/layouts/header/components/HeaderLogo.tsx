@@ -4,7 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
-import Overlay from '../../shared/components/Overlay'
+import Overlay from '@/features/shared/components/Overlay'
+
 import logoDesktop from '../assets/logoDesktop.svg'
 import logoSmall from '../assets/logoSmall.svg'
 import { HamburgerDesktop } from './Hamburgers/HamburgerDesktop'

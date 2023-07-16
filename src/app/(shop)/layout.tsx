@@ -5,9 +5,9 @@ import { Lato } from 'next/font/google'
 import { cookies } from 'next/headers'
 import { ReactNode } from 'react'
 
-import { Footer } from '@/features/footer/containers/Footer'
+import { Footer } from '@/features/layouts/footer/containers/Footer'
+import { Header } from '@/features/layouts/header/containers/Header'
 
-import { Header } from '../../features/header/containers/Header'
 import Providers from '../../utils/Providers'
 
 const lato = Lato({

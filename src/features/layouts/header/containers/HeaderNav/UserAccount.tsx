@@ -11,8 +11,8 @@ import { CgProfile } from 'react-icons/cg'
 import { HiOutlineClipboardList } from 'react-icons/hi'
 
 import { ButtonOutlined, ButtonPrimary } from '@/features/shared/components/Buttons'
+import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '@/features/shared/components/DrawerModal'
 
-import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../../../shared/components/DrawerModal'
 import { NavDropdown } from './NavDropdown'
 
 const Icon = ({ icon }: { icon: ReactNode }) => (

@@ -3,7 +3,8 @@ import { ReactNode } from 'react'
 import { SlArrowRight } from 'react-icons/sl'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
 
-import { DrawerBody, DrawerHeader, DrawerModal } from '../../../shared/components/DrawerModal'
+import { DrawerBody, DrawerHeader, DrawerModal } from '@/features/shared/components/DrawerModal'
+
 import { categorieItems } from '../../dataAccess/CategoriesData'
 
 type CategorieDrawerProps = {

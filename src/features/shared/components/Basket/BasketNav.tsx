@@ -10,11 +10,11 @@ import { useEffect, useState } from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
 import { SlBasket } from 'react-icons/sl'
 
+import { NavDropdown } from '@/features/layouts/header/containers/HeaderNav/NavDropdown'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { useBasketToken } from '@/store/basketToken'
 import { ExtendedBasketItem } from '@/types/db'
 
-import { NavDropdown } from '../../../header/containers/HeaderNav/NavDropdown'
 import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../DrawerModal'
 import { BasketBtn } from './BasketBtn'
 import { BasketFeed } from './BasketFeed'

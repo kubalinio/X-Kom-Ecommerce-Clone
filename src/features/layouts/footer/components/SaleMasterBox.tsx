@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import salesMasterIcon from '../../../../public/icons/salesMasterIcon.svg'
+import salesMasterIcon from '../../../../../public/icons/salesMasterIcon.svg'
 
 const SaleMasterBox = () => {
   return (

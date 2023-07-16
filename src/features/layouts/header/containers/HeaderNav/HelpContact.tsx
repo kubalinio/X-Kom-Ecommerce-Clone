@@ -9,7 +9,8 @@ import { GoMail } from 'react-icons/go'
 import { HiOutlineBuildingStorefront } from 'react-icons/hi2'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
 
-import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../../../shared/components/DrawerModal'
+import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '@/features/shared/components/DrawerModal'
+
 import { NavDropdown } from './NavDropdown'
 
 const Icon = ({ icon }: { icon: ReactNode }) => (

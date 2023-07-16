@@ -2,7 +2,7 @@
 import { Product } from '@prisma/client'
 import { FC, useEffect, useState } from 'react'
 
-import { QuantityBasketProduct } from '@/features/basketPage/components/BasketProduct'
+import { QuantityBasketProduct } from '@/features/basketPage/components/BasketProduct/components/QuantityBasketProduct'
 import { AddToBasketBtn, ProductAddedToBasket, useAddProductToBasket } from '@/features/shared/services/basket'
 
 interface AddToBasketBoxProps {

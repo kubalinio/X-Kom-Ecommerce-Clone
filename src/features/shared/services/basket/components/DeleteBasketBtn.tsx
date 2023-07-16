@@ -14,11 +14,11 @@ const Icon = () => {
   )
 }
 
-const buttonVariants = cva('h-9 flex items-center justify-center rounded-full transition-colors duration-300', {
+const buttonVariants = cva('flex items-center bg-transparent hover:bg-[#ddd] transition-colors duration-300', {
   variants: {
     variant: {
-      sm: 'ml-1 hidden h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full border-none bg-transparent transition-colors duration-200 hover:bg-[#ddd] md:inline-flex',
-      long: '',
+      sm: 'ml-1 hidden h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full border-none md:inline-flex',
+      long: 'inline-flex h-[48px] w-full  justify-start px-5 py-2 text-[#4d4d4d]',
     },
   },
   defaultVariants: {
@@ -42,9 +42,9 @@ export const DeleteBasketBtn: FC<BasketBtn> = ({ className, variant, isLoading, 
       className={buttonVariants({ variant, className })}
       {...props}
     >
-      <span className="flex items-center justify-center text-white">
+      <span className="flex items-center justify-center">
         <Icon />
-        <span>Usuń z koszyka</span>
+        <span className="whitespace-nowrap py-3">Usuń z koszyka</span>
       </span>
     </button>
   ) : null

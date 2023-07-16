@@ -12,7 +12,7 @@ import { ExtendedBasketItem } from '@/types/db'
 
 import AddToWishList from '../components/AddAllToWishList'
 import { BasketInfoBox } from '../components/BasketInfoBox'
-import { BasketProduct } from '../components/BasketProduct'
+import { BasketProduct } from '../components/BasketProduct/BasketProduct'
 import { CompletionOrder } from '../components/CompletionOrder'
 import MethodPayments from '../components/MethodPayments'
 import RemoveAllFromBasket from '../components/RemoveAllFromBasket'

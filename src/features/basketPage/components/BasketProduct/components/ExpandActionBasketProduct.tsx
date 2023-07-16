@@ -4,13 +4,22 @@
 import { useEffect, useRef, useState } from 'react'
 import { AiOutlineMore } from 'react-icons/ai'
 
+import { DeleteBasketBtn } from '@/features/shared/services/basket/components/DeleteBasketBtn'
+import { useRemoveBasketItem } from '@/features/shared/services/basket/dataAccess/mutations/removeBasketItem'
 import { FavListBtn, ToggleFavList } from '@/features/shared/services/favLists'
-// import { BasketItem } from '@/store/basketSlice'
+import { useLoadingState } from '@/store/LoadingState'
 
 // import { RemoveBasketProductExpand } from './RemoveBasketProduct'
+interface ExpandProps {
+  productId: string
+  basketToken: string
+}
 
-export const ExpandActionBasketProduct = ({ productId }: { productId: string }) => {
-  const { isLiked, isLoading, toggleFav } = ToggleFavList(productId)
+export const ExpandActionBasketProduct = ({ productId, basketToken }: ExpandProps) => {
+  const { isLiked, isLoading: isLoadingFav, toggleFav } = ToggleFavList(productId)
+  const { mutate, isLoading: isLoadingDelete } = useRemoveBasketItem()
+  const { setIsLoading } = useLoadingState()
+
   const [expand, setExpand] = useState(false)
 
   const buttonRef = useRef<HTMLDivElement>(null)
@@ -26,9 +35,17 @@ export const ExpandActionBasketProduct = ({ productId }: { productId: string }) 
     return () => window.removeEventListener('click', listener)
   }, [])
 
-  const handleClick = () => {
+  useEffect(() => {
+    isLoadingFav || isLoadingDelete ? setIsLoading(true) : setIsLoading(false)
+  }, [isLoadingFav, isLoadingDelete, setIsLoading])
+
+  const handleClickFav = () => {
     toggleFav()
     setExpand(false)
+  }
+
+  const handleClickDelete = () => {
+    mutate({ basketToken, productId })
   }
 
   return (
@@ -56,9 +73,9 @@ export const ExpandActionBasketProduct = ({ productId }: { productId: string }) 
           } absolute left-auto right-0 top-[calc(100%)] z-[2] flex flex-col rounded-lg bg-white py-2 text-left shadow-xCom`}
         >
           {/* @TODO Fix passed props into components */}
-          <FavListBtn onClick={() => handleClick()} variant={'FavLong'} isLiked={isLiked} isLoading={isLoading} />
+          <FavListBtn onClick={() => handleClickFav()} variant={'FavLong'} isLiked={isLiked} isLoading={isLoadingFav} />
 
-          {/* <RemoveBasketProductExpand id={product._id!} closeExpand={() => setExpand(false)} /> */}
+          <DeleteBasketBtn onClick={() => handleClickDelete()} variant={'long'} isLoading={isLoadingDelete} />
         </div>
       </div>
     </div>

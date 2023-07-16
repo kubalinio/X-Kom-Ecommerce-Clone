@@ -10,5 +10,5 @@ export const DeleteListItem = ({ listId, productId }: { listId: string; productI
     mutate(listId)
   }
 
-  return <DeleteFavListBtn onClick={() => handleClick()} variant={'mobile'} size={'sm'} text="Usuń z listy" />
+  return <DeleteFavListBtn onClick={() => handleClick()} variant={'mobile'} text="Usuń z listy" />
 }

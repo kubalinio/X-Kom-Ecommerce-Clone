@@ -21,7 +21,6 @@ export const useCreateNewFavList = ({ productId }: MutationProps) => {
         ],
       }
       const { data } = await axios.post('/api/purchaseLists', payload)
-      console.log(data)
       return data
     },
     onSuccess: ({ listId, listName }: DataStoradgeResponse) => [listId, listName],

@@ -23,7 +23,7 @@ export const ListCard = ({ item }: Props) => {
       <ExpandDropdownList className="absolute right-2 top-2">
         <ShareListBtn version="mobile" id={id} />
 
-        <DeleteList id={id} />
+        <DeleteList id={id} variant="mobile" />
       </ExpandDropdownList>
 
       <Link
