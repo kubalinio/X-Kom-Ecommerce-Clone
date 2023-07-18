@@ -22,12 +22,14 @@ export const useAddProductToBasket = () => {
       const { data } = await axios.post(`/api/baskets`, payload)
       return data
     },
+    onMutate: () => {
+      queryClient.invalidateQueries(['basketProducts'])
+    },
     onError: (err) => {
       console.log(err)
     },
     onSuccess: ({ basketToken }) => {
       updateBasketToken(basketToken)
-      queryClient.invalidateQueries(['basketProducts'])
     },
   })
 }

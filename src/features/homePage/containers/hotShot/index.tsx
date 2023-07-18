@@ -29,6 +29,7 @@ export const HotShot = () => {
   const { data, isLoading } = useQuery<HotShotsData>({
     queryKey: ['hotShot'],
     queryFn: () => fetchHotShot(),
+    refetchOnWindowFocus: false
   })
 
   const hotData = data?.hotShot[0]

@@ -1,23 +1,20 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 'use client'
 
 import { Basket } from '@prisma/client'
-import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
 import { SlBasket } from 'react-icons/sl'
 
+import { useGetBasketProducts } from '@/features/shared/services/basket'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
-import { useBasketToken } from '@/store/basketToken'
 import { ExtendedBasketItem } from '@/types/db'
 
-import { BasketFeed } from '../../../../shared/components/BasketFeed'
-import { BasketBtn } from '../../../../shared/components/BasketFeed/BasketBtn'
-import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../../../../shared/components/DrawerModal'
-import { NavDropdown } from '../NavDropdown'
+import { BasketBtn } from './BasketBtn'
+import BasketDrawer from './BasketDrawer'
+import { BasketDropdown } from './BasketDropdown'
 
 
 const basketItem = {
@@ -37,43 +34,18 @@ const basketItem = {
 
 type BasketNavProps = {
   isScrollDown: boolean
-  basketToken: string
+  basketToken?: string
 }
 
-export const BasketNav = ({ isScrollDown, basketToken }: BasketNavProps) => {
+export const BasketNav = ({ isScrollDown }: BasketNavProps) => {
   const [isHover, setIsHover] = useState(false)
   const [showDrawer, setShowDrawer] = useState(false)
   const pathname = usePathname()
-  const [fetchData, setFetchData] = useState(false)
-  const basketCookie = useBasketToken((state) => state.basketToken)
-  const [basketTok, setBasketTok] = useState(basketToken ?? basketCookie)
+  const { data: basketProducts, isFetching } = useGetBasketProducts()
 
-  useEffect(() => {
-    if (basketToken) {
-      setFetchData(true)
-      setBasketTok(basketToken)
-    } else if (basketCookie) {
-      setFetchData(true)
-      setBasketTok(basketCookie)
-    } else return setFetchData(false)
-  }, [basketCookie, basketToken])
+  // @ts-expect-error react query type @TODO find resolve of problem
+  const basket = basketProducts?.find((item: { id: string }) => item.id === item.id) as Basket & { Items: ExtendedBasketItem[] }
 
-  const {
-    data: basketProducts,
-    isFetching,
-    // refetch,
-    // isFetched,
-  } = useQuery({
-    queryFn: async () => {
-      const { data } = await axios.get(`/api/baskets/${basketTok}/basicData`)
-      return data as Basket[]
-    },
-    queryKey: ['basketProducts'],
-    refetchOnWindowFocus: false,
-    enabled: fetchData,
-  })
-
-  const basket = basketProducts?.find((item) => item.id === item.id) as Basket & { Items: ExtendedBasketItem[] }
   const productCount = basket?.productCount ?? 0
   const totalPrice = basket?.totalPrice ?? 0
   const { Items: products } = basket ?? []
@@ -127,43 +99,27 @@ export const BasketNav = ({ isScrollDown, basketToken }: BasketNavProps) => {
 
         {/* ToDo setishover false z feed containera */}
         {isHover ? (
-          <NavDropdown last={true}>
-            <BasketFeed
-              onClick={() => setIsHover(false)}
-              basketQuantity={productCount}
-              totalPrice={totalPrice}
-              products={products}
-            />
-          </NavDropdown>
-        ) : (
-          ''
-        )}
+          <BasketDropdown
+            onClick={() => setIsHover(false)}
+            productCount={productCount}
+            products={products}
+            totalPrice={totalPrice}
+          />
+        ) : null}
       </div>
 
       {/* mobile */}
-      <DrawerContainer close={() => setShowDrawer(false)} openDrawer={showDrawer} direction={'right'}>
-        {showDrawer && maxlg ? (
-          <DrawerModal>
-            <DrawerHeader
-              name={basketItem.name}
-              closeDrawer={() => setShowDrawer(false)}
-              basketQuantity={productCount}
-            />
-
-            {/* Tylko Conterner 1 Div */}
-            <DrawerBody>
-              <BasketFeed
-                totalPrice={totalPrice}
-                basketQuantity={productCount}
-                onClick={() => setIsHover(false)}
-                products={products}
-              />
-            </DrawerBody>
-          </DrawerModal>
-        ) : (
-          ''
-        )}
-      </DrawerContainer>
+      {maxlg ? (
+        <BasketDrawer
+          onClick={() => setShowDrawer(false)}
+          basketName={basketItem.name}
+          productCount={productCount}
+          products={products}
+          totalPrice={totalPrice}
+          showDrawer={showDrawer}
+        />
+      ) : null
+      }
     </>
   )
 }
