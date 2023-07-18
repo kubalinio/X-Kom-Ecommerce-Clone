@@ -6,7 +6,7 @@ import { ShopListBody } from '@/features/favlistPage/listsPage/containers/userSh
 import { NeedHelpInfo } from '@/features/favlistPage/listsPage/containers/userShopList/NeedHelpInfo'
 import { ShopListBottom } from '@/features/favlistPage/listsPage/containers/userShopList/ShopListBottom'
 import { ShopListHead } from '@/features/favlistPage/listsPage/containers/userShopList/ShopListHead'
-import { useGetFavLists } from '@/features/favlistPage/listsPage/dataAccess/getFavLists'
+import { useGetFavLists } from '@/features/shared/services/favLists/dataAccess/getFavLists'
 
 export type navUserItems = {
   title: string
