@@ -60,10 +60,10 @@ const SliderBox = () => {
 
   if (isLoading)
     return (
-      <section className="w-full bg-white p-4 lg:pb-5 lg:pt-2 xl:pt-1 2xl:pb-20">
+      <section className="w-full p-4 bg-white lg:pb-5 lg:pt-2 xl:pt-1 2xl:pb-20">
         <div className="flex h-[175px] w-full flex-col justify-center rounded-3xl bg-gray-100 pl-14 md:h-[250px] lg:h-[310px] ">
-          <div className="h-6 w-1/2 bg-gray-300 md:h-8" />
-          <div className="mt-5 h-6 w-1/4 bg-gray-300 md:h-8" />
+          <div className="w-1/2 h-6 bg-gray-300 md:h-8" />
+          <div className="w-1/4 h-6 mt-5 bg-gray-300 md:h-8" />
         </div>
       </section>
     )
@@ -77,7 +77,7 @@ const SliderBox = () => {
         <button className={`${className} w-full`}>
           <span className="inline-block max-w-full overflow-hidden text-ellipsis text-[#4d4d4d]">
             <span style={{ maxHeight: '40px' }} className="block">
-              <span className="line-clamp-2 w-full text-ellipsis">{data.slides[index].title}</span>
+              <span className="w-full line-clamp-2 text-ellipsis">{data.slides[index].title}</span>
             </span>
           </span>
         </button>
@@ -116,8 +116,8 @@ const SliderBox = () => {
       >
         {data.slides.map((slide, i) => (
           <SwiperSlide key={slide.title + i}>
-            <div className="h-full w-full">
-              <a href={slide.link} className="relative h-full w-full">
+            <div className="w-full h-full">
+              <a href={slide.link} className="relative w-full h-full">
                 <span className="md:hidden">
                   <Image
                     loading="lazy"
@@ -125,13 +125,13 @@ const SliderBox = () => {
                     height={255}
                     src={urlFor(slide.image).url()}
                     alt={slide.title}
-                    className="h-full w-full rounded-2xl object-cover"
+                    className="object-cover w-full h-full rounded-2xl"
                   />
                 </span>
 
                 <span className="overflow-hidden rounded-3xl max-md:hidden">
                   <Image
-                    loading="lazy"
+                    priority={true}
                     width={1200}
                     height={500}
                     src={urlFor(slide.imageDesktop).url()}

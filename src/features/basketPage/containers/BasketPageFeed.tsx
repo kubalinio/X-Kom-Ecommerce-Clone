@@ -13,7 +13,7 @@ import { BasketInfoBox } from '../components/BasketInfoBox'
 import { BasketProduct } from '../components/BasketProduct/BasketProduct'
 import { CompletionOrder } from '../components/CompletionOrder'
 import MethodPayments from '../components/MethodPayments'
-import RemoveAllFromBasket from '../components/RemoveAllFromBasket'
+import { RemoveAllFromBasket } from '../components/RemoveAllFromBasket'
 import { ReturnBtn } from '../components/ReturnBtn'
 import ServiceItems from '../components/ServiceItems'
 

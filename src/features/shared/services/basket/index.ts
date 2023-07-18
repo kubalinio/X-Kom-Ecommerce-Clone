@@ -1,3 +1,6 @@
 export { AddToBasketBtn } from './components/AddToBasketBtn'
 export { ProductAddedToBasket } from './components/ProductAddedToBasket'
+export { useGetBasketProducts } from './dataAccess/getBasketProducts'
 export { useAddProductToBasket } from './dataAccess/mutations/addProductToBasket'
+export { useRemoveAllBasketItems } from './dataAccess/mutations/removeAllBasketItems'
+export { useRemoveBasketItem } from './dataAccess/mutations/removeBasketItem'
