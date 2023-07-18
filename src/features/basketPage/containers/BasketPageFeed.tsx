@@ -1,12 +1,10 @@
 'use client'
 
 import { Basket } from '@prisma/client'
-import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
-import { getCookie } from 'cookies-next'
 import { Loader2 } from 'lucide-react'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 
+import { useGetBasketProducts } from '@/features/shared/services/basket/dataAccess/getBasketProducts'
 import { useLoadingState } from '@/store/LoadingState'
 import { ExtendedBasketItem } from '@/types/db'
 
@@ -25,26 +23,14 @@ interface BasketPageFeedProps {
   }
 }
 
-type BasketData = Basket & { Items: ExtendedBasketItem[] }
-
 export const BasketPageFeed: FC<BasketPageFeedProps> = ({ basketData: initialBasketData }) => {
-  const currentBasketToken = getCookie('basketToken')
-  const { isLoading, setIsLoading } = useLoadingState()
 
-  const { data } = useQuery({
-    queryKey: ['basketProducts'],
-    queryFn: async () => {
-      setIsLoading(true)
-      const { data } = await axios.get<BasketData>(`/api/baskets/${currentBasketToken}/basicData`)
-      return data
-    },
-    refetchOnWindowFocus: false,
-    initialData: initialBasketData,
-    onSuccess: () => {
-      setIsLoading(false)
-    },
-    // enabled: false
-  })
+  const { isLoading, setIsLoading } = useLoadingState()
+  const { data, isLoading: isLoadingBasket } = useGetBasketProducts(initialBasketData)
+
+  useEffect(() => {
+    setIsLoading(isLoadingBasket)
+  }, [isLoadingBasket, setIsLoading])
 
   // @ts-expect-error react query type @TODO find resolve of problem
   const basketData: BasketData = data?.find((item) => item.id === item.id) ?? initialBasketData
@@ -53,7 +39,7 @@ export const BasketPageFeed: FC<BasketPageFeedProps> = ({ basketData: initialBas
 
   return (
     <>
-      <div className="-mx-2 flex flex-wrap md:-mx-3 bg:-mx-4">
+      <div className="flex flex-wrap -mx-2 md:-mx-3 bg:-mx-4">
         {/* Basket Items */}
         <div className="w-full px-2 md:px-3 bg:w-2/3">
           <h1 className="mb-4 text-2xl font-bold leading-7 md:hidden">
@@ -79,7 +65,7 @@ export const BasketPageFeed: FC<BasketPageFeedProps> = ({ basketData: initialBas
           {/* Products List */}
           <div>
             <ul>
-              {basketData?.Items?.map((product) => (
+              {basketData?.Items?.map((product: ExtendedBasketItem) => (
                 <BasketProduct key={product.productId} product={product} />
               ))}
             </ul>
@@ -102,7 +88,7 @@ export const BasketPageFeed: FC<BasketPageFeedProps> = ({ basketData: initialBas
       </div>
 
       {isLoading ? (
-        <div className="fixed inset-0 z-50 flex h-full w-full items-center justify-center bg-slate-300 opacity-30">
+        <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-slate-300 opacity-30">
           <Loader2 className="h-[200px] w-[200px] animate-spin" />
         </div>
       ) : null}
