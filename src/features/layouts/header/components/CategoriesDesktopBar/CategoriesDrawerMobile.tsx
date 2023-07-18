@@ -17,9 +17,9 @@ const CategorieDrawerItem = ({ name, icon, slug }: CategorieDrawerProps) => (
   <li className="text-[#1a1a1a]">
     <Link href={`/${slug}`} className="flex h-14 items-center pl-4 pr-[14px]">
       <span className="mr-3 inline-block h-6 w-6 text-[#1a1a1a]">{icon}</span>
-      <p className="flex w-full items-center whitespace-nowrap">{name}</p>
-      <span className="inline-block h-3 w-3 overflow-hidden text-gray-700">
-        <SlArrowRight className="h-full w-full" />
+      <p className="flex items-center w-full whitespace-nowrap">{name}</p>
+      <span className="inline-block w-3 h-3 overflow-hidden text-gray-700">
+        <SlArrowRight className="w-full h-full" />
       </span>
     </Link>
   </li>
@@ -36,7 +36,7 @@ export const CategoriesDrawerMobile = ({ close }: DrawerCategoriesProps) => {
 
       <DrawerBody>
         <div>
-          <div className="flex h-12 w-full items-end pb-3">
+          <div className="flex items-end w-full h-12 pb-3">
             <div className="ml-4 font-bold text-[#707070]">Kategorie</div>
           </div>
 
@@ -54,14 +54,14 @@ export const CategoriesDrawerMobile = ({ close }: DrawerCategoriesProps) => {
           </div>
           <hr className="mt-2 h-[1px] w-full border-0 bg-[#ddd]" />
 
-          <div className="mt-1 flex h-12 w-full items-end pb-3">
+          <div className="flex items-end w-full h-12 pb-3 mt-1">
             <div className="ml-4 font-bold text-[#707070]">Masz pytania ?</div>
           </div>
 
           <ul>
             <CategorieDrawerItem
               name={'Pomoc i kontakt'}
-              icon={<TfiHeadphoneAlt className="h-full w-full" />}
+              icon={<TfiHeadphoneAlt className="w-full h-full" />}
               slug={'centrum-pomocy'}
             />
           </ul>

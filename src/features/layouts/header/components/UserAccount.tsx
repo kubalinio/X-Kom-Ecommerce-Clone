@@ -16,7 +16,7 @@ import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '@/featur
 import { NavDropdown } from './NavDropdown'
 
 const Icon = ({ icon }: { icon: ReactNode }) => (
-  <span className="flex h-full w-full items-center justify-center text-gray-700">{icon}</span>
+  <span className="flex items-center justify-center w-full h-full text-gray-700">{icon}</span>
 )
 
 const userItem = {
@@ -27,32 +27,32 @@ const userItem = {
     contact: [
       {
         name: 'Twoje konto',
-        icon: <AiOutlineUser className="h-full w-full" />,
+        icon: <AiOutlineUser className="w-full h-full" />,
         slug: 'konto',
       },
       {
         name: 'Zamówienia',
-        icon: <HiOutlineClipboardList className="h-full w-full" />,
+        icon: <HiOutlineClipboardList className="w-full h-full" />,
         slug: 'zamowienia',
       },
       {
         name: 'Listy zakupowe',
-        icon: <AiOutlineHeart className="h-full w-full" />,
+        icon: <AiOutlineHeart className="w-full h-full" />,
         slug: 'listy',
       },
       {
         name: 'Opinie',
-        icon: <BiMessageDots className="h-full w-full" />,
+        icon: <BiMessageDots className="w-full h-full" />,
         slug: 'opinie',
       },
       {
         name: 'Dane do zamówień',
-        icon: <BsCreditCard2Front className="h-full w-full" />,
+        icon: <BsCreditCard2Front className="w-full h-full" />,
         slug: 'dane-do-zamowienia',
       },
       {
         name: 'Ustawienia konta',
-        icon: <AiOutlineSetting className="h-full w-full" />,
+        icon: <AiOutlineSetting className="w-full h-full" />,
         slug: 'ustawienia-konta',
       },
     ],
@@ -79,16 +79,16 @@ const DropdownLink = ({ slug, name, icon, onClick }: DropDownLinkProps) => (
       className="flex h-9 items-center px-4 hover:bg-[#f5f5f5] hover:no-underline focus:no-underline active:no-underline"
     >
       {icon && (
-        <span className="mr-3 inline-block h-6 w-6" title={name}>
+        <span className="inline-block w-6 h-6 mr-3" title={name}>
           {icon}
         </span>
       )}
-      <p className="flex w-full items-center whitespace-nowrap text-base">{name}</p>
+      <p className="flex items-center w-full text-base whitespace-nowrap">{name}</p>
     </Link>
   </li>
 )
 
-const UserAccount = ({ isScrollDown, width }: Props) => {
+export const UserAccount = ({ isScrollDown, width }: Props) => {
   const [isHover, setIsHover] = useState(false)
   const [showDrawer, setShowDrawer] = useState(false)
 
@@ -121,20 +121,18 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
       >
         <div
           onClick={() => handleClick()}
-          className={`flex min-w-[64px] cursor-pointer items-center justify-center md:min-w-[88px] ${
-            isHover ? 'rounded-t-lg shadow-xCom' : ''
-          }`}
+          className={`flex min-w-[64px] cursor-pointer items-center justify-center md:min-w-[88px] ${isHover ? 'rounded-t-lg shadow-xCom' : ''
+            }`}
         >
-          <Link href="/" className="flex h-full flex-col items-center justify-center max-lg:pointer-events-none">
-            <div className="relative flex h-7 w-7 items-center text-2xl md:h-8 md:w-8 2xl:text-3xl">
+          <Link href="/" className="flex flex-col items-center justify-center h-full max-lg:pointer-events-none">
+            <div className="relative flex items-center text-2xl h-7 w-7 md:h-8 md:w-8 2xl:text-3xl">
               <Icon icon={userItem.icon} />
             </div>
             <span
-              className={`${
-                !isScrollDown
+              className={`${!isScrollDown
                   ? 'lg:translate-y-0 lg:scale-100 lg:opacity-100'
                   : 'lg:h-0 lg:translate-y-[-20px] lg:scale-0 lg:opacity-0 '
-              } mt-1 whitespace-nowrap text-[10px] transition-all duration-500`}
+                } mt-1 whitespace-nowrap text-[10px] transition-all duration-500`}
             >
               {userItem.name}
             </span>
@@ -222,12 +220,12 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
                           <Link
                             onClick={() => setShowDrawer(false)}
                             href={`/${item.slug}`}
-                            className="flex h-14 items-center px-5 hover:no-underline focus:no-underline active:no-underline"
+                            className="flex items-center px-5 h-14 hover:no-underline focus:no-underline active:no-underline"
                           >
-                            <span className="mr-4 inline-block h-6 w-6" title={item.name}>
+                            <span className="inline-block w-6 h-6 mr-4" title={item.name}>
                               {item.icon}
                             </span>
-                            <p className="flex w-full items-center whitespace-nowrap text-base">{item.name}</p>
+                            <p className="flex items-center w-full text-base whitespace-nowrap">{item.name}</p>
                           </Link>
                         </li>
                       ))}
@@ -275,5 +273,3 @@ const UserAccount = ({ isScrollDown, width }: Props) => {
             )
         } */
 }
-
-export default UserAccount

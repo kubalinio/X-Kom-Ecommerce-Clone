@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 
+import { CategoriesDesktopBar } from '../components/CategoriesDesktopBar'
 import LogoHeader from '../components/HeaderLogo'
+import { SearchBar } from '../components/SearchBar'
 import { HeaderNav } from './HeaderNav'
-import { CategoriesDesktopBar } from './ProductCategories'
-import { SearchBar } from './SearchBar'
 
 export const Header = ({ basketToken }: { basketToken: string }) => {
   const [isScrollDown, setIsScrollDown] = useState(false)
@@ -45,16 +45,14 @@ export const Header = ({ basketToken }: { basketToken: string }) => {
   return (
     <div className={`relative z-[1000] h-[90px] md:h-[107px] lg:h-[125px]`}>
       <header
-        className={`${scrollMobile ? 'fixed animate-headerMobileHide' : 'relative'} ${
-          scrollDirection === 'down' && scrollMobile ? 'translate-y-[-110px]' : 'translate-y-0 duration-300'
-        } ${
-          isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'
-        } left-0 top-0 z-20 w-full bg-white shadow-md lg:fixed`}
+        className={`${scrollMobile ? 'fixed animate-headerMobileHide' : 'relative'} ${scrollDirection === 'down' && scrollMobile ? 'translate-y-[-110px]' : 'translate-y-0 duration-300'
+          } ${isScrollDown ? 'lg:animate-headerMinimize' : 'lg:animate-headerExpand'
+          } left-0 top-0 z-20 w-full bg-white shadow-md lg:fixed`}
       >
         {/* Header Top */}
         <div className="relative ml-4 flex h-full max-w-full flex-wrap items-center justify-between md:ml-6 lg:mx-auto lg:w-[calc(100%-64px)] lg:max-w-[1156px] 2xl:max-w-[1444px]">
           {/* Logo Box */}
-          <div className="flex h-full shrink-0 items-center justify-center lg:pl-8 2xl:pl-8">
+          <div className="flex items-center justify-center h-full shrink-0 lg:pl-8 2xl:pl-8">
             <LogoHeader isScrollDown={isScrollDown} />
           </div>
 
@@ -65,7 +63,7 @@ export const Header = ({ basketToken }: { basketToken: string }) => {
           </div>
 
           {/* Navigation */}
-          <div className="order-3 flex h-full pt-1 md:pt-1 lg:z-20">
+          <div className="flex order-3 h-full pt-1 md:pt-1 lg:z-20">
             <HeaderNav isScrollDown={isScrollDown} basketToken={basketToken} />
           </div>
         </div>

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
@@ -9,7 +8,6 @@ import { useRemoveBasketItem } from '@/features/shared/services/basket/dataAcces
 import { FavListBtn, ToggleFavList } from '@/features/shared/services/favLists'
 import { useLoadingState } from '@/store/LoadingState'
 
-// import { RemoveBasketProductExpand } from './RemoveBasketProduct'
 interface ExpandProps {
   productId: string
   basketToken: string
@@ -57,8 +55,8 @@ export const ExpandActionBasketProduct = ({ productId, basketToken }: ExpandProp
             onClick={() => setExpand(!expand)}
             className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-[#ddd] focus:bg-[#ddd] active:bg-[#ddd]"
           >
-            <span className="inline-block h-5 w-5">
-              <AiOutlineMore className="h-full w-full text-xl" />
+            <span className="inline-block w-5 h-5">
+              <AiOutlineMore className="w-full h-full text-xl" />
             </span>
           </button>
         </div>
@@ -68,9 +66,8 @@ export const ExpandActionBasketProduct = ({ productId, basketToken }: ExpandProp
       <div className={`${expand ? '' : 'relative overflow-hidden'} pointer-events-auto`}>
         <div
           ref={expandBoxRef}
-          className={`${
-            expand ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
-          } absolute left-auto right-0 top-[calc(100%)] z-[2] flex flex-col rounded-lg bg-white py-2 text-left shadow-xCom`}
+          className={`${expand ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+            } absolute left-auto right-0 top-[calc(100%)] z-[2] flex flex-col rounded-lg bg-white py-2 text-left shadow-xCom`}
         >
           {/* @TODO Fix passed props into components */}
           <FavListBtn onClick={() => handleClickFav()} variant={'FavLong'} isLiked={isLiked} isLoading={isLoadingFav} />
