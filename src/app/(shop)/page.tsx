@@ -2,10 +2,10 @@ import { BestsellerSection } from '@/features/homePage/containers/BestsellerSect
 import { BrandSection } from '@/features/homePage/containers/BrandSection'
 import { GuidesSection } from '@/features/homePage/containers/GuidesSection'
 import { HitsWeekSection } from '@/features/homePage/containers/HitsWeekSection'
+import { HotShot } from '@/features/homePage/containers/hotShot'
 import { NewsSection } from '@/features/homePage/containers/NewsSection'
 import { PromotionSection } from '@/features/homePage/containers/PromotionSection'
 import { RecommendProducts } from '@/features/homePage/containers/recommendProducts/RecommendProducts'
-import { HotShot } from '@/features/homePage/hotshot'
 import SliderBox from '@/features/homePage/SliderBox'
 
 export default async function Home() {

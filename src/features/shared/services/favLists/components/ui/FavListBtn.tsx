@@ -14,9 +14,9 @@ interface IconProp {
 
 const Icon = ({ isLiked, isLoading }: IconProp) => {
   return (
-    <span className="flex h-5 w-5 items-center justify-center overflow-hidden">
+    <span className="flex items-center justify-center w-5 h-5 overflow-hidden">
       {isLoading ? (
-        <Loader2 className="h-5 w-5 animate-spin text-slate-500" />
+        <Loader2 className="w-5 h-5 animate-spin text-slate-500" />
       ) : isLiked ? (
         <IoMdHeart className="h-full w-full text-[#BE0064]" />
       ) : (
@@ -45,9 +45,10 @@ const buttonVariants = cva('relative cursor-pointer items-center border-none bg-
 interface FavButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   isLoading: boolean
   isLiked: boolean
+  showAnimation: boolean
 }
 
-export const FavListBtn: FC<FavButtonProps> = ({ className, variant, isLiked, isLoading, ...props }) => {
+export const FavListBtn: FC<FavButtonProps> = ({ className, variant, isLiked, isLoading, showAnimation, ...props }) => {
   return variant === 'FavLong' ? (
     <button
       disabled={isLoading ? true : false}
@@ -60,7 +61,7 @@ export const FavListBtn: FC<FavButtonProps> = ({ className, variant, isLiked, is
       <Icon isLiked={isLiked} isLoading={isLoading} />
 
       <span className="flex flex-col">
-        <span className="whitespace-nowrap py-3">{isLiked ? 'Edytuj na liście' : 'Zapisz na liście'}</span>
+        <span className="py-3 whitespace-nowrap">{isLiked ? 'Edytuj na liście' : 'Zapisz na liście'}</span>
       </span>
     </button>
   ) : variant === 'FavDesktop' || variant === 'FavGallery' ? (
@@ -71,7 +72,7 @@ export const FavListBtn: FC<FavButtonProps> = ({ className, variant, isLiked, is
         className={cn(
           'absolute left-1/2 top-1/2 z-[10] h-10 w-10  -translate-x-1/2 -translate-y-1/2 transform rounded-full border-[#BE0064]',
           {
-            'animate-pulsOnceClick': isLiked,
+            'animate-pulsOnceClick': showAnimation,
           }
         )}
       />

@@ -2,7 +2,7 @@ type Props = {
   finished: boolean
   price: number
   oldPrice: number
-  promotionGainTextLines: {
+  promotionGainTextLines?: {
     title: string
     value: string
   }
@@ -10,18 +10,17 @@ type Props = {
 
 export const ProductPrice = ({ finished, price, oldPrice, promotionGainTextLines }: Props) => {
   return (
-    <div className="mb-3 mt-2 font-lato text-sm md:mt-8 lg:mt-2">
+    <div className="mt-2 mb-3 text-sm font-lato md:mt-8 lg:mt-2">
       <p
-        className={`block text-center text-4xl/10 font-bold text-[#4d4d4d] lg:mb-4 ${
-          finished ? 'text-[#4d4d4d]' : 'text-[#fa0064]'
-        }`}
+        className={`block text-center text-4xl/10 font-bold text-[#4d4d4d] lg:mb-4 ${finished ? 'text-[#4d4d4d]' : 'text-[#fa0064]'
+          }`}
       >
         {price.toString().replace('.', ',')} zł
       </p>
 
       <div className="hidden md:block lg:hidden">
         <p className="mb-2 text-lg/6 text-[#fa0064]">
-          {promotionGainTextLines.title} {promotionGainTextLines.value}
+          {promotionGainTextLines?.title} {promotionGainTextLines?.value}
         </p>
       </div>
 

@@ -8,13 +8,13 @@ import ProductPrice from './ProductPrice'
 type Props = {
   startPromo: () => void
   endPromo: () => void
-  price: number
-  oldPrice: number
-  promotionGainTextLines: {
+  price?: number
+  oldPrice?: number
+  promotionGainTextLines?: {
     title: string
     value: string
   }
-  promotionTotalCount: number
+  promotionTotalCount?: number
 }
 
 export const HotShotCounter = ({ endPromo, price, oldPrice, promotionGainTextLines, promotionTotalCount }: Props) => {
@@ -33,9 +33,9 @@ export const HotShotCounter = ({ endPromo, price, oldPrice, promotionGainTextLin
     <div className="w-full md:w-1/2 md:pl-2 md:text-center lg:w-full">
       <ProductPrice
         finished={finished}
-        price={price}
-        oldPrice={oldPrice}
-        promotionGainTextLines={promotionGainTextLines}
+        price={price ?? 0}
+        oldPrice={oldPrice ?? 0}
+        promotionGainTextLines={promotionGainTextLines ?? undefined}
       />
 
       <CounterProductBar

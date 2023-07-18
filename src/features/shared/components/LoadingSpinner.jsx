@@ -1,7 +1,7 @@
 const LoadingIcon = () => (
   <svg
     aria-hidden="true"
-    className="inline-block h-full w-full animate-spin fill-gray-400 text-gray-200 dark:text-gray-200"
+    className="inline-block w-full h-full text-gray-200 animate-spin fill-gray-400 dark:text-gray-200"
     viewBox="0 0 100 101"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

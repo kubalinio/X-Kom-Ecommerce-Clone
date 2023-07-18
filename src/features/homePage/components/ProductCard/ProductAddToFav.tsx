@@ -25,7 +25,7 @@ const AddToFav = ({ productId }: Props) => {
   }, [showPopper])
 
   return (
-    <div className="absolute right-1 top-1 hidden transition-all duration-300 lg:right-3 lg:top-3 lg:block">
+    <div className="absolute hidden transition-all duration-300 right-1 top-1 lg:right-3 lg:top-3 lg:block">
       {/* Transparent overlay */}
       {show === true ? (
         <div
@@ -38,14 +38,13 @@ const AddToFav = ({ productId }: Props) => {
       )}
 
       <div
-        className={`duration-400 transition-opacity lg:flex lg:h-8 lg:w-8 lg:group-hover:opacity-100 ${
-          isLiked ? 'lg:opacity-100' : 'lg:opacity-0'
-        }`}
+        className={`duration-400 transition-opacity lg:flex lg:h-8 lg:w-8 lg:group-hover:opacity-100 ${isLiked ? 'lg:opacity-100' : 'lg:opacity-0'
+          }`}
       >
         <div className="pointer-events-auto relative z-[106] inline-block align-middle">
           {/* Fav Component to Add List Favorited products */}
           <div>
-            <FavListBtn onClick={() => handleClick()} variant={'FavDesktop'} isLiked={isLiked} isLoading={isLoading} />
+            <FavListBtn onClick={() => handleClick()} variant={'FavDesktop'} isLiked={isLiked} isLoading={isLoading} showAnimation={showPopper} />
           </div>
 
           {/* Modal */}
