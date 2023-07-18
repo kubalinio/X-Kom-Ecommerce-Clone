@@ -12,7 +12,7 @@ interface AddToFavBoxProps {
 export const AddToFavBox: FC<AddToFavBoxProps> = ({ productId }) => {
   const matches = useMediaQuery('(min-width: 720px)')
   const [show, setShow] = useState(false)
-  const { isLiked, isLoading, toggleFav } = ToggleFavList(productId)
+  const { isLiked, isLoading, toggleFav, showPopper } = ToggleFavList(productId)
 
   const handleClick = () => {
     toggleFav()
@@ -21,12 +21,12 @@ export const AddToFavBox: FC<AddToFavBoxProps> = ({ productId }) => {
   return (
     <>
       {matches ? (
-        <div className="inline-flex w-auto items-center justify-end pt-4 lg:w-full lg:pt-0">
-          <FavListBtn onClick={() => handleClick()} variant={'FavLong'} isLiked={isLiked} isLoading={isLoading} />
+        <div className="inline-flex items-center justify-end w-auto pt-4 lg:w-full lg:pt-0">
+          <FavListBtn onClick={() => handleClick()} variant={'FavLong'} isLiked={isLiked} isLoading={isLoading} showAnimation={showPopper} />
         </div>
       ) : (
         <div className="absolute bottom-[36px] right-2 top-0 flex w-[40px] flex-col justify-center">
-          <FavListBtn onClick={() => handleClick()} variant={'FavGallery'} isLiked={isLiked} isLoading={isLoading} />
+          <FavListBtn onClick={() => handleClick()} variant={'FavGallery'} isLiked={isLiked} isLoading={isLoading} showAnimation={showPopper} />
         </div>
       )}
 

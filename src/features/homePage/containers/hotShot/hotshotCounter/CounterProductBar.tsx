@@ -7,13 +7,13 @@ export const CounterProductBar = ({
   finished,
   selledAll,
 }: {
-  toSell: number
+  toSell?: number
   selled: number
   sells: () => void
   finished: boolean
   selledAll: () => void
 }) => {
-  const [left, setLeft] = useState(toSell - selled)
+  const [left, setLeft] = useState(toSell ?? 0 - selled)
   const [fill, setFill] = useState(0)
 
   useEffect(() => {
@@ -21,8 +21,8 @@ export const CounterProductBar = ({
       sells()
     }, 10000)
 
-    setLeft(toSell - selled)
-    setFill(Math.floor(100 - (selled * 100) / toSell))
+    setLeft(toSell ?? 0 - selled)
+    setFill(Math.floor(100 - (selled * 100) / (toSell ?? 0)))
 
     if (left <= 0) {
       selledAll()
@@ -43,9 +43,9 @@ export const CounterProductBar = ({
             <div className="flex items-center">
               <span className="mr-1 text-sm">pozostało</span>
               {/* Counter Up to Down */}
-              <div className="flex h-7 overflow-hidden">
+              <div className="flex overflow-hidden h-7">
                 <div className="flex flex-col">
-                  <span className="h-7 text-lg font-bold">{left}</span>
+                  <span className="text-lg font-bold h-7">{left}</span>
                 </div>
               </div>
             </div>
@@ -54,9 +54,9 @@ export const CounterProductBar = ({
             <div className="flex items-center justify-end">
               <span className="mr-2 text-sm">sprzedano</span>
               {/* Counter Up to Down */}
-              <div className="flex h-7 scale-150 overflow-hidden">
+              <div className="flex overflow-hidden scale-150 h-7">
                 <div className="flex flex-col">
-                  <span className="h-7 text-lg font-bold">{selled}</span>
+                  <span className="text-lg font-bold h-7">{selled}</span>
                 </div>
               </div>
             </div>

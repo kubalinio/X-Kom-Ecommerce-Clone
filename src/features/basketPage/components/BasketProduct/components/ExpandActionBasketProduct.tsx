@@ -14,7 +14,7 @@ interface ExpandProps {
 }
 
 export const ExpandActionBasketProduct = ({ productId, basketToken }: ExpandProps) => {
-  const { isLiked, isLoading: isLoadingFav, toggleFav } = ToggleFavList(productId)
+  const { isLiked, isLoading: isLoadingFav, toggleFav, showPopper } = ToggleFavList(productId)
   const { mutate, isLoading: isLoadingDelete } = useRemoveBasketItem()
   const { setIsLoading } = useLoadingState()
 
@@ -70,7 +70,7 @@ export const ExpandActionBasketProduct = ({ productId, basketToken }: ExpandProp
             } absolute left-auto right-0 top-[calc(100%)] z-[2] flex flex-col rounded-lg bg-white py-2 text-left shadow-xCom`}
         >
           {/* @TODO Fix passed props into components */}
-          <FavListBtn onClick={() => handleClickFav()} variant={'FavLong'} isLiked={isLiked} isLoading={isLoadingFav} />
+          <FavListBtn onClick={() => handleClickFav()} variant={'FavLong'} isLiked={isLiked} isLoading={isLoadingFav} showAnimation={showPopper} />
 
           <DeleteBasketBtn onClick={() => handleClickDelete()} variant={'long'} isLoading={isLoadingDelete} />
         </div>

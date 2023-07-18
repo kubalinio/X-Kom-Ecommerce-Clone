@@ -28,7 +28,7 @@ export const BasketAddToFav = ({ productId }: Props) => {
 
   return (
     <>
-      <FavListBtn onClick={() => handleClick()} isLiked={isLiked} isLoading={isLoading} variant={'FavDesktop'} />
+      <FavListBtn onClick={() => handleClick()} isLiked={isLiked} isLoading={isLoading} variant={'FavDesktop'} showAnimation={showPopper} />
 
       <ModalContainer openModal={show}>{show ? <AddToFavModal close={() => setShow(false)} /> : null}</ModalContainer>
     </>
