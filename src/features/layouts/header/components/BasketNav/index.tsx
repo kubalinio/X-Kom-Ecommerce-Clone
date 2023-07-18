@@ -10,14 +10,15 @@ import { useEffect, useState } from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
 import { SlBasket } from 'react-icons/sl'
 
-import { NavDropdown } from '@/features/layouts/header/containers/HeaderNav/NavDropdown'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { useBasketToken } from '@/store/basketToken'
 import { ExtendedBasketItem } from '@/types/db'
 
-import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../DrawerModal'
-import { BasketBtn } from './BasketBtn'
-import { BasketFeed } from './BasketFeed'
+import { BasketFeed } from '../../../../shared/components/BasketFeed'
+import { BasketBtn } from '../../../../shared/components/BasketFeed/BasketBtn'
+import { DrawerBody, DrawerContainer, DrawerHeader, DrawerModal } from '../../../../shared/components/DrawerModal'
+import { NavDropdown } from '../NavDropdown'
+
 
 const basketItem = {
   name: 'Koszyk',
@@ -27,7 +28,7 @@ const basketItem = {
     contact: [
       {
         name: 'Twoje konto',
-        icon: <AiOutlineUser className="h-full w-full" />,
+        icon: <AiOutlineUser className="w-full h-full" />,
         slug: 'konto',
       },
     ],

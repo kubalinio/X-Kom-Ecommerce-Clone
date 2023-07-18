@@ -31,9 +31,8 @@ export const CategoriesDesktopBar = ({ isScroll, width }: CategoriesDesktop) => 
 
   return (
     <div
-      className={`${
-        isScroll ? '-translate-y-1/2 scale-y-0 opacity-0' : 'translate-y-0 scale-y-100 opacity-100'
-      } relative z-[1] transition-all duration-300`}
+      className={`${isScroll ? '-translate-y-1/2 scale-y-0 opacity-0' : 'translate-y-0 scale-y-100 opacity-100'
+        } relative z-[1] transition-all duration-300`}
     >
       <div>
         {/* Product Categories Container */}
