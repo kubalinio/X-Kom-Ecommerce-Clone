@@ -11,10 +11,8 @@ export const useRemoveAllBasketItems = (basketToken: string) => {
       const { data } = await axios.put(`/api/baskets/${basketToken}`)
       return data
     },
-    onMutate: () => {
-      queryClient.invalidateQueries(['basketProducts'])
-    },
     onSuccess: () => {
+      queryClient.invalidateQueries(['basketProducts'])
       router.refresh()
     },
   })
