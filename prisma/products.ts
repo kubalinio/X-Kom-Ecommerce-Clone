@@ -75,6 +75,15 @@ const productsData: Prisma.ProductCreateInput[] = [
     ratingCount: 0,
     slug: 'desktop-g4m3r-hero-i5-13400f-16gb-1tb-rtx3060-w11',
   },
+  {
+    name: 'Silver Monkey M70 Wireless Comfort Mouse Black Silent',
+    photo: 'https://res.cloudinary.com/dbmu87ktf/image/upload/v1689748905/products/zfkbhcbclhyuushooslm.webp',
+    oldPrice: 79.99,
+    price: 59.99,
+    rating: 0,
+    ratingCount: 0,
+    slug: 'myszka-bezprzewodowa-silver-monkey-m70-wireless-comfort-mouse-black-silent',
+  },
 ]
 
 async function main() {

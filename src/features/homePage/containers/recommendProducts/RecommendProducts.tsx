@@ -7,7 +7,7 @@ export const RecommendProducts = async () => {
   const products = await db.product.findMany({
     take: 8,
     orderBy: {
-      createdAt: 'desc',
+      createdAt: 'asc',
     },
   })
 
