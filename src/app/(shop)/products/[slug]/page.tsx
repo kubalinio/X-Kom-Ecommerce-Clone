@@ -1,14 +1,14 @@
 import { Product } from '@prisma/client'
 import { notFound } from 'next/navigation'
 
+import { AddToFavBox } from '@/features/(product)/productDetailPage/components/AddToFavBox'
+import HeadingProduct from '@/features/(product)/productDetailPage/components/HeadingProduct'
+import ProductPrice from '@/features/(product)/productDetailPage/components/ProductPrice'
 import { db } from '@/lib/db'
 
-import HeadingProduct from '../../products/[slug]/components/HeadingProduct'
-import ProductPrice from '../../products/[slug]/components/ProductPrice'
-import { AddToBasketBox } from './components/AddToBasketBox'
-import { AddToFavBox } from './components/AddToFavBox'
-import { ProductGallery } from './components/ProductGallery'
-import { Services } from './components/ServicesModal'
+import { AddToBasketBox } from '../../../../features/(product)/productDetailPage/components/AddToBasketBox'
+import { ProductGallery } from '../../../../features/(product)/productDetailPage/components/ProductGallery'
+import { Services } from '../../../../features/(product)/productDetailPage/components/ServicesModal'
 
 type URL = {
   params: {
@@ -34,7 +34,7 @@ export default async function ProductDetail(url: URL) {
           {/* Action Btns & Breadcast */}
           <div className="flex items-center justify-end lg:pt-4">
             <div className="flex">
-              <div className="hidden w-full justify-end lg:flex">
+              <div className="justify-end hidden w-full lg:flex">
                 <AddToFavBox productId={productId} />
               </div>
             </div>
@@ -45,9 +45,9 @@ export default async function ProductDetail(url: URL) {
 
           {/* Product */}
 
-          <div className="-mx-2 flex flex-wrap pt-5 md:-mx-3 md:mt-2 lg:mt-0 lg:pt-2">
+          <div className="flex flex-wrap pt-5 -mx-2 md:-mx-3 md:mt-2 lg:mt-0 lg:pt-2">
             {/* Top/LEft Image Slider */}
-            <div className="order-1 mb-4 h-full w-full px-2 md:order-2 md:w-3/5 md:px-3 lg:w-1/2">
+            <div className="order-1 w-full h-full px-2 mb-4 md:order-2 md:w-3/5 md:px-3 lg:w-1/2">
               <ProductGallery product={product} />
 
               {/* Compare buttons */}

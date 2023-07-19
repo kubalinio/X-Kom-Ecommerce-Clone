@@ -1,0 +1,3598 @@
+{
+  "variantXkom": "Response",
+  "Id": "34867",
+  "Product": {
+    "Photos": [
+      {
+        "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2023/5/pr_2023_5_24_8_23_43_855_00.jpg",
+        "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2023/5/pr_2023_5_24_8_23_43_855_00.jpg",
+        "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2023/5/pr_2023_5_24_8_23_43_855_00.jpg"
+      },
+      {
+        "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2023/5/pr_2023_5_24_8_23_46_690_01.jpg",
+        "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2023/5/pr_2023_5_24_8_23_46_690_01.jpg",
+        "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2023/5/pr_2023_5_24_8_23_46_690_01.jpg"
+      },
+      {
+        "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2023/5/pr_2023_5_24_8_23_49_897_02.jpg",
+        "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2023/5/pr_2023_5_24_8_23_49_897_02.jpg",
+        "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2023/5/pr_2023_5_24_8_23_49_897_02.jpg"
+      },
+      {
+        "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2023/5/pr_2023_5_24_8_23_52_476_03.jpg",
+        "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2023/5/pr_2023_5_24_8_23_52_476_03.jpg",
+        "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2023/5/pr_2023_5_24_8_23_52_476_03.jpg"
+      },
+      {
+        "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2023/5/pr_2023_5_24_8_23_55_63_04.jpg",
+        "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2023/5/pr_2023_5_24_8_23_55_63_04.jpg",
+        "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2023/5/pr_2023_5_24_8_23_55_63_04.jpg"
+      },
+      {
+        "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2023/5/pr_2023_5_24_8_23_58_23_05.jpg",
+        "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2023/5/pr_2023_5_24_8_23_58_23_05.jpg",
+        "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2023/5/pr_2023_5_24_8_23_58_23_05.jpg"
+      }
+    ],
+    "Comments": [
+      {
+        "ProductId": "1143530",
+        "Product": {
+          "Id": "1143530",
+          "AvailabilityCode": "available",
+          "Link": "/p/1143530-karta-graficzna-nvidia-zotac-geforce-rtx-4060-ti-gaming-twin-edge-8gb-gddr6.html",
+          "Modifiers": []
+        },
+        "Id": "638475",
+        "AuthorName": "Wojciech",
+        "IsRegisteredAuthor": true,
+        "IsAdminAuthor": false,
+        "CreateTime": "2023-07-10T06:05:43Z",
+        "IsEditable": false,
+        "IsVoteAllowed": true,
+        "Title": null,
+        "Body": "Bardzo wydajna grafika, polecam",
+        "ChildComments": null,
+        "Votes": {
+          "VotesUp": 7,
+          "VotesDown": 77
+        },
+        "Rating": 6,
+        "Photos": null,
+        "IsConfirmedByPurchase": true
+      }
+    ],
+    "OnlineAvailability": {
+      "LastItemsLeft": {
+        "ShowLabel": false
+      },
+      "AvailabilityText": "",
+      "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+      "DeliveryDate": "2023-07-19T22:00:00Z",
+      "AvailabilityTooltipHtml": "<div class=\"AvailabilityTooltipHtml\">Termin realizacji może ulec zmianie, jeśli:\n\t\t\t\t\t\t\t <ul>\n\t\t\t\t\t\t\t    <li>skorzystasz z usługi montażu;</li>\n\t\t\t\t\t\t\t    <li>zamówienie obejmuje produkty z dłuższym czasem realizacji zamówienia - wysyłka następuje po skompletowaniu całego zamówienia;</li>\n\t\t\t\t\t\t\t    <li>jako formę płatności wybierzesz przelew lub raty - wysyłka następuje po otrzymaniu przez nas płatności na konto lub informacji o przyznaniu kredytu ratalnego;</li>\n\t\t\t\t\t\t\t    <li>dodasz uwagi do zamówienia</li>\n\t\t\t\t\t\t\t </ul></div>",
+      "ExpiredAfterMinutes": 512,
+      "AvailabilityCode": "available",
+      "ExpirationTime": "2023-07-19T14:00:04Z"
+    },
+    "DepartmentsAvailability": [
+      {
+        "DepartmentHeader": {
+          "Id": "16",
+          "Name": "Biała Podlaska"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "13",
+          "Name": "Białystok"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "37",
+          "Name": "Bielsko-Biała"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "14",
+          "Name": "Bydgoszcz"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "30",
+          "Name": "Częstochowa Jurajska"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "8",
+          "Name": "Gdańsk"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "45",
+          "Name": "Gdynia"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "24",
+          "Name": "Gliwice"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "12",
+          "Name": "Katowice"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "20",
+          "Name": "Kielce"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już pojutrze",
+        "DeliveryDate": "2023-07-20T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "22",
+          "Name": "Kraków Bonarka"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "43",
+          "Name": "Kraków Bronowice"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "11",
+          "Name": "Lublin"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już pojutrze",
+        "DeliveryDate": "2023-07-20T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "7",
+          "Name": "Łódź"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "36",
+          "Name": "Olsztyn"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "19",
+          "Name": "Opole"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "9",
+          "Name": "Poznań"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "10",
+          "Name": "Rzeszów"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "21",
+          "Name": "Szczecin"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 632,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T16:00:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "2",
+          "Name": "Tarnowskie Góry"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "46",
+          "Name": "Toruń"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "44",
+          "Name": "Warszawa Północna"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "23",
+          "Name": "Warszawa Promenada"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "5",
+          "Name": "Warszawa Reduta"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "31",
+          "Name": "Wrocław Bielany"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      },
+      {
+        "DepartmentHeader": {
+          "Id": "4",
+          "Name": "Wrocław Pasaż"
+        },
+        "AvailableCount": 0,
+        "AvailabilityText": "",
+        "DeliveryText": "Kup teraz - zamówienie otrzymasz już jutro",
+        "DeliveryDate": "2023-07-19T22:00:00Z",
+        "AvailabilityTooltipHtml": null,
+        "ExpiredAfterMinutes": 871,
+        "AvailabilityCode": "available",
+        "ExpirationTime": "2023-07-19T19:59:04Z"
+      }
+    ],
+    "ShipmentCosts": [
+      {
+        "Title": "Odbiór w salonie x-kom - Gotówka w salonie",
+        "ShipmentName": "Odbiór w salonie x-kom",
+        "PaymentName": "Gotówka w salonie",
+        "ShipmentMethod": "Department",
+        "PaymentMethod": "Cash",
+        "Value": 0.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w salonie x-kom - Przelew tradycyjny",
+        "ShipmentName": "Odbiór w salonie x-kom",
+        "PaymentName": "Przelew tradycyjny",
+        "ShipmentMethod": "Department",
+        "PaymentMethod": "Prepayment",
+        "Value": 0.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w salonie x-kom - Płatność kartą w salonie",
+        "ShipmentName": "Odbiór w salonie x-kom",
+        "PaymentName": "Płatność kartą w salonie",
+        "ShipmentMethod": "Department",
+        "PaymentMethod": "Card",
+        "Value": 0.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w salonie x-kom - Płatność kartą online",
+        "ShipmentName": "Odbiór w salonie x-kom",
+        "PaymentName": "Płatność kartą online",
+        "ShipmentMethod": "Department",
+        "PaymentMethod": "DotPayCard",
+        "Value": 0.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w salonie x-kom - Płatność online",
+        "ShipmentName": "Odbiór w salonie x-kom",
+        "PaymentName": "Płatność online",
+        "ShipmentMethod": "Department",
+        "PaymentMethod": "DotPay",
+        "Value": 0.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w salonie x-kom - Alior szybkie raty",
+        "ShipmentName": "Odbiór w salonie x-kom",
+        "PaymentName": "Alior szybkie raty",
+        "ShipmentMethod": "Department",
+        "PaymentMethod": "InstallmentAlior",
+        "Value": 0.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w salonie x-kom - Santander raty taniejące",
+        "ShipmentName": "Odbiór w salonie x-kom",
+        "PaymentName": "Santander raty taniejące",
+        "ShipmentMethod": "Department",
+        "PaymentMethod": "InstallmentSantander",
+        "Value": 0.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w punkcie - Żabka, Poczta Polska i inne - Gotówka przy odbiorze",
+        "ShipmentName": "Odbiór w punkcie - Żabka, Poczta Polska i inne",
+        "PaymentName": "Gotówka przy odbiorze",
+        "ShipmentMethod": "PolishPostDeliveryPoint",
+        "PaymentMethod": "CashOnDelivery",
+        "Value": 8.9,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w punkcie - Żabka, Poczta Polska i inne - Przelew tradycyjny",
+        "ShipmentName": "Odbiór w punkcie - Żabka, Poczta Polska i inne",
+        "PaymentName": "Przelew tradycyjny",
+        "ShipmentMethod": "PolishPostDeliveryPoint",
+        "PaymentMethod": "Prepayment",
+        "Value": 8.9,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w punkcie - Żabka, Poczta Polska i inne - Płatność kartą online",
+        "ShipmentName": "Odbiór w punkcie - Żabka, Poczta Polska i inne",
+        "PaymentName": "Płatność kartą online",
+        "ShipmentMethod": "PolishPostDeliveryPoint",
+        "PaymentMethod": "DotPayCard",
+        "Value": 8.9,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w punkcie - Żabka, Poczta Polska i inne - Płatność online",
+        "ShipmentName": "Odbiór w punkcie - Żabka, Poczta Polska i inne",
+        "PaymentName": "Płatność online",
+        "ShipmentMethod": "PolishPostDeliveryPoint",
+        "PaymentMethod": "DotPay",
+        "Value": 8.9,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w punkcie - Żabka, Poczta Polska i inne - Alior szybkie raty",
+        "ShipmentName": "Odbiór w punkcie - Żabka, Poczta Polska i inne",
+        "PaymentName": "Alior szybkie raty",
+        "ShipmentMethod": "PolishPostDeliveryPoint",
+        "PaymentMethod": "InstallmentAlior",
+        "Value": 8.9,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Odbiór w punkcie - Żabka, Poczta Polska i inne - Santander raty taniejące",
+        "ShipmentName": "Odbiór w punkcie - Żabka, Poczta Polska i inne",
+        "PaymentName": "Santander raty taniejące",
+        "ShipmentMethod": "PolishPostDeliveryPoint",
+        "PaymentMethod": "InstallmentSantander",
+        "Value": 8.9,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "InPost Paczkomat® 24/7 - Przelew tradycyjny",
+        "ShipmentName": "InPost Paczkomat® 24/7",
+        "PaymentName": "Przelew tradycyjny",
+        "ShipmentMethod": "InPost",
+        "PaymentMethod": "Prepayment",
+        "Value": 9.9,
+        "Html": null,
+        "Target": "Web"
+      },
+      {
+        "Title": "InPost Paczkomat® 24/7 - Płatność kartą online",
+        "ShipmentName": "InPost Paczkomat® 24/7",
+        "PaymentName": "Płatność kartą online",
+        "ShipmentMethod": "InPost",
+        "PaymentMethod": "DotPayCard",
+        "Value": 9.9,
+        "Html": null,
+        "Target": "Web"
+      },
+      {
+        "Title": "InPost Paczkomat® 24/7 - Płatność online",
+        "ShipmentName": "InPost Paczkomat® 24/7",
+        "PaymentName": "Płatność online",
+        "ShipmentMethod": "InPost",
+        "PaymentMethod": "DotPay",
+        "Value": 9.9,
+        "Html": null,
+        "Target": "Web"
+      },
+      {
+        "Title": "InPost Paczkomat® 24/7 - Alior szybkie raty",
+        "ShipmentName": "InPost Paczkomat® 24/7",
+        "PaymentName": "Alior szybkie raty",
+        "ShipmentMethod": "InPost",
+        "PaymentMethod": "InstallmentAlior",
+        "Value": 9.9,
+        "Html": null,
+        "Target": "Web"
+      },
+      {
+        "Title": "InPost Paczkomat® 24/7 - Santander raty taniejące",
+        "ShipmentName": "InPost Paczkomat® 24/7",
+        "PaymentName": "Santander raty taniejące",
+        "ShipmentMethod": "InPost",
+        "PaymentMethod": "InstallmentSantander",
+        "Value": 9.9,
+        "Html": null,
+        "Target": "Web"
+      },
+      {
+        "Title": "InPost Paczkomat® 24/7 - Kartą w Paczkomacie",
+        "ShipmentName": "InPost Paczkomat® 24/7",
+        "PaymentName": "Kartą w Paczkomacie",
+        "ShipmentMethod": "InPost",
+        "PaymentMethod": "CardInPost",
+        "Value": 9.9,
+        "Html": null,
+        "Target": "Web"
+      },
+      {
+        "Title": "InPost Paczkomat® 24/7 - Gotówką w paczkomacie",
+        "ShipmentName": "InPost Paczkomat® 24/7",
+        "PaymentName": "Gotówką w paczkomacie",
+        "ShipmentMethod": "InPost",
+        "PaymentMethod": "CashInPost",
+        "Value": 9.9,
+        "Html": null,
+        "Target": "Web"
+      },
+      {
+        "Title": "Kurier - InPost, UPS, FedEx, DTS, PickPack - Przelew tradycyjny",
+        "ShipmentName": "Kurier - InPost, UPS, FedEx, DTS, PickPack",
+        "PaymentName": "Przelew tradycyjny",
+        "ShipmentMethod": "Courier",
+        "PaymentMethod": "Prepayment",
+        "Value": 20.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Kurier - InPost, UPS, FedEx, DTS, PickPack - Płatność kartą online",
+        "ShipmentName": "Kurier - InPost, UPS, FedEx, DTS, PickPack",
+        "PaymentName": "Płatność kartą online",
+        "ShipmentMethod": "Courier",
+        "PaymentMethod": "DotPayCard",
+        "Value": 20.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Kurier - InPost, UPS, FedEx, DTS, PickPack - Płatność online",
+        "ShipmentName": "Kurier - InPost, UPS, FedEx, DTS, PickPack",
+        "PaymentName": "Płatność online",
+        "ShipmentMethod": "Courier",
+        "PaymentMethod": "DotPay",
+        "Value": 20.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Kurier - InPost, UPS, FedEx, DTS, PickPack - Alior szybkie raty",
+        "ShipmentName": "Kurier - InPost, UPS, FedEx, DTS, PickPack",
+        "PaymentName": "Alior szybkie raty",
+        "ShipmentMethod": "Courier",
+        "PaymentMethod": "InstallmentAlior",
+        "Value": 20.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Kurier - InPost, UPS, FedEx, DTS, PickPack - Santander raty taniejące",
+        "ShipmentName": "Kurier - InPost, UPS, FedEx, DTS, PickPack",
+        "PaymentName": "Santander raty taniejące",
+        "ShipmentMethod": "Courier",
+        "PaymentMethod": "InstallmentSantander",
+        "Value": 20.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Kurier - InPost, UPS, FedEx, DTS, PickPack - Gotówka przy odbiorze",
+        "ShipmentName": "Kurier - InPost, UPS, FedEx, DTS, PickPack",
+        "PaymentName": "Gotówka przy odbiorze",
+        "ShipmentMethod": "Courier",
+        "PaymentMethod": "CashOnDelivery",
+        "Value": 25.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Kurier - dostawa na dzisiaj - Płatność online",
+        "ShipmentName": "Kurier - dostawa na dzisiaj",
+        "PaymentName": "Płatność online",
+        "ShipmentMethod": "CourierSameDay",
+        "PaymentMethod": "DotPay",
+        "Value": 29.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "Kurier - dostawa na dzisiaj - Płatność kartą online",
+        "ShipmentName": "Kurier - dostawa na dzisiaj",
+        "PaymentName": "Płatność kartą online",
+        "ShipmentMethod": "CourierSameDay",
+        "PaymentMethod": "DotPayCard",
+        "Value": 29.0,
+        "Html": null,
+        "Target": "All"
+      },
+      {
+        "Title": "InPost Paczkomat® 24/7",
+        "ShipmentName": "InPost Paczkomat® 24/7",
+        "PaymentName": null,
+        "ShipmentMethod": "InPost",
+        "PaymentMethod": "Unknown",
+        "Value": 0.0,
+        "Html": null,
+        "Target": "Mobile"
+      }
+    ],
+    "ProductDescription": "<div class=\"content\"><div class=\"row text-left fresh-content\">\r\n\t<div class=\"col-md-12\">\r\n\t\t<img alt=\"GeForce serii RTX 40\" class=\"lazyloaded\" data-=\"\" src=\"https://allegro.stati.pl/AllegroIMG/PRODUCENCI/NVIDIA/RTX-40/geforce-serii-rtx-40.jpg\" /></div>\r\n</div>\r\n<div class=\"row text-left fresh-content\">\r\n\t<div class=\"col-md-2 text-center\">\r\n\t\t<img alt=\"sensorlaserowy ikona\" class=\"ico\" decoding=\"async\" fetchpriority=\"low\" src=\"https://satysfakcja.stati.pl/icons_all/sensorlaserowy.svg\" /></div>\r\n\t<div class=\"col-md-10\">\r\n\t\t<h2 class=\"text-left\">\r\n\t\t\tNowa generacja Ray Tracingu i DLSS 3</h2>\r\n\t\t<p>\r\n\t\t\tArchitektura NVIDIA Ada Lovelace wyprzedza sw&oacute;j czas, dzięki czemu wyzwolisz pełną potęgę ray tracingu. Symuluje ona efekty świetlne jak w prawdziwym świecie za sprawą trzeciej generacji rdzeni RT. Dzięki mocy obliczeniowej układ&oacute;w GeForce RTX z serii 40 możesz cieszyć się niezwykłą szczeg&oacute;łowością wirtualnych świat&oacute;w.</p>\r\n\t\t<p>\r\n\t\t\tZapewnij sobie więcej FPS dzięki rozwiązaniom z zakresu sztucznej inteligencji. Technika DLSS 3 wykorzystuje metody skalujące obraz, by tworzyć dodatkowe klatki o wysokiej jakości. Znacznie zwiększa ona wydajność dzięki rdzeniom Tensor czwartej generacji oraz akceleratorowi przepływu optycznego.</p>\r\n\t\t<img alt=\"Portal z Ray Tracingiem\" decoding=\"async\" fetchpriority=\"low\" src=\"https://allegro.stati.pl/AllegroIMG/PRODUCENCI/NVIDIA/RTX-40/Portal-RTX-On.jpg\" /></div>\r\n</div>\r\n<div class=\"row text-left fresh-content\">\r\n\t<div class=\"col-md-2 text-center\">\r\n\t\t<img alt=\"aktywnosc ikona\" class=\"ico\" decoding=\"async\" fetchpriority=\"low\" src=\"https://satysfakcja.stati.pl/icons_all/aktywnosc.svg\" /></div>\r\n\t<div class=\"col-md-10\">\r\n\t\t<h2 class=\"text-left\">\r\n\t\t\tZwycięstwo mierzone w milisekundach z NVIDIA Reflex</h2>\r\n\t\t<p>\r\n\t\t\tZyskaj absolutną przewagę podczas rozgrywki. Układy graficzne GeForce RTX z serii 40 zapewnią najniższe op&oacute;źnienia i najlepszą responsywność. W celu optymalizacji i pomiaru op&oacute;źnień systemu powstała technika NVIDIA Reflex. Zapewnia ona kr&oacute;tszy czas reakcji, a Tobie pozwoli szybciej namierzać cel w grach turniejowych. Ciesz się płynną rozgrywką pozbawioną negatywnych efekt&oacute;w przy wysokim odświeżaniu obrazu. Korzystaj r&oacute;wnież z obsługi HDR oraz NVIDIA G-SYNC.</p>\r\n\t\t<img alt=\"Watch Dogs Legion RTX\" decoding=\"async\" fetchpriority=\"low\" src=\"https://allegro.stati.pl/AllegroIMG/PRODUCENCI/NVIDIA/RTX-40/watch-dogs-legion-rtx.jpg\" /></div>\r\n</div>\r\n<div class=\"row text-left fresh-content\">\r\n\t<div class=\"col-md-2 text-center\">\r\n\t\t<img alt=\"rysik ikona\" class=\"ico\" decoding=\"async\" fetchpriority=\"low\" src=\"https://satysfakcja.stati.pl/icons_all/rysik.svg\" /></div>\r\n\t<div class=\"col-md-10\">\r\n\t\t<h2 class=\"text-left\">\r\n\t\t\tRozbudź kreatywność dzięki NVIDIA Studio</h2>\r\n\t\t<p>\r\n\t\t\tWznieś projekty kreatywne na wyższy poziom dzięki NVIDIA Studio. Karty GeForce RTX z serii 40 udostępnią Ci niezr&oacute;wnany poziom wydajności na potrzeby renderingu 3D, edycji wideo i projekt&oacute;w graficznych. Korzystają też z enkodera NVIDIA &oacute;smej generacji (NVENC). Wejdź w nową erę transmisji w wysokiej jakości dzięki obsłudze kolejnej generacji kodeka AV1.</p>\r\n\t\t<p>\r\n\t\t\tW ramach zestawu narzędzi NVIDIA Studio przygotowano platformę wsp&oacute;łpracy projektowej 3D NVIDIA Omniverse. Stworzona, aby przyspieszyć tok pracy tw&oacute;rc&oacute;w, łączy aplikacje i zasoby w celu szybkiej realizacji Twoich pomysł&oacute;w.</p>\r\n\t\t<img alt=\"NVIDIA Studio\" decoding=\"async\" fetchpriority=\"low\" src=\"https://allegro.stati.pl/AllegroIMG/PRODUCENCI/NVIDIA/RTX-40/studio.jpg\" /></div>\r\n</div>\r\n<div class=\"row text-left fresh-content\">\r\n\t<div class=\"col-md-2 text-center\">\r\n\t\t<img alt=\"suwaki ikona\" class=\"ico\" decoding=\"async\" fetchpriority=\"low\" src=\"https://satysfakcja.stati.pl/icons_all/suwaki.svg\" /></div>\r\n\t<div class=\"col-md-10\">\r\n\t\t<h2 class=\"text-left\">\r\n\t\t\tGeForce Experience i NVIDIA Broadcast</h2>\r\n\t\t<p>\r\n\t\t\tRejestruj i udostępniaj znajomym materiały wideo, zrzuty ekranowe oraz transmisje swoich rozgrywek. Aktualizuj sterowniki i optymalizuj ustawienia w grach. Wszystko to umożliwia aplikacja GeForce Experience, kt&oacute;ra towarzyszy Twojej karcie graficznej GeForce RTX z serii 40.</p>\r\n\t\t<p>\r\n\t\t\tAplikacja NVIDIA Broadcast przekształci dowolne pomieszczenie w Twoje domowe studio. Wznieś na wyższy poziom transmisje na żywo, rozmowy głosowe i połączenia wideo dzięki potężnym efektom opartym na SI. Korzystaj z wirtualnego tła, usuwaj szumy czy echa pomieszczenia i wiele więcej.</p>\r\n\t\t<img alt=\"GeForce Experience\" decoding=\"async\" fetchpriority=\"low\" src=\"https://allegro.stati.pl/AllegroIMG/PRODUCENCI/NVIDIA/RTX-40/geforce-experience.jpg\" /></div>\r\n</div>\r\n<div class=\"row text-left fresh-content\">\r\n\t<div class=\"col-md-2 text-center\">\r\n\t\t<img alt=\"kartagraficzna ikona\" class=\"ico\" decoding=\"async\" fetchpriority=\"low\" src=\"https://satysfakcja.stati.pl/icons_all/kartagraficzna.svg\" /></div>\r\n\t<div class=\"col-md-10\">\r\n\t\t<h2 class=\"text-left\">\r\n\t\t\tZotac GeForce RTX 4060 Ti Gaming Twin Edge 8 GB GDDR6</h2>\r\n\t\t<p>\r\n\t\t\tOdkryj niesamowitą moc karty graficznej Zotac GeForce RTX 4060 Ti Gaming Twin Edge. Ta kompaktowa i potężna karta, oparta na architekturze NVIDIA Ada Lovelace, zapewnia wydajność na najwyższym poziomie. Dzięki aerodynamicznemu designowi i zmniejszonej wielkości do 2.2 slotu, jest doskonałym wyborem dla miłośnik&oacute;w budowy komputera gamingowego o kompaktowych rozmiarach. Dzięki technologii NVIDIA DLSS 3, efektywnemu rdzeniowi Ada Lovelace i ray tracingowi, zanurzysz się w pełni realistycznych wizualizacjach.</p>\r\n\t\t<img alt=\"Zotac GeForce RTX 4060 Ti Gaming Twin Edge 8 GB GDDR6\" decoding=\"async\" fetchpriority=\"low\" src=\"https://allegro.stati.pl/AllegroIMG/PRODUCENCI/Zotac/ZT-D40610E-10M/karta-graficzna-box.jpg\" /></div>\r\n</div>\r\n<div class=\"row text-left fresh-content\">\r\n\t<div class=\"col-md-2 text-center\">\r\n\t\t<img alt=\"chlodzenie ikona\" class=\"ico\" decoding=\"async\" fetchpriority=\"low\" src=\"https://satysfakcja.stati.pl/icons_all/chlodzenie.svg\" /></div>\r\n\t<div class=\"col-md-10\">\r\n\t\t<h2 class=\"text-left\">\r\n\t\t\tUkład chłodzenia IceStorm 2.0</h2>\r\n\t\t<p>\r\n\t\t\tPrzygotuj się na niezawodne i efektywne chłodzenie dzięki karcie graficznej Zotac GeForce RTX 4060 Ti Gaming Twin Edge. Wyposażona w układ IceStorm 2.0 z podw&oacute;jnymi wentylatorami, zapewnia optymalną temperaturę podczas intensywnego użytkowania. Dzięki funkcji FREEZE Fan Stop i Active Fan Control, wentylatory pracują w zależności od obciążenia, eliminując hałas w trybie bezczynności. Dodatkowo, efektowne oświetlenie SPECTRA RGB nadaje karcie wyjątkowy wygląd. Solidny metalowy backplate zapewnia nie tylko estetykę, ale także dodatkowe wzmocnienie.</p>\r\n\t\t<img alt=\"Zotac GeForce RTX 4060 Ti Gaming Twin Edge Chłodzenie\" decoding=\"async\" fetchpriority=\"low\" src=\"https://allegro.stati.pl/AllegroIMG/PRODUCENCI/Zotac/ZT-D40610E-10M/chlodzenie.jpg\" /></div>\r\n</div>\r\n<!-- Xkom_Only -->\r\n<div class=\"row text-left fresh-content\">\r\n\t<div class=\"col-md-2 text-center\">\r\n\t\t<img alt=\"klip ikona\" class=\"ico\" decoding=\"async\" fetchpriority=\"low\" src=\"https://satysfakcja.stati.pl/icons_all/klip.svg\" /></div>\r\n\t<div class=\"col-md-10\">\r\n\t\t<h2 class=\"text-left\">\r\n\t\t\tDokonaj najlepszego wyboru</h2>\r\n\t\t<p>\r\n\t\t\tZobacz film ukazujący zalety i najdrobniejsze szczeg&oacute;ły układu GeForce RTX 4060 Ti. Dowiedz się więcej i poznaj najważniejsze cechy, oglądając poni��szy materiał wideo.</p>\r\n\t\t<div class=\"video-container\" style=\"position:relative;padding-bottom:56.25%; background: none; margin: 30px 0 40px 0;height:0;overflow:hidden;border-radius: 30px\">\r\n\t\t\t<div class=\"embed-responsive embed-responsive-16by9\">\r\n\t\t\t\t<iframe class=\"embed-responsive-item\" src=\"https://www.youtube-nocookie.com/embed/luiAP3wp8T8?rel=0&amp;showinfo=0&amp;controls=0\" style=\"position:absolute;top:0;left:0;width:100%;height:100%;border:none;\"></iframe></div>\r\n\t\t</div>\r\n\t\t<p style=\"font-size: 11px; text-align: center; margin-bottom:20px; margin-top: -20px;\">\r\n\t\t\tSpecyfikacja może się r&oacute;żnić w zależności od modelu i/lub regionu.</p>\r\n\t</div>\r\n</div>\r\n<!-- Xkom_Only end -->\r\n<link href=\"https://allegro.stati.pl/AllegroIMG/benchmark/review/style3.css\" rel=\"stylesheet\" />\r\n<div class=\"row text-left fresh-content\">\r\n\t<div class=\"col-md-2 text-center\">\r\n\t\t<img alt=\"recenzja\" class=\"ico\" src=\"https://allegro.stati.pl/AllegroIMG/SZABLON/ICONS/ico_geex.svg\" /></div>\r\n\t<div class=\"col-md-10\">\r\n\t\t<h2 class=\"text-left\">\r\n\t\t\tWybierz inteligentnie</h2>\r\n\t\t<p class=\"geex-opis\">\r\n\t\t\tZastanawiasz się nad zakupem karty graficznej? Nie wiesz, jak GeForce RTX 4060 Ti sprawdzi się w codziennym użytkowaniu? Przeczytaj opinię Bartosza Woldańskiego, redaktora portalu Geex.</p>\r\n\t\t<div class=\"row geex-review d-flex flex-column-reverse flex-md-row\">\r\n\t\t\t<div class=\"col-md-8 review\">\r\n\t\t\t\t<div class=\"card\">\r\n\t\t\t\t\t<div class=\"geex-section\">\r\n\t\t\t\t\t\t<div class=\"geex-content\">\r\n\t\t\t\t\t\t\t<h3 class=\"title\">\r\n\t\t\t\t\t\t\t\tGeForce RTX 4060 Ti</h3>\r\n\t\t\t\t\t\t\t<p>\r\n\t\t\t\t\t\t\t\tNVIDIA promuje GeForce&rsquo;a RTX 4060 Ti do rozdzielczości 1080p i to do niej gł&oacute;wnie polecilibyśmy recenzowane GPU. Jednak patrząc wstecz, RTX 3060 Ti bez problemu zapewniał w swoim czasie bardzo przyzwoitą moc nawet do 1440p. RTX 4060 Ti już z miejsca stał się problematyczny w tej rozdzielczości. W końcu to przypudrowany RTX 3060 Ti z uskrzydleniem w postaci DLSS 3.</p>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"geex\">\r\n\t\t\t\t\t\t\t<h4>\r\n\t\t\t\t\t\t\t\t<a href=\"https://geex.x-kom.pl/recenzje/geforce-rtx-4060ti-test-recenzja/\" target=\"_blank\">sprawdź pełną recenzję na </a></h4>\r\n\t\t\t\t\t\t\t<a href=\"https://geex.x-kom.pl/recenzje/geforce-rtx-4060ti-test-recenzja/\" target=\"_blank\"><img src=\"https://geex.x-kom.pl/wp-content/themes/xkom/assets/img/logo-geex.svg\" /> </a></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-md-4\">\r\n\t\t\t\t<div class=\"card\">\r\n\t\t\t\t\t<div class=\"geex-section reviewer\">\r\n\t\t\t\t\t\t<div class=\"geex-content\">\r\n\t\t\t\t\t\t\t<img src=\"https://allegro.stati.pl/AllegroIMG/geex/Bartosz-Woldanski.jpg\" />\r\n\t\t\t\t\t\t\t<h3 class=\"title\">\r\n\t\t\t\t\t\t\t\tBartosz Woldański</h3>\r\n\t\t\t\t\t\t\t<span class=\"position\">Redaktor portalu Geex</span></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div></div>",
+    "Features": [
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "260163",
+            "FullName": "GeForce RTX z serii 40",
+            "ShortName": "GeForce RTX z serii 40",
+            "Description": null
+          }
+        ],
+        "Id": "084800000000",
+        "FullName": "Seria karty graficznej",
+        "ShortName": "Seria karty graficznej",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "173243",
+            "FullName": "Tak",
+            "ShortName": "Tak",
+            "Description": null
+          }
+        ],
+        "Id": "077040000000",
+        "FullName": "Obsługa Ray tracingu",
+        "ShortName": "Obsługa Ray tracingu",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": "Ray tracing to technika śledzenia promieni wykorzystywana do realizacji globalnego oświetlenia w grze w czasie rzeczywistym. Dzięki tej technologii zobaczysz realistycznie odwzorowane cienie i odbicia oraz refleksy świetlne na powierzchniach, co znacząco poprawia wrażenia wizualne z rozgrywki."
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "282085",
+            "FullName": "GeForce RTX 4060 Ti",
+            "ShortName": "GeForce RTX 4060 Ti",
+            "Description": null
+          }
+        ],
+        "Id": "017020000000",
+        "FullName": "Układ graficzny",
+        "ShortName": "Układ",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": "Układy graficzne zazwyczaj dzieli się na 3 segmenty: biurowe, gamingowe i profesjonalne. Nazwy układów graficznych można traktować jako drogowskaz, który wskazuje przeznaczenie karty. Seria kart GeForce GT wystarczy do domu i biura. Natomiast do zastosowań profesjonalnych i gamingu (mogą się ze sobą przeplatać), wybierz coś z serii Nvidia GeForce RTX/GTX, AMD Radeon RX czy RX Vega."
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "232023",
+            "FullName": "PCIe 4.0 x16 (tryb x8)",
+            "ShortName": "PCIe 4.0 x16",
+            "Description": null
+          }
+        ],
+        "Id": "017030000000",
+        "FullName": "Rodzaj złącza",
+        "ShortName": "Rodzaj złącza",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "25904",
+            "FullName": "8 GB",
+            "ShortName": "8 GB",
+            "Description": null
+          }
+        ],
+        "Id": "017040000000",
+        "FullName": "Pamięć",
+        "ShortName": "Pamięć",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": "Pamięć karty graficznej, nazywana także jako VRAM, ma duży wpływ na płynność i efekty wizualne podczas rozgrywki oraz wydajność w programach graficznych. Przechowuje ona dane o obrabianym aktualnie obrazie, np. teksturach. Im większa pojemność, tym więcej detali w lepszej jakości można wyświetlić na ekranie."
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "123354",
+            "FullName": "GDDR6",
+            "ShortName": "GDDR6",
+            "Description": null
+          }
+        ],
+        "Id": "017050000000",
+        "FullName": "Rodzaj pamięci",
+        "ShortName": "Rodzaj pamięci",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": "Od rodzaju pamięci zależy przepustowość przenoszenia plików przez kartę graficzną, co ma wpływ na jej wydajność. Im wyższa cyfra w nazwie, tym nowszy standard i lepsze osiągi pamięci, np. GDDR6."
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "18578",
+            "FullName": "128 bit",
+            "ShortName": "128 bit",
+            "Description": null
+          }
+        ],
+        "Id": "017060000000",
+        "FullName": "Szyna pamięci",
+        "ShortName": "Szyna pamięci",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": "Szyna pamięci przekazuje dane między rdzeniem karty graficznej a jej pamięcią. W jej przypadku istotna jest liczba przesyłanych bitów w pojedynczym takcie zegara. Im szersza szyna, czyli im więcej ma bitów, tym więcej danych może przesłać. Jednak nie zawsze przekłada się to na większą wydajność, ponieważ istotny jest też użyty procesor oraz rodzaj i ilość pamięci VRAM."
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "188965",
+            "FullName": "2310 MHz",
+            "ShortName": "2310 MHz",
+            "Description": null
+          }
+        ],
+        "Id": "017080000000",
+        "FullName": "Taktowanie rdzenia",
+        "ShortName": "Taktowanie rdzenia",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": "Taktowanie rdzenia to miara tego, jak szybko procesor może przetwarzać grafikę. To przekłada się na większą liczbę wyświetlanych klatek na sekundę w grze, więc zazwyczaj im większe taktowanie, tym lepiej. Należy jednak porównywać modele układów graficznych z tej samej rodziny, ponieważ każdy układ GPU ma nieco inne komponenty i architekturę."
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "260178",
+            "FullName": "2535 MHz",
+            "ShortName": "2535 MHz",
+            "Description": null
+          }
+        ],
+        "Id": "084820000000",
+        "FullName": "Taktowanie rdzenia w trybie boost",
+        "ShortName": "Taktowanie rdzenia w trybie boost",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "123589",
+            "FullName": "4352",
+            "ShortName": "4352",
+            "Description": null
+          }
+        ],
+        "Id": "059680000000",
+        "FullName": "Rdzenie CUDA",
+        "ShortName": "Rdzenie CUDA",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": "Rdzenie CUDA działają w podobny sposób, co rdzenie w procesorze, jednak znajdują się w procesorze graficznym i są dużo mniejsze, więc mogą ich być setki lub nawet tysiące. W odróżnieniu od zwykłych rdzeni wykonują zadania związane wyłącznie z generowaniem grafiki. Dzięki temu czasy ładowania gier się skracają, a oświetlenie i cieniowanie scenerii jest jeszcze bardziej realistyczne."
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "18581",
+            "FullName": "Aktywne",
+            "ShortName": "Aktywne",
+            "Description": null
+          }
+        ],
+        "Id": "017090000000",
+        "FullName": "Typ chłodzenia",
+        "ShortName": "Typ chłodzenia",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": "Chłodzenie karty graficznej dzieli się na powietrzne i wodne. To powietrzne może być: aktywne, półpasywne i pasywne, z czego najlepsze jest półpasywne, ponieważ oferuje balans między chłodzeniem a kulturą pracy. Chłodzenie wodne jest zdecydowanie najbardziej wydajne i najcichsze, a do tego może objąć kartę graficzną, jej część lub cały komputer."
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "216488",
+            "FullName": "2",
+            "ShortName": "2",
+            "Description": null
+          }
+        ],
+        "Id": "084830000000",
+        "FullName": "Liczba wentylatorów",
+        "ShortName": "Liczba wentylatorów",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "208557",
+            "FullName": "Tak",
+            "ShortName": "Tak",
+            "Description": null
+          }
+        ],
+        "Id": "083270000000",
+        "FullName": "Podświetlenie",
+        "ShortName": "Podświetlenie",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "260166",
+            "FullName": "HDMI 2.1a - 1 szt.",
+            "ShortName": "HDMI 2.1a - 1 szt.",
+            "Description": null
+          },
+          {
+            "Values": null,
+            "Id": "216502",
+            "FullName": "DisplayPort 1.4a - 3 szt.",
+            "ShortName": "DisplayPort 1.4a - 3 szt.",
+            "Description": null
+          }
+        ],
+        "Id": "017100000000",
+        "FullName": "Rodzaje wyjść",
+        "ShortName": "Złącza",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "216493",
+            "FullName": "4",
+            "ShortName": "4",
+            "Description": null
+          }
+        ],
+        "Id": "084840000000",
+        "FullName": "Liczba obsługiwanych monitorów",
+        "ShortName": "Liczba obsługiwanych monitorów",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "216494",
+            "FullName": "DirectX 12 Ultimate",
+            "ShortName": "DirectX 12 Ultimate",
+            "Description": null
+          },
+          {
+            "Values": null,
+            "Id": "127316",
+            "FullName": "OpenGL 4.6",
+            "ShortName": "OpenGL 4.6",
+            "Description": null
+          }
+        ],
+        "Id": "017110000000",
+        "FullName": "Obsługiwane biblioteki",
+        "ShortName": "Obsługiwane biblioteki",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "149559",
+            "FullName": "8 pin - 1 szt.",
+            "ShortName": "8 pin - 1 szt.",
+            "Description": null
+          }
+        ],
+        "Id": "070550000000",
+        "FullName": "Złącze zasilania",
+        "ShortName": "Złącze zasilania",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "149943",
+            "FullName": "500 W",
+            "ShortName": "500 W",
+            "Description": null
+          }
+        ],
+        "Id": "070540000000",
+        "FullName": "Rekomendowana moc zasilacza",
+        "ShortName": "Rekomendowana moc zasilacza",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "68411",
+            "FullName": "160 W",
+            "ShortName": "160 W",
+            "Description": null
+          }
+        ],
+        "Id": "039240000000",
+        "FullName": "Pobór mocy",
+        "ShortName": "Pobór mocy",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": "Parametr TDP wskazuje maksymalne ciepło, jakie układ graficzny może przyjąć w watach. Im więcej watów, tym lepsza wydajność karty, ale też wyższe temperatury i większe zużycie energii. Pamiętaj, że wysoki parametr TDP oznacza, że musisz zainstalować mocniejszy zasilacz w komputerze."
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "25776",
+            "FullName": "226 mm",
+            "ShortName": "226 mm",
+            "Description": null
+          }
+        ],
+        "Id": "017130000000",
+        "FullName": "Długość",
+        "ShortName": "Długość",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "41656",
+            "FullName": "123 mm",
+            "ShortName": "123 mm",
+            "Description": null
+          }
+        ],
+        "Id": "017140000000",
+        "FullName": "Szerokość",
+        "ShortName": "Szerokość",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "25763",
+            "FullName": "40 mm",
+            "ShortName": "40 mm",
+            "Description": null
+          }
+        ],
+        "Id": "017120000000",
+        "FullName": "Wysokość",
+        "ShortName": "Wysokość",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "218416",
+            "FullName": "2.2 slot",
+            "ShortName": "2.2 slot",
+            "Description": null
+          }
+        ],
+        "Id": "084860000000",
+        "FullName": "Liczba zajmowanych slotów",
+        "ShortName": "Liczba zajmowanych slotów",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      },
+      {
+        "ValueGroups": [
+          {
+            "Values": null,
+            "Id": "62179",
+            "FullName": "36 miesięcy (gwarancja producenta)",
+            "ShortName": "36 miesięcy",
+            "Description": null
+          }
+        ],
+        "Id": "041630000000",
+        "FullName": "Gwarancja",
+        "ShortName": "Gwarancja",
+        "FilterName": null,
+        "Type": "None",
+        "Range": null,
+        "UnitName": null,
+        "Description": null
+      }
+    ],
+    "SubstituteProducts": null,
+    "ComplementaryProducts": [
+      {
+        "CommentsRating": 5.72,
+        "CommentsCount": 192,
+        "FeatureSummary": [
+          "Obsługiwane procesory: AMD Ryzen™",
+          "Format: ATX",
+          "Gniazdo procesora: Socket AM4",
+          "Chipset: AMD B550",
+          "Obsługa wielu kart graficznych: Nie",
+          "Dodatkowe informacje: Brak kompatybilności z AMD Ryzen 5 3400G i AMD Ryzen 3 3200G"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Obsługiwane procesory",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "AMD Ryzen™",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Format",
+            "Description": "Od formatu płyty głównej zależy, czy będzie ona pasowała do danego typu obudowy. Oto główne formaty płyt głównych w kolejności od największej do najmniejszej: \r\n•\tE-ATX – 305 × 330 mm,\r\n•\tATX – 305 × 244 mm,\r\n•\tMicroATX (mATX, uATX) – 244 × 244 mm,\r\n•\tMiniITX (mITX) – 170 × 170 mm.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "ATX",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Gniazdo procesora",
+            "Description": "Gniazdo procesora to złącze na płycie głównej komputera, w którym umieszcza się procesor. Socket procesora określa, od jakiego producenta i z jakiej rodziny musi być procesor, aby był kompatybilny z gniazdem na płycie głównej.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Socket AM4",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Chipset",
+            "Description": "Chipset jest odpowiedzialny za komunikację między procesorem, pamięcią RAM, dyskiem twardym oraz innymi podzespołami. Decyduje on o kompatybilności tych podzespołów z płytą główną, a także wpływa na możliwość podkręcania procesora czy rozbudowy jednostki w przyszłości.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "AMD B550",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Obsługa wielu kart graficznych",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Nie",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Dodatkowe informacje",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Brak kompatybilności z AMD Ryzen 5 3400G i AMD Ryzen 3 3200G",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "609272",
+        "Name": "B550 GAMING X V2",
+        "Price": 509.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 509.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "57",
+          "Name": "Gigabyte"
+        },
+        "Category": {
+          "Id": "2549",
+          "NameSingular": "Płyta główna Socket AM4",
+          "NamePlural": "Płyty główne Socket AM4",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "5",
+            "Name": "Podzespoły komputerowe"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2020/11/pr_2020_11_26_13_25_29_638_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2020/11/pr_2020_11_26_13_25_29_638_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2020/11/pr_2020_11_26_13_25_29_638_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/609272-plyta-glowna-socket-am4-gigabyte-b550-gaming-x-v2.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.86,
+        "CommentsCount": 2711,
+        "FeatureSummary": [
+          "Przewodność cieplna: 12,5 W/mK",
+          "Rezystancja termiczna: 0,0032 °C/W",
+          "Temperatura robocza: od -200 °C do +350 °C",
+          "Waga: 1 g",
+          "Ciężar właściwy: 3,7 g/cm³"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Przewodność cieplna",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "12,5 W/mK",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Rezystancja termiczna",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "0,0032 °C/W",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Temperatura robocza",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "od -200 °C do +350 °C",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Waga",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1 g",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Ciężar właściwy",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "3,7 g/cm³",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "TG-K-001-RS",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "396350",
+        "Name": "Kryonaut 1g",
+        "Price": 39.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 39.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "1145",
+          "Name": "Thermal Grizzly"
+        },
+        "Category": {
+          "Id": "298",
+          "NameSingular": "Pasta termoprzewodząca",
+          "NamePlural": "Pasty termoprzewodzące",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "5",
+            "Name": "Podzespoły komputerowe"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2017/12/pr_2017_12_6_8_20_22_823_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2017/12/pr_2017_12_6_8_20_22_823_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2017/12/pr_2017_12_6_8_20_22_823_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/396350-pasta-termoprzewodzaca-thermal-grizzly-kryonaut-1g.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.37,
+        "CommentsCount": 660,
+        "FeatureSummary": [
+          "Typ myszy: Dla graczy",
+          "Sensor: Optyczny",
+          "Liczba przycisków: 6",
+          "Rozdzielczość: 8500 dpi",
+          "Interfejs: USB",
+          "Długość przewodu: 1,8 m",
+          "Profil: Praworęczny"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Typ myszy",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Dla graczy",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Sensor",
+            "Description": "Sensory optyczne i laserowe w myszkach działają na tej samej zasadzie, jednak używają różnego światła: diody LED oraz wiązki lasera. Ta druga jest bardziej precyzyjna, co docenią np. graficy, ale ponieważ odczytuje fakturę powierzchni, po której się porusza, to musi ona być gładka i chwilowe podniesienie myszy może skutkować uciekaniem kursora. Myszki optyczne natomiast nie mają tego problemu, choć nie wszystkie są tak precyzyjne jak te laserowe. Myszki z sensorem Blue Track wykorzystują niebieską diodę LED i bez przeszkód mogą pracować na różnych powierzchniach bez utraty dużej precyzji, np. na dywanie.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Optyczny",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Liczba przycisków",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "6",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Rozdzielczość",
+            "Description": "Rozdzielczość DPI przekłada się na drogę, jaką musi pokonać mysz, żeby przesunąć kursor na ekranie o daną długość. Większa rozdzielczość w myszce sprawi, że wystarczy lekki ruch nadgarstka, by przesunąć kursor, co przydaje się w grach i grafice, gdzie potrzebna jest duża szybkość i precyzja. Myszka z mniejszą rozdzielczością DPI, np. 800 lepiej sprawdzi się do mniej dynamicznych zadań, np. pracy biurowej czy przeglądania internetu.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "8500 dpi",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Interfejs",
+            "Description": "Myszy bezprzewodowe z interfejsem 2,4 GHz łączą się z komputerem za pomocą fal radiowych i niewielkiego odbiornika umieszczanego w porcie USB. Interfejs Bluetooth w odróżnieniu od 2,4 GHz nie wymaga dodatkowego odbiornika, nie jest narażony na zakłócenia i umożliwia połączenie myszy z kilkoma urządzeniami jednocześnie. Interfejs USB jest natomiast przeznaczony dla myszek przewodowych.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "USB",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Długość przewodu",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1,8 m",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Profil",
+            "Description": "Profil myszki wybierz zgodnie z własnymi preferencjami. Jeśli będą używać jej osoby prawo- i leworęczne, to najlepszym rozwiązaniem będzie myszka z profilem uniwersalnym, która będzie wygodna dla każdego użytkownika.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Praworęczny",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "62513",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "540530",
+        "Name": "Rival 3",
+        "Price": 169.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 169.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "200",
+          "Name": "SteelSeries"
+        },
+        "Category": {
+          "Id": "383",
+          "NameSingular": "Myszka przewodowa",
+          "NamePlural": "Myszki przewodowe",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "6",
+            "Name": "Urządzenia peryferyjne"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2020/1/pr_2020_1_20_9_50_4_411_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2020/1/pr_2020_1_20_9_50_4_411_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2020/1/pr_2020_1_20_9_50_4_411_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/540530-myszka-przewodowa-steelseries-rival-3.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.72,
+        "CommentsCount": 3152,
+        "FeatureSummary": [
+          "Rodzaj: Sprężone powietrze",
+          "Zastosowanie: Sprzęt komputerowy i biurowy",
+          "Pojemność: 600 ml",
+          "Liczba elementów w zestawie: 1"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Rodzaj",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Sprężone powietrze",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Zastosowanie",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Sprzęt komputerowy i biurowy",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Pojemność",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "600 ml",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Liczba elementów w zestawie",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "GS600ML-SM",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "514738",
+        "Name": "Sprężone powietrze 600ml",
+        "Price": 24.99,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 24.99,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "1546",
+          "Name": "Silver Monkey"
+        },
+        "Category": {
+          "Id": "381",
+          "NameSingular": "Sprężone powietrze",
+          "NamePlural": "Sprężone powietrze",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "12",
+            "Name": "Akcesoria"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2019/11/pr_2019_11_29_14_6_30_983_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2019/11/pr_2019_11_29_14_6_30_983_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2019/11/pr_2019_11_29_14_6_30_983_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/514738-sprezone-powietrze-silver-monkey-sprezone-powietrze-600ml.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.72,
+        "CommentsCount": 3151,
+        "FeatureSummary": [
+          "Rodzaj: Sprężone powietrze",
+          "Zastosowanie: Sprzęt komputerowy i biurowy",
+          "Pojemność: 400 ml",
+          "Liczba elementów w zestawie: 1"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Rodzaj",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Sprężone powietrze",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Zastosowanie",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Sprzęt komputerowy i biurowy",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Pojemność",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "400 ml",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Liczba elementów w zestawie",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "GS400ML-SM",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "514737",
+        "Name": "Sprężone powietrze 400ml",
+        "Price": 19.99,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 19.99,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "1546",
+          "Name": "Silver Monkey"
+        },
+        "Category": {
+          "Id": "381",
+          "NameSingular": "Sprężone powietrze",
+          "NamePlural": "Sprężone powietrze",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "12",
+            "Name": "Akcesoria"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2019/11/pr_2019_11_29_14_0_39_274_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2019/11/pr_2019_11_29_14_0_39_274_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2019/11/pr_2019_11_29_14_0_39_274_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/514737-sprezone-powietrze-silver-monkey-sprezone-powietrze-400ml.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.63,
+        "CommentsCount": 1030,
+        "FeatureSummary": [
+          "Przekątna: 23,8\"",
+          "Rozdzielczość: 1920 x 1080",
+          "Matryca: LED, IPS",
+          "Klasa energetyczna: F",
+          "Typ ekranu: Płaski",
+          "Powłoka matrycy: Matowa",
+          "Kontrast: 100 000 000:1",
+          "Czas reakcji: 1 ms",
+          "Jasność: 250 cd/m²"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Przekątna",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "23,8\"",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Rozdzielczość",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1920 x 1080",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Matryca",
+            "Description": "Ze względu na bardzo niski czas reakcji i wysoką częstotliwość odświeżania monitory z matrycą TN najlepiej sprawdzają się w grach multiplayer. Ich niewygórowana cena sprawia także, że jest to częsty wybór podczas urządzania stanowiska biurowego. Matryca IPS zapewnia natomiast doskonałe kąty widzenia i intensywne kolory, więc świetnie sprawdzi się do wszelkich zastosowań domowych. Atutem matrycy VA jest natomiast odwzorowanie czerni i bardzo dobre kolory, co czyni ją dobrym wyborem dla graczy i miłośników kina.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "LED, IPS",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Klasa energetyczna",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "F",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Typ ekranu",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Płaski",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Powłoka matrycy",
+            "Description": "Wybierz matową powłokę matrycy, jeśli używasz monitora w nasłonecznionym pomieszczeniu lub na zewnątrz i zależy Ci na dobrej widoczności ekranu nawet pod światło. <br>Powłoka błyszcząca będzie je odbijać, ale z kolei lepiej odwzoruje kolory, więc sprawdzi się do obróbki grafiki czy montażu wideo.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Matowa",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Kontrast",
+            "Description": "Wielkość kontrastu dynamicznego warto porównywać jedynie między produktami tego samego producenta. Jest on wytwarzany przez odpowiednie algorytmy, których zadaniem jest poprawiać kontrast natywny.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "100 000 000:1",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Czas reakcji",
+            "Description": "Mierzony w milisekundach to czas, który upływa od wykonania ruchu przez gracza na efekt odzwierciedlony na ekranie i wpływa na ostrość obiektów ruchomych. <br>Do gier multiplayer i wyścigowych optymalny czas reakcji wynosi od 1 do 4 ms. <br>W zastosowaniach biurowych czas reakcji może wynosić nawet powyżej 10 milisekund. Zbyt długi czas reakcji (powyżej 20 ms) powoduje efekt smużenia.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1 ms",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Jasność",
+            "Description": "Określa ilość światła emitowanego przez ekran i podaje się ją w kandelach na metr kwadratowy (cd/m2). Duża jasność wpływa na lepszy efekt HDR, więc zwróć na nią uwagę, wybierając monitor do gier lub filmów. <br>Jeśli szukasz monitora do pracy biurowej, to zbyt duża jasność ekranu może szybko zmęczyć Twój wzrok.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "250 cd/m²",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "UM.QV0EE.001",
+        "FreeShipment": true,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "440008",
+        "Name": "Nitro VG240YBMIIX czarny",
+        "Price": 599.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 599.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "230",
+          "Name": "Acer"
+        },
+        "Category": {
+          "Id": "1087",
+          "NameSingular": "Monitor LED 24\"",
+          "NamePlural": "Monitory LED 24\" (23,5\"-26,4\")",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "6",
+            "Name": "Urządzenia peryferyjne"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2022/9/pr_2022_9_13_10_12_33_904_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2022/9/pr_2022_9_13_10_12_33_904_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2022/9/pr_2022_9_13_10_12_33_904_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/440008-monitor-led-24-acer-nitro-vg240ybmiix-czarny.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.89,
+        "CommentsCount": 281,
+        "FeatureSummary": [
+          "Typ: DisplayPort - DisplayPort",
+          "Zastosowanie: Audio, Wideo",
+          "Standard: DisplayPort 2.0",
+          "Przepustowość: do 80 Gbit/s",
+          "Długość: 1,5 m"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Typ",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "DisplayPort - DisplayPort",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Zastosowanie",
+            "Description": "Istnieje wiele typów kabli, takich jak audio, wideo, sieciowe, zasilające i ładowania. Kabel audio przesyła sygnały dźwiękowe. Kable video takie jak HDMI, DisplayPort, VGA i DVI przesyłają obraz. Kable sieciowe pozwalają łączyć infrastrukturę sieciową i przesyłać dane. Kable zasilające dostarczają energię do urządzeń elektrycznych, a ładujące zoptymalizowano pod kątem najwydajniejszego ładowania urządzeń przenośnych. Wybór kabla zależy od Twoich potrzeb i rodzaju urządzeń.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Audio",
+                "Description": null
+              },
+              {
+                "ShortName": "Wideo",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Standard",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "DisplayPort 2.0",
+                "Description": "DisplayPort 2.0 to interfejs, który umożliwia wysoką jakość przesyłania obrazu i dźwięku. Obsługuje rozdzielczość 8K, co oznacza wyświetlanie obrazu o niesamowitej szczegółowości. DisplayPort 2.0 zapewnia płynne odtwarzanie filmów, gier wideo i innych multimediów. Ten zaawansowany standard oferuje również wysoką przepustowość i umożliwia obsługę zaawansowanych funkcji, takich jak HDR (High Dynamic Range). To niezawodne połączenie między urządzeniami, które dostarcza imponujące wrażenia wizualne i dźwiękowe."
+              }
+            ]
+          },
+          {
+            "ShortName": "Przepustowość",
+            "Description": "Przepustowość kabla odnosi się do ilości danych, które można przesłać przez dany kabel w jednostce czasu. Większa przepustowość oznacza możliwość przesyłania większej ilości danych w krótszym czasie. Korzyści płynące z większej przepustowości to szybsze transferowanie plików, płynne strumieniowanie multimediów, skrócenie czasu oczekiwania na przesyłanie danych oraz lepszą wydajność w przypadku wymagających zastosowań, takich jak gry wideo czy przetwarzanie strumieniowe.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "do 80 Gbit/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Długość",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1,5 m",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "CB-U2015R-SMX",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "701763",
+        "Name": "Kabel DisplayPort 2.0 Ultra w oplocie 1.5m",
+        "Price": 89.99,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 89.99,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "2580",
+          "Name": "Silver Monkey X"
+        },
+        "Category": {
+          "Id": "2037",
+          "NameSingular": "Kabel DisplayPort",
+          "NamePlural": "Kable DisplayPort",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "12",
+            "Name": "Akcesoria"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2022/3/pr_2022_3_8_9_5_51_825_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2022/3/pr_2022_3_8_9_5_51_825_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2022/3/pr_2022_3_8_9_5_51_825_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/701763-kabel-displayport-silver-monkey-x-kabel-displayport-2-0-ultra-w-oplocie-1-5m.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.86,
+        "CommentsCount": 745,
+        "FeatureSummary": [
+          "Typ: DisplayPort - DisplayPort",
+          "Zastosowanie: Audio, Wideo",
+          "Standard: DisplayPort 1.4",
+          "Długość: 1,5 m"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Typ",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "DisplayPort - DisplayPort",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Zastosowanie",
+            "Description": "Istnieje wiele typów kabli, takich jak audio, wideo, sieciowe, zasilające i ładowania. Kabel audio przesyła sygnały dźwiękowe. Kable video takie jak HDMI, DisplayPort, VGA i DVI przesyłają obraz. Kable sieciowe pozwalają łączyć infrastrukturę sieciową i przesyłać dane. Kable zasilające dostarczają energię do urządzeń elektrycznych, a ładujące zoptymalizowano pod kątem najwydajniejszego ładowania urządzeń przenośnych. Wybór kabla zależy od Twoich potrzeb i rodzaju urządzeń.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Audio",
+                "Description": null
+              },
+              {
+                "ShortName": "Wideo",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Standard",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "DisplayPort 1.4",
+                "Description": "DisplayPort 1.4 to interfejs, który umożliwia wysoką jakość przesyłania obrazu i dźwięku. Obsługuje rozdzielczość 4K, co pozwala na wyświetlanie obrazu w imponującej jakości. DisplayPort 1.4 zapewnia płynne odtwarzanie filmów, gier wideo i innych multimediów. Ten standard oferuje również wsparcie dla HDR (High Dynamic Range), co przynosi lepsze kontrasty i głębsze kolory. To niezawodne połączenie między urządzeniami, które dostarcza satysfakcjonujące wrażenia wizualne i dźwiękowe."
+              }
+            ]
+          },
+          {
+            "ShortName": "Długość",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1,5 m",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "SM-DP15-1.4",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "510980",
+        "Name": "Kabel DisplayPort 1.4 - DisplayPort 1,5m",
+        "Price": 49.99,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 49.99,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "1546",
+          "Name": "Silver Monkey"
+        },
+        "Category": {
+          "Id": "2037",
+          "NameSingular": "Kabel DisplayPort",
+          "NamePlural": "Kable DisplayPort",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "12",
+            "Name": "Akcesoria"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2019/8/pr_2019_8_19_13_45_33_421_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2019/8/pr_2019_8_19_13_45_33_421_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2019/8/pr_2019_8_19_13_45_33_421_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/510980-kabel-displayport-silver-monkey-kabel-displayport-1-4---displayport-1-5m.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.72,
+        "CommentsCount": 78,
+        "FeatureSummary": [
+          "Przeznaczenie: Gaming",
+          "Przełączniki: Mechaniczne - Kailh MX Blue",
+          "Łączność: Przewodowa",
+          "Podświetlenie: Wielokolorowe - RGB",
+          "Kolor: Czarny"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Przeznaczenie",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Gaming",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Przełączniki",
+            "Description": "Przełączniki określają charakterystykę kliknięcia klawiszy na klawiaturze. Można wyróżnić kilka różnych rodzajów przełączników::\r\n<br><br>\r\n<ul style=\"list-style:inside\">\r\n<li>Membranowe – najbardziej uniwersalne, oferują cichą pracę i niską cenę, przez co wykorzystywane są najczęściej do pracy biurowej.</li>\r\n<li>Mechaniczne – mają wiele różnych wariantów, jednak z reguły są głośniejsze, mają szybszy czas reakcji i większą żywotność od przełączników membranowych, dlatego bardzo dobrze nadają się do gamingu oraz pisania.</li>\r\n<li>Hybrydowe – łączą rozwiązania znane z przełączników membranowych i mechanicznych, tworząc między nimi kompromis.</li>\r\n<li>Optyczne – wykorzystują technologię światła podczerwonego, skracając jeszcze bardziej czas reakcji i wydłużając żywotność klawiatury.</li>\r\n<li>Opto-mechaniczne – do przełącznika mechanicznego dodana jest wiązka światła podczerwonego, która zwiększa żywotność i poprawia szybkość reakcji.</li>\r\n</ul>",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Mechaniczne - Kailh MX Blue",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Łączność",
+            "Description": "Klawiatury bezprzewodowe zapewniają większą swobodę użytkowania, gdyż można korzystać z nich w różnych pozycjach i z odległości nawet około 15 metrów. W klawiaturach przewodowych nie trzeba natomiast wymieniać baterii czy regularnie ich ładować, a połączenie jest stabilne i niezawodne.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Przewodowa",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Podświetlenie",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Wielokolorowe - RGB",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Kolor",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Czarny",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "SM-SMGK1000KBL",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": ["Sale"],
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "650971",
+        "Name": "SMGK1000 Kailh Blue RGB HotSwap",
+        "Price": 299.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 299.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "2580",
+          "Name": "Silver Monkey X"
+        },
+        "Category": {
+          "Id": "442",
+          "NameSingular": "Klawiatura  przewodowa",
+          "NamePlural": "Klawiatury  przewodowe",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "6",
+            "Name": "Urządzenia peryferyjne"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2022/3/pr_2022_3_31_14_34_49_821_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2022/3/pr_2022_3_31_14_34_49_821_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2022/3/pr_2022_3_31_14_34_49_821_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/650971-klawiatura-przewodowa-silver-monkey-x-smgk1000-kailh-blue-rgb-hotswap.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.35,
+        "CommentsCount": 20,
+        "FeatureSummary": ["Typ: VGA", "Zastosowanie: Wideo", "Długość: 1 m"],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Typ",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "VGA",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Zastosowanie",
+            "Description": "Istnieje wiele typów kabli, takich jak audio, wideo, sieciowe, zasilające i ładowania. Kabel audio przesyła sygnały dźwiękowe. Kable video takie jak HDMI, DisplayPort, VGA i DVI przesyłają obraz. Kable sieciowe pozwalają łączyć infrastrukturę sieciową i przesyłać dane. Kable zasilające dostarczają energię do urządzeń elektrycznych, a ładujące zoptymalizowano pod kątem najwydajniejszego ładowania urządzeń przenośnych. Wybór kabla zależy od Twoich potrzeb i rodzaju urządzeń.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Wideo",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Długość",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1 m",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "SM-VGA10",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "567548",
+        "Name": "Kabel VGA - VGA 1m",
+        "Price": 16.99,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 16.99,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "1546",
+          "Name": "Silver Monkey"
+        },
+        "Category": {
+          "Id": "1782",
+          "NameSingular": "Kabel VGA/D-SUB",
+          "NamePlural": "Kable VGA/D-SUB",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "12",
+            "Name": "Akcesoria"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2021/2/pr_2021_2_15_13_43_41_253_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2021/2/pr_2021_2_15_13_43_41_253_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2021/2/pr_2021_2_15_13_43_41_253_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/567548-kabel-vga-d-sub-silver-monkey-kabel-vga---vga-1m.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.91,
+        "CommentsCount": 362,
+        "FeatureSummary": [
+          "Typ: HDMI - HDMI",
+          "Zastosowanie: Audio, Wideo",
+          "Standard: HDMI v2.1",
+          "Przepustowość: do 48 Gbit/s",
+          "Długość: 1,5 m"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Typ",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "HDMI - HDMI",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Zastosowanie",
+            "Description": "Istnieje wiele typów kabli, takich jak audio, wideo, sieciowe, zasilające i ładowania. Kabel audio przesyła sygnały dźwiękowe. Kable video takie jak HDMI, DisplayPort, VGA i DVI przesyłają obraz. Kable sieciowe pozwalają łączyć infrastrukturę sieciową i przesyłać dane. Kable zasilające dostarczają energię do urządzeń elektrycznych, a ładujące zoptymalizowano pod kątem najwydajniejszego ładowania urządzeń przenośnych. Wybór kabla zależy od Twoich potrzeb i rodzaju urządzeń.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Audio",
+                "Description": null
+              },
+              {
+                "ShortName": "Wideo",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Standard",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "HDMI v2.1",
+                "Description": "HDMI 2.1 to ulepszony interfejs, który zapewnia jeszcze lepsze wrażenia wizualne i dźwiękowe. Jest znacznie szybszy niż poprzednie wersje, co oznacza płynne odtwarzanie filmów 4K, gry wideo w jakości 120 klatek na sekundę i wsparcie dla dynamicznego zakresu HDR."
+              }
+            ]
+          },
+          {
+            "ShortName": "Przepustowość",
+            "Description": "Przepustowość kabla odnosi się do ilości danych, które można przesłać przez dany kabel w jednostce czasu. Większa przepustowość oznacza możliwość przesyłania większej ilości danych w krótszym czasie. Korzyści płynące z większej przepustowości to szybsze transferowanie plików, płynne strumieniowanie multimediów, skrócenie czasu oczekiwania na przesyłanie danych oraz lepszą wydajność w przypadku wymagających zastosowań, takich jak gry wideo czy przetwarzanie strumieniowe.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "do 48 Gbit/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Długość",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1,5 m",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "C137W",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "511171",
+        "Name": "Kabel HDMI 2.1 - HDMI 1,5m (8K/60Hz, 4K/120Hz)",
+        "Price": 59.9,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 59.9,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "832",
+          "Name": "Unitek"
+        },
+        "Category": {
+          "Id": "1781",
+          "NameSingular": "Kabel HDMI",
+          "NamePlural": "Kable HDMI",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "12",
+            "Name": "Akcesoria"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2019/8/pr_2019_8_19_12_17_50_317_01.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2019/8/pr_2019_8_19_12_17_50_317_01.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2019/8/pr_2019_8_19_12_17_50_317_01.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/511171-kabel-hdmi-unitek-kabel-hdmi-2-1---hdmi-1-5m-8k-60hz-4k-120hz.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.88,
+        "CommentsCount": 807,
+        "FeatureSummary": [
+          "Typ: HDMI - HDMI",
+          "Zastosowanie: Audio, Wideo",
+          "Standard: HDMI v2.0",
+          "Przepustowość: do 18 Gbit/s",
+          "Długość: 1,5 m"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Typ",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "HDMI - HDMI",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Zastosowanie",
+            "Description": "Istnieje wiele typów kabli, takich jak audio, wideo, sieciowe, zasilające i ładowania. Kabel audio przesyła sygnały dźwiękowe. Kable video takie jak HDMI, DisplayPort, VGA i DVI przesyłają obraz. Kable sieciowe pozwalają łączyć infrastrukturę sieciową i przesyłać dane. Kable zasilające dostarczają energię do urządzeń elektrycznych, a ładujące zoptymalizowano pod kątem najwydajniejszego ładowania urządzeń przenośnych. Wybór kabla zależy od Twoich potrzeb i rodzaju urządzeń.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Audio",
+                "Description": null
+              },
+              {
+                "ShortName": "Wideo",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Standard",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "HDMI v2.0",
+                "Description": "HDMI 2.0 to interfejs, który umożliwia wysoką jakość przesyłania obrazu i dźwięku. Obsługuje rozdzielczość 4K, co pozwala na wyświetlanie obrazu w bardzo wysokiej jakości. HDMI 2.0 zapewnia płynne odtwarzanie filmów i gier wideo, a także obsługę dźwięku wielokanałowego. To popularny standard, który dostarcza solidne połączenie między urządzeniami i zapewnia satysfakcjonujące wrażenia wizualne i dźwiękowe."
+              }
+            ]
+          },
+          {
+            "ShortName": "Przepustowość",
+            "Description": "Przepustowość kabla odnosi się do ilości danych, które można przesłać przez dany kabel w jednostce czasu. Większa przepustowość oznacza możliwość przesyłania większej ilości danych w krótszym czasie. Korzyści płynące z większej przepustowości to szybsze transferowanie plików, płynne strumieniowanie multimediów, skrócenie czasu oczekiwania na przesyłanie danych oraz lepszą wydajność w przypadku wymagających zastosowań, takich jak gry wideo czy przetwarzanie strumieniowe.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "do 18 Gbit/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Długość",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1,5 m",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "HD-015SM01",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "461257",
+        "Name": "Kabel HDMI 2.0 - HDMI 1,5m",
+        "Price": 26.99,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 26.99,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "1546",
+          "Name": "Silver Monkey"
+        },
+        "Category": {
+          "Id": "1781",
+          "NameSingular": "Kabel HDMI",
+          "NamePlural": "Kable HDMI",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "12",
+            "Name": "Akcesoria"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2021/12/pr_2021_12_1_12_36_58_385_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2021/12/pr_2021_12_1_12_36_58_385_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2021/12/pr_2021_12_1_12_36_58_385_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/461257-kabel-hdmi-silver-monkey-kabel-hdmi-2-0---hdmi-1-5m.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 6.0,
+        "CommentsCount": 7,
+        "FeatureSummary": ["Typ: HDMI - VGA", "Zastosowanie: Wideo", "Standard: HDMI v1.4"],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Typ",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "HDMI - VGA",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Zastosowanie",
+            "Description": "Istnieje wiele typów kabli, takich jak audio, wideo, sieciowe, zasilające i ładowania. Kabel audio przesyła sygnały dźwiękowe. Kable video takie jak HDMI, DisplayPort, VGA i DVI przesyłają obraz. Kable sieciowe pozwalają łączyć infrastrukturę sieciową i przesyłać dane. Kable zasilające dostarczają energię do urządzeń elektrycznych, a ładujące zoptymalizowano pod kątem najwydajniejszego ładowania urządzeń przenośnych. Wybór kabla zależy od Twoich potrzeb i rodzaju urządzeń.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Wideo",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Standard",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "HDMI v1.4",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "Y-6355",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "417527",
+        "Name": "Adapter HDMI, mini HDMI, micro HDMI - VGA+audio",
+        "Price": 79.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 79.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "832",
+          "Name": "Unitek"
+        },
+        "Category": {
+          "Id": "271",
+          "NameSingular": "Przejściówka",
+          "NamePlural": "Przejściówki",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "12",
+            "Name": "Akcesoria"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2018/3/pr_2018_3_19_12_4_33_544_00.png",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2018/3/pr_2018_3_19_12_4_33_544_00.png",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2018/3/pr_2018_3_19_12_4_33_544_00.png"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/417527-przejsciowka-unitek-adapter-hdmi-mini-hdmi-micro-hdmi---vga-audio.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.83,
+        "CommentsCount": 1013,
+        "FeatureSummary": [
+          "Pojemność: 1000 GB",
+          "Interfejs: M.2 PCIe NVMe 3.0 x4",
+          "Prędkość odczytu: 3500 MB/s",
+          "Prędkość zapisu: 3000 MB/s",
+          "Rodzaj kości pamięci: TLC"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Pojemność",
+            "Description": "Pojemność dysku opisuje, ile danych się na nim zmieści. Pamiętaj, że rzeczywista pojemność jest mniejsza od nominalnej, dlatego dysk o rozmiarze 1 TB może zaoferować np. 931 GB wolnej przestrzeni. Ta rozbieżność wynika ze stosowania dziesiętnego systemu liczbowego przez producentów dysków, podczas gdy komputer korzysta z systemu binarnego. Jeśli chcesz zainstalować system operacyjny i kilka programów lub gier, to dysk o pojemności ok. 250 GB będzie wystarczający.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1000 GB",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Interfejs",
+            "Description": "Interfejs dysku wpływa na maksymalną szybkość transferu danych i kompatybilność z płytą główną. Dysk w formacie 2.5″ SATA najczęściej działa z interfejsem SATA III, który jest najwolniejszy, ale wspiera go większość płyt głównych. Dyski w formacie M.2 także mogą działać zgodnie z SATA III lub szybszym interfejsem w postaci PCIe z protokołem NVMe. Dyski w formacie PCIe wykorzystują interfejs PCI-E 3.0 x16. Informacje o tym, który interfejs dysku obsługuje płyta główna Twojego komputera, znajdziesz w jej specyfikacji na stronie producenta.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "M.2 PCIe NVMe 3.0 x4",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Prędkość odczytu",
+            "Description": "Maksymalna prędkość odczytu określa, jak szybko dysk może odczytywać dane w szczycie swoich możliwości. Podczas codziennego użytkowania operacje odczytu z reguły są wykonywane najczęściej, np. otwieranie programów czy wczytywanie gier.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "3500 MB/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Prędkość zapisu",
+            "Description": "Maksymalna prędkość zapisu określa, jak szybko dysk może zapisywać dane w szczycie swoich możliwości. Prędkość zapisu ma wpływ np. na przeniesienie dużego pliku na dysk. Dyski z interfejsem SATA III mają mniejszą prędkość maksymalną odczytu i zapisu w stosunku do dysków z interfejsem PCIe NVMe.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "3000 MB/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Rodzaj kości pamięci",
+            "Description": "Rodzaj kości pamięci określa, ile bitów przechowywanych jest w każdej komórce dysku. Im mniej bitów w komórce, tym szybciej można je zapisać. Kości MLC mogą przechowywać 2 bity danych i są najczęściej wykorzystywane do zastosowań profesjonalnych lub tam, gdzie bezpieczeństwo danych jest najważniejsze. Tańszym rozwiązaniem jest pamięć TLC, która przechowuje 3 bity danych, co obniża jej cenę, przez co jest najpopularniejsza do zastosowań domowych. Pamięć QLC z 4 bitami w komórce charakteryzuje się większą pojemnością i niższą ceną, ale nieco gorszą wydajnością w stosunku do pozostałych rozwiązań.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "TLC",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "WDS100T3B0C",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "696403",
+        "Name": "1TB M.2 PCIe NVMe Blue SN570",
+        "Price": 205.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 205.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "26",
+          "Name": "WD"
+        },
+        "Category": {
+          "Id": "1779",
+          "NameSingular": "Dysk SSD",
+          "NamePlural": "Dyski SSD",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "5",
+            "Name": "Podzespoły komputerowe"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2021/11/pr_2021_11_9_14_30_46_659_01.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2021/11/pr_2021_11_9_14_30_46_659_01.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2021/11/pr_2021_11_9_14_30_46_659_01.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/696403-dysk-ssd-wd-1tb-m-2-pcie-nvme-blue-sn570.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.74,
+        "CommentsCount": 323,
+        "FeatureSummary": [
+          "Moc: 850 W",
+          "Standard: ATX",
+          "Sprawność: 90-92% przy 230V oraz 20-100% obciążeniu.",
+          "Certyfikat: 80 PLUS Gold",
+          "Typ okablowania: Modularny",
+          "Wentylator: 140 mm",
+          "Układ PFC: Aktywny"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Moc",
+            "Description": "Moc maksymalną zasilacza wybierz zgodnie z zapotrzebowaniem każdego z podzespołów komputera na moc, czyli współczynnika TDP. Do obliczeń możesz użyć dostępnych w Internecie kalkulatorów mocy. Zwróć także uwagę na moc linii – szczególnie 12V, która zasila kartę graficzną i procesor, czyli najbardziej wymagające komponenty.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "850 W",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Standard",
+            "Description": "Standard zasilacza określa jego rozmiar. Wyróżniamy kilka standardów:\r\n<br><br>\r\n<ul style=\"list-style:inside\">\r\n<li>ATX – najpopularniejsze konstrukcje, stosowane do obudów typu tower. Ich standardowe wymiary wynoszą 150 × 140 × 86 mm. Zasilacz w tym standardzie o większej mocy ma dłuższą obudowę, dlatego przed zakupem sprawdź dokładnie jego wymiary, by upewnić się, czy zmieści się do Twojego komputera.</li>\r\n<li>SFX – zajmują mniej miejsca w komputerze, ale też oferują mniejszą moc niż ATX. Ich wymiary wynoszą 63,5 × 125 × 100 mm. Standard SFX-L oznacza, że długość obudowy jest większa i wynosi 120 mm, co pozwala umieścić w niej standardowy wentylator o średnicy 120 mm.</li>\r\n<li>TFX – najmniejsze konstrukcje dla komputerów o nietypowych wymiarach i najmniejszej wydajności. Ich standardowe wymiary to 65 × 85 × 175 mm.</li>\r\n</ul>",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "ATX",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Sprawność",
+            "Description": "Sprawność energetyczna zasilacza określa, ile procent energii pobranej z gniazdka trafia do podzespołów komputera, np. 90% przy 100% obciążenia zasilacza. Reszta energii jest emitowana w postaci ciepła, dlatego wysoka sprawność zasilacza oznacza niższe temperatury pracy, cichsze działanie wentylatora i mniejsze rachunki za prąd. Poszczególne stopnie sprawności określa certyfikat zasilacza. \r\nZasilacze największą sprawność osiągają, gdy są obciążone w zakresie ok. 50 do 80%. Dlatego mocny zasilacz o bardzo wysokiej sprawności wykorzystywany tylko do zadań, które nie wymagają dużego obciążenia – np. przeglądanie internetu może być mniej ekonomiczny niż zasilacz z mniejszą sprawnością.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "90-92% przy 230V oraz 20-100% obciążeniu.",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Certyfikat",
+            "Description": "Aby zasilacz otrzymał certyfikat 80 Plus, musi wykazać się sprawnością powyżej 80% przy obciążeniu, 20, 50 oraz 100%. Certyfikaty 80 Plus rozróżnia się ze względu na kolejne oznaczenia, wraz z którymi rośnie sprawność zasilacza: Plus, Bronze, Silver, Gold, Platinum, Titanium.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "80 PLUS Gold",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Typ okablowania",
+            "Description": "Okablowanie zasilacza może być:\r\n<br><br>\r\n<ul style=\"list-style:inside\">\r\n<li>Niemodularne – wszystkie przewody są na stałe przytwierdzone do zasilacza. Rozwiązanie polecane dla jednostek, które nie będą rozbudowywane.</li>\r\n<li>Półmodularne – wiązki ATX oraz EPS nie można odpiąć, natomiast wszystkie pozostałe przewody da się odłączyć. Rozwiązanie pośrednie między ceną a funkcjonalnością zasilacza.</li>\r\n<li>Modularne – wszystkie przewody można odpiąć od zasilacza. Rozwiązanie polecane dla jednostek, które będą rozbudowywane, a do tego ważna jest estetyka wnętrza i jak najlepszy przepływ powietrza.</li>\r\n</ul>",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Modularny",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Wentylator",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "140 mm",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Układ PFC",
+            "Description": "Układ PFC nie ma większego wpływu na sprawność zasilacza. Wpływa natomiast na jego ekologię, ponieważ zasilacz generuje prąd bierny, który jest mu zbędny, a układ PFC umożliwia jego zwrot do elektrowni. Rodzaj aktywny tego układu jest wydajniejszy od pasywnego, ponieważ stale dostosowuje się do aktualnego obciążenia, a nie do domyślnego.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Aktywny",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "CP-9020200-EU",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "646665",
+        "Name": "RM850x 850W 80 Plus Gold",
+        "Price": 699.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 699.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "291",
+          "Name": "Corsair"
+        },
+        "Category": {
+          "Id": "158",
+          "NameSingular": "Zasilacz do komputera",
+          "NamePlural": "Zasilacze do komputera",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "5",
+            "Name": "Podzespoły komputerowe"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2021/4/pr_2021_4_19_15_38_33_502_01.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2021/4/pr_2021_4_19_15_38_33_502_01.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2021/4/pr_2021_4_19_15_38_33_502_01.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/646665-zasilacz-do-komputera-corsair-rm850x-850w-80-plus-gold.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.9,
+        "CommentsCount": 2288,
+        "FeatureSummary": [
+          "Pojemność: 1000 GB",
+          "Interfejs: M.2 PCIe NVMe 3.0 x4",
+          "Prędkość odczytu: 3500 MB/s",
+          "Prędkość zapisu: 3000 MB/s",
+          "Rodzaj kości pamięci: TLC"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Pojemność",
+            "Description": "Pojemność dysku opisuje, ile danych się na nim zmieści. Pamiętaj, że rzeczywista pojemność jest mniejsza od nominalnej, dlatego dysk o rozmiarze 1 TB może zaoferować np. 931 GB wolnej przestrzeni. Ta rozbieżność wynika ze stosowania dziesiętnego systemu liczbowego przez producentów dysków, podczas gdy komputer korzysta z systemu binarnego. Jeśli chcesz zainstalować system operacyjny i kilka programów lub gier, to dysk o pojemności ok. 250 GB będzie wystarczający.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1000 GB",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Interfejs",
+            "Description": "Interfejs dysku wpływa na maksymalną szybkość transferu danych i kompatybilność z płytą główną. Dysk w formacie 2.5″ SATA najczęściej działa z interfejsem SATA III, który jest najwolniejszy, ale wspiera go większość płyt głównych. Dyski w formacie M.2 także mogą działać zgodnie z SATA III lub szybszym interfejsem w postaci PCIe z protokołem NVMe. Dyski w formacie PCIe wykorzystują interfejs PCI-E 3.0 x16. Informacje o tym, który interfejs dysku obsługuje płyta główna Twojego komputera, znajdziesz w jej specyfikacji na stronie producenta.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "M.2 PCIe NVMe 3.0 x4",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Prędkość odczytu",
+            "Description": "Maksymalna prędkość odczytu określa, jak szybko dysk może odczytywać dane w szczycie swoich możliwości. Podczas codziennego użytkowania operacje odczytu z reguły są wykonywane najczęściej, np. otwieranie programów czy wczytywanie gier.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "3500 MB/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Prędkość zapisu",
+            "Description": "Maksymalna prędkość zapisu określa, jak szybko dysk może zapisywać dane w szczycie swoich możliwości. Prędkość zapisu ma wpływ np. na przeniesienie dużego pliku na dysk. Dyski z interfejsem SATA III mają mniejszą prędkość maksymalną odczytu i zapisu w stosunku do dysków z interfejsem PCIe NVMe.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "3000 MB/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Rodzaj kości pamięci",
+            "Description": "Rodzaj kości pamięci określa, ile bitów przechowywanych jest w każdej komórce dysku. Im mniej bitów w komórce, tym szybciej można je zapisać. Kości MLC mogą przechowywać 2 bity danych i są najczęściej wykorzystywane do zastosowań profesjonalnych lub tam, gdzie bezpieczeństwo danych jest najważniejsze. Tańszym rozwiązaniem jest pamięć TLC, która przechowuje 3 bity danych, co obniża jej cenę, przez co jest najpopularniejsza do zastosowań domowych. Pamięć QLC z 4 bitami w komórce charakteryzuje się większą pojemnością i niższą ceną, ale nieco gorszą wydajnością w stosunku do pozostałych rozwiązań.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "TLC",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "MZ-V8V1T0BW",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": ["Sale", "CrossedPrice"],
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "634238",
+        "Name": "1TB M.2 PCIe NVMe 980",
+        "Price": 209.0,
+        "OldPrice": 289.0,
+        "PriceInfo": {
+          "Price": 209.0,
+          "OldPrice": 289.0,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "29",
+          "Name": "Samsung"
+        },
+        "Category": {
+          "Id": "1779",
+          "NameSingular": "Dysk SSD",
+          "NamePlural": "Dyski SSD",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "5",
+            "Name": "Podzespoły komputerowe"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2021/3/pr_2021_3_19_14_10_58_225_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2021/3/pr_2021_3_19_14_10_58_225_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2021/3/pr_2021_3_19_14_10_58_225_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/634238-dysk-ssd-samsung-1tb-m-2-pcie-nvme-980.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.84,
+        "CommentsCount": 1499,
+        "FeatureSummary": [
+          "Pojemność: 1000 GB",
+          "Interfejs: M.2 PCIe NVMe 3.0 x4",
+          "Prędkość odczytu: 3300 MB/s",
+          "Prędkość zapisu: 3000 MB/s",
+          "Rodzaj kości pamięci: TLC"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Pojemność",
+            "Description": "Pojemność dysku opisuje, ile danych się na nim zmieści. Pamiętaj, że rzeczywista pojemność jest mniejsza od nominalnej, dlatego dysk o rozmiarze 1 TB może zaoferować np. 931 GB wolnej przestrzeni. Ta rozbieżność wynika ze stosowania dziesiętnego systemu liczbowego przez producentów dysków, podczas gdy komputer korzysta z systemu binarnego. Jeśli chcesz zainstalować system operacyjny i kilka programów lub gier, to dysk o pojemności ok. 250 GB będzie wystarczający.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "1000 GB",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Interfejs",
+            "Description": "Interfejs dysku wpływa na maksymalną szybkość transferu danych i kompatybilność z płytą główną. Dysk w formacie 2.5″ SATA najczęściej działa z interfejsem SATA III, który jest najwolniejszy, ale wspiera go większość płyt głównych. Dyski w formacie M.2 także mogą działać zgodnie z SATA III lub szybszym interfejsem w postaci PCIe z protokołem NVMe. Dyski w formacie PCIe wykorzystują interfejs PCI-E 3.0 x16. Informacje o tym, który interfejs dysku obsługuje płyta główna Twojego komputera, znajdziesz w jej specyfikacji na stronie producenta.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "M.2 PCIe NVMe 3.0 x4",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Prędkość odczytu",
+            "Description": "Maksymalna prędkość odczytu określa, jak szybko dysk może odczytywać dane w szczycie swoich możliwości. Podczas codziennego użytkowania operacje odczytu z reguły są wykonywane najczęściej, np. otwieranie programów czy wczytywanie gier.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "3300 MB/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Prędkość zapisu",
+            "Description": "Maksymalna prędkość zapisu określa, jak szybko dysk może zapisywać dane w szczycie swoich możliwości. Prędkość zapisu ma wpływ np. na przeniesienie dużego pliku na dysk. Dyski z interfejsem SATA III mają mniejszą prędkość maksymalną odczytu i zapisu w stosunku do dysków z interfejsem PCIe NVMe.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "3000 MB/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Rodzaj kości pamięci",
+            "Description": "Rodzaj kości pamięci określa, ile bitów przechowywanych jest w każdej komórce dysku. Im mniej bitów w komórce, tym szybciej można je zapisać. Kości MLC mogą przechowywać 2 bity danych i są najczęściej wykorzystywane do zastosowań profesjonalnych lub tam, gdzie bezpieczeństwo danych jest najważniejsze. Tańszym rozwiązaniem jest pamięć TLC, która przechowuje 3 bity danych, co obniża jej cenę, przez co jest najpopularniejsza do zastosowań domowych. Pamięć QLC z 4 bitami w komórce charakteryzuje się większą pojemnością i niższą ceną, ale nieco gorszą wydajnością w stosunku do pozostałych rozwiązań.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "TLC",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "LNM620X001T-RNNNG",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "621625",
+        "Name": "1TB M.2 PCIe NVMe NM620",
+        "Price": 179.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 179.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "409",
+          "Name": "Lexar"
+        },
+        "Category": {
+          "Id": "1779",
+          "NameSingular": "Dysk SSD",
+          "NamePlural": "Dyski SSD",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "5",
+            "Name": "Podzespoły komputerowe"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2022/7/pr_2022_7_11_7_55_50_654_02.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2022/7/pr_2022_7_11_7_55_50_654_02.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2022/7/pr_2022_7_11_7_55_50_654_02.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/621625-dysk-ssd-lexar-1tb-m-2-pcie-nvme-nm620.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.8,
+        "CommentsCount": 362,
+        "FeatureSummary": [
+          "Moc: 750 W",
+          "Standard: ATX",
+          "Sprawność: 92-94% przy 230V oraz 20-100% obciążeniu.",
+          "Certyfikat: 80 PLUS Gold",
+          "Typ okablowania: Modularny",
+          "Wentylator: 135 mm",
+          "Układ PFC: Aktywny"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Moc",
+            "Description": "Moc maksymalną zasilacza wybierz zgodnie z zapotrzebowaniem każdego z podzespołów komputera na moc, czyli współczynnika TDP. Do obliczeń możesz użyć dostępnych w Internecie kalkulatorów mocy. Zwróć także uwagę na moc linii – szczególnie 12V, która zasila kartę graficzną i procesor, czyli najbardziej wymagające komponenty.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "750 W",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Standard",
+            "Description": "Standard zasilacza określa jego rozmiar. Wyróżniamy kilka standardów:\r\n<br><br>\r\n<ul style=\"list-style:inside\">\r\n<li>ATX – najpopularniejsze konstrukcje, stosowane do obudów typu tower. Ich standardowe wymiary wynoszą 150 × 140 × 86 mm. Zasilacz w tym standardzie o większej mocy ma dłuższą obudowę, dlatego przed zakupem sprawdź dokładnie jego wymiary, by upewnić się, czy zmieści się do Twojego komputera.</li>\r\n<li>SFX – zajmują mniej miejsca w komputerze, ale też oferują mniejszą moc niż ATX. Ich wymiary wynoszą 63,5 × 125 × 100 mm. Standard SFX-L oznacza, że długość obudowy jest większa i wynosi 120 mm, co pozwala umieścić w niej standardowy wentylator o średnicy 120 mm.</li>\r\n<li>TFX – najmniejsze konstrukcje dla komputerów o nietypowych wymiarach i najmniejszej wydajności. Ich standardowe wymiary to 65 × 85 × 175 mm.</li>\r\n</ul>",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "ATX",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Sprawność",
+            "Description": "Sprawność energetyczna zasilacza określa, ile procent energii pobranej z gniazdka trafia do podzespołów komputera, np. 90% przy 100% obciążenia zasilacza. Reszta energii jest emitowana w postaci ciepła, dlatego wysoka sprawność zasilacza oznacza niższe temperatury pracy, cichsze działanie wentylatora i mniejsze rachunki za prąd. Poszczególne stopnie sprawności określa certyfikat zasilacza. \r\nZasilacze największą sprawność osiągają, gdy są obciążone w zakresie ok. 50 do 80%. Dlatego mocny zasilacz o bardzo wysokiej sprawności wykorzystywany tylko do zadań, które nie wymagają dużego obciążenia – np. przeglądanie internetu może być mniej ekonomiczny niż zasilacz z mniejszą sprawnością.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "92-94% przy 230V oraz 20-100% obciążeniu.",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Certyfikat",
+            "Description": "Aby zasilacz otrzymał certyfikat 80 Plus, musi wykazać się sprawnością powyżej 80% przy obciążeniu, 20, 50 oraz 100%. Certyfikaty 80 Plus rozróżnia się ze względu na kolejne oznaczenia, wraz z którymi rośnie sprawność zasilacza: Plus, Bronze, Silver, Gold, Platinum, Titanium.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "80 PLUS Gold",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Typ okablowania",
+            "Description": "Okablowanie zasilacza może być:\r\n<br><br>\r\n<ul style=\"list-style:inside\">\r\n<li>Niemodularne – wszystkie przewody są na stałe przytwierdzone do zasilacza. Rozwiązanie polecane dla jednostek, które nie będą rozbudowywane.</li>\r\n<li>Półmodularne – wiązki ATX oraz EPS nie można odpiąć, natomiast wszystkie pozostałe przewody da się odłączyć. Rozwiązanie pośrednie między ceną a funkcjonalnością zasilacza.</li>\r\n<li>Modularne – wszystkie przewody można odpiąć od zasilacza. Rozwiązanie polecane dla jednostek, które będą rozbudowywane, a do tego ważna jest estetyka wnętrza i jak najlepszy przepływ powietrza.</li>\r\n</ul>",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Modularny",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Wentylator",
+            "Description": null,
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "135 mm",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Układ PFC",
+            "Description": "Układ PFC nie ma większego wpływu na sprawność zasilacza. Wpływa natomiast na jego ekologię, ponieważ zasilacz generuje prąd bierny, który jest mu zbędny, a układ PFC umożliwia jego zwrot do elektrowni. Rodzaj aktywny tego układu jest wydajniejszy od pasywnego, ponieważ stale dostosowuje się do aktualnego obciążenia, a nie do domyślnego.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "Aktywny",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "BN283",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "401005",
+        "Name": "Straight Power 11 750W 80 Plus Gold",
+        "Price": 649.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 649.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "244",
+          "Name": "be quiet!"
+        },
+        "Category": {
+          "Id": "158",
+          "NameSingular": "Zasilacz do komputera",
+          "NamePlural": "Zasilacze do komputera",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "5",
+            "Name": "Podzespoły komputerowe"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2021/9/pr_2021_9_6_14_4_45_788_00.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2021/9/pr_2021_9_6_14_4_45_788_00.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2021/9/pr_2021_9_6_14_4_45_788_00.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/401005-zasilacz-do-komputera-be-quiet!-straight-power-11-750w-80-plus-gold.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      },
+      {
+        "CommentsRating": 5.86,
+        "CommentsCount": 1627,
+        "FeatureSummary": [
+          "Pojemność: 500 GB",
+          "Interfejs: 2,5\" SATA",
+          "Prędkość odczytu: 560 MB/s",
+          "Prędkość zapisu: 510 MB/s",
+          "Rodzaj kości pamięci: TLC"
+        ],
+        "FeatureSummaryStructured": [
+          {
+            "ShortName": "Pojemność",
+            "Description": "Pojemność dysku opisuje, ile danych się na nim zmieści. Pamiętaj, że rzeczywista pojemność jest mniejsza od nominalnej, dlatego dysk o rozmiarze 1 TB może zaoferować np. 931 GB wolnej przestrzeni. Ta rozbieżność wynika ze stosowania dziesiętnego systemu liczbowego przez producentów dysków, podczas gdy komputer korzysta z systemu binarnego. Jeśli chcesz zainstalować system operacyjny i kilka programów lub gier, to dysk o pojemności ok. 250 GB będzie wystarczający.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "500 GB",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Interfejs",
+            "Description": "Interfejs dysku wpływa na maksymalną szybkość transferu danych i kompatybilność z płytą główną. Dysk w formacie 2.5″ SATA najczęściej działa z interfejsem SATA III, który jest najwolniejszy, ale wspiera go większość płyt głównych. Dyski w formacie M.2 także mogą działać zgodnie z SATA III lub szybszym interfejsem w postaci PCIe z protokołem NVMe. Dyski w formacie PCIe wykorzystują interfejs PCI-E 3.0 x16. Informacje o tym, który interfejs dysku obsługuje płyta główna Twojego komputera, znajdziesz w jej specyfikacji na stronie producenta.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "2,5\" SATA",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Prędkość odczytu",
+            "Description": "Maksymalna prędkość odczytu określa, jak szybko dysk może odczytywać dane w szczycie swoich możliwości. Podczas codziennego użytkowania operacje odczytu z reguły są wykonywane najczęściej, np. otwieranie programów czy wczytywanie gier.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "560 MB/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Prędkość zapisu",
+            "Description": "Maksymalna prędkość zapisu określa, jak szybko dysk może zapisywać dane w szczycie swoich możliwości. Prędkość zapisu ma wpływ np. na przeniesienie dużego pliku na dysk. Dyski z interfejsem SATA III mają mniejszą prędkość maksymalną odczytu i zapisu w stosunku do dysków z interfejsem PCIe NVMe.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "510 MB/s",
+                "Description": null
+              }
+            ]
+          },
+          {
+            "ShortName": "Rodzaj kości pamięci",
+            "Description": "Rodzaj kości pamięci określa, ile bitów przechowywanych jest w każdej komórce dysku. Im mniej bitów w komórce, tym szybciej można je zapisać. Kości MLC mogą przechowywać 2 bity danych i są najczęściej wykorzystywane do zastosowań profesjonalnych lub tam, gdzie bezpieczeństwo danych jest najważniejsze. Tańszym rozwiązaniem jest pamięć TLC, która przechowuje 3 bity danych, co obniża jej cenę, przez co jest najpopularniejsza do zastosowań domowych. Pamięć QLC z 4 bitami w komórce charakteryzuje się większą pojemnością i niższą ceną, ale nieco gorszą wydajnością w stosunku do pozostałych rozwiązań.",
+            "ValueSeparator": ", ",
+            "ValueGroups": [
+              {
+                "ShortName": "TLC",
+                "Description": null
+              }
+            ]
+          }
+        ],
+        "AvailabilityStatus": "Available",
+        "ProducerCode": "CT500MX500SSD1",
+        "FreeShipment": false,
+        "InstallmentMinimum": null,
+        "FreeInstallment": false,
+        "Marks": null,
+        "AlternativeGroupID": null,
+        "AlternativeProducts": null,
+        "AlternativeProductItems": null,
+        "PromotionInfo": null,
+        "Id": "400625",
+        "Name": "500GB 2,5\" SATA SSD MX500",
+        "Price": 159.0,
+        "OldPrice": null,
+        "PriceInfo": {
+          "Price": 159.0,
+          "OldPrice": null,
+          "IsPriceVisible": true
+        },
+        "Producer": {
+          "Id": "506",
+          "Name": "Crucial"
+        },
+        "Category": {
+          "Id": "1779",
+          "NameSingular": "Dysk SSD",
+          "NamePlural": "Dyski SSD",
+          "Photo": null,
+          "ParentCategory": null,
+          "ParentGroup": {
+            "Id": "5",
+            "Name": "Podzespoły komputerowe"
+          }
+        },
+        "SecondaryCategory": null,
+        "MainPhoto": {
+          "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2018/1/pr_2018_1_3_14_2_15_279_01.jpg",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2018/1/pr_2018_1_3_14_2_15_279_01.jpg",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2018/1/pr_2018_1_3_14_2_15_279_01.jpg"
+        },
+        "WebUrl": "https://www.x-kom.pl/p/400625-dysk-ssd-crucial-500gb-2-5-sata-ssd-mx500.html",
+        "IsEsd": false,
+        "EsdType": "NotDefined"
+      }
+    ],
+    "PromotionTypes": null,
+    "Eans": null,
+    "Banners": null,
+    "AlternativeProducts": null,
+    "AdditionalServices": null,
+    "AdditionalServicesDetails": null,
+    "IsExtendedConfiguration": false,
+    "IsAvailableInDepartments": false,
+    "LeasingInfo": [
+      {
+        "Name": "PKO",
+        "LeasingCategoryId": 3000
+      }
+    ],
+    "ProductMarksExtended": [],
+    "Movies": [],
+    "Photos3D": null,
+    "CommentsPhotos": [],
+    "GalleryItemsCount": 6,
+    "SaleInfo": null,
+    "HasPromotionPrices": false,
+    "CommentStatistics": {
+      "Ratings": [
+        {
+          "Rank": 1,
+          "Count": 0,
+          "TotalCount": 0
+        },
+        {
+          "Rank": 2,
+          "Count": 0,
+          "TotalCount": 0
+        },
+        {
+          "Rank": 3,
+          "Count": 0,
+          "TotalCount": 0
+        },
+        {
+          "Rank": 4,
+          "Count": 0,
+          "TotalCount": 0
+        },
+        {
+          "Rank": 5,
+          "Count": 0,
+          "TotalCount": 0
+        },
+        {
+          "Rank": 6,
+          "Count": 1,
+          "TotalCount": 1
+        }
+      ],
+      "TotalConfirmedPurchase": 1,
+      "TotalForThisVariant": 1,
+      "AverageRating": 6.0
+    },
+    "EnergyLabel": null,
+    "ProductLimitation": null,
+    "MinPriceInfo": {
+      "MinPrice": 2099.0,
+      "DateMinPrice": "2023-05-23T04:49:35Z"
+    },
+    "CommentsRating": 6.0,
+    "CommentsCount": 1,
+    "FeatureSummary": [
+      "Układ: GeForce RTX 4060 Ti",
+      "Pamięć: 8 GB",
+      "Rodzaj pamięci: GDDR6",
+      "Złącza: HDMI 2.1a - 1 szt., DisplayPort 1.4a - 3 szt.",
+      "Taktowanie rdzenia: 2310 MHz"
+    ],
+    "FeatureSummaryStructured": [
+      {
+        "ShortName": "Układ",
+        "Description": "Układy graficzne zazwyczaj dzieli się na 3 segmenty: biurowe, gamingowe i profesjonalne. Nazwy układów graficznych można traktować jako drogowskaz, który wskazuje przeznaczenie karty. Seria kart GeForce GT wystarczy do domu i biura. Natomiast do zastosowań profesjonalnych i gamingu (mogą się ze sobą przeplatać), wybierz coś z serii Nvidia GeForce RTX/GTX, AMD Radeon RX czy RX Vega.",
+        "ValueSeparator": ", ",
+        "ValueGroups": [
+          {
+            "ShortName": "GeForce RTX 4060 Ti",
+            "Description": null
+          }
+        ]
+      },
+      {
+        "ShortName": "Pamięć",
+        "Description": "Pamięć karty graficznej, nazywana także jako VRAM, ma duży wpływ na płynność i efekty wizualne podczas rozgrywki oraz wydajność w programach graficznych. Przechowuje ona dane o obrabianym aktualnie obrazie, np. teksturach. Im większa pojemność, tym więcej detali w lepszej jakości można wyświetlić na ekranie.",
+        "ValueSeparator": ", ",
+        "ValueGroups": [
+          {
+            "ShortName": "8 GB",
+            "Description": null
+          }
+        ]
+      },
+      {
+        "ShortName": "Rodzaj pamięci",
+        "Description": "Od rodzaju pamięci zależy przepustowość przenoszenia plików przez kartę graficzną, co ma wpływ na jej wydajność. Im wyższa cyfra w nazwie, tym nowszy standard i lepsze osiągi pamięci, np. GDDR6.",
+        "ValueSeparator": ", ",
+        "ValueGroups": [
+          {
+            "ShortName": "GDDR6",
+            "Description": null
+          }
+        ]
+      },
+      {
+        "ShortName": "Złącza",
+        "Description": null,
+        "ValueSeparator": ", ",
+        "ValueGroups": [
+          {
+            "ShortName": "HDMI 2.1a - 1 szt.",
+            "Description": null
+          },
+          {
+            "ShortName": "DisplayPort 1.4a - 3 szt.",
+            "Description": null
+          }
+        ]
+      },
+      {
+        "ShortName": "Taktowanie rdzenia",
+        "Description": "Taktowanie rdzenia to miara tego, jak szybko procesor może przetwarzać grafikę. To przekłada się na większą liczbę wyświetlanych klatek na sekundę w grze, więc zazwyczaj im większe taktowanie, tym lepiej. Należy jednak porównywać modele układów graficznych z tej samej rodziny, ponieważ każdy układ GPU ma nieco inne komponenty i architekturę.",
+        "ValueSeparator": ", ",
+        "ValueGroups": [
+          {
+            "ShortName": "2310 MHz",
+            "Description": null
+          }
+        ]
+      }
+    ],
+    "AvailabilityStatus": "Available",
+    "ProducerCode": "ZT-D40610E-10M",
+    "FreeShipment": false,
+    "InstallmentMinimum": 68.92,
+    "FreeInstallment": false,
+    "Marks": null,
+    "AlternativeGroupID": null,
+    "AlternativeProductItems": null,
+    "PromotionInfo": null,
+    "Id": "1143530",
+    "Name": "GeForce RTX 4060 Ti  Gaming Twin Edge 8GB GDDR6",
+    "Price": 2099.0,
+    "OldPrice": null,
+    "PriceInfo": {
+      "Price": 2099.0,
+      "OldPrice": null,
+      "IsPriceVisible": true
+    },
+    "Producer": {
+      "Id": "443",
+      "Name": "Zotac"
+    },
+    "Category": {
+      "Id": "346",
+      "NameSingular": "Karta graficzna NVIDIA",
+      "NamePlural": "Karty graficzne NVIDIA",
+      "Photo": null,
+      "ParentCategory": {
+        "Id": "345",
+        "NameSingular": "Karta graficzna",
+        "NamePlural": "Karty graficzne",
+        "Photo": {
+          "Url": "https://cdn.x-kom.pl/i/img/category/large,,cat_2017-09-01_8_46_35_633.png",
+          "ThumbnailUrl": "https://cdn.x-kom.pl/i/img/category/small,,cat_2017-09-01_8_46_35_633.png",
+          "UrlTemplate": "https://cdn.x-kom.pl/i/img/category/{SIZE},,cat_2017-09-01_8_46_35_633.png"
+        },
+        "ParentCategory": null,
+        "ParentGroup": {
+          "Id": "5",
+          "Name": "Podzespoły komputerowe"
+        }
+      },
+      "ParentGroup": {
+        "Id": "5",
+        "Name": "Podzespoły komputerowe"
+      }
+    },
+    "SecondaryCategory": [
+      {
+        "Name": "Karta graficzna NVIDIA",
+        "ParentCategoryName": "Karta graficzna",
+        "ParentGroupName": "Gaming i streaming"
+      }
+    ],
+    "MainPhoto": {
+      "Url": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2023/5/pr_2023_5_24_8_23_43_855_00.jpg",
+      "ThumbnailUrl": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2023/5/pr_2023_5_24_8_23_43_855_00.jpg",
+      "UrlTemplate": "https://cdn.x-kom.pl/i/setup/images/prod/big/{SIZE},,2023/5/pr_2023_5_24_8_23_43_855_00.jpg"
+    },
+    "WebUrl": "https://www.x-kom.pl/p/1143530-karta-graficzna-nvidia-zotac-geforce-rtx-4060-ti-gaming-twin-edge-8gb-gddr6.html",
+    "IsEsd": false,
+    "EsdType": "NotDefined"
+  },
+  "Price": 1799.0,
+  "OldPrice": 2099.0,
+  "MinPriceInfo": {
+    "MinPrice": 2099.0,
+    "DateMinPrice": "2023-05-23T04:49:35Z"
+  },
+  "PromotionGainText": "Oszczędź 300 zł",
+  "PromotionGainTextLines": ["Oszczędź", "300 zł"],
+  "PromotionGainValue": 300.0,
+  "PromotionTotalCount": 150,
+  "SaleCount": 150,
+  "MaxBuyCount": 0,
+  "PromotionName": "Zotac GeForce RTX 4060 Ti Gaming Twin Edge 8GB GDDR6",
+  "PromotionEnd": "2023-07-19T08:00:00Z",
+  "PromotionStart": "2023-07-18T20:00:00Z",
+  "HtmlContent": null,
+  "PromotionPhoto": {
+    "Url": "https://cdn.x-kom.pl/i/img/promotions/hot-shot-large,,hs_2023_7_18_8_44_59.PNG",
+    "ThumbnailUrl": "https://cdn.x-kom.pl/i/img/promotions/hot-shot-large,,hs_2023_7_18_8_44_59.PNG",
+    "UrlTemplate": null
+  },
+  "IsActive": true,
+  "IsSuspended": false,
+  "MinimumInstallmentValue": 59.07,
+  "FreeInstallment": false
+}
