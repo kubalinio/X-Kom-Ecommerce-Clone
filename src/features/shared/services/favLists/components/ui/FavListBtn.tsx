@@ -29,7 +29,7 @@ const Icon = ({ isLiked, isLoading }: IconProp) => {
 const buttonVariants = cva('relative cursor-pointer items-center border-none bg-transparent hover:bg-[#ddd]', {
   variants: {
     variant: {
-      FavLong: 'inline-flex h-[48px] w-full  justify-start px-5 py-2 text-[#4d4d4d]',
+      FavLong: 'inline-flex h-[32px] w-full rounded-full justify-start px-5 py-2 text-[#4d4d4d]',
 
       FavDesktop: ' ml-1 hidden h-[32px] w-[32px] justify-center rounded-full transition-colors duration-200 md:flex',
 

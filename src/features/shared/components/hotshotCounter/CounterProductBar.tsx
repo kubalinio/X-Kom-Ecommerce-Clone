@@ -7,13 +7,13 @@ export const CounterProductBar = ({
   finished,
   selledAll,
 }: {
-  toSell?: number
+  toSell: number
   selled: number
   sells: () => void
   finished: boolean
   selledAll: () => void
 }) => {
-  const [left, setLeft] = useState(toSell ?? 0 - selled)
+  const [left, setLeft] = useState(toSell - selled)
   const [fill, setFill] = useState(0)
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const CounterProductBar = ({
       sells()
     }, 10000)
 
-    setLeft(toSell ?? 0 - selled)
+    setLeft(toSell - selled)
     setFill(Math.floor(100 - (selled * 100) / (toSell ?? 0)))
 
     if (left <= 0) {

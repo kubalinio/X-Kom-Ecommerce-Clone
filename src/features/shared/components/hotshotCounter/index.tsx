@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 
 import { CountdownTimer } from './CountdownTimer'
@@ -14,7 +16,7 @@ type Props = {
     title: string
     value: string
   }
-  promotionTotalCount?: number
+  promotionTotalCount: number
 }
 
 export const HotShotCounter = ({ endPromo, price, oldPrice, promotionGainTextLines, promotionTotalCount }: Props) => {
