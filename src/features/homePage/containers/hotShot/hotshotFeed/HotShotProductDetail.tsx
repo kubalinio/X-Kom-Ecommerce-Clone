@@ -1,11 +1,9 @@
 import Image from 'next/image'
 
-import { urlFor } from '@/lib/sanity.client'
-import { Image as ImageData } from '@/types/typings'
 
 type Props = {
   finished: boolean
-  image?: ImageData
+  image: string
   promotionGainTextLines?: {
     title: string
     value: string
@@ -24,7 +22,7 @@ export const HotShotProductDetail = ({ finished, image, promotionGainTextLines, 
             }`}
         >
           <Image
-            src={`${urlFor(image).url()}`}
+            src={image}
             alt={title ?? 'image'}
             width={180}
             height={220}

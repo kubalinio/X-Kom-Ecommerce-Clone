@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+
+'use client'
 import { useEffect, useState } from 'react'
 
 import { useCountdown } from '@/hooks/useCountdown'
@@ -14,6 +16,7 @@ export const CountdownTimer = ({ finished }: { finished: boolean }) => {
   const [dateAfter, setDateAfter] = useState(0)
 
   const [days, hours, minutes, seconds] = useCountdown(dateAfter)
+
 
   useEffect(() => {
     const currentTime = new Date().getHours()

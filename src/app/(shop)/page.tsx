@@ -16,8 +16,8 @@ export default async function Home() {
         {/* ??? Element */}
 
         <SliderBox />
-        {/* Hot Shot */}
-        {/* Prisma */}
+
+        {/* @ts-expect-error server component */}
         <HotShot />
 
         {/* @ts-expect-error server component */}
