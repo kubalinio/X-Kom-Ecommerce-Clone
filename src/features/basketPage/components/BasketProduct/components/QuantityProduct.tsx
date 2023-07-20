@@ -28,7 +28,7 @@ export const QuantityProduct: FC<QuantityProductProps> = ({ basketToken, product
     return (
         <Select
             defaultValue={count}
-            onValueChange={(value: number) => handleChangeQuantity(value)}
+            onValueChange={(value: number) => handleChangeQuantity(+value)}
         >
             <SelectTrigger >
                 <SelectValue />
@@ -38,7 +38,7 @@ export const QuantityProduct: FC<QuantityProductProps> = ({ basketToken, product
 
                 <SelectGroup>
                     {Array(9).fill(null).map((_, qnt) => (
-                        <SelectItem key={qnt} value={qnt + 1}>{qnt + 1}</SelectItem>
+                        <SelectItem key={qnt} value={(qnt + 1).toString()}>{qnt + 1}</SelectItem>
                     ))}
                 </SelectGroup>
             </SelectContent>
