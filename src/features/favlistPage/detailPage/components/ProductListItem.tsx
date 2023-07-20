@@ -24,7 +24,7 @@ const ChangeQuantityProductContainer: FC<ChangeQuantityProps> = ({ ProductCount,
 
   return (
     <div className='mr-4'>
-      <Select defaultValue={ProductCount} onValueChange={(value: string) => changeQuantity(+value)}>
+      <Select defaultValue={ProductCount.toString()} onValueChange={(value: string) => changeQuantity(+value)}>
 
         <SelectTrigger >
           <SelectValue />

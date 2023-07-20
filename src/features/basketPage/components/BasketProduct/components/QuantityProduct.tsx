@@ -27,7 +27,7 @@ export const QuantityProduct: FC<QuantityProductProps> = ({ basketToken, product
 
     return (
         <Select
-            defaultValue={count}
+            defaultValue={count.toString()}
             onValueChange={(value: number) => handleChangeQuantity(+value)}
         >
             <SelectTrigger >
