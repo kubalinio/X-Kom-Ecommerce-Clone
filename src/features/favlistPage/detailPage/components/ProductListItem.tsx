@@ -3,26 +3,43 @@
 import { ListItem } from '@prisma/client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FC, useState } from 'react'
 
-import { ChangeQuantityProduct } from '@/features/shared/services/changeQuantity/ChangeQuantityProduct'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/features/shared/components/ui/Select'
+import { useChangeFavItemQuantity } from '@/features/shared/services/favLists/dataAccess/mutations/changeFavItemQuantity'
 import { formatPrice } from '@/lib/utils'
 
 import { ExpandDropdownList } from '../../listsPage'
 import { AddToBasketItem } from './AddToBasketItem'
 import { DeleteListItem } from './DeleteListItem'
 
-const ChangeQuntityProductContainer = ({ ProductCount }: { ProductCount: number }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const changeQuantity = (newQ: number) => {
-    return
-  }
+interface ChangeQuantityProps {
+  ProductCount: number
+  changeQuantity: (val: number) => void
+}
+
+const ChangeQuantityProductContainer: FC<ChangeQuantityProps> = ({ ProductCount, changeQuantity }) => {
+
+  // md:mr-4 for box
 
   return (
-    <ChangeQuantityProduct
-      basketQuantity={ProductCount}
-      changeQuantity={(newQ) => changeQuantity(newQ)}
-      className="absolute bottom-2 right-1 z-[2] md:static md:mr-8"
-    />
+    <div className='mr-4'>
+      <Select defaultValue={ProductCount} onValueChange={(value: number) => changeQuantity(value)}>
+
+        <SelectTrigger >
+          <SelectValue />
+        </SelectTrigger>
+
+        <SelectContent>
+
+          <SelectGroup>
+            {Array(9).fill(null).map((_, qnt) => (
+              <SelectItem key={qnt} value={qnt + 1}>{qnt + 1}</SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </div>
   )
 }
 
@@ -64,13 +81,21 @@ type Props = {
 
 const ProductListItem = ({ product }: Props) => {
   const { name, mainPhoto, webUrl, Price, listId, Count, productId } = product
+  const [count, setCount] = useState(Count)
+  const { mutate } = useChangeFavItemQuantity()
+
+  const handleChangeQuantity = (newQnt: number) => {
+    const count = newQnt
+    mutate({ listId, productId, count })
+    setCount(newQnt)
+  }
 
   return (
     <div className="relative flex min-h-[84px] border-b border-[#ddd] py-2 md:min-h-[auto] md:items-center md:justify-between">
       {/* Product Img & Price & title & Checking */}
-      <div className="flex flex-grow items-start">
+      <div className="flex items-start flex-grow">
         {/* Checking & Image */}
-        <div className="mr-3 flex shrink-0 items-center md:mr-4 lg:mr-8">
+        <div className="flex items-center mr-3 shrink-0 md:mr-4 lg:mr-8">
           {/* Label(Checking) */}
           {/* <label htmlFor=""></label> */}
 
@@ -82,13 +107,13 @@ const ProductListItem = ({ product }: Props) => {
               alt={name}
               title={name}
               src={mainPhoto}
-              className="h-auto w-full object-contain"
+              className="object-contain w-full h-auto"
             />
           </span>
         </div>
 
         {/* Title & price */}
-        <div className="mr-11 flex h-full flex-col justify-between md:mr-10 md:w-full md:flex-row md:items-center md:self-center lg:mr-14">
+        <div className="flex flex-col justify-between h-full mr-11 md:mr-10 md:w-full md:flex-row md:items-center md:self-center lg:mr-14">
           <div className="flex flex-col">
             <Link href={`/products/${webUrl}`} title={name} className="mr-2 break-words md:mr-8 lg:mr-16">
               {name}
@@ -104,15 +129,27 @@ const ProductListItem = ({ product }: Props) => {
       {/* Mobile: Expand Btn Action & Counting Product */}
       <div className="md:hidden">
         {/* Expand Btns */}
-        <ExpandDropdownListContainer listId={listId} productId={productId} product={product} count={Count} />
+        <ExpandDropdownListContainer
+          listId={listId}
+          productId={productId}
+          product={product}
+          count={count}
+        />
 
         {/* Quantity */}
-        <ChangeQuntityProductContainer ProductCount={Count} />
+        <ChangeQuantityProductContainer
+          ProductCount={count}
+          changeQuantity={(newQnt) => handleChangeQuantity(newQnt)}
+        />
+
       </div>
 
       {/* Desktop: Btn Actions ALl from Product Card */}
       <div className="hidden md:flex md:items-center">
-        <ChangeQuntityProductContainer ProductCount={Count} />
+        <ChangeQuantityProductContainer
+          ProductCount={count}
+          changeQuantity={(newQnt) => handleChangeQuantity(newQnt)}
+        />
 
         <AddToBasketItem
           variant="desktop"
@@ -120,10 +157,11 @@ const ProductListItem = ({ product }: Props) => {
           price={Price}
           productId={productId}
           title={name}
-          count={Count}
+          count={count}
+
         />
 
-        <ExpandDropdownListContainer listId={listId} productId={productId} product={product} count={Count} />
+        <ExpandDropdownListContainer listId={listId} productId={productId} product={product} count={count} />
       </div>
     </div>
   )

@@ -16,7 +16,7 @@ interface ProductDetailsProps {
 
 const ProductDetails: FC<ProductDetailsProps> = ({ product }) => {
 
-    const [toSell, setToSell] = useState(1000)
+    const [toSell] = useState(1000)
     const [selled, setSelled] = useState(145)
 
     const handleSelledProduct = () => {

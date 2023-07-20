@@ -1,50 +1,28 @@
+'use client'
+
 import { Basket } from '@prisma/client'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import { getCookie } from 'cookies-next'
 
+import { useBasketToken } from '@/store/basketToken'
 import { ExtendedBasketItem } from '@/types/db'
 
-type BasketData = Basket & { Items: ExtendedBasketItem[] }
+type BasketData = {
+  initialBasketData?: Basket & { Items: ExtendedBasketItem[] }
+  basketToken?: string | undefined
+}
 
-export const useGetBasketProducts = (initialBasketData?: BasketData) => {
-  const currentBasketToken = getCookie('basketToken')
+export const useGetBasketProducts = ({ initialBasketData, basketToken }: BasketData) => {
+  const { basketToken: basketTokenStore } = useBasketToken()
 
   return useQuery({
     queryKey: ['basketProducts'],
     queryFn: async () => {
-      const { data } = await axios.get<BasketData>(`/api/baskets/${currentBasketToken}/basicData`)
+      const { data } = await axios.get<BasketData>(`/api/baskets/${basketToken || basketTokenStore}/basicData`)
       return data
     },
     refetchOnWindowFocus: false,
     initialData: initialBasketData,
+    enabled: basketToken || basketTokenStore ? true : false,
   })
 }
-
-// @@ BasketNav
-// const [fetchData, setFetchData] = useState(false)
-//  const basketCookie = useBasketToken((state) => state.basketToken)
-//  const [basketTok, setBasketTok] = useState(basketToken ?? basketCookie)
-
-// useEffect(() => {
-//   if (basketToken) {
-//     setFetchData(true)
-//     setBasketTok(basketToken)
-//   } else if (basketCookie) {
-//     setFetchData(true)
-//     setBasketTok(basketCookie)
-//   } else return setFetchData(false)
-// }, [basketCookie, basketToken])
-
-// const {
-//   data: basketProducts,
-//   isFetching,
-// } = useQuery({
-//   queryFn: async () => {
-//     const { data } = await axios.get(`/api/baskets/${basketTok}/basicData`)
-//     return data as Basket[]
-//   },
-//   queryKey: ['basketProducts'],
-//   refetchOnWindowFocus: false,
-//   enabled: fetchData,
-// })
