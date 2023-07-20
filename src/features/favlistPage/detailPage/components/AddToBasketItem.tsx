@@ -44,7 +44,7 @@ export const AddToBasketItem = ({ variant, mainImage, price, productId, title, c
           variant={'sm'}
           onClick={() => handleClick()}
           isLoading={isLoading}
-          className="static flex h-8 w-8 items-center justify-center p-1"
+          className="static flex items-center justify-center w-8 h-8 p-1"
         />
       ) : (
         <AddToBasketBtn variant={'long'} onClick={() => handleClick()} isLoading={isLoading} />

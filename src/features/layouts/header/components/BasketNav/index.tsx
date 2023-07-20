@@ -37,11 +37,11 @@ type BasketNavProps = {
   basketToken?: string
 }
 
-export const BasketNav = ({ isScrollDown }: BasketNavProps) => {
+export const BasketNav = ({ isScrollDown, basketToken }: BasketNavProps) => {
   const [isHover, setIsHover] = useState(false)
   const [showDrawer, setShowDrawer] = useState(false)
   const pathname = usePathname()
-  const { data: basketProducts, isFetching } = useGetBasketProducts()
+  const { data: basketProducts, isFetching } = useGetBasketProducts({ basketToken })
 
   // @ts-expect-error react query type @TODO find resolve of problem
   const basket = basketProducts?.find((item: { id: string }) => item.id === item.id) as Basket & { Items: ExtendedBasketItem[] }

@@ -1,14 +1,12 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ChangeQuantityProduct } from '@/features/shared/services/changeQuantity/ChangeQuantityProduct'
 import { formatPrice } from '@/lib/utils'
 import { ExtendedBasketItem } from '@/types/db'
 
 import { BasketAddToFav } from './components/BasketAddToFav'
 import { ExpandActionBasketProduct } from './components/ExpandActionBasketProduct'
+import { QuantityProduct } from './components/QuantityProduct'
 import { RemoveBasketProduct } from './components/RemoveBasketProduct'
 
 type Props = {
@@ -18,14 +16,6 @@ type Props = {
 export const BasketProduct = ({ product }: Props) => {
   const { count, productHeader, productId: basketItemId, basketToken } = product
   const { name, price, photo, slug } = productHeader
-
-  const handleChangeQuantity = (newQuantity: number) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const newProductQuantity = { newQuantity }
-    // change Quanity from exist product
-    // dispatch(addNewQuantity(newProductQuantity))
-    // dispatch(getTotals())
-  }
 
   return (
     <li className="flex items-center border-b border-[#ddd] px-4 py-3 max-md:last:border-b-0 md:border-x md:border-x-[#ddd] md:p-3 md:pr-4 md:first:rounded-t-lg md:first:border-t md:last:rounded-b-lg">
@@ -40,17 +30,17 @@ export const BasketProduct = ({ product }: Props) => {
                 height={120}
                 alt={name}
                 loading="lazy"
-                className="h-auto w-full object-contain"
+                className="object-contain w-full h-auto"
               />
             </span>
           </Link>
 
           {/* Right Section */}
-          <div className="ml-2 flex w-full flex-wrap items-center justify-between md:flex-nowrap">
+          <div className="flex flex-wrap items-center justify-between w-full ml-2 md:flex-nowrap">
             {/* Title & Expand*/}
-            <div className="mb-1 inline-flex w-full justify-between">
+            <div className="inline-flex justify-between w-full mb-1">
               <Link href={`/products/${slug}`} className="hover:underline">
-                <h3 className="line-clamp-2 break-words">{name}</h3>
+                <h3 className="break-words line-clamp-2">{name}</h3>
               </Link>
 
               {/* Expand to fav list or delete item*/}
@@ -65,7 +55,11 @@ export const BasketProduct = ({ product }: Props) => {
               </div>
 
               {/* Quantity */}
-              <ChangeQuantityProduct basketQuantity={count} changeQuantity={handleChangeQuantity} />
+              <QuantityProduct
+                count={count}
+                productId={basketItemId}
+                basketToken={basketToken}
+              />
 
               {/* Add to Fav List */}
               <BasketAddToFav productId={product.productId} />

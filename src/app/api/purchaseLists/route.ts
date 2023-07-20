@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid'
 import { z } from 'zod'
 
 import { db } from '@/lib/db'
-import { purchaseListValidator } from '@/lib/validators/purchaseList'
+import { changeQuantityFavListValidator, purchaseListValidator } from '@/lib/validators/purchaseList'
 
 export type DataStoradgeResponse = {
   listId: string
@@ -103,6 +103,34 @@ export async function GET(req: Request) {
     })
 
     return NextResponse.json(lists, { status: 200 })
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return new Response('Invalid request data passed', { status: 422 })
+    }
+    return new Response('Could not post to needit at this time, please try again later.', { status: 500 })
+  }
+}
+
+export async function PUT(req: Request) {
+  try {
+    const body = await req.json()
+    const { productId, listId, count } = changeQuantityFavListValidator.parse(body)
+
+    if (listId) {
+      await db.listItem.update({
+        where: {
+          listId_productId: {
+            listId,
+            productId,
+          },
+        },
+        data: {
+          Count: count,
+        },
+      })
+    }
+
+    return NextResponse.json({ status: 200 })
   } catch (err) {
     if (err instanceof z.ZodError) {
       return new Response('Invalid request data passed', { status: 422 })

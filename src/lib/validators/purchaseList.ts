@@ -10,11 +10,17 @@ export const purchaseListValidator = z.object({
     .array(),
 })
 
-export type purchaseListRequest = z.infer<typeof purchaseListValidator>
-
 export const addItemToListValidator = z.object({
   productId: z.string(),
   count: z.number(),
 })
 
+export const changeQuantityFavListValidator = z.object({
+  listId: z.string(),
+  productId: z.string(),
+  count: z.number(),
+})
+
+export type purchaseListRequest = z.infer<typeof purchaseListValidator>
 export type addItemToListRequest = z.infer<typeof addItemToListValidator>
+export type changeQuantityFavListRequest = z.infer<typeof changeQuantityFavListValidator>

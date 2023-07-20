@@ -21,6 +21,8 @@ export async function POST(req: NextRequest) {
         basketToken: basketToken,
       },
       select: {
+        productCount: true,
+        totalPrice: true,
         basketToken: true,
         id: true,
         Items: true,
@@ -55,7 +57,7 @@ export async function POST(req: NextRequest) {
           id: basketToken,
           basketToken: basketToken,
           productCount: count,
-          totalPrice: p.price,
+          totalPrice: p.price * count,
           Items: {
             create: [
               {
@@ -85,7 +87,7 @@ export async function POST(req: NextRequest) {
         },
         data: {
           productCount: { increment: count },
-          totalPrice: { increment: p.price },
+          totalPrice: { increment: p.price * count },
           Items: {
             update: [
               {
@@ -113,7 +115,7 @@ export async function POST(req: NextRequest) {
         },
         data: {
           productCount: { increment: count },
-          totalPrice: { increment: p.price },
+          totalPrice: { increment: p.price * count },
           Items: {
             create: [
               {
