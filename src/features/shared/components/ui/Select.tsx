@@ -2,10 +2,25 @@
 
 import * as SelectPrimitive from "@radix-ui/react-select"
 import * as React from "react"
-
+type Direction = 'ltr' | 'rtl';
 import { cn } from "@/lib/utils"
 
-const Select = SelectPrimitive.Root
+interface SelectProps {
+  children?: React.ReactNode;
+  value?: string;
+  defaultValue?: string | number;
+  onValueChange?(value: string | number): void;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?(open: boolean): void;
+  dir?: Direction;
+  name?: string;
+  autoComplete?: string;
+  disabled?: boolean;
+  required?: boolean;
+}
+
+const Select = SelectPrimitive.Root as React.FC<SelectProps>
 
 const SelectGroup = SelectPrimitive.Group
 
